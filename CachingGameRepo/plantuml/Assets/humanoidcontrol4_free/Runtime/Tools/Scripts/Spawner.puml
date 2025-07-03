@@ -1,0 +1,20 @@
+@startuml
+class Spawner {
+    + spawnAtStart : bool
+    + singleInstance : bool
+    + <<virtual>> SpawnObject() : GameObject
+    + DoSpawn(prefab:GameObject) : void
+    + <<virtual>> Spawn(prefab:GameObject) : GameObject
+    + <<virtual>> Spawn(prefab:GameObject, spawnPoints:SpawnPoint[], spawnMethod:SpawnMethod) : GameObject
+    + {static} Spawn(prefab:GameObject, position:Vector3, rotation:Quaternion) : GameObject
+}
+enum SpawnMethod {
+    SinglePlayer,
+    Random,
+    RoundRobin,
+}
+SpawnPoint <|-- Spawner
+Spawner --> "prefab" GameObject
+Spawner --> "spawnMethod" SpawnMethod
+Spawner +-- SpawnMethod
+@enduml

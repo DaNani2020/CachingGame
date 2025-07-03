@@ -1,0 +1,7 @@
+@startuml
+enum glTFBlendMode {
+    OPAQUE,
+    MASK,
+    BLEND,
+}
+@enduml

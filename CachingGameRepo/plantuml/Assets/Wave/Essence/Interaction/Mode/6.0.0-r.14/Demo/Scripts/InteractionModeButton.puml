@@ -1,0 +1,8 @@
+@startuml
+class InteractionModeButton {
+    + GazeMode() : void
+    + ControllerMode() : void
+    + HandMode() : void
+}
+MonoBehaviour <|-- InteractionModeButton
+@enduml

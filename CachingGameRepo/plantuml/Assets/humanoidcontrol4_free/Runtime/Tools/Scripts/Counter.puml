@@ -1,0 +1,19 @@
+@startuml
+class Counter {
+    + value : int <<get>> <<set>>
+    + min : int = 0
+    + max : int = 10
+    + timer : float = 0
+    + Decrement() : void
+    + Increment() : void
+    + SetValueToMin() : void
+    + SetValueToMax() : void
+    + SetTimer(seconds:int) : void
+    + SetTimer(seconds:int, speed:float) : void
+}
+class RemoteCallable {
+}
+MonoBehaviour <|-- Counter
+Counter o-> "counterEvent" IntEventHandlers
+Counter +-- RemoteCallable
+@enduml

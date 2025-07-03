@@ -1,0 +1,23 @@
+@startuml
+class BarEventHandler {
+    + OnPointerEnter(eventData:PointerEventData) : void
+    + OnPointerExit(eventData:PointerEventData) : void
+    + OnPointerDown(eventData:PointerEventData) : void
+    + OnBeginDrag(eventData:PointerEventData) : void
+    + OnDrag(eventData:PointerEventData) : void
+    + OnEndDrag(eventData:PointerEventData) : void
+    + OnDrop(eventData:PointerEventData) : void
+    + OnPointerUp(eventData:PointerEventData) : void
+    + OnPointerClick(eventData:PointerEventData) : void
+}
+MonoBehaviour <|-- BarEventHandler
+IPointerEnterHandler <|-- BarEventHandler
+IPointerExitHandler <|-- BarEventHandler
+IPointerDownHandler <|-- BarEventHandler
+IBeginDragHandler <|-- BarEventHandler
+IDragHandler <|-- BarEventHandler
+IEndDragHandler <|-- BarEventHandler
+IDropHandler <|-- BarEventHandler
+IPointerClickHandler <|-- BarEventHandler
+IPointerUpHandler <|-- BarEventHandler
+@enduml

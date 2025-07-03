@@ -1,0 +1,7 @@
+@startuml
+class HeadPredictor {
+    + <<override>> Start(_humanoid:HumanoidControl, targetTransform:Transform) : void
+    + <<override>> Update() : void
+}
+HeadSensor <|-- HeadPredictor
+@enduml

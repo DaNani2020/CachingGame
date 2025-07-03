@@ -1,0 +1,20 @@
+@startuml
+class ExportingGltfData {
+    + ExportingGltfData(reserved:int)
+    + ExtendBufferAndGetView(segment:ArraySegment<T>, target:glBufferTarget) : glTFBufferView
+    + ExtendBufferAndGetViewIndex(array:ArraySegment<T>, target:glBufferTarget) : int
+    + ExtendBufferAndGetViewIndex(array:T[], target:glBufferTarget) : int
+    + ExtendBufferAndGetAccessorIndex(array:ArraySegment<T>, target:glBufferTarget) : int
+    + ExtendBufferAndGetAccessorIndex(array:T[], target:glBufferTarget) : int
+    + ExtendSparseBufferAndGetAccessorIndex(accessorCount:int, sparseValues:T[], sparseIndices:int[], sparseViewIndex:int, target:glBufferTarget) : int
+    + ExtendSparseBufferAndGetAccessorIndex(accessorCount:int, sparseValues:ArraySegment<T>, sparseIndices:int[], sparseIndicesViewIndex:int, target:glBufferTarget) : int
+    + Reserve(bytesLength:int) : void
+    + AppendToBuffer(segment:NativeArray<byte>) : int
+    + ToGlbBytes() : byte[]
+    + ToGltf(gltfPath:string) : (string, glTFBuffer)
+}
+class "ArraySegment`1"<T> {
+}
+ExportingGltfData o-> "Gltf" glTF
+ExportingGltfData --> "BinBytes<byte>" "ArraySegment`1"
+@enduml

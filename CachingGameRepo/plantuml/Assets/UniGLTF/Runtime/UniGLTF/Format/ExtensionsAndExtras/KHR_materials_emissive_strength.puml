@@ -1,0 +1,9 @@
+@startuml
+class glTF_KHR_materials_emissive_strength {
+    + <<const>> ExtensionName : string = "KHR_materials_emissive_strength"
+    + emissiveStrength : float = 1.0f
+    + {static} TryGet(src:glTFExtension, extension:glTF_KHR_materials_emissive_strength) : bool
+    + {static} Serialize(materialExtensions:glTFExtension, value:float) : void
+}
+glTF_KHR_materials_emissive_strength o-> "ExtensionNameUtf8" Utf8String
+@enduml

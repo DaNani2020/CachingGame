@@ -1,0 +1,11 @@
+@startuml
+struct BlittableLogic {
+    + parentTransformIndex : int
+    + headTransformIndex : int
+    + length : float
+}
+BlittableLogic --> "currentTail" Vector3
+BlittableLogic --> "prevTail" Vector3
+BlittableLogic --> "localRotation" Quaternion
+BlittableLogic --> "boneAxis" Vector3
+@enduml

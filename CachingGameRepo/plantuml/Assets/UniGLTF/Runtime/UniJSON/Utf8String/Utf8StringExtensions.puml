@@ -1,0 +1,20 @@
+@startuml
+class Utf8StringExtensions <<static>> {
+    + {static} WriteTo(src:Utf8String, dst:Stream) : void
+    + {static} GetFirst(src:Utf8String) : Utf8Iterator
+    + {static} TrySearchByte(src:Utf8String, pred:Func<byte, bool>, pos:int) : bool
+    + {static} TrySearchAscii(src:Utf8String, target:Byte, start:int, pos:int) : bool
+    + {static} Split(src:Utf8String, delimiter:byte) : IEnumerable<Utf8String>
+    + {static} ToSByte(src:Utf8String) : SByte
+    + {static} ToInt16(src:Utf8String) : Int16
+    + {static} ToInt32(src:Utf8String) : Int32
+    + {static} ToInt64(src:Utf8String) : Int64
+    + {static} ToByte(src:Utf8String) : Byte
+    + {static} ToUInt16(src:Utf8String) : UInt16
+    + {static} ToUInt32(src:Utf8String) : UInt32
+    + {static} ToUInt64(src:Utf8String) : UInt64
+    + {static} ToSingle(src:Utf8String) : float
+    + {static} ToDouble(src:Utf8String) : double
+    + {static} GetLine(src:Utf8String) : Utf8String
+}
+@enduml

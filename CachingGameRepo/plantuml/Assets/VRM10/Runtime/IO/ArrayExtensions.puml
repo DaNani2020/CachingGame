@@ -1,0 +1,7 @@
+@startuml
+class ArrayExtensions <<static>> {
+    + {static} ToVector3(src:float[], defaultValue:Vector3) : Vector3
+    + {static} ToQuaternion(src:float[]) : Quaternion
+    + {static} Get(self:ArraySegment<T>, i:int) : T
+}
+@enduml

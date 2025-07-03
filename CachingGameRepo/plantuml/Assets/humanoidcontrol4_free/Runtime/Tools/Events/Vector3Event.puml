@@ -1,0 +1,13 @@
+@startuml
+class Vector3EventList {
+}
+class Vector3Event {
+    + Vector3Event(newEventType:Type)
+}
+class "EventHandlers`1"<T> {
+}
+"EventHandlers`1" "<Vector3Event>" <|-- Vector3EventList
+Vector3EventList --> "value" Vector3
+EventHandler <|-- Vector3Event
+Vector3Event --> "value" Vector3
+@enduml

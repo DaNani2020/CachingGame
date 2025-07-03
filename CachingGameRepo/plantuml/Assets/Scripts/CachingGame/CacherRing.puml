@@ -1,0 +1,11 @@
+@startuml
+class CacherRing {
+    + layerNumberOfCacher : int
+}
+class "UnityEvent`2"<T1,T2> {
+}
+'MonoBehaviour <|-- CacherRing
+CacherRing --> "rb" Rigidbody
+CacherRing --> "popEffect" GameObject
+CacherRing --> "onBallPopped<string,Quaternion>" "UnityEvent`2"
+@enduml

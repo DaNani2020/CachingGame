@@ -1,0 +1,22 @@
+@startuml
+class UnityAngles <<static>> {
+    + {static} Clamp(angles:Vector3, min:Vector3, max:Vector3) : Vector3
+    + {static} Clamp(angle:float, min:float, max:float) : float
+    + {static} Difference(a:float, b:float) : float
+    + {static} Normalize(angle:float) : float
+    + {static} Normalize(angles:Vector3) : Vector3
+    + {static} SignedAngle(from:Vector3, to:Vector3) : float
+    + {static} SignedAngle(from:Vector2, to:Vector2) : float
+}
+class Rotations <<static>> {
+    + {static} Rotate(rotation1:Quaternion, rotation2:Quaternion) : Quaternion
+    + {static} ToSwingTwist(q:Quaternion, twistAxis:Vector3, swing:Quaternion, twist:Quaternion) : void
+}
+class Vectors <<static>> {
+    + {static} DistanceToRay(ray:Ray, point:Vector3) : float
+}
+class Transforms <<static>> {
+    + {static} TransformRotation(transform:Transform, localRotation:Quaternion) : Quaternion
+    + {static} InverseTransformRotation(transform:Transform, rotation:Quaternion) : Quaternion
+}
+@enduml

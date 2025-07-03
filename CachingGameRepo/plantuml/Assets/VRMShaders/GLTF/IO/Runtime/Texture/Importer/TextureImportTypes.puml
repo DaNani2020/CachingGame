@@ -1,0 +1,8 @@
+@startuml
+enum TextureImportTypes {
+    sRGB,
+    NormalMap,
+    StandardMap,
+    Linear,
+}
+@enduml

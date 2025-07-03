@@ -1,0 +1,7 @@
+@startuml
+class FunctionCall <<partial>> {
+    + {static} Execute(target:GameObject, methodName:string, stringValue:string) : void
+    + Execute(value:string, networkSync:bool) : void
+    + CreateTargetMethodString(target:UnityEngine.Object, methodName:string, fromEvent:bool, stringConstant:string) : void
+}
+@enduml

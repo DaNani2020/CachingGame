@@ -1,0 +1,14 @@
+@startuml
+struct UpdateFastSpringBoneJob {
+    + DeltaTime : float
+    + <<unsafe>> Execute(index:int) : void
+}
+class "NativeArray`1"<T> {
+}
+IJobParallelFor <|-- UpdateFastSpringBoneJob
+UpdateFastSpringBoneJob --> "Springs<BlittableSpring>" "NativeArray`1"
+UpdateFastSpringBoneJob --> "Joints<BlittableJoint>" "NativeArray`1"
+UpdateFastSpringBoneJob --> "Colliders<BlittableCollider>" "NativeArray`1"
+UpdateFastSpringBoneJob --> "Logics<BlittableLogic>" "NativeArray`1"
+UpdateFastSpringBoneJob --> "Transforms<BlittableTransform>" "NativeArray`1"
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+class NetworkingSpawner {
+    + OnNetworkingStarted() : void
+}
+NetworkingStarter <|-- NetworkingSpawner
+NetworkingSpawner --> "humanoidSpawner" HumanoidSpawner
+@enduml

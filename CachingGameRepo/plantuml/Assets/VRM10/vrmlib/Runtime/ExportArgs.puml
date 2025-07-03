@@ -1,0 +1,7 @@
+@startuml
+struct ExportArgs {
+    + sparse : bool <<get>> <<set>>
+    + removeMorphNormal : bool <<get>> <<set>>
+    + removeTangent : bool <<get>> <<set>>
+}
+@enduml

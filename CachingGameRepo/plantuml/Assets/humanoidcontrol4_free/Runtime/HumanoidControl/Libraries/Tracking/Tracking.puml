@@ -1,0 +1,323 @@
+@startuml
+enum BoneType {
+    AllBones,
+    CenterBones,
+    SideBones,
+    FaceBones,
+}
+enum Bone {
+    None,
+    Hips,
+    Spine,
+    Spine1,
+    Spine2,
+    Chest,
+    Neck,
+    Head,
+    LeftShoulder,
+    LeftUpperArm,
+    LeftForearm,
+    LeftForearmTwist,
+    LeftHand,
+    LeftThumbProximal,
+    LeftThumbIntermediate,
+    LeftThumbDistal,
+    LeftIndexMetacarpal,
+    LeftIndexProximal,
+    LeftIndexIntermediate,
+    LeftIndexDistal,
+    LeftMiddleMetacarpal,
+    LeftMiddleProximal,
+    LeftMiddleIntermediate,
+    LeftMiddleDistal,
+    LeftRingMetacarpal,
+    LeftRingProximal,
+    LeftRingIntermediate,
+    LeftRingDistal,
+    LeftLittleMetacarpal,
+    LeftLittleProximal,
+    LeftLittleIntermediate,
+    LeftLittleDistal,
+    LeftUpperLeg,
+    LeftLowerLeg,
+    LeftFoot,
+    LeftToes,
+    RightShoulder,
+    RightUpperArm,
+    RightForearm,
+    RightForearmTwist,
+    RightHand,
+    RightThumbProximal,
+    RightThumbIntermediate,
+    RightThumbDistal,
+    RightIndexMetacarpal,
+    RightIndexProximal,
+    RightIndexIntermediate,
+    RightIndexDistal,
+    RightMiddleMetacarpal,
+    RightMiddleProximal,
+    RightMiddleIntermediate,
+    RightMiddleDistal,
+    RightRingMetacarpal,
+    RightRingProximal,
+    RightRingIntermediate,
+    RightRingDistal,
+    RightLittleMetacarpal,
+    RightLittleProximal,
+    RightLittleIntermediate,
+    RightLittleDistal,
+    RightUpperLeg,
+    RightLowerLeg,
+    RightFoot,
+    RightToes,
+    LeftUpperLid,
+    LeftEye,
+    LeftLowerLid,
+    RightUpperLid,
+    RightEye,
+    RightLowerLid,
+    LeftOuterBrow,
+    LeftBrow,
+    LeftInnerBrow,
+    RightInnerBrow,
+    RightBrow,
+    RightOuterBrow,
+    LeftEar,
+    RightEar,
+    LeftCheek,
+    RightCheek,
+    NoseTop,
+    NoseTip,
+    NoseBottomLeft,
+    NoseBottom,
+    NoseBottomRight,
+    UpperLipLeft,
+    UpperLip,
+    UpperLipRight,
+    LipLeft,
+    LipRight,
+    LowerLipLeft,
+    LowerLip,
+    LowerLipRight,
+    Jaw,
+    Chin,
+    Count,
+}
+enum CenterBone {
+    Unknown,
+    Hips,
+    Spine,
+    Spine1,
+    Spine2,
+    Chest,
+    Neck,
+    Head,
+    Count,
+}
+enum SideBone {
+    None,
+    Shoulder,
+    UpperArm,
+    Forearm,
+    ForearmTwist,
+    Hand,
+    ThumbProximal,
+    ThumbIntermediate,
+    ThumbDistal,
+    IndexMetacarpal,
+    IndexProximal,
+    IndexIntermediate,
+    IndexDistal,
+    MiddleMetacarpal,
+    MiddleProximal,
+    MiddleIntermediate,
+    MiddleDistal,
+    RingMetacarpal,
+    RingProximal,
+    RingIntermediate,
+    RingDistal,
+    LittleMetacarpal,
+    LittleProximal,
+    LittleIntermediate,
+    LittleDistal,
+    UpperLeg,
+    LowerLeg,
+    Foot,
+    Toes,
+    Count,
+}
+enum Finger {
+    Thumb,
+    Index,
+    Middle,
+    Ring,
+    Little,
+    Count,
+}
+enum FingerBone {
+    Metacarpal,
+    Proximal,
+    Intermediate,
+    Distal,
+    Tip,
+    Count,
+}
+enum FacialBone {
+    Unknown,
+    LeftUpperLid,
+    LeftEye,
+    LeftLowerLid,
+    RightUpperLid,
+    RightEye,
+    RightLowerLid,
+    LeftOuterBrow,
+    LeftBrow,
+    LeftInnerBrow,
+    RightInnerBrow,
+    RightBrow,
+    RightOuterBrow,
+    LeftEar,
+    RightEar,
+    LeftCheek,
+    RightCheek,
+    NoseTop,
+    NoseTip,
+    NoseBottomLeft,
+    NoseBottom,
+    NoseBottomRight,
+    UpperLipLeft,
+    UpperLip,
+    UpperLipRight,
+    LipLeft,
+    LipRight,
+    LowerLipLeft,
+    LowerLip,
+    LowerLipRight,
+    Jaw,
+    Chin,
+    Count,
+}
+class Bones {
+    + {static} IsLeftSideBone(bone:Bone) : bool
+    + {static} IsRightSideBone(bone:Bone) : bool
+}
+class BoneReference {
+    + isCenterBone : bool <<get>>
+    + isSideBone : bool <<get>>
+    + isLeftSideBone : bool <<get>>
+    + isRightSideBone : bool <<get>>
+    + isHandBone : bool <<get>>
+    + isLeftHandBone : bool <<get>>
+    + isRightHandBone : bool <<get>>
+    + isFacialBone : bool <<get>>
+    + {static} HumanoidBone(centerBone:CenterBone) : Bone
+    + {static} HumanoidCenterBone(bone:Bone) : CenterBone
+    + {static} HumanoidBone(side:Side, sideBone:SideBone) : Bone
+    + {static} HumanoidSideBone(bone:Bone) : SideBone
+    + {static} HumanoidSideBone(fingerId:Finger, fingerBoneId:FingerBone) : SideBone
+    + {static} HumanoidSideBone(bone:Bone, side:Side) : SideBone
+    + {static} HumanoidBone(faceBone:FacialBone) : Bone
+    + {static} HumanoidFaceBone(bone:Bone) : FacialBone
+    + {static} HumanBodyBone(bone:Bone) : HumanBodyBones
+}
+struct Vec2 {
+    + x : float
+    + y : float
+    + Vec2(v:Vector2)
+}
+struct Vec3 {
+    + x : float
+    + y : float
+    + z : float
+    + Vec3(v:Vector3)
+}
+struct Quat {
+    + x : float
+    + y : float
+    + z : float
+    + w : float
+    + Quat(q:Quaternion)
+}
+class TrackerTransform {
+    + TrackerTransform(tracker:TrackingDevice)
+    + actorCount : int <<get>>
+}
+class SensorBone {
+    + SensorBone(tracker:TrackingDevice, actorId:uint, side:Side, sideBoneId:SideBone)
+    + SensorBone(tracker:TrackingDevice, actorId:uint, boneId:Bone)
+    + <<virtual>> positionConfidence : float <<get>>
+    + <<virtual>> rotationConfidence : float <<get>>
+    + length : float = 0
+}
+class ControllerState {
+    + ControllerState(tracker:TrackingDevice, actorId:uint, side:Side)
+    + Update() : void
+    + <<const>> input3dCount : int = 1
+    + <<const>> input1dCount : int = 7
+}
+class TrackingDevice {
+    + <<virtual>> Init() : void
+    + <<virtual>> Stop() : void
+    + <<virtual>> Update() : void
+    + <<virtual>> GetTracker() : TrackerTransform
+    + <<virtual>> GetTrackerData() : TrackerTransformC
+    + <<virtual>> GetBonePosition(actorId:uint, boneId:Bone) : Vector3
+    + <<virtual>> GetBoneRotation(actorId:uint, boneId:Bone) : Quaternion
+    + <<virtual>> GetBoneConfidence(actorId:uint, boneId:Bone) : float
+    + <<virtual>> GetBone(actorId:uint, boneId:Bone) : SensorBone
+    + <<virtual>> GetBoneData(actorId:uint, boneId:Bone) : SensorTransformC
+    + <<virtual>> GetBone(actorId:uint, side:Side, boneId:SideBone) : SensorBone
+    + <<virtual>> GetBoneData(actorId:uint, side:Side, boneId:SideBone) : SensorTransformC
+    + <<virtual>> GetBonePosition(actorId:uint, side:Side, boneId:SideBone) : Vector3
+    + <<virtual>> GetBoneRotation(actorId:uint, side:Side, boneId:SideBone) : Quaternion
+    + <<virtual>> GetBoneConfidence(actorId:uint, side:Side, boneId:SideBone) : float
+    + GetBoneRotation(actorId:uint, side:Side, fingerId:Finger, fingerboneId:FingerBone) : Quaternion
+    + <<virtual>> GetController(actorId:uint, side:Side) : ControllerState
+    + <<virtual>> GetControllerState(actorId:uint, side:Side) : ControllerStateC
+}
+struct TrackerTransformC {
+    + timestamp : float
+    + actorCount : int
+}
+struct SensorTransformC {
+    + timestamp : float
+    + id : uint
+    + positionConfidence : float
+    + rotationConfidence : float
+    + length : float
+    + lengthConfidence : float
+}
+struct ControllerStateC {
+    + timestamp : float
+}
+BoneReference --> "type" BoneType
+BoneReference --> "side" Side
+BoneReference --> "boneId" Bone
+BoneReference --> "centerBoneId" CenterBone
+BoneReference --> "sideBoneId" SideBone
+BoneReference --> "faceBoneId" FacialBone
+BoneReference --> "humanBodyBone" HumanBodyBones
+Vec2 --> "Vector2" Vector2
+Vec3 --> "Vector3" Vector3
+Quat --> "Quaternion" Quaternion
+SensorBone --> "position" Vector3
+SensorBone --> "rotation" Quaternion
+SensorBone --> "velocity" Vector3
+SensorBone --> "rotationalVelocity" Quaternion
+TrackingDevice --> "position" Vector3
+TrackingDevice --> "rotation" Quaternion
+TrackingDevice +-- TrackerTransformC
+TrackerTransformC --> "position" Vec3
+TrackerTransformC --> "rotation" Quat
+TrackingDevice +-- SensorTransformC
+SensorTransformC --> "position" Vec3
+SensorTransformC --> "velocity" Vec3
+SensorTransformC --> "rotation" Quat
+SensorTransformC --> "rotationalVelocity" Quat
+SensorTransformC --> "sensor2TargetPosition" Vec3
+SensorTransformC --> "sensor2TargetRotation" Quat
+SensorTransformC --> "targetPosition" Vec3
+SensorTransformC --> "targetRotation" Quat
+TrackingDevice +-- ControllerStateC
+ControllerStateC --> "input3d" Vec3
+@enduml

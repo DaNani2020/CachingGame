@@ -1,0 +1,5 @@
+@startuml
+class MeshImporterDivided <<static>> {
+    + {static} LoadDivided(meshGroup:MeshGroup) : Mesh
+}
+@enduml

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>SharpCompress | Cacher Game </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="SharpCompress | Cacher Game ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="Cacher Game">
+            Cacher Game
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="sharpcompress">SharpCompress</h1>
+
+<p>SharpCompress is a compression library in pure C# for .NET Framework 4.62, .NET Standard 2.1, .NET 6.0 and NET 8.0 that can unrar, un7zip, unzip, untar unbzip2, ungzip, unlzip with forward-only reading and file random access APIs. Write support for zip/tar/bzip2/gzip/lzip are implemented.</p>
+<p>The major feature is support for non-seekable streams so large files can be processed on the fly (i.e. download stream).</p>
+<p>GitHub Actions Build -
+<a href="https://github.com/adamhathcock/sharpcompress/actions/workflows/dotnetcore.yml"><img src="https://github.com/adamhathcock/sharpcompress/actions/workflows/dotnetcore.yml/badge.svg" alt="SharpCompress"></a>
+<a href="https://dndocs.com/d/sharpcompress/api/index.html"><img src="https://img.shields.io/badge/API%20Docs-DNDocs-190088?logo=readme&amp;logoColor=white" alt="Static Badge"></a></p>
+<h2 id="need-help">Need Help?</h2>
+<p>Post Issues on Github!</p>
+<p>Check the <a href="FORMATS.md">Supported Formats</a> and <a href="USAGE.md">Basic Usage.</a></p>
+<h2 id="recommended-formats">Recommended Formats</h2>
+<p>In general, I recommend GZip (Deflate)/BZip2 (BZip)/LZip (LZMA) as the simplicity of the formats lend to better long term archival as well as the streamability. Tar is often used in conjunction for multiple files in a single archive (e.g. <code>.tar.gz</code>)</p>
+<p>Zip is okay, but it's a very hap-hazard format and the variation in headers and implementations makes it hard to get correct. Uses Deflate by default but supports a lot of compression methods.</p>
+<p>RAR is not recommended as it's a propriatory format and the compression is closed source. Use Tar/LZip for LZMA</p>
+<p>7Zip and XZ both are overly complicated. 7Zip does not support streamable formats. XZ has known holes explained here: (<a href="http://www.nongnu.org/lzip/xz_inadequate.html">http://www.nongnu.org/lzip/xz_inadequate.html</a>) Use Tar/LZip for LZMA compression instead.</p>
+<h2 id="a-simple-request">A Simple Request</h2>
+<p>Hi everyone. I hope you're using SharpCompress and finding it useful. Please give me feedback on what you'd like to see changed especially as far as usability goes. New feature suggestions are always welcome as well. I would also like to know what projects SharpCompress is being used in. I like seeing how it is used to give me ideas for future versions. Thanks!</p>
+<p>Please do not email me directly to ask for help. If you think there is a real issue, please report it here.</p>
+<h2 id="want-to-contribute">Want to contribute?</h2>
+<p>I'm always looking for help or ideas. Please submit code or email with ideas. Unfortunately, just letting me know you'd like to help is not enough because I really have no overall plan of what needs to be done. I'll definitely accept code submissions and add you as a member of the project!</p>
+<h2 id="todos-always-lots">TODOs (always lots)</h2>
+<ul>
+<li>RAR 5 decryption crc check support</li>
+<li>7Zip writing</li>
+<li>Zip64 (Need writing and extend Reading)</li>
+<li>Multi-volume Zip support.</li>
+</ul>
+<h2 id="version-log">Version Log</h2>
+<ul>
+<li><a href="https://github.com/adamhathcock/sharpcompress/releases">Releases</a></li>
+</ul>
+<h3 id="version-018">Version 0.18</h3>
+<ul>
+<li><a href="https://github.com/adamhathcock/sharpcompress/releases/tag/0.18">Now on Github releases</a></li>
+</ul>
+<h3 id="version-0171">Version 0.17.1</h3>
+<ul>
+<li>Fix - <a href="https://github.com/adamhathcock/sharpcompress/pull/257">Bug Fix for .NET Core on Windows</a></li>
+</ul>
+<h3 id="version-0170">Version 0.17.0</h3>
+<ul>
+<li>New - Full LZip support! Can read and write LZip files and Tars inside LZip files. <a href="https://github.com/adamhathcock/sharpcompress/issues/241">Make LZip a first class citizen. #241</a></li>
+<li>New - XZ read support! Can read XZ files and Tars inside XZ files. <a href="https://github.com/adamhathcock/sharpcompress/issues/94">XZ in SharpCompress #91</a></li>
+<li>Fix - <a href="https://github.com/adamhathcock/sharpcompress/issues/244">Regression - zip file writing on seekable streams always assumed stream start was 0. Introduced with Zip64 writing.</a></li>
+<li>Fix - <a href="https://github.com/adamhathcock/sharpcompress/issues/162">Zip files with post-data descriptors can be properly skipped via decompression</a></li>
+</ul>
+<h3 id="version-0162">Version 0.16.2</h3>
+<ul>
+<li>Fix <a href="https://github.com/adamhathcock/sharpcompress/pull/251">.NET 3.5 should support files and cryptography (was a regression from 0.16.0)</a></li>
+<li>Fix <a href="https://github.com/adamhathcock/sharpcompress/pull/249">Zip per entry compression customization wrote the wrong method into the zip archive</a></li>
+</ul>
+<h3 id="version-0161">Version 0.16.1</h3>
+<ul>
+<li>Fix <a href="https://github.com/adamhathcock/sharpcompress/pull/235">Preserve compression method when getting a compressed stream</a></li>
+<li>Fix <a href="https://github.com/adamhathcock/sharpcompress/issues/201">RAR entry key normalization fix</a></li>
+</ul>
+<h3 id="version-0160">Version 0.16.0</h3>
+<ul>
+<li>Breaking - <a href="https://github.com/adamhathcock/sharpcompress/pull/226">Progress Event Tracking rethink</a></li>
+<li>Update to VS2017 - <a href="https://github.com/adamhathcock/sharpcompress/pull/231">VS2017</a> - Framework targets have been changed.</li>
+<li>New - <a href="https://github.com/adamhathcock/sharpcompress/pull/211">Add Zip64 writing</a></li>
+<li><a href="https://github.com/adamhathcock/sharpcompress/issues/164">Fix invalid/mismatching Zip version flags.</a> - This allows nuget/System.IO.Packaging to read zip files generated by SharpCompress</li>
+<li><a href="https://github.com/adamhathcock/sharpcompress/pull/215/files">Fix 7Zip directory hiding</a></li>
+<li><a href="https://github.com/adamhathcock/sharpcompress/pull/220">Verify RAR CRC headers</a></li>
+</ul>
+<h3 id="version-0152">Version 0.15.2</h3>
+<ul>
+<li><a href="https://github.com/adamhathcock/sharpcompress/pull/210">Fix invalid headers</a> - fixes an issue creating large-ish zip archives that was introduced with zip64 reading.</li>
+</ul>
+<h3 id="version-0151">Version 0.15.1</h3>
+<ul>
+<li><a href="https://github.com/adamhathcock/sharpcompress/pull/206">Zip64 extending information and ZipReader</a></li>
+</ul>
+<h3 id="version-0150">Version 0.15.0</h3>
+<ul>
+<li><a href="https://github.com/adamhathcock/sharpcompress/pull/205">Add zip64 support for ZipArchive extraction</a></li>
+</ul>
+<h3 id="version-0141">Version 0.14.1</h3>
+<ul>
+<li><a href="https://github.com/adamhathcock/sharpcompress/issues/158">.NET Assemblies aren't strong named</a></li>
+<li><a href="https://github.com/adamhathcock/sharpcompress/issues/197">Pkware encryption for Zip files didn't allow for multiple reads of an entry</a></li>
+<li><a href="https://github.com/adamhathcock/sharpcompress/issues/198">GZip Entry couldn't be read multiple times</a></li>
+</ul>
+<h3 id="version-0140">Version 0.14.0</h3>
+<ul>
+<li><a href="https://github.com/adamhathcock/sharpcompress/pull/191">Support for LZip reading in for Tars</a></li>
+</ul>
+<h3 id="version-0131">Version 0.13.1</h3>
+<ul>
+<li><a href="https://github.com/adamhathcock/sharpcompress/pull/188">Fix null password on ReaderFactory. Fix null options on SevenZipArchive</a></li>
+<li><a href="https://github.com/adamhathcock/sharpcompress/pull/185">Make PpmdProperties lazy to avoid unnecessary allocations.</a></li>
+</ul>
+<h3 id="version-0130">Version 0.13.0</h3>
+<ul>
+<li>Breaking change: Big refactor of Options on API.</li>
+<li>7Zip supports Deflate</li>
+</ul>
+<h3 id="version-0124">Version 0.12.4</h3>
+<ul>
+<li>Forward only zip issue fix <a href="https://github.com/adamhathcock/sharpcompress/issues/160">https://github.com/adamhathcock/sharpcompress/issues/160</a></li>
+<li>Try to fix frameworks again by copying targets from JSON.NET</li>
+</ul>
+<h3 id="version-0123">Version 0.12.3</h3>
+<ul>
+<li>7Zip fixes <a href="https://github.com/adamhathcock/sharpcompress/issues/73">https://github.com/adamhathcock/sharpcompress/issues/73</a></li>
+<li>Maybe all profiles will work with project.json now</li>
+</ul>
+<h3 id="version-0122">Version 0.12.2</h3>
+<ul>
+<li>Support Profile 259 again</li>
+</ul>
+<h3 id="version-0121">Version 0.12.1</h3>
+<ul>
+<li>Support Silverlight 5</li>
+</ul>
+<h3 id="version-0120">Version 0.12.0</h3>
+<ul>
+<li>.NET Core RTM!</li>
+<li>Bug fix for Tar long paths</li>
+</ul>
+<h3 id="version-0116">Version 0.11.6</h3>
+<ul>
+<li>Bug fix for global header in Tar</li>
+<li>Writers now have a leaveOpen <code>bool</code> overload. They won't close streams if not-requested to.</li>
+</ul>
+<h3 id="version-0115">Version 0.11.5</h3>
+<ul>
+<li>Bug fix in Skip method</li>
+</ul>
+<h3 id="version-0114">Version 0.11.4</h3>
+<ul>
+<li>SharpCompress is now endian neutral (matters for Mono platforms)</li>
+<li>Fix for Inflate (need to change implementation)</li>
+<li>Fixes for RAR detection</li>
+</ul>
+<h3 id="version-0111">Version 0.11.1</h3>
+<ul>
+<li>Added Cancel on IReader</li>
+<li>Removed .NET 2.0 support and LinqBridge dependency</li>
+</ul>
+<h3 id="version-011">Version 0.11</h3>
+<ul>
+<li>Been over a year, contains mainly fixes from contributors!</li>
+<li>Possible breaking change: ArchiveEncoding is UTF8 by default now.</li>
+<li>TAR supports writing long names using longlink</li>
+<li>RAR Protect Header added</li>
+</ul>
+<h3 id="version-0103">Version 0.10.3</h3>
+<ul>
+<li>Finally fixed Disposal issue when creating a new archive with the Archive API</li>
+</ul>
+<h3 id="version-0102">Version 0.10.2</h3>
+<ul>
+<li>Fixed Rar Header reading for invalid extended time headers.</li>
+<li>Windows Store assembly is now strong named</li>
+<li>Known issues with Long Tar names being worked on</li>
+<li>Updated to VS2013</li>
+<li>Portable targets SL5 and Windows Phone 8 (up from SL4 and WP7)</li>
+</ul>
+<h3 id="version-0101">Version 0.10.1</h3>
+<ul>
+<li>Fixed 7Zip extraction performance problem</li>
+</ul>
+<h3 id="version-010">Version 0.10:</h3>
+<ul>
+<li>Added support for RAR Decryption (thanks to <a href="https://github.com/hrasyid">https://github.com/hrasyid</a>)</li>
+<li>Embedded some BouncyCastle crypto classes to allow RAR Decryption and Winzip AES Decryption in Portable and Windows Store DLLs</li>
+<li>Built in Release (I think)</li>
+</ul>
+<p>XZ implementation based on: <a href="https://github.com/sambott/XZ.NET">https://github.com/sambott/XZ.NET</a> by @sambott</p>
+<p>XZ BCJ filters support contributed by Louis-Michel Bergeron, on behalf of aDolus Technology Inc. - 2022</p>
+<p>7Zip implementation based on: <a href="https://code.google.com/p/managed-lzma/">https://code.google.com/p/managed-lzma/</a></p>
+<p>LICENSE
+Copyright (c) 2000 - 2011 The Legion Of The Bouncy Castle (<a href="http://www.bouncycastle.org">http://www.bouncycastle.org</a>)</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

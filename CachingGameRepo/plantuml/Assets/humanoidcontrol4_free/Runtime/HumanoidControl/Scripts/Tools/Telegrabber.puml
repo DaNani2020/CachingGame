@@ -1,0 +1,6 @@
+@startuml
+class Telegrabber {
+    + GrabObject() : void
+}
+InteractionPointer <|-- Telegrabber
+@enduml

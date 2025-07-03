@@ -1,0 +1,6 @@
+@startuml
+class RestartHand {
+    + RestartHandTracking() : void
+}
+MonoBehaviour <|-- RestartHand
+@enduml

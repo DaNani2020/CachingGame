@@ -1,0 +1,7 @@
+@startuml
+class GunPose {
+    + IsLeft : bool <<get>> <<set>>
+}
+MonoBehaviour <|-- GunPose
+GunPose --> "Gun" GameObject
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class RemapEditorAnimation {
+    + RemapEditorAnimation(keys:IEnumerable<SubAssetKey>, getter:EditorMapGetterFunc, setter:EditorMapSetterFunc)
+    + OnGUI(importer:ScriptedImporter, data:GltfData) : void
+    + {static} Extract(importer:ScriptedImporter, data:GltfData) : void
+}
+RemapEditorBase <|-- RemapEditorAnimation
+@enduml

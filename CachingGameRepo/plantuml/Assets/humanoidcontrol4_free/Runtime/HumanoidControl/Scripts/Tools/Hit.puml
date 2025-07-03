@@ -1,0 +1,6 @@
+@startuml
+class Hit {
+    + HitMe() : void
+}
+MonoBehaviour <|-- Hit
+@enduml

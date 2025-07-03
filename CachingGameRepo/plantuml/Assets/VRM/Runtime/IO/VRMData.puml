@@ -1,0 +1,7 @@
+@startuml
+class VRMData {
+    + VRMData(data:GltfData)
+}
+VRMData --> "Data" GltfData
+VRMData --> "VrmExtension" glTF_VRM_extensions
+@enduml

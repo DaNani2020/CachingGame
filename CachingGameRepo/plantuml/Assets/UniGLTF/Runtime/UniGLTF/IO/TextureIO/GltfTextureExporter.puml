@@ -1,0 +1,5 @@
+@startuml
+class GltfTextureExporter <<static>> {
+    + {static} PushGltfTexture(data:ExportingGltfData, texture:Texture2D, textureColorSpace:ColorSpace, textureSerializer:ITextureSerializer) : int
+}
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class LookAtTarget {
+}
+MonoBehaviour <|-- LookAtTarget
+LookAtTarget --> "Target" Transform
+@enduml

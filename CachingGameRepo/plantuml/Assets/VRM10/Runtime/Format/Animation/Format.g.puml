@@ -1,0 +1,116 @@
+@startuml
+class HumanBone {
+    + Extensions : object
+    + Extras : object
+    + Node : int?
+}
+class HumanBones {
+    + Extensions : object
+    + Extras : object
+}
+class Humanoid {
+    + Extensions : object
+    + Extras : object
+}
+class Expression {
+    + Extensions : object
+    + Extras : object
+    + Node : int?
+}
+class Preset {
+}
+class Expressions {
+    + Extensions : object
+    + Extras : object
+}
+class LookAt {
+    + Extensions : object
+    + Extras : object
+    + Node : int?
+}
+class VRMC_vrm_animation {
+    + <<const>> ExtensionName : string = "VRMC_vrm_animation"
+    + Extensions : object
+    + Extras : object
+    + SpecVersion : string
+}
+class "Dictionary`2"<T1,T2> {
+}
+HumanBones --> "Hips" HumanBone
+HumanBones --> "Spine" HumanBone
+HumanBones --> "Chest" HumanBone
+HumanBones --> "UpperChest" HumanBone
+HumanBones --> "Neck" HumanBone
+HumanBones --> "Head" HumanBone
+HumanBones --> "Jaw" HumanBone
+HumanBones --> "LeftUpperLeg" HumanBone
+HumanBones --> "LeftLowerLeg" HumanBone
+HumanBones --> "LeftFoot" HumanBone
+HumanBones --> "LeftToes" HumanBone
+HumanBones --> "RightUpperLeg" HumanBone
+HumanBones --> "RightLowerLeg" HumanBone
+HumanBones --> "RightFoot" HumanBone
+HumanBones --> "RightToes" HumanBone
+HumanBones --> "LeftShoulder" HumanBone
+HumanBones --> "LeftUpperArm" HumanBone
+HumanBones --> "LeftLowerArm" HumanBone
+HumanBones --> "LeftHand" HumanBone
+HumanBones --> "RightShoulder" HumanBone
+HumanBones --> "RightUpperArm" HumanBone
+HumanBones --> "RightLowerArm" HumanBone
+HumanBones --> "RightHand" HumanBone
+HumanBones --> "LeftThumbMetacarpal" HumanBone
+HumanBones --> "LeftThumbProximal" HumanBone
+HumanBones --> "LeftThumbDistal" HumanBone
+HumanBones --> "LeftIndexProximal" HumanBone
+HumanBones --> "LeftIndexIntermediate" HumanBone
+HumanBones --> "LeftIndexDistal" HumanBone
+HumanBones --> "LeftMiddleProximal" HumanBone
+HumanBones --> "LeftMiddleIntermediate" HumanBone
+HumanBones --> "LeftMiddleDistal" HumanBone
+HumanBones --> "LeftRingProximal" HumanBone
+HumanBones --> "LeftRingIntermediate" HumanBone
+HumanBones --> "LeftRingDistal" HumanBone
+HumanBones --> "LeftLittleProximal" HumanBone
+HumanBones --> "LeftLittleIntermediate" HumanBone
+HumanBones --> "LeftLittleDistal" HumanBone
+HumanBones --> "RightThumbMetacarpal" HumanBone
+HumanBones --> "RightThumbProximal" HumanBone
+HumanBones --> "RightThumbDistal" HumanBone
+HumanBones --> "RightIndexProximal" HumanBone
+HumanBones --> "RightIndexIntermediate" HumanBone
+HumanBones --> "RightIndexDistal" HumanBone
+HumanBones --> "RightMiddleProximal" HumanBone
+HumanBones --> "RightMiddleIntermediate" HumanBone
+HumanBones --> "RightMiddleDistal" HumanBone
+HumanBones --> "RightRingProximal" HumanBone
+HumanBones --> "RightRingIntermediate" HumanBone
+HumanBones --> "RightRingDistal" HumanBone
+HumanBones --> "RightLittleProximal" HumanBone
+HumanBones --> "RightLittleIntermediate" HumanBone
+HumanBones --> "RightLittleDistal" HumanBone
+Humanoid --> "HumanBones" HumanBones
+Preset --> "Happy" Expression
+Preset --> "Angry" Expression
+Preset --> "Sad" Expression
+Preset --> "Relaxed" Expression
+Preset --> "Surprised" Expression
+Preset --> "Aa" Expression
+Preset --> "Ih" Expression
+Preset --> "Ou" Expression
+Preset --> "Ee" Expression
+Preset --> "Oh" Expression
+Preset --> "Blink" Expression
+Preset --> "BlinkLeft" Expression
+Preset --> "BlinkRight" Expression
+Preset --> "LookUp" Expression
+Preset --> "LookDown" Expression
+Preset --> "LookLeft" Expression
+Preset --> "LookRight" Expression
+Preset --> "Neutral" Expression
+Expressions --> "Preset" Preset
+Expressions --> "Custom<string,Expression>" "Dictionary`2"
+VRMC_vrm_animation --> "Humanoid" Humanoid
+VRMC_vrm_animation --> "Expressions" Expressions
+VRMC_vrm_animation --> "LookAt" LookAt
+@enduml

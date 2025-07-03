@@ -1,0 +1,10 @@
+@startuml
+class VRM10ExportSettings {
+    + ReduceBlendshape : bool = false
+    + ReduceBlendshapeClip : bool = false
+    + MorphTargetUseSparse : bool = true
+}
+ScriptableObject <|-- VRM10ExportSettings
+VRM10ExportSettings --> "MeshExportSettings" GltfExportSettings
+VRM10ExportSettings --> "Root" GameObject
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class Comment_Editor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- Comment_Editor
+@enduml

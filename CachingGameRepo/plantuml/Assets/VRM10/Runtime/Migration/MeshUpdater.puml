@@ -1,0 +1,10 @@
+@startuml
+class MeshUpdater {
+    + {static} Execute(data:GltfData, model:VrmLib.Model) : (glTF, ArraySegment<byte>)
+}
+struct MorphAccessor {
+    + Position : int?
+    + Normal : int?
+}
+MeshUpdater +-- MorphAccessor
+@enduml

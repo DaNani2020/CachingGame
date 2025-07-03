@@ -1,0 +1,10 @@
+@startuml
+class SerializableQuaternion {
+    + x : float
+    + y : float
+    + z : float
+    + w : float
+    + SerializableQuaternion(quaternion:Quaternion)
+    + ToQuaternion() : Quaternion
+}
+@enduml

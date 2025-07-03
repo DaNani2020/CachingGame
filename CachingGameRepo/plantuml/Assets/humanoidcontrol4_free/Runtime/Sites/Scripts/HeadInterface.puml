@@ -1,0 +1,6 @@
+@startuml
+class HeadInterface {
+    + RotationX(xAngle:float) : void
+}
+MonoBehaviour <|-- HeadInterface
+@enduml

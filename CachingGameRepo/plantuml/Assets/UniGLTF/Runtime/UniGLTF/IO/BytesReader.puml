@@ -1,0 +1,14 @@
+@startuml
+class BytesReader {
+    + BytesReader(bytes:Byte[], pos:int)
+    + ReadString(count:int, encoding:Encoding) : string
+    + ReadSingle() : float
+    + ReadUInt8() : byte
+    + ReadUInt16() : UInt16
+    + ReadInt8() : sbyte
+    + ReadInt16() : Int16
+    + ReadInt32() : int
+    + ReadToArray(dst:T[]) : void
+    + ReadStruct() : T
+}
+@enduml

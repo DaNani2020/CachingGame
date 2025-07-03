@@ -1,0 +1,10 @@
+@startuml
+class ReferenceLimbDataSO {
+}
+ScriptableObject <|-- ReferenceLimbDataSO
+ReferenceLimbDataSO --> "Chest" ChestDataSO
+ReferenceLimbDataSO --> "UpperLimbVertical" UpperLimbDataSO
+ReferenceLimbDataSO --> "UpperLimbHorizontal" UpperLimbDataSO
+ReferenceLimbDataSO --> "ElbowFlexion" ElbowFlexionDataSO
+ReferenceLimbDataSO --> "LowerLimbRotation" LowerLimbRotationDataSO
+@enduml

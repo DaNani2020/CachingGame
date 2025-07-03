@@ -1,0 +1,11 @@
+@startuml
+class M17NTest {
+    + SimpleMsgTest() : void
+}
+enum M17NTestEnum {
+    Foo,
+    Bar,
+    Baz,
+}
+M17NTest +-- M17NTestEnum
+@enduml

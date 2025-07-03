@@ -1,0 +1,6 @@
+@startuml
+class TabMeshIntegrator <<static>> {
+    + {static} TryExecutable(root:GameObject, msg:string) : bool
+    + {static} Execute(src:GameObject, onlyBlendShapeRenderers:bool) : bool
+}
+@enduml

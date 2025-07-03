@@ -1,0 +1,14 @@
+@startuml
+enum AxisMask {
+    X= 1,
+    Y= 2,
+    Z= 4,
+}
+enum YawPitchMask {
+    Yaw= 1,
+    Pitch= 2,
+}
+class AxesMaskExtensions <<static>> {
+    + {static} Mask(mask:AxisMask, src:Vector3) : Vector3
+}
+@enduml

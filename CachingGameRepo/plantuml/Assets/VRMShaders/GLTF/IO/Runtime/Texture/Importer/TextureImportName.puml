@@ -1,0 +1,6 @@
+@startuml
+class TextureImportName <<static>> {
+    + {static} GetUnityObjectName(type:TextureImportTypes, gltfName:string, uri:string) : string
+    + {static} RemoveSuffix(src:string) : string
+}
+@enduml

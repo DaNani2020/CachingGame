@@ -1,0 +1,10 @@
+@startuml
+class NativeTransform <<sealed>> {
+    + <<unsafe>> GetUnsafePtr() : BlittableTransform*
+    + <<unsafe>> NativeTransform(transformRegistry:TransformRegistry, transformSynchronizationType:TransformSynchronizationType, transform:Transform, parent:NativeTransform)
+    + Dispose() : void
+}
+IDisposable <|-- NativeTransform
+NativeTransform --> "Transform" Transform
+NativeTransform --> "Value" BlittableTransform
+@enduml

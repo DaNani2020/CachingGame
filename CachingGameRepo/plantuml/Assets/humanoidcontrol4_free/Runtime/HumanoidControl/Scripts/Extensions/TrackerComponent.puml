@@ -1,0 +1,19 @@
+@startuml
+enum TrackerId {
+    Oculus,
+    SteamVR,
+    WindowsMR,
+    LeapMotion,
+    Kinect1,
+    Kinect2,
+    OrbbecAstra,
+    Realsense,
+    RazerHydra,
+    Optitrack,
+    Tobii,
+}
+class TrackerComponent {
+    + <<virtual>> ShowSkeleton(shown:bool) : void
+}
+MonoBehaviour <|-- TrackerComponent
+@enduml

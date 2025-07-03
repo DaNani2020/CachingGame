@@ -1,0 +1,47 @@
+@startuml
+enum AccessorVectorType {
+    SCALAR,
+    VEC2,
+    VEC3,
+    VEC4,
+    MAT2,
+    MAT3,
+    MAT4,
+}
+class GltfAccessorTypeExtensions <<static>> {
+    + {static} TypeCount(type:AccessorVectorType) : int
+}
+enum AccessorValueType {
+    BYTE= 5120,
+    UNSIGNED_BYTE= 5121,
+    SHORT= 5122,
+    UNSIGNED_SHORT= 5123,
+    UNSIGNED_INT= 5125,
+    FLOAT= 5126,
+}
+class GltfComponentTypeExtensions <<static>> {
+    + {static} ByteSize(t:AccessorValueType) : int
+}
+class BufferAccessor {
+    + Stride : int <<get>>
+    + Count : int <<get>>
+    + ByteLength : int <<get>>
+    + BufferAccessor(arrayManager:INativeArrayManager, bytes:NativeArray<byte>, componentType:AccessorValueType, accessorType:AccessorVectorType, count:int)
+    + <<override>> ToString() : string
+    + GetSpan(checkStride:bool) : NativeArray<T>
+    + Assign(values:T[]) : void
+    + Assign(values:NativeArray<T>) : void
+    + AssignAsShort(values:NativeArray<int>) : void
+    + GetAsIntArray() : NativeArray<int>
+    + GetAsVector4Array() : NativeArray<Vector4>
+    + GetAsSkinJointsArray() : NativeArray<SkinJoints>
+    + Skip(skipFrames:int) : BufferAccessor
+    + AddAccessorTo(data:ExportingGltfData, bufferIndex:int, useSparse:bool, minMax:Action<NativeArray<byte>, glTFAccessor>, offset:int, count:int) : int
+}
+class "NativeArray`1"<T> {
+}
+BufferAccessor --> "ArrayManager" INativeArrayManager
+BufferAccessor --> "Bytes<byte>" "NativeArray`1"
+BufferAccessor --> "ComponentType" AccessorValueType
+BufferAccessor --> "AccessorType" AccessorVectorType
+@enduml

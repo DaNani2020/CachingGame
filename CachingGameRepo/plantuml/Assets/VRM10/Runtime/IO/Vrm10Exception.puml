@@ -1,0 +1,10 @@
+@startuml
+class Vrm10Exception {
+    + Vrm10Exception(msg:string)
+}
+class Vrm10NoExtensionException {
+    + Vrm10NoExtensionException(msg:string)
+}
+Exception <|-- Vrm10Exception
+Vrm10Exception <|-- Vrm10NoExtensionException
+@enduml

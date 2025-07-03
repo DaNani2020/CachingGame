@@ -1,0 +1,7 @@
+@startuml
+class Teleporter_Editor {
+    + <<override>> OnEnable() : void
+    + <<override>> OnInspectorGUI() : void
+}
+InteractionPointer_Editor <|-- Teleporter_Editor
+@enduml

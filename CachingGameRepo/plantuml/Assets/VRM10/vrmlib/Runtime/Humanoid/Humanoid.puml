@@ -1,0 +1,66 @@
+@startuml
+struct HumanoidHead {
+    + HasRequiredBones : bool <<get>>
+}
+struct HumanoidArm {
+    + HasRequiredBones : bool <<get>>
+    + DirectTo(dir:Vector3) : void
+}
+struct HumanoidLeg {
+}
+struct HumanoidFinger {
+}
+struct HumanoidThumb {
+}
+struct HumanoidFingers {
+}
+class Humanoid {
+    + HasRequiredBones : bool <<get>>
+    + Humanoid()
+    + Humanoid(root:Node)
+    + Assign(root:Node) : void
+    + CopyNodes() : Humanoid
+    + Y180() : (bool, string)
+    + MakeTPose() : (bool, string)
+    + RetargetTo(srcTPose:Humanoid, dst:Humanoid) : void
+    + Add(item:KeyValuePair<HumanoidBones, Node>) : void
+    + Add(key:HumanoidBones, node:Node) : void
+    + ContainsKey(key:HumanoidBones) : bool
+    + Remove(key:HumanoidBones) : bool
+    + TryGetValue(key:HumanoidBones, value:Node) : bool
+    + Clear() : void
+    + GetEnumerator() : IEnumerator<KeyValuePair<HumanoidBones, Node>>
+}
+class "IDictionary`2"<T1,T2> {
+}
+HumanoidHead --> "Head" Node
+HumanoidHead --> "Jaw" Node
+HumanoidHead --> "LeftEye" Node
+HumanoidHead --> "RightEye" Node
+HumanoidArm --> "Shoulder" Node
+HumanoidArm --> "Upper" Node
+HumanoidArm --> "Lower" Node
+HumanoidArm --> "Hand" Node
+HumanoidArm --> "Direction" Vector3
+HumanoidLeg --> "Upper" Node
+HumanoidLeg --> "Lower" Node
+HumanoidLeg --> "Foot" Node
+HumanoidLeg --> "Toe" Node
+HumanoidFinger --> "Proximal" Node
+HumanoidFinger --> "Intermediate" Node
+HumanoidFinger --> "Distal" Node
+HumanoidThumb --> "Metacarpal" Node
+HumanoidThumb --> "Proximal" Node
+HumanoidThumb --> "Distal" Node
+HumanoidFingers --> "Thumb" HumanoidThumb
+HumanoidFingers --> "Index" HumanoidFinger
+HumanoidFingers --> "Middle" HumanoidFinger
+HumanoidFingers --> "Ring" HumanoidFinger
+HumanoidFingers --> "Little" HumanoidFinger
+"IDictionary`2" "<HumanoidBones,Node>" <|-- Humanoid
+Humanoid --> "Hips" Node
+Humanoid --> "Spine" Node
+Humanoid --> "Chest" Node
+Humanoid --> "UpperChest" Node
+Humanoid --> "Neck" Node
+@enduml

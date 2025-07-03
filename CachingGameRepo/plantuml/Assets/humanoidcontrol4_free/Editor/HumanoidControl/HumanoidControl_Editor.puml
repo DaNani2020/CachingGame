@@ -1,0 +1,41 @@
+@startuml
+class HumanoidControl_Editor {
+    + OnEnable() : void
+    + OnDisable() : void
+    + OnDestroy() : void
+    + <<override>> OnInspectorGUI() : void
+    + {static} CheckAvatar(humanoid:HumanoidControl) : void
+    + InitTrackers(humanoid:HumanoidControl) : void
+    + GetAnimatorParameters(humanoid:HumanoidControl) : GUIContent[]
+    + OnSceneGUI() : void
+    + {static} IsPrefab(humanoid:HumanoidControl) : bool
+    + {static} ShowTracker(trackerObject:GameObject, enabled:bool) : void
+}
+abstract class TrackerProps {
+    + TrackerProps(serializedObject:SerializedObject, _tracker:HumanoidTracker, trackerName:string)
+}
+class HumanoidTargetObjs {
+    + HumanoidTargetObjs(humanoid:HumanoidControl)
+    + Update() : void
+    + ApplyModifiedProperties() : void
+}
+abstract class HumanoidTrackerProps {
+    + HumanoidTrackerProps(serializedObject:SerializedObject, _targetObjs:HumanoidTargetObjs, _tracker:HumanoidTracker, trackerName:string)
+    + {abstract} Inspector(humanoid:HumanoidControl) : void
+    + Inspector(humanoid:HumanoidControl, resourceName:string) : void
+    + <<virtual>> InitControllers() : void
+}
+Editor <|-- HumanoidControl_Editor
+HumanoidControl_Editor +-- TrackerProps
+TrackerProps --> "enabledProp" SerializedProperty
+TrackerProps --> "tracker" HumanoidTracker
+HumanoidControl_Editor +-- HumanoidTargetObjs
+HumanoidTargetObjs --> "headTargetObj" SerializedObject
+HumanoidTargetObjs --> "leftHandTargetObj" SerializedObject
+HumanoidTargetObjs --> "rightHandTargetObj" SerializedObject
+HumanoidTargetObjs --> "hipsTargetObj" SerializedObject
+HumanoidTargetObjs --> "leftFootTargetObj" SerializedObject
+HumanoidTargetObjs --> "rightFootTargetObj" SerializedObject
+HumanoidControl_Editor +-- HumanoidTrackerProps
+TrackerProps <|-- HumanoidTrackerProps
+@enduml

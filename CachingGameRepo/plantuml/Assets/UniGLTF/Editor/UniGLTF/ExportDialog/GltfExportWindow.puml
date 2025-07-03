@@ -1,0 +1,11 @@
+@startuml
+class GltfExportWindow {
+}
+enum Tabs {
+    Mesh,
+    ExportSettings,
+}
+ExportDialogBase <|-- GltfExportWindow
+GltfExportWindow o-> "Settings" GltfExportSettings
+GltfExportWindow +-- Tabs
+@enduml

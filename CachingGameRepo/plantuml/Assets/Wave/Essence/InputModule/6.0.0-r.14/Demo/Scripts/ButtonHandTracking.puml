@@ -1,0 +1,7 @@
+@startuml
+class ButtonHandTracking <<sealed>> {
+    + EnableHandTracker() : void
+    + DisableHandTracker() : void
+}
+MonoBehaviour <|-- ButtonHandTracking
+@enduml

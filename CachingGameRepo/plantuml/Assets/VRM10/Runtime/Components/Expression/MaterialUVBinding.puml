@@ -1,0 +1,14 @@
+@startuml
+struct MaterialUVBinding {
+    + Equals(other:MaterialUVBinding) : bool
+    + <<override>> Equals(obj:object) : bool
+    + <<override>> GetHashCode() : int
+}
+class "IEquatable`1"<T> {
+}
+"IEquatable`1" "<MaterialUVBinding>" <|-- MaterialUVBinding
+MaterialUVBinding --> "MaterialName" String
+MaterialUVBinding --> "Scaling" Vector2
+MaterialUVBinding --> "Offset" Vector2
+MaterialUVBinding --> "ScalingOffset" Vector4
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+class gltf_mesh_extras_targetNames <<static>> {
+    + <<const>> ExtraName : string = "targetNames"
+    + {static} TryGet(mesh:glTFMesh, targetNames:List<string>) : bool
+    + {static} Serialize(args:string[]) : glTFExtension
+    + {static} Serialize(gltfMesh:glTFMesh, targetNames:IEnumerable<string>, blendShapeTargetNameLocation:BlendShapeTargetNameLocationFlags) : void
+}
+gltf_mesh_extras_targetNames o-> "ExtraNameUtf8" Utf8String
+@enduml

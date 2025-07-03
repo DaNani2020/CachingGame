@@ -1,0 +1,28 @@
+@startuml
+class CubeEventHandler {
+    + OnPointerEnter(eventData:PointerEventData) : void
+    + OnPointerExit(eventData:PointerEventData) : void
+    + OnPointerDown(eventData:PointerEventData) : void
+    + OnPointerUp(eventData:PointerEventData) : void
+    + OnBeginDrag(eventData:PointerEventData) : void
+    + OnDrag(eventData:PointerEventData) : void
+    + OnEndDrag(eventData:PointerEventData) : void
+    + OnDrop(eventData:PointerEventData) : void
+    + OnHover(eventData:PointerEventData) : void
+    + OnPointerClick(eventData:PointerEventData) : void
+    + OnShowCube() : void
+    + OnHideCube() : void
+    + OnTrigger() : void
+}
+MonoBehaviour <|-- CubeEventHandler
+IPointerEnterHandler <|-- CubeEventHandler
+IPointerExitHandler <|-- CubeEventHandler
+IPointerDownHandler <|-- CubeEventHandler
+IBeginDragHandler <|-- CubeEventHandler
+IDragHandler <|-- CubeEventHandler
+IEndDragHandler <|-- CubeEventHandler
+IDropHandler <|-- CubeEventHandler
+IPointerUpHandler <|-- CubeEventHandler
+IPointerHoverHandler <|-- CubeEventHandler
+IPointerClickHandler <|-- CubeEventHandler
+@enduml

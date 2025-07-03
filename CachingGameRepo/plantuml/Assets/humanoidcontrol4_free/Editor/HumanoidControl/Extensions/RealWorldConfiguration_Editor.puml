@@ -1,0 +1,6 @@
+@startuml
+class RealWorldConfiguration_Editor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- RealWorldConfiguration_Editor
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class BallHandle_Editor {
+    + <<override>> OnInspectorGUI() : void
+}
+Handle_Editor <|-- BallHandle_Editor
+@enduml

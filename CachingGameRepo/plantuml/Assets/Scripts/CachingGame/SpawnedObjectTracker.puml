@@ -1,0 +1,13 @@
+@startuml
+class SpawnedObjectTracker {
+    + Register(obj:GameObject, uuid:string, spawnPoint:int) : void
+    + SetStateByUuid(uuid:string, newState:ObjectInteractionState, position:Vector3?, angle:float?) : void
+    + GetStateByUuid(uuid:string) : ObjectInteractionState
+    + ResetTracker() : void
+}
+class "Dictionary`2"<T1,T2> {
+}
+' MonoBehaviour <|-- SpawnedObjectTracker
+SpawnedObjectTracker --> "instance" SpawnedObjectTracker
+SpawnedObjectTracker o-> "spawnedObjects<string,SpawnedObjectInfo>" "Dictionary`2"
+@enduml

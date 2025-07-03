@@ -1,0 +1,5 @@
+@startuml
+class MToon10Meta <<static>> {
+    + {static} <<readonly>> UnityShaderName : string = "VRM10/MToon10"
+}
+@enduml

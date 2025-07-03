@@ -1,0 +1,6 @@
+@startuml
+class StoreTests {
+    + StringBuilderStoreTest() : void
+    + ArrayStoreTest() : void
+}
+@enduml

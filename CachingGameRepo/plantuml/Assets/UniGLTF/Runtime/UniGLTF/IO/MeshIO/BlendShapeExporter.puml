@@ -1,0 +1,5 @@
+@startuml
+class BlendShapeExporter <<static>> {
+    + {static} Export(data:ExportingGltfData, positions:Vector3[], normals:Vector3[], useSparse:bool) : gltfMorphTarget
+}
+@enduml

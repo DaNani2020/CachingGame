@@ -1,0 +1,8 @@
+@startuml
+class JsonFormatterTests {
+    + IndentTest() : void
+    + NullTest() : void
+    + BooleanTest() : void
+    + ReUseFormatter() : void
+}
+@enduml

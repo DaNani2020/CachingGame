@@ -1,0 +1,30 @@
+@startuml
+class TrackerText {
+}
+enum TextSelect {
+    Connection,
+    Role,
+    Position,
+    Rotation,
+    Press,
+    Touch,
+    Battery,
+    Extend,
+    DeviceName,
+    Acceleration,
+}
+enum TrackerType {
+    Invalid= 0,
+    HMD= 1,
+    Controller= 2,
+    Hand= 3,
+    WristTracker= 4,
+    ViveSelfTracker= 5,
+    ViveSelfTrackerIM= 6,
+}
+MonoBehaviour <|-- TrackerText
+TrackerText --> "Tracker" TrackerId
+TrackerText o-> "TextFor" TextSelect
+TrackerText +-- TextSelect
+TrackerText +-- TrackerType
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class Vrm10InstanceEditorExpression {
+    + Vrm10InstanceEditorExpression(target:Vrm10Instance)
+    + OnGUI() : void
+}
+@enduml

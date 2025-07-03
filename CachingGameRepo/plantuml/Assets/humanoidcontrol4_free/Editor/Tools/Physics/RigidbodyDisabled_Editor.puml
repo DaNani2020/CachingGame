@@ -1,0 +1,6 @@
+@startuml
+class RigidbodyDisabled_Editor {
+    + OnSceneGUI() : void
+}
+Editor <|-- RigidbodyDisabled_Editor
+@enduml

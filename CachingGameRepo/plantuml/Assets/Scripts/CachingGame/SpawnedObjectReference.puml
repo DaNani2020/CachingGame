@@ -1,0 +1,6 @@
+@startuml
+class SpawnedObjectReference {
+    + uuid : string
+}
+' MonoBehaviour <|-- SpawnedObjectReference
+@enduml

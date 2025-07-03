@@ -1,0 +1,13 @@
+@startuml
+enum JsonSchemaType {
+    Unknown,
+    Object,
+    Array,
+    String,
+    Number,
+    Integer,
+    Boolean,
+    Enum,
+    EnumString,
+}
+@enduml

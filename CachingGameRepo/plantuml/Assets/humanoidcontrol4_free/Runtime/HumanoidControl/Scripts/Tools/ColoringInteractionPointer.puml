@@ -1,0 +1,7 @@
+@startuml
+class ColoringInteractionPointer {
+}
+InteractionPointer <|-- ColoringInteractionPointer
+ColoringInteractionPointer --> "validMaterial" Material
+ColoringInteractionPointer --> "invalidMaterial" Material
+@enduml

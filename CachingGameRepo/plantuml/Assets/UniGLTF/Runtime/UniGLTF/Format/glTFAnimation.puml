@@ -1,0 +1,71 @@
+@startuml
+class glTFAnimationTarget {
+    + node : int
+    + path : string
+    + <<const>> PATH_TRANSLATION : string = "translation"
+    + <<const>> PATH_EULER_ROTATION : string = "rotation"
+    + <<const>> PATH_ROTATION : string = "rotation"
+    + <<const>> PATH_SCALE : string = "scale"
+    + <<const>> PATH_WEIGHT : string = "weights"
+    + <<const>> NOT_IMPLEMENTED : string = "NotImplemented"
+    + {static} AnimationPropertysToAnimationProperties(property:AnimationPropertys) : AnimationProperties
+    + {static} GetPathName(property:AnimationPropertys) : string
+    + {static} GetPathName(property:AnimationProperties) : string
+    + {static} GetAnimationProperty(path:string) : AnimationProperties
+    + {static} GetElementCount(property:AnimationPropertys) : int
+    + {static} GetElementCount(property:AnimationProperties) : int
+    + {static} GetElementCount(path:string) : int
+}
+class glTFAnimationChannel {
+    + sampler : int
+}
+class glTFAnimationSampler {
+    + input : int
+    + interpolation : string
+    + output : int
+}
+class glTFAnimation {
+    + name : string = ""
+    + AddChannelAndGetSampler(nodeIndex:int, property:glTFAnimationTarget.AnimationPropertys) : int
+    + AddChannelAndGetSampler(nodeIndex:int, property:glTFAnimationTarget.AnimationProperties) : int
+}
+enum Interpolations {
+    LINEAR,
+    STEP,
+    CUBICSPLINE,
+}
+enum AnimationPropertys {
+    Translation= AnimationProperties.Translation,
+    EulerRotation= AnimationProperties.EulerRotation,
+    Rotation= AnimationProperties.Rotation,
+    Scale= AnimationProperties.Scale,
+    Weight= AnimationProperties.Weight,
+    BlendShape= AnimationProperties.BlendShape,
+    NotImplemented= AnimationProperties.NotImplemented,
+}
+enum AnimationProperties {
+    Translation,
+    EulerRotation,
+    Rotation,
+    Scale,
+    Weight,
+    BlendShape,
+    NotImplemented,
+}
+class "List`1"<T> {
+}
+glTFAnimationTarget --> "extensions" glTFExtension
+glTFAnimationTarget --> "extras" glTFExtension
+glTFAnimationChannel --> "target" glTFAnimationTarget
+glTFAnimationChannel --> "extensions" glTFExtension
+glTFAnimationChannel --> "extras" glTFExtension
+glTFAnimationSampler --> "extensions" glTFExtension
+glTFAnimationSampler --> "extras" glTFExtension
+glTFAnimation o-> "channels<glTFAnimationChannel>" "List`1"
+glTFAnimation o-> "samplers<glTFAnimationSampler>" "List`1"
+glTFAnimation --> "extensions" glTFExtension
+glTFAnimation --> "extras" glTFExtension
+glTFAnimationTarget +-- Interpolations
+glTFAnimationTarget +-- AnimationPropertys
+glTFAnimationTarget +-- AnimationProperties
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+abstract class JsonSchemaBase {
+    + <<readonly>> JsonPath : string
+    + ClassName : string <<get>>
+    + Title : string
+    + <<readonly>> Description : string
+    + HardCode : string
+    + JsonSchemaBase(source:JsonSchemaSource)
+    + <<override>> ToString() : string
+    + IsArrayItem : bool
+    + {abstract} ValueType : string <<get>>
+    + {abstract} IsInline : bool <<get>>
+    + {abstract} GenerateDeserializerCall(callName:string, argName:string) : string
+    + <<virtual>> GenerateDeserializer(writer:TraverseContext, callName:string) : void
+    + {abstract} CreateSerializationCondition(argName:string) : string
+    + {abstract} GenerateSerializerCall(callName:string, argName:string) : string
+    + <<virtual>> GenerateSerializer(writer:TraverseContext, callName:string) : void
+}
+JsonSchemaBase --> "JsonSchemaType" JsonSchemaType
+@enduml

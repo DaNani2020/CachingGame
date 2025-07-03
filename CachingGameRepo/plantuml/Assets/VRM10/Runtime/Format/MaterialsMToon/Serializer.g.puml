@@ -1,0 +1,16 @@
+@startuml
+class GltfSerializer <<static>> {
+    + {static} SerializeTo(dst:UniGLTF.glTFExtension, extension:VRMC_materials_mtoon) : void
+    + {static} Serialize(f:JsonFormatter, value:VRMC_materials_mtoon) : void
+    + {static} Serialize_ShadeColorFactor(f:JsonFormatter, value:float[]) : void
+    + {static} Serialize_ShadeMultiplyTexture(f:JsonFormatter, value:TextureInfo) : void
+    + {static} Serialize_ShadingShiftTexture(f:JsonFormatter, value:ShadingShiftTextureInfo) : void
+    + {static} Serialize_MatcapFactor(f:JsonFormatter, value:float[]) : void
+    + {static} Serialize_MatcapTexture(f:JsonFormatter, value:TextureInfo) : void
+    + {static} Serialize_ParametricRimColorFactor(f:JsonFormatter, value:float[]) : void
+    + {static} Serialize_RimMultiplyTexture(f:JsonFormatter, value:TextureInfo) : void
+    + {static} Serialize_OutlineWidthMultiplyTexture(f:JsonFormatter, value:TextureInfo) : void
+    + {static} Serialize_OutlineColorFactor(f:JsonFormatter, value:float[]) : void
+    + {static} Serialize_UvAnimationMaskTexture(f:JsonFormatter, value:TextureInfo) : void
+}
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+class HandPoseModifier {
+    + HandPoseModifier()
+    + Modify(pose:HumanPose) : void
+}
+class HandPose {
+    + ThumbStrech : float <<get>> <<set>>
+    + ThumbStretch : float
+    + ThumbSpread : float
+    + IndexStrech : float <<get>> <<set>>
+    + IndexStretch : float
+    + IndexSpread : float
+    + MiddleStrech : float <<get>> <<set>>
+    + MiddleStretch : float
+    + MiddleSpread : float
+    + RingStrech : float <<get>> <<set>>
+    + RingStretch : float
+    + RingSpread : float
+    + LittleStrech : float <<get>> <<set>>
+    + LittleStretch : float
+    + LittleSpread : float
+}
+IPoseModifier <|-- HandPoseModifier
+HandPoseModifier --> "LeftHandPose" HandPose
+HandPoseModifier --> "RightHandPose" HandPose
+HandPoseModifier +-- HandPose
+@enduml

@@ -1,0 +1,34 @@
+@startuml
+class RenderModel {
+    + updateDynamically : bool = true
+    + mergeToOneBone : bool = false
+    + useTextureInProject : bool = false
+    + useCompressedTexture : bool = false
+    + {static}  <<event>> onRenderModelReady : RenderModelDelegate 
+    + {static}  <<event>> onRenderModelRemoved : RenderModelDelegate 
+    + checkInteractionMode : bool = false
+    + applyChange() : void
+    + showRenderModel(isControllerMode:bool) : void
+}
+enum LoadingState {
+    LoadingState_NOT_LOADED,
+    LoadingState_LOADING,
+    LoadingState_LOADED,
+}
+class Component {
+    + Component(obj:GameObject, renderer:MeshRenderer, isVisible:bool)
+    + Update(obj:GameObject, renderer:MeshRenderer, isVisible:bool) : void
+    + Clear() : void
+    + SetVisibility(isVisible:bool) : void
+    + SetShowState(show:bool) : void
+    + GetObject() : GameObject
+    + GetRenderer() : MeshRenderer
+    + IsVisibility() : bool
+    + IsShow() : bool
+}
+MonoBehaviour <|-- RenderModel
+RenderModel o-> "WhichHand" XR_Hand
+RenderModel o-> "defaultModel" GameObject
+RenderModel +-- LoadingState
+RenderModel +-- Component
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+class VRM10ObjectEditor {
+    + <<override>> OnInspectorGUI() : void
+}
+enum Tabs {
+    Meta,
+    Expression,
+    LookAt,
+    FirstPerson,
+}
+Editor <|-- VRM10ObjectEditor
+VRM10ObjectEditor +-- Tabs
+@enduml

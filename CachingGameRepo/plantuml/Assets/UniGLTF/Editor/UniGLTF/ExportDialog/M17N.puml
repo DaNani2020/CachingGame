@@ -1,0 +1,19 @@
+@startuml
+enum Languages {
+    ja,
+    en,
+}
+class LangMsgAttribute {
+    + Message : string
+    + LangMsgAttribute(language:Languages, msg:string)
+}
+class "MsgCache`1"<T> <<static>> {
+    + {static} Get(language:Languages, key:T) : string
+}
+class LanguageGetter <<static>> {
+    + {static} Msg(key:T) : string
+    + {static} OnGuiSelectLang() : void
+}
+LangMsgAttribute --> "Language" Languages
+LanguageGetter --> "Lang" Languages
+@enduml

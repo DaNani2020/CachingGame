@@ -1,0 +1,14 @@
+@startuml
+struct Vrm0XMToonTextureIndexMap {
+    + MainTex : int?
+    + BumpMap : int?
+    + EmissionMap : int?
+    + ShadeTexture : int?
+    + ReceiveShadowTexture : int?
+    + ShadingGradeTexture : int?
+    + RimTexture : int?
+    + SphereAdd : int?
+    + OutlineWidthTexture : int?
+    + UvAnimMaskTexture : int?
+}
+@enduml

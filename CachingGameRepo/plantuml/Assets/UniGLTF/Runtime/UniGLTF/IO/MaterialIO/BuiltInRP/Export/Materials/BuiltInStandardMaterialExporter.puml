@@ -1,0 +1,6 @@
+@startuml
+class BuiltInStandardMaterialExporter <<static>> {
+    + <<const>> TargetShaderName : string = "Standard"
+    + {static} TryExportMaterial(src:Material, textureExporter:ITextureExporter, dst:glTFMaterial) : bool
+}
+@enduml

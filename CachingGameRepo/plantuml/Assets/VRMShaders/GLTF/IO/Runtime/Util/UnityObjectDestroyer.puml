@@ -1,0 +1,5 @@
+@startuml
+class UnityObjectDestroyer <<static>> {
+    + {static} DestroyRuntimeOrEditor(o:UnityEngine.Object) : void
+}
+@enduml

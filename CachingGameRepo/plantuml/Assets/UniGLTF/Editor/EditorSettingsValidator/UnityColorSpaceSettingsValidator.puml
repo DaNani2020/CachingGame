@@ -1,0 +1,10 @@
+@startuml
+class UnityColorSpaceSettingsValidator <<sealed>> {
+    + IsValid : bool <<get>>
+    + HeaderDescription : string <<get>>
+    + CurrentValueDescription : string <<get>>
+    + RecommendedValueDescription : string <<get>>
+    + Validate() : void
+}
+IUnitySettingsValidator <|-- UnityColorSpaceSettingsValidator
+@enduml

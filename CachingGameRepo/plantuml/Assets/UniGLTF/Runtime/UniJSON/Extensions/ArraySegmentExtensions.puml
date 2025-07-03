@@ -1,0 +1,13 @@
+@startuml
+class ArraySegmentExtensions <<static>> {
+    + {static} ArrayOrCopy(self:ArraySegment<T>) : T[]
+    + {static} ToEnumerable(self:ArraySegment<T>) : IEnumerable<T>
+    + {static} Set(self:ArraySegment<T>, index:int, value:T) : void
+    + {static} Get(self:ArraySegment<T>, index:int) : T
+    + {static} Advance(self:ArraySegment<T>, n:Int32) : ArraySegment<T>
+    + {static} Take(self:ArraySegment<T>, n:Int32) : ArraySegment<T>
+    + {static} TakeReversedArray(self:ArraySegment<T>, n:Int32) : T[]
+    + {static} Concat(lhs:byte[], rhs:ArraySegment<byte>) : byte[]
+    + {static} Concat(lhs:ArraySegment<byte>, rhs:ArraySegment<byte>) : byte[]
+}
+@enduml

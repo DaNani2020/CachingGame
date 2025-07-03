@@ -1,0 +1,17 @@
+@startuml
+class ScrollViewButtonHandler <<sealed>> {
+    + OnFlexibleMode() : void
+    + OnFixedMode() : void
+    + OnMouseMode() : void
+    + OnTimerOnly() : void
+    + OnButtonOnly() : void
+    + OnTimerAndButton() : void
+}
+MonoBehaviour <|-- ScrollViewButtonHandler
+ScrollViewButtonHandler o-> "FlexibleModeButton" GameObject
+ScrollViewButtonHandler o-> "FixedModeButton" GameObject
+ScrollViewButtonHandler o-> "MouseModeButton" GameObject
+ScrollViewButtonHandler o-> "TimerGazeButton" GameObject
+ScrollViewButtonHandler o-> "ButtonGazeButton" GameObject
+ScrollViewButtonHandler o-> "TimerButtonGazeButton" GameObject
+@enduml

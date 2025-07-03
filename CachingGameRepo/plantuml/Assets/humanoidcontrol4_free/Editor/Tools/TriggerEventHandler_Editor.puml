@@ -1,0 +1,6 @@
+@startuml
+class TriggerEventHandler_Editor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- TriggerEventHandler_Editor
+@enduml

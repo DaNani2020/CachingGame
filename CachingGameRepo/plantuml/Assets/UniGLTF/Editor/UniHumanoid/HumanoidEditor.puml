@@ -1,0 +1,12 @@
+@startuml
+class HumanoidEditor {
+    + <<override>> OnInspectorGUI() : void
+}
+struct Horizontal {
+    + {static} Using() : Horizontal
+    + Dispose() : void
+}
+Editor <|-- HumanoidEditor
+HumanoidEditor +-- Horizontal
+IDisposable <|-- Horizontal
+@enduml

@@ -1,0 +1,82 @@
+@startuml
+enum InputType {
+    Trigger,
+    TouchPad,
+    DigitalTrigger,
+    App,
+    Home,
+    Volume,
+    VolumeUp,
+    VolumeDown,
+    Grip,
+    DPad_Left,
+    DPad_Right,
+    DPad_Up,
+    DPad_Down,
+    Bumper,
+    Thumbstick,
+    ButtonA,
+    ButtonB,
+    ButtonX,
+    ButtonY,
+}
+enum Alignment {
+    Balance,
+    Right,
+    Left,
+}
+enum DisplayPlane {
+    Normal,
+    Body_Up,
+    Body_Middle,
+    Body_Bottom,
+}
+class TipInfo {
+    + buttonAndTextDistance : float = 0.035f
+    + buttonAndLineDistance : float = 0.0f
+    + lineLengthAdjustment : float
+    + multiLanguage : bool = false
+    + inputText : string = "system"
+}
+class TipComponent {
+    + name : string
+    + inputText : string = "system"
+    + inputType : string = null
+    + buttonAndTextDistance : float
+    + buttonAndLineDistance : float
+    + lineLengthAdjustment : float
+    + multiLanguage : bool = false
+    + leftRightFlag : bool = false
+    + zValue : float
+    + yValue : float
+}
+class ControllerTips {
+    + enableControllerTips : bool = false
+    + autoLayout : bool = true
+    + polyline : bool = true
+    + fadingEffect : bool = true
+    + displayAngle : float = 30.0f
+    + hideWhenRolling : bool = true
+    + basedOnEmitter : bool = true
+    + lineWidth : float = 0.0004f
+    + textFontSize : int = 8
+    + useSystemConfig : bool = true
+    + checkInteractionMode : bool = false
+    + CreateControllerTips() : void
+    + ResetControllerTips() : void
+}
+class "List`1"<T> {
+}
+TipInfo --> "inputType" InputType
+TipInfo o-> "alignment" Alignment
+TipComponent --> "sourceObject" GameObject
+TipComponent --> "lineObject" GameObject
+TipComponent --> "polylineObject" GameObject
+TipComponent --> "destObject" GameObject
+TipComponent o-> "alignment" Alignment
+MonoBehaviour <|-- ControllerTips
+ControllerTips o-> "displayPlane" DisplayPlane
+ControllerTips o-> "lineColor" Color
+ControllerTips o-> "textColor" Color
+ControllerTips o-> "tipInfoList<TipInfo>" "List`1"
+@enduml

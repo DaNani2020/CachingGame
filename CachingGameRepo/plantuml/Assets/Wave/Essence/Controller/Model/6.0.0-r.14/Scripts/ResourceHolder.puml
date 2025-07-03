@@ -1,0 +1,59 @@
+@startuml
+class BatteryIndicator {
+    + level : int
+    + min : float
+    + max : float
+    + texturePath : string
+    + textureLoaded : bool
+}
+class TouchSetting {
+    + raidus : float
+    + touchptHeight : float
+}
+class TextureInfo {
+    + width : int
+    + height : int
+    + stride : int
+    + size : int
+    + format : int
+}
+class ModelResource {
+    + renderModelName : string
+    + loadFromAsset : bool
+    + mergeToOne : bool
+    + isLoading : bool
+    + <<readonly>> lockObj : object
+    + sectionCount : uint
+    + parserReady : bool
+    + modelTextureCount : int
+    + isTouchSetting : bool
+    + isBatterySetting : bool
+    + Release() : void
+}
+class ResourceHolder {
+    + isRenderModelExist(renderModel:string, hand:XR_Hand, merge:bool) : bool
+    + getRenderModelResource(renderModel:string, hand:XR_Hand, merge:bool) : ModelResource
+    + GetHandName(hand:XR_Hand) : string
+    + addRenderModel(renderModel:string, hand:XR_Hand, merge:bool) : bool
+    + Release() : void
+    + Release(renderModel:string, hand:XR_Hand, merge:bool) : void
+    + Release(mr:ModelResource) : void
+}
+class "List`1"<T> {
+}
+BatteryIndicator --> "batteryTexture" Texture2D
+BatteryIndicator --> "batteryTextureInfo" TextureInfo
+TouchSetting --> "touchForward" Vector3
+TouchSetting --> "touchCenter" Vector3
+TouchSetting --> "touchRight" Vector3
+TouchSetting --> "touchPtU" Vector3
+TouchSetting --> "touchPtW" Vector3
+TouchSetting --> "touchPtV" Vector3
+ModelResource --> "hand" XR_Hand
+ModelResource --> "loaderThread" Thread
+ModelResource --> "TouchSetting" TouchSetting
+ModelResource --> "batteryTextureList<BatteryIndicator>" "List`1"
+ResourceHolder --> "Instance" ResourceHolder
+ResourceHolder o-> "renderModelList<ModelResource>" "List`1"
+ResourceHolder o-> "controllerTextureInProject" Texture2D
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class TriangleUtil <<static>> {
+    + {static} FlipTriangle(src:IEnumerable<Byte>) : IEnumerable<int>
+    + {static} FlipTriangle(src:IEnumerable<UInt16>) : IEnumerable<int>
+    + {static} FlipTriangle(src:IEnumerable<UInt32>) : IEnumerable<int>
+    + {static} FlipTriangle(src:IEnumerable<Int32>) : IEnumerable<int>
+}
+@enduml

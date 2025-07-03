@@ -1,0 +1,9 @@
+@startuml
+class ColorConversionExtensions <<static>> {
+    + {static} ToFloat4(src:Color, srcColorSpace:ColorSpace, dstColorSpace:ColorSpace) : float[]
+    + {static} ToFloat3(src:Color, srcColorSpace:ColorSpace, dstColorSpace:ColorSpace) : float[]
+    + {static} ToColor4(src:float[], srcColorSpace:ColorSpace, dstColorSpace:ColorSpace) : Color
+    + {static} ToColor3(src:float[], srcColorSpace:ColorSpace, dstColorSpace:ColorSpace) : Color
+    + {static} ToColor3(src:Vector3, srcColorSpace:ColorSpace, dstColorSpace:ColorSpace) : Color
+}
+@enduml

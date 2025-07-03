@@ -1,0 +1,6 @@
+@startuml
+class GltfId {
+    + GltfIndex : int?
+    + SortOrder : int <<get>>
+}
+@enduml

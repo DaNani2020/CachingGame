@@ -1,0 +1,9 @@
+@startuml
+class NumericTests {
+    + QuaternionTest() : void
+    + Vector3Test() : void
+    + MatrixTranslationTest() : void
+    + MatrixRotationTest() : void
+    + MatrixScaleTest() : void
+}
+@enduml

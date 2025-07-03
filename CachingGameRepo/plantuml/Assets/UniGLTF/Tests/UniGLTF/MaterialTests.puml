@@ -1,0 +1,10 @@
+@startuml
+class MaterialTests {
+    + TextureTransformTest() : void
+    + glTF_KHR_materials_unlit_Test() : void
+    + UnlitShaderImportTest() : void
+    + MaterialEmissiveStrengthTest() : void
+    + MaterialImportTest() : void
+    + MaterialExportTest() : void
+}
+@enduml

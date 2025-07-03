@@ -1,0 +1,13 @@
+@startuml
+class NullableSerialization {
+    + NullableSerialization(t:Type, path:string, attr:JsonSchemaAttribute, prefix:string)
+    + IsInline : bool <<get>>
+    + CreateSerializationCondition(argName:string, t:JsonSchemaAttribute) : string
+    + GenerateSerializerCall(callName:string, argName:string) : string
+    + GenerateSerializer(writer:StreamWriter, callName:string) : void
+    + GenerateDeserializerCall(callName:string, argName:string) : string
+    + GenerateDeserializer(writer:StreamWriter, callName:string) : void
+}
+IValueSerialization <|-- NullableSerialization
+NullableSerialization --> "ValueType" Type
+@enduml

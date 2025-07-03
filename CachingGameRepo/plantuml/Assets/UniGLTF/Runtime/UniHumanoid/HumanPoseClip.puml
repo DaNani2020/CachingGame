@@ -1,0 +1,10 @@
+@startuml
+class HumanPoseClip {
+    + <<const>> TPoseResourcePath : string = "UniHumanoid/T-Pose.pose"
+    + GetPose() : HumanPose
+    + ApplyPose(pose:HumanPose) : void
+}
+ScriptableObject <|-- HumanPoseClip
+HumanPoseClip --> "bodyPosition" Vector3
+HumanPoseClip --> "bodyRotation" Quaternion
+@enduml

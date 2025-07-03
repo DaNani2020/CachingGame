@@ -1,0 +1,6 @@
+@startuml
+class BuiltInVrmMToonMaterialExporter <<static>> {
+    + <<const>> TargetShaderName : string
+    + {static} TryExportMaterial(src:Material, textureExporter:ITextureExporter, dst:glTFMaterial) : bool
+}
+@enduml

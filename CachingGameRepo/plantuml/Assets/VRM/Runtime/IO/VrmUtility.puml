@@ -1,0 +1,6 @@
+@startuml
+class VrmUtility <<static>> {
+    + {static} <<async>> LoadAsync(path:string, awaitCaller:IAwaitCaller, materialGeneratorCallback:MaterialGeneratorCallback, metaCallback:MetaCallback, textureDeserializer:ITextureDeserializer, loadAnimation:bool) : Task<RuntimeGltfInstance>
+    + {static} <<async>> LoadBytesAsync(path:string, bytes:byte[], awaitCaller:IAwaitCaller, materialGeneratorCallback:MaterialGeneratorCallback, metaCallback:MetaCallback, textureDeserializer:ITextureDeserializer, loadAnimation:bool) : Task<RuntimeGltfInstance>
+}
+@enduml

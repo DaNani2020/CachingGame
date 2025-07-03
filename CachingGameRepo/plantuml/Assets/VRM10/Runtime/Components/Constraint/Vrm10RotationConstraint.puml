@@ -1,0 +1,9 @@
+@startuml
+class Vrm10RotationConstraint {
+    + Weight : float = 1.0f
+}
+MonoBehaviour <|-- Vrm10RotationConstraint
+IVrm10Constraint <|-- Vrm10RotationConstraint
+Vrm10RotationConstraint --> "ConstraintTarget" GameObject
+Vrm10RotationConstraint o-> "Source" Transform
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+class OcclusionMetallicRoughnessConverter <<static>> {
+    + {static} Import(metallicRoughnessTexture:Texture2D, metallicFactor:float, roughnessFactor:float, occlusionTexture:Texture2D, isLegacySquaredRoughness:bool) : Texture2D
+    + {static} Export(metallicSmoothTexture:Texture, smoothness:float, occlusionTexture:Texture) : Texture2D
+    + {static} ExportPixel(metallicSmooth:Color32, smoothness:float, occlusion:Color32) : Color32
+}
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+class VRMAOTCodeGenerator {
+    + {static} GenerateCode() : void
+}
+@enduml

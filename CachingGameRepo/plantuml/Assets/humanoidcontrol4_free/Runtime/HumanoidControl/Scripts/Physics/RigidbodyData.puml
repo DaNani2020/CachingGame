@@ -1,0 +1,19 @@
+@startuml
+class RigidbodyData {
+    + mass : float = 1
+    + drag : float
+    + angularDrag : float = 0.05F
+    + useGravity : bool = true
+    + isKinematic : bool
+    + RigidbodyData(rb:Rigidbody)
+    + CopyToRigidbody(rb:Rigidbody) : void
+    + {static} ParentRigidbody(parentTransform:Transform, childRigidbody:Rigidbody) : RigidbodyData
+    + {static} ParentRigidbody(parentRigidbody:Rigidbody, childRigidbody:Rigidbody) : RigidbodyData
+    + UnparentRigidbody(parentTransform:Transform, childRigidbodyTransform:Transform) : Rigidbody
+    + UnparentRigidbody(parentRigidbody:Rigidbody, childRigidbodyTransform:Transform) : Rigidbody
+}
+RigidbodyData o-> "interpolation" RigidbodyInterpolation
+RigidbodyData o-> "collisionDetectionMode" CollisionDetectionMode
+RigidbodyData o-> "constraints" RigidbodyConstraints
+RigidbodyData --> "parent" Transform
+@enduml

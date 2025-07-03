@@ -1,0 +1,12 @@
+@startuml
+struct MaterialColorBinding {
+    + Equals(other:MaterialColorBinding) : bool
+    + <<override>> Equals(obj:object) : bool
+    + <<override>> GetHashCode() : int
+}
+class "IEquatable`1"<T> {
+}
+"IEquatable`1" "<MaterialColorBinding>" <|-- MaterialColorBinding
+MaterialColorBinding --> "MaterialName" String
+MaterialColorBinding --> "TargetValue" Vector4
+@enduml

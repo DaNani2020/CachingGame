@@ -1,0 +1,9 @@
+@startuml
+class DebugText {
+    + SetText(text:string) : void
+    + Append(text:string) : void
+    + AppendLine(text:string) : void
+}
+MonoBehaviour <|-- DebugText
+DebugText --> "Instance" DebugText
+@enduml

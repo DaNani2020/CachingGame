@@ -1,0 +1,17 @@
+@startuml
+class VRM10ObjectLookAt {
+}
+enum LookAtTargetTypes {
+    SpecifiedTransform= 0,
+    YawPitchValue= 1,
+    CalcYawPitchToGaze= 0,
+    SetYawPitch= 1,
+}
+VRM10ObjectLookAt o-> "OffsetFromHead" Vector3
+VRM10ObjectLookAt --> "LookAtType" LookAtType
+VRM10ObjectLookAt o-> "HorizontalOuter" CurveMapper
+VRM10ObjectLookAt o-> "HorizontalInner" CurveMapper
+VRM10ObjectLookAt o-> "VerticalDown" CurveMapper
+VRM10ObjectLookAt o-> "VerticalUp" CurveMapper
+VRM10ObjectLookAt +-- LookAtTargetTypes
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class BarHandle_Editor {
+    + <<override>> OnInspectorGUI() : void
+}
+Handle_Editor <|-- BarHandle_Editor
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+class MeshWriter <<static>> {
+    + {static} ExportMeshGroup(src:MeshGroup, materials:List<object>, writer:ExportingGltfData, option:ExportArgs) : glTFMesh
+}
+@enduml

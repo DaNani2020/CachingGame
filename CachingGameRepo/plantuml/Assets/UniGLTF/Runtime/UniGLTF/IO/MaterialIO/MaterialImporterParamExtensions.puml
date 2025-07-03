@@ -1,0 +1,5 @@
+@startuml
+class MaterialImporterParamExtensions <<static>> {
+    + {static} EnumerateSubAssetKeyValue(matDesc:MaterialDescriptor) : IEnumerable<(SubAssetKey, TextureDescriptor)>
+}
+@enduml

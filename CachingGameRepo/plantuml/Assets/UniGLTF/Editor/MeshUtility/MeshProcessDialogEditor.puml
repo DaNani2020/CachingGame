@@ -1,0 +1,6 @@
+@startuml
+class MeshProcessDialogEditor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- MeshProcessDialogEditor
+@enduml

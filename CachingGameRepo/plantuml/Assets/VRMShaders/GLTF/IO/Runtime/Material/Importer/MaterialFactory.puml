@@ -1,0 +1,24 @@
+@startuml
+class MaterialFactory {
+    + MaterialFactory(externalMaterialMap:IReadOnlyDictionary<SubAssetKey, Material>)
+    + Dispose() : void
+    + TransferOwnership(take:TakeResponsibilityForDestroyObjectFunc) : void
+    + GetMaterial(index:int) : Material
+    + <<async>> LoadAsync(matDesc:MaterialDescriptor, getTexture:GetTextureAsyncFunc, awaitCaller:IAwaitCaller) : Task<Material>
+    + {static} SetTextureOffsetAndScale(material:Material, propertyName:string, offset:Vector2, scale:Vector2) : void
+}
+class "Task`1"<T> {
+}
+struct MaterialLoadInfo {
+    + <<readonly>> UseExternal : bool
+    + IsSubAsset : bool <<get>>
+    + MaterialLoadInfo(key:SubAssetKey, asset:Material, useExternal:bool)
+}
+class "IReadOnlyList`1"<T> {
+}
+IResponsibilityForDestroyObjects <|-- MaterialFactory
+MaterialFactory --> "Materials<MaterialLoadInfo>" "IReadOnlyList`1"
+MaterialFactory +-- MaterialLoadInfo
+MaterialLoadInfo --> "Key" SubAssetKey
+MaterialLoadInfo --> "Asset" Material
+@enduml

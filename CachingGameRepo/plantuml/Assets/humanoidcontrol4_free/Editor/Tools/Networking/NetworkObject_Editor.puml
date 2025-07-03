@@ -1,0 +1,13 @@
+@startuml
+class NetworkObject_Check {
+    + callbackOrder : int <<get>>
+    + OnPreprocessBuild(report:UnityEditor.Build.Reporting.BuildReport) : void
+    + {static} CheckNetworkObjects() : void
+    + {static} CheckForNetworkObject(gameObject:GameObject) : void
+}
+class NetworkObject_Editor {
+    + OnEnable() : void
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- NetworkObject_Editor
+@enduml

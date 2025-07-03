@@ -1,0 +1,30 @@
+@startuml
+class ImporterContext {
+    + LoadAnimation : bool <<get>> <<set>> = true
+    + ImporterContext(data:GltfData, externalObjectMap:IReadOnlyDictionary<SubAssetKey, UnityEngine.Object>, textureDeserializer:ITextureDeserializer, materialGenerator:IMaterialDescriptorGenerator)
+    + <<virtual>> <<async>> LoadAsync(awaitCaller:IAwaitCaller, MeasureTime:Func<string, IDisposable>) : Task<RuntimeGltfInstance>
+    + <<virtual>> <<async>> LoadAnimationAsync(awaitCaller:IAwaitCaller) : Task
+    + <<async>> LoadTexturesAsync(awaitCaller:IAwaitCaller) : Task
+    + <<async>> LoadMaterialsAsync(awaitCaller:IAwaitCaller) : Task
+    + <<virtual>> Dispose() : void
+    + <<virtual>> TransferOwnership(take:TakeResponsibilityForDestroyObjectFunc) : void
+}
+class "IReadOnlyDictionary`2"<T1,T2> {
+}
+class "List`1"<T> {
+}
+IResponsibilityForDestroyObjects <|-- ImporterContext
+ImporterContext --> "TextureDescriptorGenerator" ITextureDescriptorGenerator
+ImporterContext --> "MaterialDescriptorGenerator" IMaterialDescriptorGenerator
+ImporterContext --> "TextureFactory" TextureFactory
+ImporterContext --> "MaterialFactory" MaterialFactory
+ImporterContext --> "AnimationClipFactory" AnimationClipFactory
+ImporterContext --> "ExternalObjectMap<SubAssetKey,UnityEngine.Object>" "IReadOnlyDictionary`2"
+ImporterContext --> "Data" GltfData
+ImporterContext --> "Json" String
+ImporterContext --> "GLTF" glTF
+ImporterContext o-> "InvertAxis" Axes
+ImporterContext o-> "UnsupportedExtensions<string>" "List`1"
+ImporterContext o-> "Nodes<Transform>" "List`1"
+ImporterContext o-> "Meshes<MeshWithMaterials>" "List`1"
+@enduml

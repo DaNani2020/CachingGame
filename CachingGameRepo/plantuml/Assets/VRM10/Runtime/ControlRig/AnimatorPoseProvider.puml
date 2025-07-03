@@ -1,0 +1,7 @@
+@startuml
+class AnimatorPoseProvider <<sealed>> {
+    + AnimatorPoseProvider(root:Transform, animator:Animator)
+}
+INormalizedPoseProvider <|-- AnimatorPoseProvider
+ITPoseProvider <|-- AnimatorPoseProvider
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+class BoneNormalizer <<static>> {
+    + {static} MapBoneWeight(src:BoneWeight[], boneMap:Dictionary<Transform, Transform>, srcBones:Transform[], dstBones:Transform[]) : BoneWeight[]
+    + {static} Execute(go:GameObject, createAvatar:CreateAvatarFunc) : (GameObject, Dictionary<Transform, Transform>)
+}
+class "Dictionary`2"<T1,T2> {
+}
+class BlendShapeReport {
+    + Count : int <<get>>
+    + BlendShapeReport(mesh:Mesh)
+    + SetCount(index:int, name:string, v:int, n:int, t:int) : void
+    + <<override>> ToString() : string
+}
+struct BlendShapeStat {
+    + Index : int
+    + Name : string
+    + VertexCount : int
+    + NormalCount : int
+    + TangentCount : int
+    + <<override>> ToString() : string
+}
+BoneNormalizer +-- BlendShapeReport
+BlendShapeReport +-- BlendShapeStat
+@enduml

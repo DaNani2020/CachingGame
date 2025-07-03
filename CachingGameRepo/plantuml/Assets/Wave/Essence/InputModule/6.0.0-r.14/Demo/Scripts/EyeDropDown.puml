@@ -1,0 +1,7 @@
+@startuml
+class EyeDropDown <<sealed>> {
+    + ChangeColor() : void
+}
+MonoBehaviour <|-- EyeDropDown
+EyeDropDown o-> "InputModule" GazeInputModule
+@enduml

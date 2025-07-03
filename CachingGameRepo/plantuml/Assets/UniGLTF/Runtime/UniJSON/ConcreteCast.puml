@@ -1,0 +1,6 @@
+@startuml
+class ConcreteCast <<static>> <<partial>> {
+    + {static} GetMethodName(src:Type, dst:Type) : string
+    + {static} GetMethod(src:Type, dst:Type) : MethodInfo
+}
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+class Target_Editor <<static>> {
+    + {static} Inspector(target:Target, name:string) : Target
+}
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+class JsonFormatter {
+    + JsonFormatter(indent:int)
+    + JsonFormatter(w:IStore, indent:int)
+    + <<override>> ToString() : string
+    + GetStore() : IStore
+    + Clear() : void
+    + Null() : void
+    + BeginList(_:int) : void
+    + EndList() : void
+    + BeginMap(_:int) : void
+    + EndMap() : void
+    + Key(key:Utf8String) : void
+    + Value(x:string) : void
+    + Value(key:Utf8String) : void
+    + Value(x:Boolean) : void
+    + Value(x:SByte) : void
+    + Value(x:Int16) : void
+    + Value(x:Int32) : void
+    + Value(x:Int64) : void
+    + Value(x:Byte) : void
+    + Value(x:UInt16) : void
+    + Value(x:UInt32) : void
+    + Value(x:UInt64) : void
+    + Value(x:Single) : void
+    + Value(x:Double) : void
+    + Value(x:ArraySegment<Byte>) : void
+    + Raw(x:ArraySegment<Byte>) : void
+    + Value(x:DateTimeOffset) : void
+    + Value(node:JsonNode) : void
+}
+enum Current {
+    ROOT,
+    ARRAY,
+    OBJECT,
+}
+class Context {
+    + Count : int
+    + Context(current:Current)
+}
+IFormatter <|-- JsonFormatter
+JsonFormatter +-- Current
+JsonFormatter +-- Context
+Context --> "Current" Current
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+class VrmScriptedImporter {
+    + MigrateToVrm1 : bool = default
+    + <<override>> OnImportAsset(ctx:AssetImportContext) : void
+}
+ScriptedImporter <|-- VrmScriptedImporter
+@enduml

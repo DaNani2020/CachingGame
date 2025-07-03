@@ -1,0 +1,6 @@
+@startuml
+class NotVrm0Exception {
+    + NotVrm0Exception()
+}
+Exception <|-- NotVrm0Exception
+@enduml

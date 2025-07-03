@@ -1,0 +1,18 @@
+@startuml
+class UpdateCanvas {
+}
+MonoBehaviour <|-- UpdateCanvas
+UpdateCanvas o-> "rightIsValid" GameObject
+UpdateCanvas o-> "rightName" GameObject
+UpdateCanvas o-> "rightManufacturer" GameObject
+UpdateCanvas o-> "rightSerialNumber" GameObject
+UpdateCanvas o-> "rightPoseTracking" GameObject
+UpdateCanvas o-> "leftIsValid" GameObject
+UpdateCanvas o-> "leftName" GameObject
+UpdateCanvas o-> "leftManufacturer" GameObject
+UpdateCanvas o-> "leftSerialNumber" GameObject
+UpdateCanvas o-> "leftPoseTracking" GameObject
+UpdateCanvas o-> "hmd" GameObject
+UpdateCanvas o-> "rightController" GameObject
+UpdateCanvas o-> "leftController" GameObject
+@enduml

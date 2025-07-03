@@ -1,0 +1,6 @@
+@startuml
+class ActivateHandTracking {
+    + Activate() : void
+}
+MonoBehaviour <|-- ActivateHandTracking
+@enduml

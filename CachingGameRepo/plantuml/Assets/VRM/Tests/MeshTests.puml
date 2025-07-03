@@ -1,0 +1,6 @@
+@startuml
+class MeshTests {
+    + {static} MeshEquals(l:Mesh, r:Mesh) : void
+    + MeshCopyTest() : void
+}
+@enduml

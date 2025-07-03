@@ -1,0 +1,6 @@
+@startuml
+class VRMMetaEditor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- VRMMetaEditor
+@enduml

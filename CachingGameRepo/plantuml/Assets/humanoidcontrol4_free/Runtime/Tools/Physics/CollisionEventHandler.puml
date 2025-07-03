@@ -1,0 +1,6 @@
+@startuml
+class CollisionEventHandler {
+}
+MonoBehaviour <|-- CollisionEventHandler
+CollisionEventHandler o-> "collisionHandlers" GameObjectEventHandlers
+@enduml

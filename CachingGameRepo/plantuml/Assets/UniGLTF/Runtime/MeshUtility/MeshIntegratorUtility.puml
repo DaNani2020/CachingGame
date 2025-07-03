@@ -1,0 +1,8 @@
+@startuml
+class MeshIntegratorUtility <<static>> {
+    + {static} Integrate(go:GameObject, onlyBlendShapeRenderers:MeshEnumerateOption, excludes:IEnumerable<Mesh>, destroyIntegratedRenderer:bool) : MeshIntegrationResult
+    + {static} EnumerateSkinnedMeshRenderer(root:Transform, hasBlendShape:MeshEnumerateOption) : IEnumerable<SkinnedMeshRenderer>
+    + {static} EnumerateMeshRenderer(root:Transform) : IEnumerable<MeshRenderer>
+    + {static} ReplaceMeshWithResults(copy:GameObject, results:List<MeshIntegrationResult>) : void
+}
+@enduml

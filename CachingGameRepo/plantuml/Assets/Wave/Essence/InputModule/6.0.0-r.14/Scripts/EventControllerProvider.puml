@@ -1,0 +1,13 @@
+@startuml
+class EventControllerProvider <<sealed>> {
+    + SetEventController(hand:XR_Hand, con:GameObject) : void
+    + GetEventController(hand:XR_Hand) : GameObject
+}
+class ControllerStorage {
+    + ControllerStorage(type:XR_Hand, con:GameObject)
+}
+EventControllerProvider --> "Instance" EventControllerProvider
+EventControllerProvider +-- ControllerStorage
+ControllerStorage --> "hand" XR_Hand
+ControllerStorage --> "controller" GameObject
+@enduml

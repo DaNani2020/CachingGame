@@ -1,0 +1,15 @@
+@startuml
+class PreviewSceneManager {
+    + Clean() : void
+    + GetBlendShapeNames(blendShapeMeshIndex:int) : string[]
+    + GetMaterialItem(materialName:string) : MaterialItem
+    + SetupCamera(camera:Camera, target:Vector3, yaw:float, pitch:float, position:Vector3) : void
+}
+class "IEnumerable`1"<T> {
+}
+MonoBehaviour <|-- PreviewSceneManager
+PreviewSceneManager --> "Prefab" GameObject
+PreviewSceneManager --> "EnumRenderItems<MeshPreviewItem>" "IEnumerable`1"
+PreviewSceneManager --> "m_target" Transform
+PreviewSceneManager --> "TargetPosition" Vector3
+@enduml

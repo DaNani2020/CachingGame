@@ -1,0 +1,10 @@
+@startuml
+interface IStore {
+}
+class IStoreExtensions <<static>> {
+    + {static} WriteValues(s:IStore, bytes:Byte[]) : void
+    + {static} Write(s:IStore, bytes:Byte[]) : void
+    + {static} Write(s:IStore, bytes:IEnumerable<Byte>) : void
+    + {static} ToUtf8String(s:IStore) : Utf8String
+}
+@enduml

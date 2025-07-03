@@ -1,0 +1,24 @@
+@startuml
+interface "ITreeNode`2"<T,U> {
+}
+interface ITreeItem {
+}
+struct "TreeNode`1"<T> {
+    + IsValid : bool <<get>>
+    + ValueIndex : int <<get>>
+    + Value : T <<get>>
+    + HasParent : bool <<get>>
+    + TreeNode(values:List<T>, index:int)
+}
+class TreeTests {
+    + TreeTest() : void
+}
+class "List`1"<T> {
+}
+class "IEnumerable`1"<T> {
+}
+"ITreeNode`2" "<TreeNode<T>,T>" <|-- "TreeNode`1"
+"TreeNode`1" --> "Values<T>" "List`1"
+"TreeNode`1" --> "Children<TreeNode<T>>" "IEnumerable`1"
+"TreeNode`1" --> "Parent<T>" "TreeNode`1"
+@enduml

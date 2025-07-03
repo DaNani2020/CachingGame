@@ -1,0 +1,14 @@
+@startuml
+class MeshMap {
+}
+class MeshIntegrationResult {
+}
+class "List`1"<T> {
+}
+MeshMap o-> "Sources<Mesh>" "List`1"
+MeshMap --> "Integrated" Mesh
+MeshIntegrationResult o-> "SourceSkinnedMeshRenderers<SkinnedMeshRenderer>" "List`1"
+MeshIntegrationResult o-> "SourceMeshRenderers<MeshRenderer>" "List`1"
+MeshIntegrationResult --> "IntegratedRenderer" SkinnedMeshRenderer
+MeshIntegrationResult o-> "MeshMap" MeshMap
+@enduml

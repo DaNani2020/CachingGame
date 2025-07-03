@@ -1,0 +1,19 @@
+@startuml
+struct SubAssetKey {
+    + <<readonly>> Name : string
+    + SubAssetKey(obj:Texture)
+    + SubAssetKey(obj:Material)
+    + {static} Create(obj:T) : SubAssetKey
+    + SubAssetKey(type:Type, name:string)
+    + <<override>> ToString() : string
+    + <<override>> Equals(obj:object) : bool
+    + Equals(other:SubAssetKey) : bool
+    + <<override>> GetHashCode() : int
+}
+class "IEquatable`1"<T> {
+}
+"IEquatable`1" "<SubAssetKey>" <|-- SubAssetKey
+SubAssetKey o-> "TextureType" Type
+SubAssetKey o-> "MaterialType" Type
+SubAssetKey --> "Type" Type
+@enduml

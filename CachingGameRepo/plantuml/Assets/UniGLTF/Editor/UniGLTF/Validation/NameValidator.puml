@@ -1,0 +1,10 @@
+@startuml
+class NameValidator {
+    + {static} IsFileNameLengthTooLong(fileName:string) : bool
+    + {static} Validate(ExportRoot:GameObject) : IEnumerable<Validation>
+}
+enum ValidationMessages {
+    FILENAME_TOO_LONG,
+}
+NameValidator +-- ValidationMessages
+@enduml

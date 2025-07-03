@@ -1,0 +1,9 @@
+@startuml
+class Vrm0XMToonValue <<sealed>> {
+    + Vrm0XMToonValue(vrmMaterial:JsonNode)
+}
+class "Dictionary`2"<T1,T2> {
+}
+Vrm0XMToonValue --> "TextureOffsetScales<string,float[]>" "Dictionary`2"
+Vrm0XMToonValue --> "TextureIndexMap" Vrm0XMToonTextureIndexMap
+@enduml

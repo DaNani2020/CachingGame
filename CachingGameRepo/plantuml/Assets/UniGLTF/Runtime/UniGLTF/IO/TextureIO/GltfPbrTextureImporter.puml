@@ -1,0 +1,9 @@
+@startuml
+class GltfPbrTextureImporter <<sealed>> {
+    + {static} EnumerateAllTextures(data:GltfData, i:int) : IEnumerable<(SubAssetKey, TextureDescriptor)>
+    + {static} TryBaseColorTexture(data:GltfData, src:glTFMaterial, key:SubAssetKey, desc:TextureDescriptor) : bool
+    + {static} TryStandardTexture(data:GltfData, src:glTFMaterial, key:SubAssetKey, desc:TextureDescriptor) : bool
+    + {static} TryNormalTexture(data:GltfData, src:glTFMaterial, key:SubAssetKey, desc:TextureDescriptor) : bool
+    + {static} TryEmissiveTexture(data:GltfData, src:glTFMaterial, key:SubAssetKey, desc:TextureDescriptor) : bool
+}
+@enduml

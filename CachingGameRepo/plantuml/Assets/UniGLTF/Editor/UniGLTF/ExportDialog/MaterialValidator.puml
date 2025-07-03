@@ -1,0 +1,9 @@
+@startuml
+interface IMaterialValidator {
+}
+class DefaultMaterialValidator {
+    + <<virtual>> GetGltfMaterialTypeFromUnityShaderName(shaderName:string) : string
+    + <<virtual>> EnumerateTextureProperties(m:Material) : IEnumerable<(string propertyName, Texture texture)>
+}
+IMaterialValidator <|-- DefaultMaterialValidator
+@enduml

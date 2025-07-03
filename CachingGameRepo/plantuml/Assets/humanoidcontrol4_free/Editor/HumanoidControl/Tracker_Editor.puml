@@ -1,0 +1,8 @@
+@startuml
+class Tracker_Editor {
+    + {static} Inspector(humanoid:HumanoidControl, tracker:HumanoidTracker, enabledProp:SerializedProperty, resourceName:string) : void
+    + {static} Inspector(tracker:HumanoidTracker, enabledProp:SerializedProperty) : void
+    + {static} RemoveTransform(trackerTransform:Transform) : Transform
+}
+Editor <|-- Tracker_Editor
+@enduml

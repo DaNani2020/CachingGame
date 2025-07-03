@@ -1,0 +1,8 @@
+@startuml
+class BuiltInVrmMToonMaterialImporter <<static>> {
+    + {static} TryCreateParam(data:GltfData, vrm:glTF_VRM_extensions, materialIdx:int, matDesc:MaterialDescriptor) : bool
+}
+class "Dictionary`2"<T1,T2> {
+}
+BuiltInVrmMToonMaterialImporter o-> "FallbackShaders<string,string>" "Dictionary`2"
+@enduml

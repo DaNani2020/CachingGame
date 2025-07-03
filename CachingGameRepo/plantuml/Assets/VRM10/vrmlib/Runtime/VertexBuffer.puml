@@ -1,0 +1,34 @@
+@startuml
+class VertexBuffer {
+    + ContainsKey(key:string) : bool
+    + GetEnumerator() : IEnumerator<KeyValuePair<string, BufferAccessor>>
+    + Add(key:string, accessor:BufferAccessor) : void
+    + TryGetValue(key:string, accessor:BufferAccessor) : bool
+    + Count : int <<get>>
+    + <<const>> PositionKey : string = "POSITION"
+    + <<const>> NormalKey : string = "NORMAL"
+    + <<const>> TangentKey : string = "TANGENT"
+    + <<const>> ColorKey : string = "COLOR_0"
+    + <<const>> TexCoordKey : string = "TEXCOORD_0"
+    + <<const>> TexCoordKey2 : string = "TEXCOORD_1"
+    + <<const>> JointKey : string = "JOINTS_0"
+    + <<const>> WeightKey : string = "WEIGHTS_0"
+    + RemoveTangent() : void
+    + ByteLength : int <<get>>
+    + ValidateLength(name:string) : void
+    + ValidateNAN() : void
+    + VertexBuffer()
+}
+class "IEnumerable`1"<T> {
+}
+class "Dictionary`2"<T1,T2> {
+}
+"IEnumerable`1" "<KeyValuePair<string, BufferAccessor>>" <|-- VertexBuffer
+VertexBuffer o-> "VertexBuffers<string,BufferAccessor>" "Dictionary`2"
+VertexBuffer --> "Positions" BufferAccessor
+VertexBuffer --> "Normals" BufferAccessor
+VertexBuffer --> "Colors" BufferAccessor
+VertexBuffer --> "TexCoords" BufferAccessor
+VertexBuffer --> "Joints" BufferAccessor
+VertexBuffer --> "Weights" BufferAccessor
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+enum Messages {
+    ColorSpace,
+    ColorSpaceGamma,
+    ColorSpaceLinear,
+    YouCanCloseThisWindow,
+    ThankYou,
+    CloseWindowButton,
+    RecommendedProjectSettingsForUniGltfAndUniVrm,
+    CurrentValue,
+    UseRecommended,
+    AcceptAllButton,
+}
+@enduml

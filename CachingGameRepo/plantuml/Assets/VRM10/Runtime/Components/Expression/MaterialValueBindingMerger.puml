@@ -1,0 +1,30 @@
+@startuml
+class MaterialValueBindingMerger <<sealed>> {
+    + {static} GetProperty(bindType:MaterialColorType) : string
+    + RestoreMaterialInitialValues() : void
+    + AccumulateValue(clip:VRM10Expression, value:float) : void
+    + {static} GetUVProps(shaderName:string) : String[]
+    + Apply() : void
+    + MaterialValueBindingMerger(clipMap:Dictionary<ExpressionKey, VRM10Expression>, root:Transform)
+}
+struct DictionaryKeyMaterialValueBindingComparer {
+    + Equals(x:MaterialColorBinding, y:MaterialColorBinding) : bool
+    + GetHashCode(obj:MaterialColorBinding) : int
+}
+struct MaterialTarget {
+    + MaterialName : string
+    + ValueName : string
+    + Equals(other:MaterialTarget) : bool
+    + <<override>> Equals(obj:object) : bool
+    + <<override>> GetHashCode() : int
+    + {static} Create(binding:MaterialColorBinding) : MaterialTarget
+}
+class "IEqualityComparer`1"<T> {
+}
+class "IEquatable`1"<T> {
+}
+MaterialValueBindingMerger +-- DictionaryKeyMaterialValueBindingComparer
+"IEqualityComparer`1" "<MaterialColorBinding>" <|-- DictionaryKeyMaterialValueBindingComparer
+MaterialValueBindingMerger +-- MaterialTarget
+"IEquatable`1" "<MaterialTarget>" <|-- MaterialTarget
+@enduml

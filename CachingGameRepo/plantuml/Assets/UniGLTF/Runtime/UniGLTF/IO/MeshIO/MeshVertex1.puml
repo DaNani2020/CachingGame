@@ -1,0 +1,5 @@
+@startuml
+struct MeshVertex1 {
+    + MeshVertex1(texCoord0:Vector2, texCoord1:Vector2, color:Color)
+}
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+struct OffsetOnTransform {
+    + Setup() : void
+    + {static} Create(transform:Transform) : OffsetOnTransform
+}
+OffsetOnTransform --> "Transform" Transform
+OffsetOnTransform --> "OffsetRotation" Matrix4x4
+OffsetOnTransform --> "WorldMatrix" Matrix4x4
+OffsetOnTransform --> "WorldForward" Vector3
+OffsetOnTransform --> "InitialWorldMatrix" Matrix4x4
+@enduml

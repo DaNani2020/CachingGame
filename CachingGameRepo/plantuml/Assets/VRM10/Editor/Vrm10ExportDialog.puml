@@ -1,0 +1,12 @@
+@startuml
+class VRM10ExportDialog {
+    + {static} Open() : void
+}
+enum Tabs {
+    Meta,
+    Mesh,
+    ExportSettings,
+}
+ExportDialogBase <|-- VRM10ExportDialog
+VRM10ExportDialog +-- Tabs
+@enduml

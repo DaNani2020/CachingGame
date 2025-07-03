@@ -1,0 +1,25 @@
+@startuml
+enum UpdateType {
+    None,
+    Update,
+    LateUpdate,
+}
+class VRMLookAtHead {
+    + DrawGizmo : bool = true
+    + CreateThumbnail() : Texture2D
+    + LookFace(t:Transform) : void
+    + OnImported(context:VRMImporterContext) : void
+    + Yaw : float <<get>>
+    + Pitch : float <<get>>
+    +  <<event>> YawPitchChanged : Action<float, float> 
+    + RaiseYawPitchChanged(yaw:float, pitch:float) : void
+    + LookWorldPosition() : void
+    + LookWorldPosition(targetPosition:Vector3, yaw:float, pitch:float) : void
+}
+MonoBehaviour <|-- VRMLookAtHead
+IVRMComponent <|-- VRMLookAtHead
+VRMLookAtHead o-> "UpdateType" UpdateType
+VRMLookAtHead --> "Target" Transform
+VRMLookAtHead --> "Head" Transform
+VRMLookAtHead --> "YawMatrix" Matrix4x4
+@enduml

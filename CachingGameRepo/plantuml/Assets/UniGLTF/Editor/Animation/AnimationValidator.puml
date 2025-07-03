@@ -1,0 +1,9 @@
+@startuml
+class AnimationValidator <<static>> {
+    + {static} Validate(root:GameObject) : IEnumerable<Validation>
+}
+enum ExporterValidatorMessages {
+    ROOT_ANIMATED,
+}
+AnimationValidator +-- ExporterValidatorMessages
+@enduml

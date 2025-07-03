@@ -1,0 +1,19 @@
+@startuml
+class Vrm10Importer {
+    + Vrm10Importer(vrm:Vrm10Data, externalObjectMap:IReadOnlyDictionary<SubAssetKey, UnityEngine.Object>, textureDeserializer:ITextureDeserializer, materialGenerator:IMaterialDescriptorGenerator, useControlRig:bool)
+    + <<override>> <<async>> LoadAsync(awaitCaller:IAwaitCaller, MeasureTime:Func<string, IDisposable>) : Task<RuntimeGltfInstance>
+    + <<async>> LoadVrmThumbnailAsync(awaitCaller:IAwaitCaller) : Task<Texture2D>
+    + {static} ToUnity(bone:VrmLib.HumanoidBones) : HumanBodyBones
+    + {static} CreateNodes(node:VrmLib.Node, parent:GameObject, nodes:Dictionary<VrmLib.Node, GameObject>) : void
+    + {static} CreateRenderer(node:VrmLib.Node, go:GameObject, map:ModelMap, materialLoadInfos:IReadOnlyList<VRMShaders.MaterialFactory.MaterialLoadInfo>) : Renderer
+    + <<override>> TransferOwnership(take:TakeResponsibilityForDestroyObjectFunc) : void
+    + <<override>> Dispose() : void
+}
+class ModelMap <<sealed>> {
+}
+class "Dictionary`2"<T1,T2> {
+}
+Vrm10Importer +-- ModelMap
+ModelMap o-> "Nodes<VrmLib.Node,GameObject>" "Dictionary`2"
+ModelMap o-> "Meshes<VrmLib.MeshGroup,UnityEngine.Mesh>" "Dictionary`2"
+@enduml

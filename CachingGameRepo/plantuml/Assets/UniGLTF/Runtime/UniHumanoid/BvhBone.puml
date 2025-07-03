@@ -1,0 +1,16 @@
+@startuml
+class BvhBone {
+    + Name : string <<get>>
+    + BvhBone(name:string, position:Vector3)
+    + <<override>> ToString() : string
+    + Build(t:Transform) : void
+    + Build(node:BvhNode) : void
+    + Traverse() : IEnumerable<BvhBone>
+}
+class "IList`1"<T> {
+}
+IBone <|-- BvhBone
+BvhBone --> "SkeletonLocalPosition" Vector3
+BvhBone --> "Parent" IBone
+BvhBone --> "Children<IBone>" "IList`1"
+@enduml

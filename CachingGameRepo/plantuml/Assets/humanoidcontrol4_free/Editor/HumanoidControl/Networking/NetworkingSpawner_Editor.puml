@@ -1,0 +1,7 @@
+@startuml
+class NetworkingSpawner_Editor {
+    + <<override>> OnEnable() : void
+    + <<override>> OnInspectorGUI() : void
+}
+NetworkingStarter_Editor <|-- NetworkingSpawner_Editor
+@enduml

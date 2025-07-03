@@ -1,0 +1,6 @@
+@startuml
+struct BlittableColliders {
+    + Count : int <<get>>
+    + BlittableColliders(colliders:BlittableCollider*, count:int)
+}
+@enduml

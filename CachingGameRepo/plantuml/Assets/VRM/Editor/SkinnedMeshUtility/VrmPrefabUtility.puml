@@ -1,0 +1,6 @@
+@startuml
+class VrmPrefabUtility <<static>> {
+    + {static} InstantiatePrefab(prefab:GameObject) : GameObject
+    + {static} ApplyChangesToPrefab(instance:GameObject) : void
+}
+@enduml

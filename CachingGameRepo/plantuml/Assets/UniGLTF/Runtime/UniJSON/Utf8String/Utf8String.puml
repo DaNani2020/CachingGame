@@ -1,0 +1,35 @@
+@startuml
+struct Utf8String {
+    + ByteLength : int <<get>>
+    + GetIterator() : Utf8Iterator
+    + CompareTo(other:Utf8String) : int
+    + Utf8String(bytes:ArraySegment<Byte>)
+    + Utf8String(bytes:Byte[], offset:int, count:int)
+    + Utf8String(bytes:Byte[])
+    + {static} From(src:string) : Utf8String
+    + {static} From(src:string, bytes:Byte[]) : Utf8String
+    + Concat(rhs:Utf8String) : Utf8String
+    + <<override>> ToString() : string
+    + ToAscii() : string
+    + IsEmpty : bool <<get>>
+    + StartsWith(rhs:Utf8String) : bool
+    + EndsWith(rhs:Utf8String) : bool
+    + IndexOf(code:Byte) : int
+    + IndexOf(offset:int, code:Byte) : int
+    + Subbytes(offset:int) : Utf8String
+    + Subbytes(offset:int, count:int) : Utf8String
+    + TrimStart() : Utf8String
+    + TrimEnd() : Utf8String
+    + Trim() : Utf8String
+    + <<override>> Equals(obj:Object) : bool
+    + Equals(other:Utf8String) : bool
+    + <<override>> GetHashCode() : int
+    + IsInt : bool <<get>>
+}
+class "IComparable`1"<T> {
+}
+class "ArraySegment`1"<T> {
+}
+"IComparable`1" "<Utf8String>" <|-- Utf8String
+Utf8String --> "Bytes<Byte>" "ArraySegment`1"
+@enduml

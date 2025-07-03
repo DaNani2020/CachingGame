@@ -1,0 +1,13 @@
+@startuml
+struct SkinJoints {
+    + Joint0 : ushort
+    + Joint1 : ushort
+    + Joint2 : ushort
+    + Joint3 : ushort
+    + SkinJoints(j0:ushort, j1:ushort, j2:ushort, j3:ushort)
+    + Equals(other:SkinJoints) : bool
+}
+class "IEquatable`1"<T> {
+}
+"IEquatable`1" "<SkinJoints>" <|-- SkinJoints
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+class VRMExportSettingsEditor {
+    + <<override>> OnInspectorGUI() : void
+}
+class CheckBoxProp {
+    + CheckBoxProp(property:SerializedProperty, desc:Func<string>)
+    + CheckBoxProp(property:SerializedProperty, desc:VRMExportOptions)
+    + CheckBoxProp(property:SerializedProperty, desc:string)
+    + Draw() : void
+}
+class "Func`1"<T> {
+}
+Editor <|-- VRMExportSettingsEditor
+VRMExportSettingsEditor +-- CheckBoxProp
+CheckBoxProp --> "Property" SerializedProperty
+CheckBoxProp --> "Description<string>" "Func`1"
+@enduml

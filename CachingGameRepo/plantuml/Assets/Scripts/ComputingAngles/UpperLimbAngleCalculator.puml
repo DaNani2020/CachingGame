@@ -1,0 +1,23 @@
+@startuml
+class UpperLimbAngleCalculator {
+    + ChestRotationMeasurement(trackerChest:Transform) : Vector3
+    + angleShoulderHorizontalRight(trackerElbowRight:Transform, trackerChest:Transform) : (float angle, Vector3 horizontalChestDirection, Vector3 horizontalElbowDirection)
+    + angleShoulderVerticalRight(trackerElbowRight:Transform, trackerChest:Transform) : (float angle, Vector3 verticalChestDirection, Vector3 verticalElbowDirection)
+    + shoulderRotationRight(trackerElbowRight:Transform, trackerChest:Transform) : (float angle, Vector3 shoulderDirection, Vector3 elbowDirection)
+    + angleElbowExtensionRight(trackerElbowRight:Transform, controllerRight:Transform) : (float angle, Vector3 upperLimbDirection, Vector3 lowerLimbDirection)
+    + elbowSupinationRight(trackerElbowRight:Transform, controllerRight:Transform) : (float angle, Vector3 upperLimbDirection, Vector3 lowerLimbDirection )
+    + angleShoulderHorizontalLeft(trackerElbowLeft:Transform, trackerChest:Transform) : (float angle, Vector3 horizontalChestDirection, Vector3 horizontalElbowDirection)
+    + angleShoulderVerticalLeft(trackerElbowLeft:Transform, trackerChest:Transform) : (float angle, Vector3 verticalChestDirection, Vector3 verticalElbowDirection)
+    + shoulderRotationLeft(trackerElbowLeft:Transform, trackerChest:Transform) : (float angle, Vector3 shoulderDirection, Vector3 elbowDirection)
+    + angleElbowExtensionLeft(trackerElbowLeft:Transform, controllerLeft:Transform) : (float angle,  Vector3 upperLimbDirection, Vector3 lowerLimbDirection)
+    + elbowSupinationLeft(trackerElbowLeft:Transform, controllerLeft:Transform) : (float angle, Vector3 upperLimbDirection, Vector3 lowerLimbDirection)
+    + SetInitialChestRotation(rotation:Quaternion) : void
+}
+MonoBehaviour <|-- UpperLimbAngleCalculator
+UpperLimbAngleCalculator --> "Instance" UpperLimbAngleCalculator
+UpperLimbAngleCalculator --> "trackerChest" Transform
+UpperLimbAngleCalculator --> "trackerElbowRight" Transform
+UpperLimbAngleCalculator --> "controllerRight" Transform
+UpperLimbAngleCalculator --> "trackerElbowLeft" Transform
+UpperLimbAngleCalculator --> "controllerLeft" Transform
+@enduml

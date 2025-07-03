@@ -1,0 +1,16 @@
+@startuml
+class Skin {
+    + Skin()
+    + Skinning(arrayManager:INativeArrayManager, vertexBuffer:VertexBuffer) : void
+    + Apply(arrayManager:INativeArrayManager, vertexBuffer:VertexBuffer, dstPosition:NativeArray<Vector3>, dstNormal:NativeArray<Vector3>) : void
+    + <<override>> ToString() : string
+    + Replace(arrayManager:INativeArrayManager, src:Node, dst:Node) : void
+    + CalcInverseMatrices(arrayManager:INativeArrayManager) : void
+}
+class "List`1"<T> {
+}
+GltfId <|-- Skin
+Skin --> "InverseMatrices" BufferAccessor
+Skin --> "Root" Node
+Skin o-> "Joints<Node>" "List`1"
+@enduml

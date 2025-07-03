@@ -1,0 +1,17 @@
+@startuml
+class ArrayPin <<static>> {
+    + {static} Create(src:ArraySegment<T>) : ArrayPin<T>
+    + {static} Create(src:T[]) : ArrayPin<T>
+}
+class "ArrayPin`1"<T> {
+    + Length : int <<get>>
+    + ArrayPin(src:ArraySegment<T>)
+    + Dispose() : void
+}
+class ArrayPinExtensions <<static>> {
+    + {static} FromBytes(src:ArraySegment<byte>, dst:T[]) : int
+    + {static} ToBytes(src:T[], dst:ArraySegment<byte>) : int
+}
+IDisposable <|-- "ArrayPin`1"
+"ArrayPin`1" --> "Ptr" IntPtr
+@enduml

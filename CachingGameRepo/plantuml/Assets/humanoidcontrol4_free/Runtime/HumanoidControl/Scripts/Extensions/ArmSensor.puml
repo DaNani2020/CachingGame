@@ -1,0 +1,19 @@
+@startuml
+abstract class ArmSensor {
+    + <<virtual>> CheckSensor(_handTarget:HandTarget) : void
+    + <<virtual>> Init(handTarget:HandTarget) : void
+    + <<override>> Start(_humanoid:HumanoidControl, targetTransform:Transform) : void
+    + CheckSensorTransform(targetTransform:Transform, isLeft:bool) : void
+    + <<virtual>> CreateSensorTransform(targetTransform:Transform, isLeft:bool) : void
+    + <<override>> SetSensor2Target() : void
+    + <<virtual>> SetSensor2Target(targetPosition:Vector3, targetRotation:Quaternion) : void
+    + ArmConfidence(armSensor:Humanoid.Tracking.ArmSensor) : float
+    + <<virtual>> Vibrate(length:float, strength:float) : void
+}
+abstract class ArmController {
+    + <<override>> Start(_humanoid:HumanoidControl, targetTransform:Transform) : void
+    + <<override>> Update() : void
+}
+HumanoidSensor <|-- ArmSensor
+ArmSensor --> "handSkeleton" HandSkeleton
+@enduml

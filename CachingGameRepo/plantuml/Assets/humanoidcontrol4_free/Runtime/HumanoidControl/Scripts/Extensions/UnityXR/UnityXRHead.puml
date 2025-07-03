@@ -1,0 +1,5 @@
+@startuml
+class UnityXRHead {
+}
+HeadSensor <|-- UnityXRHead
+@enduml

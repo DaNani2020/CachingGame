@@ -1,0 +1,10 @@
+@startuml
+class Vrm10RollConstraint {
+    + Weight : float = 1.0f
+}
+MonoBehaviour <|-- Vrm10RollConstraint
+IVrm10Constraint <|-- Vrm10RollConstraint
+Vrm10RollConstraint --> "ConstraintTarget" GameObject
+Vrm10RollConstraint o-> "Source" Transform
+Vrm10RollConstraint --> "RollAxis" RollAxis
+@enduml

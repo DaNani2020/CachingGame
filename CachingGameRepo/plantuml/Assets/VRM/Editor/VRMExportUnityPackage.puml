@@ -1,0 +1,22 @@
+@startuml
+class StringExtensionsForUnity <<static>> {
+    + {static} EndsWithAndMeta(str:string, terminator:string) : bool
+}
+class VRMExportUnityPackage <<static>> {
+    + {static} CreateUnityPackageWithoutBuild() : void
+    + {static} CreateUnityPackageWithBuild() : void
+    + {static} CreateUnityPackages(outputDir:string) : void
+    + {static} CreateUnityPackage(outputDir:string, package:PackageInfo) : void
+    + {static} BuildTestScene() : bool
+    + {static} Build(levels:string[]) : bool
+}
+class GlobList {
+    + GlobList(root:string, filters:string[])
+}
+class PackageInfo {
+    + <<readonly>> Name : string
+    + PackageInfo(name:string)
+}
+VRMExportUnityPackage +-- GlobList
+VRMExportUnityPackage +-- PackageInfo
+@enduml

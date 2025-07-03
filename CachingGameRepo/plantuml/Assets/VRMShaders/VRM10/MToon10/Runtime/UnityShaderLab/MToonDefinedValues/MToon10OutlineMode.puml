@@ -1,0 +1,7 @@
+@startuml
+enum MToon10OutlineMode {
+    None= 0,
+    World= 1,
+    Screen= 2,
+}
+@enduml

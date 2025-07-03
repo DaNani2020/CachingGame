@@ -1,0 +1,11 @@
+@startuml
+class VRMSpringBoneColliderGroup {
+    + Validate() : IEnumerable<Validation>
+}
+class SphereCollider {
+    + Radius : float
+}
+MonoBehaviour <|-- VRMSpringBoneColliderGroup
+VRMSpringBoneColliderGroup +-- SphereCollider
+SphereCollider --> "Offset" Vector3
+@enduml

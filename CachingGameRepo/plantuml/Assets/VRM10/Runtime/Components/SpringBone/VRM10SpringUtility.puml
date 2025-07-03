@@ -1,0 +1,4 @@
+@startuml
+class VRM10SpringUtility <<static>> {
+}
+@enduml

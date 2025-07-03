@@ -1,0 +1,6 @@
+@startuml
+enum ColorSpace {
+    sRGB,
+    Linear,
+}
+@enduml

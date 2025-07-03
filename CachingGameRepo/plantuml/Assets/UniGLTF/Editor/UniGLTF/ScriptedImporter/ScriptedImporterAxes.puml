@@ -1,0 +1,10 @@
+@startuml
+enum ScriptedImporterAxes {
+    Default,
+    Z,
+    X,
+}
+class ScriptedImporterAxesExtensions <<static>> {
+    + {static} ToAxes(axis:ScriptedImporterAxes) : Axes
+}
+@enduml

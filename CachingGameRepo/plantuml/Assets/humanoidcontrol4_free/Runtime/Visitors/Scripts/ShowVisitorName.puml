@@ -1,0 +1,5 @@
+@startuml
+class ShowVisitorName {
+}
+MonoBehaviour <|-- ShowVisitorName
+@enduml

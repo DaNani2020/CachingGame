@@ -1,0 +1,20 @@
+@startuml testUML1
+skinparam Linetype ortho
+!include .\\Assets\Scripts\CachingGame\BiasMap.puml
+!include .\\Assets\Scripts\CachingGame\ButtonVR.puml
+!include .\\Assets\Scripts\CachingGame\CacherRing.puml
+!include .\\Assets\Scripts\CachingGame\CacherSystem.puml
+!include .\\Assets\Scripts\CachingGame\CacheScript.puml
+!include .\\Assets\Scripts\CachingGame\CylinderProgressBar.puml
+!include .\\Assets\Scripts\CachingGame\FlyingTarget.puml
+!include .\\Assets\Scripts\CachingGame\Helper.puml
+!include .\\Assets\Scripts\CachingGame\ObjectInteractionStates.puml
+!include .\\Assets\Scripts\CachingGame\PerformanceManager.puml
+!include .\\Assets\Scripts\CachingGame\ScoreManager.puml
+!include .\\Assets\Scripts\CachingGame\SpawnedObjectInfo.puml
+!include .\\Assets\Scripts\CachingGame\SpawnedObjectReference.puml
+!include .\\Assets\Scripts\CachingGame\SpawnedObjectTracker.puml
+!include .\\Assets\Scripts\CachingGame\TargetSpawner.puml
+!include .\\Assets\Scripts\CachingGame\UIManager.puml
+!include .\\Assets\Scripts\CachingGame\WandActivation.puml
+@enduml

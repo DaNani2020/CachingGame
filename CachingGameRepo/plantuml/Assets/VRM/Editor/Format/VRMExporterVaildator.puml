@@ -1,0 +1,10 @@
+@startuml
+class VRMExporterValidator <<static>> {
+    + {static} ReduceBlendshape : bool
+    + {static} Validate(ExportRoot:GameObject) : IEnumerable<Validation>
+}
+enum VRMExporterWizardMessages {
+    NEEDS_VRM_BLENDSHAPE_PROXY,
+}
+VRMExporterValidator +-- VRMExporterWizardMessages
+@enduml

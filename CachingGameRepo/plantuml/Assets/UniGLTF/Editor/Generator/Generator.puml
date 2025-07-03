@@ -1,0 +1,5 @@
+@startuml
+class Generator {
+    + {static} GenerateTo(root:JsonSchemaSource, formatDir:DirectoryInfo, serializerDir:DirectoryInfo) : void
+}
+@enduml

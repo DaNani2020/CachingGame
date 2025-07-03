@@ -1,0 +1,7 @@
+@startuml
+class EnabledScope {
+    + EnabledScope()
+    + Dispose() : void
+}
+IDisposable <|-- EnabledScope
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class SafeMarshalCopy <<static>> {
+    + {static} CopyBytesToArray(src:ArraySegment<byte>, dst:T[]) : void
+    + {static} CopyArrayToToBytes(src:T[], dst:ArraySegment<byte>) : void
+}
+@enduml

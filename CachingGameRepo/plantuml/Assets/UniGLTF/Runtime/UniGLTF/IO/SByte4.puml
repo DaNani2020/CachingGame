@@ -1,0 +1,13 @@
+@startuml
+struct SByte4 {
+    + <<readonly>> x : sbyte
+    + <<readonly>> y : sbyte
+    + <<readonly>> z : sbyte
+    + <<readonly>> w : sbyte
+    + SByte4(_x:sbyte, _y:sbyte, _z:sbyte, _w:sbyte)
+    + Equals(other:SByte4) : bool
+}
+class "IEquatable`1"<T> {
+}
+"IEquatable`1" "<SByte4>" <|-- SByte4
+@enduml

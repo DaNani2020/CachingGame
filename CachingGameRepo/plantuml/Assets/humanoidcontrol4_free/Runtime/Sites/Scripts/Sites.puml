@@ -1,0 +1,13 @@
+@startuml
+class Sites {
+}
+class SiteBuild {
+    + siteName : string
+    + enabled : bool
+}
+class "List`1"<T> {
+}
+ScriptableObject <|-- Sites
+Sites o-> "list<SiteBuild>" "List`1"
+Sites +-- SiteBuild
+@enduml

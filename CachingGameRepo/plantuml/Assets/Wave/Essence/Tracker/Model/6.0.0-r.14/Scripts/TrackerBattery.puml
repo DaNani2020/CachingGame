@@ -1,0 +1,11 @@
+@startuml
+class TrackerBattery {
+}
+MonoBehaviour <|-- TrackerBattery
+TrackerBattery --> "Tracker" TrackerId
+TrackerBattery o-> "BatteryMesh" MeshRenderer
+TrackerBattery o-> "BatteryLife25" Texture2D
+TrackerBattery o-> "BatteryLife50" Texture2D
+TrackerBattery o-> "BatteryLife75" Texture2D
+TrackerBattery o-> "BatteryLife100" Texture2D
+@enduml

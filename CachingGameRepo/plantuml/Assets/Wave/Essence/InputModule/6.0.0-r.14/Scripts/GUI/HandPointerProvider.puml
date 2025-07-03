@@ -1,0 +1,12 @@
+@startuml
+class HandPointerProvider {
+    + SetHandPointer(hand:HandManager.HandType, pointer:GameObject) : void
+    + GetHandPointer(hand:HandManager.HandType) : GameObject
+}
+class PointerStorage {
+    + PointerStorage(type:HandManager.HandType, pointer:GameObject)
+}
+HandPointerProvider --> "Instance" HandPointerProvider
+HandPointerProvider +-- PointerStorage
+PointerStorage --> "Pointer" GameObject
+@enduml

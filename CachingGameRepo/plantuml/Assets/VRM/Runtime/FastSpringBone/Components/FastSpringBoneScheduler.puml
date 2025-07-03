@@ -1,0 +1,7 @@
+@startuml
+class FastSpringBoneScheduler <<sealed>> {
+    + ShowGizmos : bool <<get>> <<set>>
+    + Initialize(rootBoneRegistry:RootBoneRegistry, transformRegistry:TransformRegistry, colliderGroupRegistry:ColliderGroupRegistry) : void
+}
+MonoBehaviour <|-- FastSpringBoneScheduler
+@enduml

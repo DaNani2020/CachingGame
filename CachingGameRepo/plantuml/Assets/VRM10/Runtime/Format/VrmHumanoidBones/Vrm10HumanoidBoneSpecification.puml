@@ -1,0 +1,7 @@
+@startuml
+class Vrm10HumanoidBoneSpecification <<sealed>> {
+    + {static} GetDefine(bone:Vrm10HumanoidBones) : Vrm10HumanoidBoneAttribute
+    + {static} ConvertToUnityBone(bone:Vrm10HumanoidBones) : HumanBodyBones
+    + {static} ConvertFromUnityBone(bone:HumanBodyBones) : Vrm10HumanoidBones
+}
+@enduml

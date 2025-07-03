@@ -1,0 +1,72 @@
+@startuml
+class Rotation_ {
+    + {static} Euler(v:Vector) : Rotation
+    + {static} Euler(x:float, y:float, z:float) : Rotation
+    + {static} FromToRotation(v1:Vector, v2:Vector) : Rotation
+}
+class Sensor {
+    + Sensor(_device:DeviceView)
+    + <<virtual>> Update() : Tracker.Status
+    + {static} CalculateBoneRotation(bonePosition:Vector, parentBonePosition:Vector, upDirection:Vector) : Rotation
+    + positionConfidence : float <<get>>
+    + rotationConfidence : float <<get>>
+}
+class Controller {
+    + Controller(_device:DeviceView)
+}
+enum Status {
+    Unavailable,
+    Present,
+    Tracking,
+}
+class TargetData {
+    + length : float
+}
+struct Confidence {
+    + position : float <<get>> <<set>>
+    + rotation : float <<get>> <<set>>
+    + length : float <<get>> <<set>>
+    + Degrade() : void
+}
+class DeviceView {
+    + <<virtual>> ToWorldPosition(localPosition:Vector) : Vector
+    + <<virtual>> ToWorldOrientation(localRotation:Rotation) : Rotation
+}
+struct State {
+    + sensorID : int
+    + confidence : float
+    + present : bool
+}
+enum ID {
+    Head,
+    LeftHand,
+    RightHand,
+    Hips,
+    LeftFoot,
+    RightFoot,
+    Tracker1,
+    Tracker2,
+    Tracker3,
+    Tracker4,
+    Count,
+}
+Sensor --> "device" DeviceView
+Sensor --> "localSensorPosition" Vector
+Sensor --> "localSensorRotation" Rotation
+Sensor --> "sensorPosition" Vector
+Sensor --> "sensorRotation" Rotation
+Sensor --> "sensor2TargetPosition" Vector
+Sensor --> "sensor2TargetRotation" Rotation
+Sensor <|-- Controller
+TargetData o-> "position" Vector
+TargetData o-> "rotation" Rotation
+TargetData --> "confidence" Confidence
+TargetData o-> "startPosition" Vector
+Confidence --> "none" Confidence
+DeviceView --> "position" Vector
+DeviceView --> "orientation" Rotation
+Sensor +-- State
+State --> "position" Vector
+State --> "rotation" Rotation
+Sensor +-- ID
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+class HandMovements {
+    + <<override>> Start(humanoid:HumanoidControl, _target:HumanoidTarget) : void
+    + {static} DetachHand(handTarget:HandTarget) : void
+    + ReattachHand() : void
+    + {static} Update(handTarget:HandTarget) : void
+    + FixedUpdate() : void
+    + {static} SetAllColliders(transform:Transform, enabled:bool) : void
+    + {static} SetAllColliders(obj:GameObject, enabled:bool) : void
+}
+Movements <|-- HandMovements
+HandMovements --> "handTarget" HandTarget
+HandMovements --> "toOtherHandle" Vector3
+HandMovements --> "hand2handle" Quaternion
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+class DisplayText {
+    + IsLeftHand : bool = false
+}
+enum TextSelect {
+    Motion,
+    Role,
+    Type,
+}
+MonoBehaviour <|-- DisplayText
+DisplayText o-> "TextFor" TextSelect
+DisplayText +-- TextSelect
+@enduml

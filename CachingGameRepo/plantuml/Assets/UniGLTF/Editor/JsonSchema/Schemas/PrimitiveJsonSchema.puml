@@ -1,0 +1,35 @@
+@startuml
+abstract class PrimitiveJsonSchemaBase {
+    + <<override>> IsInline : bool <<get>>
+    + <<override>> CreateSerializationCondition(argName:string) : string
+    + <<override>> GenerateSerializerCall(callName:string, argName:string) : string
+}
+class BoolJsonSchema {
+    + <<override>> ValueType : string <<get>>
+    + BoolJsonSchema(src:JsonSchemaSource)
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class IntegerJsonSchema {
+    + <<readonly>> Minimum : int?
+    + <<readonly>> ExclusiveMinimum : bool
+    + <<readonly>> Maximum : int?
+    + <<readonly>> MultipleOf : int?
+    + IndexTargetJsonPath : string
+    + IntegerJsonSchema(source:JsonSchemaSource)
+    + <<override>> ValueType : string <<get>>
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class NumberJsonSchema {
+    + <<readonly>> Minimum : double?
+    + <<readonly>> ExclusiveMinimum : bool
+    + <<readonly>> Maximum : double?
+    + <<readonly>> MultipleOf : double?
+    + NumberJsonSchema(source:JsonSchemaSource)
+    + <<override>> ValueType : string <<get>>
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+JsonSchemaBase <|-- PrimitiveJsonSchemaBase
+PrimitiveJsonSchemaBase <|-- BoolJsonSchema
+PrimitiveJsonSchemaBase <|-- IntegerJsonSchema
+PrimitiveJsonSchemaBase <|-- NumberJsonSchema
+@enduml

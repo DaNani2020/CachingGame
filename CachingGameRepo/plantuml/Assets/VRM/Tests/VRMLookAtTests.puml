@@ -1,0 +1,7 @@
+@startuml
+class VRMLookAtTests {
+    + VRMLookAtTest() : void
+    + VRMLookAtCurveMapWithFreezeTest() : void
+    + VRMLookAtCurveMapTest() : void
+}
+@enduml

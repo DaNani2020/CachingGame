@@ -1,0 +1,6 @@
+@startuml
+class VRMTextureEnumerateTests {
+    + TextureEnumerationTest() : void
+    + TextureEnumerationInUnknownShader() : void
+}
+@enduml

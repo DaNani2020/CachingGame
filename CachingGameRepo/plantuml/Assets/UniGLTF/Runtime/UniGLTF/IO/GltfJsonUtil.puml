@@ -1,0 +1,7 @@
+@startuml
+class GltfJsonUtil <<static>> {
+    + <<const>> EXTENSION_USED_KEY : string = "extensionsUsed"
+    + {static} TraverseJsonPath(node:JsonNode, path:List<object>) : IEnumerable<object[]>
+    + {static} FindUsedExtensionsAndUpdateJson(src:string) : string
+}
+@enduml

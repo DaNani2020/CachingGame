@@ -1,0 +1,5 @@
+@startuml
+class HumanoidLoader <<static>> {
+    + {static} LoadHumanoidAvatar(root:Transform, boneMap:IEnumerable<(Transform, HumanBodyBones)>) : Avatar
+}
+@enduml

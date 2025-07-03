@@ -1,0 +1,15 @@
+@startuml
+class FastSpringBoneService <<sealed>> {
+    + {static} Free() : void
+    + ManualUpdate(deltaTime:float) : void
+}
+enum UpdateTypes {
+    Manual,
+    LateUpdate,
+}
+MonoBehaviour <|-- FastSpringBoneService
+FastSpringBoneService o-> "UpdateType" UpdateTypes
+FastSpringBoneService --> "BufferCombiner" FastSpringBoneBufferCombiner
+FastSpringBoneService --> "Instance" FastSpringBoneService
+FastSpringBoneService +-- UpdateTypes
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+class VRMLookAtBlendShapeApplyer {
+    + DrawGizmo : bool = true
+    + m_notSetValueApply : bool = true
+    + OnImported(context:VRMImporterContext) : void
+}
+MonoBehaviour <|-- VRMLookAtBlendShapeApplyer
+IVRMComponent <|-- VRMLookAtBlendShapeApplyer
+VRMLookAtBlendShapeApplyer o-> "Horizontal" CurveMapper
+VRMLookAtBlendShapeApplyer o-> "VerticalDown" CurveMapper
+VRMLookAtBlendShapeApplyer o-> "VerticalUp" CurveMapper
+@enduml

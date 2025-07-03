@@ -1,0 +1,14 @@
+@startuml
+class BodyTrackingMenu {
+    + SetArmMode() : void
+    + SetUpperMode() : void
+    + SetFullMode() : void
+    + SetUpperBodyAndLegMode() : void
+    + BeginTracking() : void
+    + StopTracking() : void
+}
+MonoBehaviour <|-- BodyTrackingMenu
+BodyTrackingMenu o-> "ikScript" BodyTrackingSample
+BodyTrackingMenu o-> "canvasTitle" Text
+BodyTrackingMenu o-> "beginBtn" Button
+@enduml

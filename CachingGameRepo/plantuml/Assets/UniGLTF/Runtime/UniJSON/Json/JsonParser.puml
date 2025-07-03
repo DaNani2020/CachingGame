@@ -1,0 +1,7 @@
+@startuml
+class JsonParser <<static>> {
+    + {static} Parse(tree:JsonNode, segment:Utf8String) : JsonNode
+    + {static} Parse(json:String) : JsonNode
+    + {static} Parse(json:Utf8String) : JsonNode
+}
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class VRM10SpringBoneColliderEditor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- VRM10SpringBoneColliderEditor
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+class HandRingPointer <<sealed>> {
+    + PointerRingWidth : float
+    + PointerCircleRadius : float
+    + PointerDistance : float
+    + PointerRenderQueue : int
+    + PointerSortingOrder : int = 32767
+    + ShowPointer : bool = true
+    + GetPointerPosition() : Vector3
+    + OnHover(hovering:bool, intersecPosition:Vector3) : void
+    + OnHover(hovering:bool) : void
+}
+enum DrawMode {
+    FORWARD= 0,
+    UPWARD= 1,
+}
+MonoBehaviour <|-- HandRingPointer
+HandRingPointer o-> "PointerColor" Color
+HandRingPointer o-> "ProgressColor" Color
+HandRingPointer o-> "PointerMaterial" Material
+HandRingPointer +-- DrawMode
+@enduml

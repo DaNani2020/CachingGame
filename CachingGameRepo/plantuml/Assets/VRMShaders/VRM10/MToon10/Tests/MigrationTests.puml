@@ -1,0 +1,6 @@
+@startuml
+class MigrationTests <<sealed>> {
+    + MigrateToonyAndShift() : void
+    + MigrateGiIntensity() : void
+}
+@enduml

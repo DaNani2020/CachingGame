@@ -1,0 +1,5 @@
+@startuml
+class AssetTests {
+    + TestAsset() : void
+}
+@enduml

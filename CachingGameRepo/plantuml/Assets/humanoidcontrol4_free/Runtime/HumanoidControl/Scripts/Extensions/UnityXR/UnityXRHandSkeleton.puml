@@ -1,0 +1,5 @@
+@startuml
+class UnityXRHandSkeleton {
+}
+HandSkeleton <|-- UnityXRHandSkeleton
+@enduml

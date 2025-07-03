@@ -1,0 +1,5 @@
+@startuml
+class GltfMaterialExportUtils <<static>> {
+    + {static} ExportTextureTransform(src:Material, dstTextureInfo:glTFTextureInfo, targetTextureName:string) : void
+}
+@enduml

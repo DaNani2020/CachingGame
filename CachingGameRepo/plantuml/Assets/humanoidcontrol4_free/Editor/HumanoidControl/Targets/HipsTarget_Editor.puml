@@ -1,0 +1,24 @@
+@startuml
+class HipsTarget_Editor {
+    + OnEnable() : void
+    + OnDisable() : void
+    + <<override>> OnInspectorGUI() : void
+    + {static} GetHumanoid(target:HumanoidTarget) : HumanoidControl
+    + showSensors : bool = true
+    + showSettings : bool
+    + OnSceneGUI() : void
+}
+abstract class TargetProps {
+    + TargetProps(serializedObject:SerializedObject, _sensor:TorsoSensor, _hipsTarget:HipsTarget, unitySensorName:string)
+    + <<virtual>> SetSensor2Target() : void
+    + {abstract} Inspector() : void
+}
+Editor <|-- HipsTarget_Editor
+HipsTarget_Editor +-- TargetProps
+TargetProps --> "enabledProp" SerializedProperty
+TargetProps --> "sensorComponentProp" SerializedProperty
+TargetProps --> "sensor2TargetPositionProp" SerializedProperty
+TargetProps --> "sensor2TargetRotationProp" SerializedProperty
+TargetProps --> "hipsTarget" HipsTarget
+TargetProps --> "sensor" TorsoSensor
+@enduml

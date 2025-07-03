@@ -1,0 +1,16 @@
+@startuml
+class HandInformation {
+    + IsLeftHand : bool = false
+}
+MonoBehaviour <|-- HandInformation
+HandInformation o-> "ValidPose" Text
+HandInformation o-> "Confidence" Text
+HandInformation o-> "HandScale" Text
+HandInformation o-> "HandMotion" Text
+HandInformation o-> "HoldRole" Text
+HandInformation o-> "HoldObject" Text
+HandInformation o-> "PinchOrigin" Text
+HandInformation o-> "PinchDirection" Text
+HandInformation o-> "PinchStrength" Text
+HandInformation o-> "PinchThreshold" Text
+@enduml

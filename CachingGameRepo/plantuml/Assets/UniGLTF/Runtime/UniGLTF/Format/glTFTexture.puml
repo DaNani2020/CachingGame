@@ -1,0 +1,26 @@
+@startuml
+class glTFTextureSampler {
+    + name : string
+}
+class glTFImage {
+    + name : string
+    + uri : string
+    + bufferView : int
+    + mimeType : string
+}
+class glTFTexture {
+    + sampler : int
+    + source : int?
+    + name : string
+}
+glTFTextureSampler o-> "magFilter" glFilter
+glTFTextureSampler o-> "minFilter" glFilter
+glTFTextureSampler o-> "wrapS" glWrap
+glTFTextureSampler o-> "wrapT" glWrap
+glTFTextureSampler --> "extensions" glTFExtension
+glTFTextureSampler --> "extras" glTFExtension
+glTFImage --> "extensions" glTFExtension
+glTFImage --> "extras" glTFExtension
+glTFTexture --> "extensions" glTFExtension
+glTFTexture --> "extras" glTFExtension
+@enduml

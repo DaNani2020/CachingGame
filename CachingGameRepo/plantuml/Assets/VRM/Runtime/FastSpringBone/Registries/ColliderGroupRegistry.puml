@@ -1,0 +1,7 @@
+@startuml
+class ColliderGroupRegistry <<sealed>> {
+}
+class "Registry`1"<T> {
+}
+"Registry`1" "<NativeColliderGroups>" <|-- ColliderGroupRegistry
+@enduml

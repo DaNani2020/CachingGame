@@ -1,0 +1,22 @@
+@startuml
+class MouseInput {
+    + isLeft : bool <<get>> <<set>>
+    + leftButtonIsTrigger1 : bool = false
+    + middleButtonIsButton1 : bool = false
+    + rightButtonIsTrigger2 : bool = false
+    + SetEventHandler(button:Button, eventType:EventHandler.Type, boolEvent:UnityAction<bool>) : void
+    + PressLeft(value:float) : void
+    + Release(button:Button) : void
+}
+enum Button {
+    MouseY,
+    MouseX,
+    ScrollWheel,
+    Left,
+    Middle,
+    Right,
+}
+MonoBehaviour <|-- MouseInput
+MouseInput o-> "side" Side
+MouseInput +-- Button
+@enduml

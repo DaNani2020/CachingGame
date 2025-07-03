@@ -1,0 +1,20 @@
+@startuml
+class Bvh {
+    + FrameCount : int <<get>>
+    + TryGetPathWithPropertyFromChannel(channel:BvhChannelCurve, pathWithProp:PathWithProperty) : bool
+    + GetPath(node:BvhNode) : string
+    + GetChannel(target:BvhNode, channel:BvhChannel) : BvhChannelCurve
+    + <<override>> ToString() : string
+    + Bvh(root:BvhNode, frames:int, seconds:float)
+    + ParseFrame(frame:int, line:string) : void
+    + {static} Parse(src:string) : Bvh
+}
+struct PathWithProperty {
+    + Path : string
+    + Property : string
+    + IsLocation : bool
+}
+Bvh --> "Root" BvhNode
+Bvh --> "FrameTime" TimeSpan
+Bvh +-- PathWithProperty
+@enduml

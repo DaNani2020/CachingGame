@@ -1,0 +1,8 @@
+@startuml
+enum TextureExportTypes {
+    Srgb,
+    Linear,
+    OcclusionMetallicRoughness,
+    Normal,
+}
+@enduml

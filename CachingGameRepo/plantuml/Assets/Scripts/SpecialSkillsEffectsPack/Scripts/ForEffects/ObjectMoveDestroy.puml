@@ -1,0 +1,19 @@
+@startuml
+class ObjectMoveDestroy {
+    + maxLength : float
+    + isDestroy : bool
+    + ObjectDestroyTime : float
+    + TailDestroyTime : float
+    + HitObjectDestroyTime : float
+    + maxTime : float = 1
+    + MoveSpeed : float = 10
+    + isCheckHitTag : bool
+    + mtag : string
+    + isShieldActive : bool = false
+    + isHitMake : bool = true
+}
+MonoBehaviour <|-- ObjectMoveDestroy
+ObjectMoveDestroy --> "m_gameObjectMain" GameObject
+ObjectMoveDestroy --> "m_gameObjectTail" GameObject
+ObjectMoveDestroy --> "m_hitObject" Transform
+@enduml

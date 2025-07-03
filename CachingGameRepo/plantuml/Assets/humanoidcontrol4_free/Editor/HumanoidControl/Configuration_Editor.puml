@@ -1,0 +1,68 @@
+@startuml
+class ConfigurationCheck {
+    + {static} RetrievePackageList() : void
+    + {static} Progress() : void
+    + {static} CheckXrSdks() : void
+}
+class Configuration_Editor {
+    + <<const>> arkitPath : string = "Extensions/Arkit/ArKit.cs"
+    + {static} GetConfiguration() : Configuration
+    + OnEnable() : void
+    + {static} FindHumanoidFolder() : string
+    + <<override>> OnInspectorGUI() : void
+    + {static} ConfigurationGUI(serializedConfiguration:SerializedObject) : bool
+    + {static} OpenVRSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} SteamVRSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} ViveTrackerSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} OculusSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} WindowsMRSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} LeapSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} Kinect1SettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} Kinect2SettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} Kinect4SettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} AstraSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} RealsenseSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} HydraSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} TobiiSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} ArkitSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} PupilSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} NeuronSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} Hi5SettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} OptitrackSettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} AntilatencySettingUI(serializedConfiguration:SerializedObject) : bool
+    + {static} CheckExtensions(configuration:Configuration) : void
+    + {static} CheckExtensionUnityXR() : void
+    + {static} CheckExtensionOpenVR(configuration:Configuration) : bool
+    + {static} CheckExtensionSteamVR(configuration:Configuration) : bool
+    + {static} CheckExtensionViveTracker(configuration:Configuration) : bool
+    + {static} CheckExtensionOculus(configuration:Configuration) : bool
+    + {static} CheckExtensionWindowsMR(configuration:Configuration) : bool
+    + {static} CheckExtensionNeuron(configuration:Configuration) : bool
+    + {static} CheckExtensionHi5(configuration:Configuration) : bool
+    + {static} CheckExtensionRealsense(configuration:Configuration) : bool
+    + {static} CheckExtensionLeap(configuration:Configuration) : bool
+    + {static} CheckExtensionKinect1(configuration:Configuration) : bool
+    + {static} CheckExtensionKinect2(configuration:Configuration) : bool
+    + {static} CheckExtensionKinect4(configuration:Configuration) : bool
+    + {static} CheckExtensionAstra(configuration:Configuration) : bool
+    + {static} CheckExtensionHydra(configuration:Configuration) : bool
+    + {static} CheckExtensionTobii(configuration:Configuration) : bool
+    + {static} CheckExtensionArkit(configuration:Configuration) : bool
+    + {static} CheckExtensionPupil(configuration:Configuration) : bool
+    + {static} CheckExtensionOptitrack(configuration:Configuration) : bool
+    + {static} CheckExtensionAntilatency(configuration:Configuration) : bool
+    + {static} CheckExtensionCustom(configuration:Configuration) : bool
+    + {static} CheckExtension(enabled:bool, filePath:string, define:string) : bool
+    + {static} CheckExtension(filePath:string, define:string) : bool
+    + {static} GlobalDefine(name:string) : void
+    + {static} GlobalUndefine(name:string) : void
+    + {static} DoesTypeExist(className:string) : bool
+}
+class CustomAssetUtility <<static>> {
+    + {static} CreateAsset() : void
+}
+class "List`1"<T> {
+}
+ConfigurationCheck --> "packageNameList<string>" "List`1"
+Editor <|-- Configuration_Editor
+@enduml

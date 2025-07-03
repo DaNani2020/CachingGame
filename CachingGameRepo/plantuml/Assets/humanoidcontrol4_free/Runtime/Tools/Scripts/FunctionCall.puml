@@ -1,0 +1,52 @@
+@startuml
+class FunctionCall <<partial>> {
+    + methodName : string
+    + FunctionCall()
+    + FunctionCall(targetGameObject:GameObject, methodName:string)
+    + {static} ToSystemType(parameterType:ParameterType) : Type
+    + AddParameter() : Parameter
+    + {static} Execute(target:GameObject, methodName:string) : void
+    + <<virtual>> Execute(networking:Networking) : void
+    + {static} Execute(target:GameObject, methodName:string, boolValue:bool) : void
+    + {static} Execute(target:GameObject, methodName:string, floatValue:float) : void
+    + Execute(value:bool, networking:Networking) : void
+    + Execute(value:int) : void
+    + <<virtual>> Execute(value:float) : void
+    + Execute(value:Vector3) : void
+    + Execute(value:GameObject) : void
+    + ExecuteString(s:string, value:bool) : void
+    + ExecuteString(s:string, value:float) : void
+    + ExecuteString(s:string, value:int) : void
+    + {static} GetGameObject(obj:UnityEngine.Object) : GameObject
+}
+enum ParameterType {
+    Void,
+    Float,
+    Int,
+    Bool,
+    Vector3,
+    GameObject,
+    Rigidbody,
+    String,
+}
+class Parameter {
+    + fromEvent : bool = false
+    + localProperty : string
+    + floatConstant : float
+    + intConstant : int
+    + boolConstant : bool
+    + stringConstant : string
+}
+enum Networking {
+    No,
+    Yes,
+}
+FunctionCall --> "targetGameObject" GameObject
+FunctionCall +-- ParameterType
+FunctionCall +-- Parameter
+Parameter --> "type" ParameterType
+Parameter --> "vector3Constant" Vector3
+Parameter --> "gameObjectConstant" GameObject
+Parameter --> "rigidbodyConstant" Rigidbody
+FunctionCall +-- Networking
+@enduml

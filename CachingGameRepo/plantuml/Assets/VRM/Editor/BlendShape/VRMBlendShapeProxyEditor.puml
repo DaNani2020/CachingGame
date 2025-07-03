@@ -1,0 +1,11 @@
+@startuml
+class VRMBlendShapeProxyEditor {
+    + <<override>> OnInspectorGUI() : void
+}
+class BlendShapeSlider {
+    + BlendShapeSlider(target:VRMBlendShapeProxy, key:BlendShapeKey)
+    + Slider() : KeyValuePair<BlendShapeKey, float>
+}
+Editor <|-- VRMBlendShapeProxyEditor
+VRMBlendShapeProxyEditor +-- BlendShapeSlider
+@enduml

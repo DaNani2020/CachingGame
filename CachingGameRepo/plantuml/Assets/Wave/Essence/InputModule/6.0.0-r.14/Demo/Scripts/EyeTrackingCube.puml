@@ -1,0 +1,5 @@
+@startuml
+class EyeTrackingCube <<sealed>> {
+}
+MonoBehaviour <|-- EyeTrackingCube
+@enduml

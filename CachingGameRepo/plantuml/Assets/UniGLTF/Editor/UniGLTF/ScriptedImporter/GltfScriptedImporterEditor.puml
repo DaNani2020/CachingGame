@@ -1,0 +1,14 @@
+@startuml
+class GltfScriptedImporterEditor {
+    + <<override>> OnEnable() : void
+    + <<override>> OnDisable() : void
+    + <<override>> OnInspectorGUI() : void
+}
+enum Tabs {
+    Model,
+    Animation,
+    Materials,
+}
+RemapScriptedImporterEditorBase <|-- GltfScriptedImporterEditor
+GltfScriptedImporterEditor +-- Tabs
+@enduml

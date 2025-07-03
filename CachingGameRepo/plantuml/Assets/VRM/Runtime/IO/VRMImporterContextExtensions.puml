@@ -1,0 +1,5 @@
+@startuml
+class VRMImporterContextExtensions <<static>> {
+    + {static} ReadMeta(context:VRMImporterContext, createThumbnail:bool) : VRMMetaObject
+}
+@enduml

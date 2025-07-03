@@ -1,0 +1,7 @@
+@startuml
+struct BlittableColliderGroups {
+    + Length : int <<get>>
+    + DrawGizmos() : void
+    + BlittableColliderGroups(data:BlittableColliderGroup*, length:int)
+}
+@enduml

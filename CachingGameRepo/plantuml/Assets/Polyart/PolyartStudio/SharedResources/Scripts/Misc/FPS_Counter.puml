@@ -1,0 +1,6 @@
+@startuml
+class FPS_Counter {
+    + updateInterval : float = 0.5f
+}
+MonoBehaviour <|-- FPS_Counter
+@enduml

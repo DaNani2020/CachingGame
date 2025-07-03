@@ -1,0 +1,10 @@
+@startuml
+class VRM10SpringBoneJoint {
+    + m_stiffnessForce : float = 1.0f
+    + m_gravityPower : float = 0
+    + m_dragForce : float = 0.4f
+    + m_jointRadius : float = 0.02f
+}
+MonoBehaviour <|-- VRM10SpringBoneJoint
+VRM10SpringBoneJoint o-> "m_gravityDir" Vector3
+@enduml

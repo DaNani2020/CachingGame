@@ -1,0 +1,31 @@
+@startuml
+enum FingerBones {
+    Proximal= 0,
+    Intermediate= 1,
+    Distal= 2,
+    LastBone= 3,
+}
+class ArmSensor {
+    + isLeft : bool
+    + ArmSensor(isLeft:bool, deviceView:DeviceView)
+    + {static} CalculateUpperArmOrientation(upperArmPosition:Vector, upperArmLength:float, forearmUp:Vector, forearmLength:float, handPosition:Vector, isLeft:bool) : Rotation
+    + {static} CalculateArmOrientation(joint1Position:Vector, joint1Up:Vector, joint2Position:Vector, isLeft:bool) : Rotation
+}
+class Finger {
+    + curl : float
+}
+Sensor <|-- ArmSensor
+ArmSensor --> "shoulder" TargetData
+ArmSensor --> "upperArm" TargetData
+ArmSensor --> "forearm" TargetData
+ArmSensor --> "hand" TargetData
+ArmSensor --> "thumb" Finger
+ArmSensor --> "indexFinger" Finger
+ArmSensor --> "middleFinger" Finger
+ArmSensor --> "ringFinger" Finger
+ArmSensor --> "littleFinger" Finger
+ArmSensor +-- Finger
+Finger o-> "proximal" TargetData
+Finger o-> "intermediate" TargetData
+Finger o-> "distal" TargetData
+@enduml

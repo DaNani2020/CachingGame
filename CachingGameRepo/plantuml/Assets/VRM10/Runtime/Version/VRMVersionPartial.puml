@@ -1,0 +1,15 @@
+@startuml
+class VRMVersion <<static>> <<partial>> {
+    + {static} IsNewer(version:string) : bool
+    + {static} IsNewer(newer:string, older:string) : bool
+    + {static} ParseVersion(version:string, v:Version) : bool
+    + <<const>> MENU : string = "VRM1"
+}
+struct Version {
+    + Major : int
+    + Minor : int
+    + Patch : int
+    + Pre : string
+}
+VRMVersion +-- Version
+@enduml

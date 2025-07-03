@@ -1,0 +1,10 @@
+@startuml
+class GltfSerializer <<static>> {
+    + {static} SerializeTo(dst:UniGLTF.glTFExtension, extension:VRMC_node_constraint) : void
+    + {static} Serialize(f:JsonFormatter, value:VRMC_node_constraint) : void
+    + {static} Serialize_Constraint(f:JsonFormatter, value:Constraint) : void
+    + {static} __constraint_Serialize_Roll(f:JsonFormatter, value:RollConstraint) : void
+    + {static} __constraint_Serialize_Aim(f:JsonFormatter, value:AimConstraint) : void
+    + {static} __constraint_Serialize_Rotation(f:JsonFormatter, value:RotationConstraint) : void
+}
+@enduml

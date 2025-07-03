@@ -1,0 +1,5 @@
+@startuml
+class NormalConverter <<static>> {
+    + {static} Export(texture:Texture) : Texture2D
+}
+@enduml

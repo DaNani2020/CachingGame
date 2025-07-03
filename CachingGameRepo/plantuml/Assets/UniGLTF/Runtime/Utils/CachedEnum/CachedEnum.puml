@@ -1,0 +1,7 @@
+@startuml
+class CachedEnum <<static>> {
+    + {static} Parse(name:string, ignoreCase:bool) : T
+    + {static} ParseOrDefault(name:string, ignoreCase:bool, defaultValue:T) : T
+    + {static} GetValues() : T[]
+}
+@enduml

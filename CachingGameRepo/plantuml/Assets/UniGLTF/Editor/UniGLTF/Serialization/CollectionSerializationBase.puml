@@ -1,0 +1,12 @@
+@startuml
+abstract class CollectionSerializationBase {
+    + IsInline : bool <<get>>
+    + {abstract} GenerateDeserializer(writer:StreamWriter, callName:string) : void
+    + GenerateDeserializerCall(callName:string, argName:string) : string
+    + {abstract} CreateSerializationCondition(argName:string, t:JsonSchemaAttribute) : string
+    + {abstract} GenerateSerializer(writer:StreamWriter, callName:string) : void
+    + GenerateSerializerCall(callName:string, argName:string) : string
+}
+IValueSerialization <|-- CollectionSerializationBase
+CollectionSerializationBase --> "ValueType" Type
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class VRMSpringUtility <<static>> {
+    + {static} ExportSecondary(root:Transform, nodes:List<Transform>, addSecondaryColliderGroup:Action<glTF_VRM_SecondaryAnimationColliderGroup>, addSecondaryGroup:Action<glTF_VRM_SecondaryAnimationGroup>) : void
+    + {static} LoadSecondary(root:Transform, nodes:List<Transform>, secondaryAnimation:glTF_VRM_SecondaryAnimation) : void
+}
+@enduml

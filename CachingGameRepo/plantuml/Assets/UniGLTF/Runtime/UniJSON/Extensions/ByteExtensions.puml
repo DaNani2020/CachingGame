@@ -1,0 +1,12 @@
+@startuml
+class ByteExtensions <<static>> {
+    + {static} GetHexDigit(n:UInt16, index:int) : Byte
+    + {static} GetHexDigit(n:UInt32, index:int) : Byte
+    + {static} GetHexDigit(n:UInt64, index:int) : Byte
+    + {static} GetHexDigit(n:Int16, index:int) : Byte
+    + {static} GetHexDigit(n:Int32, index:int) : Byte
+    + {static} GetHexDigit(n:Int64, index:int) : Byte
+    + {static} ToUint32(n:Single, buffer:Byte[]) : UInt32
+    + {static} ToUint64(n:Double, buffer:Byte[]) : UInt64
+}
+@enduml

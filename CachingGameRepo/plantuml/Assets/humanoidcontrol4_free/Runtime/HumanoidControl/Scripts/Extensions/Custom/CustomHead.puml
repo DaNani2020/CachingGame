@@ -1,0 +1,8 @@
+@startuml
+class CustomHead {
+    + <<override>> name : string <<get>>
+    + <<override>> Start(_humanoid:HumanoidControl, targetTransform:Transform) : void
+    + <<override>> Update() : void
+}
+HeadSensor <|-- CustomHead
+@enduml

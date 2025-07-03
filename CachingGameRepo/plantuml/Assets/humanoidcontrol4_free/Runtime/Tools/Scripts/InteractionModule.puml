@@ -1,0 +1,72 @@
+@startuml
+enum InputDeviceIDs {
+    Head,
+    LeftHand,
+    RightHand,
+    Controller,
+}
+class InteractionEventData {
+    + InteractionEventData(eventSystem:EventSystem)
+}
+class InteractionModule {
+    + CreateNewInteraction(transform:Transform, timedClick:float) : int
+    + CreateNewInteraction(transform:Transform, timedClick:float, eventSystem:EventSystem) : int
+    + ActivatePointing(inputDevice:int, active:bool) : void
+    + IsPointing(inputDevice:int) : bool
+    + SetPointingDirection(inputDevice:int, direction:Vector3) : void
+    + IsTimedClick(inputDevice:int) : bool
+    + ClickDown(inputDevice:int) : void
+    + ClickUp(inputDevice:int) : void
+    + EnableTouchInput(humanoid:Humanoid.HumanoidControl, isLeft:bool, autoActivation:float) : void
+    + ActivateFingerPointing(isPointing:bool, isLeft:bool) : void
+    + OnFingerTouchStart(isLeft:bool, obj:GameObject) : void
+    + OnFingerTouchEnd(isLeft:bool) : void
+    + HandInteractionActivation(isLeft:bool) : void
+    + GetFocusPoint(inputDeviceID:int) : Vector3
+    + GetFocusRotation(inputDeviceID:int) : Quaternion
+    + GetFocusObject(inputDeviceID:int) : GameObject
+    + GetTouchObject(inputDeviceID:InputDeviceIDs) : GameObject
+    + GetGazeDuration(inputDeviceID:InputDeviceIDs) : float
+    + SetExternalRayCast(inputDeviceID:int, focusPosition:Vector3, focusRotation:Quaternion, focusObject:GameObject) : void
+    + <<override>> Process() : void
+}
+enum PointerType {
+    Point,
+    Touch,
+}
+class InteractionPointer {
+    + focusingEnabled : bool = false
+    + focusing : bool
+    + focusStart : float
+    + focusTimeToTouch : float = 2
+    + externalRayCast : bool = false
+    + clicking : bool = false
+    + hasClicked : bool
+    + InteractionPointer(type:PointerType, pointerTransform:Transform, eventSystem:EventSystem)
+    + ProcessFocus() : void
+    + ProcessNoFocus() : void
+    + ProcessTouch() : void
+    + ProcessNoTouch() : void
+    + ProcessClick() : void
+}
+PointerEventData <|-- InteractionEventData
+InteractionEventData --> "inputDevice" InputDeviceIDs
+InteractionEventData --> "transform" Transform
+BaseInputModule <|-- InteractionModule
+InteractionModule +-- PointerType
+InteractionModule +-- InteractionPointer
+InteractionPointer --> "pointerTransform" Transform
+InteractionPointer --> "localPointingDirection" Vector3
+InteractionPointer --> "data" InteractionEventData
+InteractionPointer --> "focusObject" GameObject
+InteractionPointer --> "previousFocusObject" GameObject
+InteractionPointer --> "focusPosition" Vector3
+InteractionPointer --> "focusRotation" Quaternion
+InteractionPointer --> "previousScreenPosition" Vector2
+InteractionPointer --> "previousFocusPosition" Vector3
+InteractionPointer --> "focusPositionDelta" Vector3
+InteractionPointer --> "touchedObject" GameObject
+InteractionPointer --> "touchPosition" Vector3
+InteractionPointer --> "controllerInputSide" ControllerSide
+InteractionPointer --> "type" PointerType
+@enduml

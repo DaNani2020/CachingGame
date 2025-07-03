@@ -1,0 +1,8 @@
+@startuml
+class FormatterExtensions <<static>> <<partial>> {
+    + {static} GetStoreBytes(f:IFormatter) : ArraySegment<Byte>
+    + {static} Key(f:IFormatter, x:string) : void
+    + {static} Value(f:IFormatter, raw:IEnumerable<byte>, count:int) : void
+    + {static} Value(f:IFormatter, bytes:Byte[]) : void
+}
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+class SiteBuilder {
+    + {static} GenerateSiteBuilds() : void
+    + {static} BuildSites(savePath:string) : void
+    + {static} BuildWindowsSites(savePath:string) : void
+    + {static} BuildAndroidSites(savePath:string) : void
+    + {static} BuildWebGLSites(savePath:string) : void
+}
+class SiteBuilderWindow {
+    + {static} OpenWindow() : void
+}
+SiteBuilder o-> "siteBuilds" Sites
+SiteBuilder +-- SiteBuilderWindow
+EditorWindow <|-- SiteBuilderWindow
+@enduml

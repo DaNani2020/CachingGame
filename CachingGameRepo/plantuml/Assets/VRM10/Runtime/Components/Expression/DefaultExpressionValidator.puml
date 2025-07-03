@@ -1,0 +1,11 @@
+@startuml
+class DefaultExpressionValidator <<sealed>> {
+    + Validate(inputWeights:IReadOnlyDictionary<ExpressionKey, float>, actualWeights:IDictionary<ExpressionKey, float>, inputEyeDirection:LookAtEyeDirection, actualEyeDirection:LookAtEyeDirection, blinkOverrideRate:float, lookAtOverrideRate:float, mouthOverrideRate:float) : void
+}
+class Factory <<sealed>> {
+    + Create(expressionAvatar:VRM10ObjectExpression) : IExpressionValidator
+}
+IExpressionValidator <|-- DefaultExpressionValidator
+DefaultExpressionValidator +-- Factory
+IExpressionValidatorFactory <|-- Factory
+@enduml

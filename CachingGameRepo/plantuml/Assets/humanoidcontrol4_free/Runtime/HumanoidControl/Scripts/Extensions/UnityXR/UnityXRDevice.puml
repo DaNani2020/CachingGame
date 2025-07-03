@@ -1,0 +1,14 @@
+@startuml
+class UnityXRDevice <<static>> {
+    + {static} Start() : void
+}
+enum XRDeviceType {
+    None,
+    Oculus,
+    OpenVR,
+    WindowsMR,
+    Cardboard,
+}
+UnityXRDevice o-> "xrDevice" XRDeviceType
+UnityXRDevice +-- XRDeviceType
+@enduml

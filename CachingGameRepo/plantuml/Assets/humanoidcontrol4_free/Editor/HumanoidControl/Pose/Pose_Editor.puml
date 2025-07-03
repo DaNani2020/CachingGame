@@ -1,0 +1,17 @@
+@startuml
+class Pose_Editor {
+    + OnEnable() : void
+    + OnDisable() : void
+    + <<override>> OnInspectorGUI() : void
+    + {static} PoseMixerInspector(poseMixer:PoseMixer, humanoid:HumanoidControl, side:Side) : void
+    + {static} HumanoidPoseInspector(poseMixer:PoseMixer, mixedPose:MixedPose, poseIx:int, humanoid:HumanoidControl, side:Side) : MixedPose
+    + {static} UpdateScene(humanoid:HumanoidControl, target:ITarget, poseMixer:PoseMixer, selectedBone:BonePose, side:Side) : void
+    + {static} DotHandleCapSaveID(controlID:int, position:Vector3, rotation:Quaternion, size:float, et:EventType) : void
+}
+enum Reference {
+    HumanoidLocal,
+    BoneLocal,
+}
+Editor <|-- Pose_Editor
+Pose_Editor +-- Reference
+@enduml

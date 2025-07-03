@@ -1,0 +1,9 @@
+@startuml
+class ConstraintSource {
+    + Delta(sourceRotationOffset:Quaternion) : TR
+    + ConstraintSource(t:Transform, modelRoot:Transform)
+}
+ConstraintSource --> "ModelRoot" Transform
+ConstraintSource --> "ModelInitial" TR
+ConstraintSource --> "LocalInitial" TR
+@enduml

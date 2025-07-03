@@ -1,0 +1,18 @@
+@startuml
+class GameObjectEventHandlers {
+    + SetMethod(eventType:EventHandler.Type, voidAction:UnityAction, index:int) : void
+}
+class GameObjectEvent {
+    + GameObjectEvent()
+    + GameObjectEvent(eventType:Type)
+    + SetMethod(newEventType:Type, voidAction:UnityAction) : void
+    + SetMethod(newEventType:Type, boolAction:UnityAction<bool>) : void
+    + SetMethod(newEventType:Type, gameObjectAction:UnityAction<GameObject>) : void
+}
+class "EventHandlers`1"<T> {
+}
+"EventHandlers`1" "<GameObjectEvent>" <|-- GameObjectEventHandlers
+GameObjectEventHandlers --> "value" GameObject
+EventHandler <|-- GameObjectEvent
+GameObjectEvent --> "value" GameObject
+@enduml

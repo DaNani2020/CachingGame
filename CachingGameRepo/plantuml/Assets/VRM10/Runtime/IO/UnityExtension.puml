@@ -1,0 +1,6 @@
+@startuml
+class UnityExtension <<static>> {
+    + {static} ToFloat3(value:Vector3) : float[]
+    + {static} ToFloat4(value:Quaternion) : float[]
+}
+@enduml

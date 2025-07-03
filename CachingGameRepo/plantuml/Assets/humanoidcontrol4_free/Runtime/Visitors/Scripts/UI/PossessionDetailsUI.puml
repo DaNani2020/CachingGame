@@ -1,0 +1,14 @@
+@startuml
+class PossessionDetailsUI {
+    + SetPossesion(possession:VisitorPossessions.Possession) : void
+    + RetrievePossession(possession:VisitorPossessions.Possession) : void
+    + RetrievePossession() : void
+}
+MonoBehaviour <|-- PossessionDetailsUI
+PossessionDetailsUI --> "pawnPossessionsUI" PossessionsUI
+PossessionDetailsUI --> "nameUI" Text
+PossessionDetailsUI --> "countUI" Text
+PossessionDetailsUI --> "socket" Socket
+PossessionDetailsUI --> "humanoid" HumanoidControl
+PossessionDetailsUI --> "humanoidPossessions" VisitorPossessions
+@enduml

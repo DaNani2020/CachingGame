@@ -1,0 +1,7 @@
+@startuml
+class MToonInspector {
+    + <<override>> OnGUI(materialEditor:MaterialEditor, properties:MaterialProperty[]) : void
+    + <<override>> AssignNewShaderToMaterial(material:Material, oldShader:Shader, newShader:Shader) : void
+}
+ShaderGUI <|-- MToonInspector
+@enduml

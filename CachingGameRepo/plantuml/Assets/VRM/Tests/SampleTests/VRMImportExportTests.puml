@@ -1,0 +1,10 @@
+@startuml
+class JsonExtensions <<static>> {
+    + {static} ToJson(self:glTF) : string
+}
+class VRMImportExportTests {
+    + ImportExportTest() : void
+    + MeshCopyTest() : void
+    + SerializerCompare() : void
+}
+@enduml

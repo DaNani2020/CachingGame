@@ -1,0 +1,6 @@
+@startuml
+class EnumFlagsAttributeDrawer <<sealed>> {
+    + <<override>> OnGUI(position:Rect, prop:SerializedProperty, label:GUIContent) : void
+}
+PropertyDrawer <|-- EnumFlagsAttributeDrawer
+@enduml

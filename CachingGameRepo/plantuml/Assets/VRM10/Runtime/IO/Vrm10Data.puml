@@ -1,0 +1,7 @@
+@startuml
+class Vrm10Data {
+    + {static} Parse(data:GltfData) : Vrm10Data
+    + {static} Migrate(data:GltfData, vrm1Data:Vrm10Data, migration:MigrationData) : GltfData
+}
+Vrm10Data --> "Data" GltfData
+@enduml

@@ -1,0 +1,42 @@
+@startuml
+class MToon10Context <<sealed>> {
+    + MToon10Context(material:Material)
+    + Validate() : void
+    + AlphaCutoff : float <<get>>
+    + RenderQueueOffsetNumber : int <<get>>
+    + NormalTextureScale : float <<get>>
+    + ShadingShiftFactor : float <<get>>
+    + ShadingShiftTextureScale : float <<get>>
+    + ShadingToonyFactor : float <<get>>
+    + GiEqualizationFactor : float <<get>>
+    + ParametricRimFresnelPowerFactor : float <<get>>
+    + ParametricRimLiftFactor : float <<get>>
+    + RimLightingMixFactor : float <<get>>
+    + OutlineWidthFactor : float <<get>>
+    + OutlineLightingMixFactor : float <<get>>
+    + UvAnimationScrollXSpeedFactor : float <<get>>
+    + UvAnimationScrollYSpeedFactor : float <<get>>
+    + UvAnimationRotationSpeedFactor : float <<get>>
+}
+MToon10Context --> "AlphaMode" MToon10AlphaMode
+MToon10Context --> "TransparentWithZWriteMode" MToon10TransparentWithZWriteMode
+MToon10Context --> "DoubleSidedMode" MToon10DoubleSidedMode
+MToon10Context --> "BaseColorFactorSrgb" Color
+MToon10Context --> "BaseColorTexture" Texture
+MToon10Context --> "ShadeColorFactorSrgb" Color
+MToon10Context --> "ShadeColorTexture" Texture
+MToon10Context --> "NormalTexture" Texture
+MToon10Context --> "ShadingShiftTexture" Texture
+MToon10Context --> "EmissiveFactorLinear" Color
+MToon10Context --> "EmissiveTexture" Texture
+MToon10Context --> "MatcapColorFactorSrgb" Color
+MToon10Context --> "MatcapTexture" Texture
+MToon10Context --> "ParametricRimColorFactorSrgb" Color
+MToon10Context --> "RimMultiplyTexture" Texture
+MToon10Context --> "OutlineWidthMode" MToon10OutlineMode
+MToon10Context --> "OutlineWidthMultiplyTexture" Texture
+MToon10Context --> "OutlineColorFactorSrgb" Color
+MToon10Context --> "UvAnimationMaskTexture" Texture
+MToon10Context --> "TextureScale" Vector2
+MToon10Context --> "TextureOffset" Vector2
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+class VrmTextureDescriptorGenerator <<sealed>> {
+    + VrmTextureDescriptorGenerator(data:GltfData, vrm:glTF_VRM_extensions)
+    + Get() : TextureDescriptorSet
+}
+ITextureDescriptorGenerator <|-- VrmTextureDescriptorGenerator
+@enduml

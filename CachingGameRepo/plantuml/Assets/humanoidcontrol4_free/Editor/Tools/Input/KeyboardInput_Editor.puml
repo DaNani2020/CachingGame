@@ -1,0 +1,6 @@
+@startuml
+class KeyboardInput_Editor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- KeyboardInput_Editor
+@enduml

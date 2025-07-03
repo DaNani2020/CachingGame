@@ -1,0 +1,7 @@
+@startuml
+class Possessable_Editor {
+    + {static} IsPrefab(gameObject:GameObject) : bool
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- Possessable_Editor
+@enduml

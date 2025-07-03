@@ -1,0 +1,32 @@
+@startuml
+enum GlbChunkType {
+    JSON= 0x4E4F534A,
+    BIN= 0x004E4942,
+}
+struct GlbHeader {
+    + {static} WriteTo(s:Stream) : void
+}
+struct GlbChunk {
+    + ChunkTypeString : string
+    + GlbChunk(json:string)
+    + GlbChunk(bytes:ArraySegment<Byte>)
+    + GlbChunk(chunkTypeString:string, bytes:ArraySegment<Byte>)
+    + {static} CreateJson(json:string) : GlbChunk
+    + {static} CreateJson(bytes:ArraySegment<byte>) : GlbChunk
+    + {static} CreateBin(bytes:ArraySegment<Byte>) : GlbChunk
+    + WriteTo(s:Stream) : int
+}
+struct Glb {
+    + Glb(json:GlbChunk, binary:GlbChunk)
+    + {static} Create(json:ArraySegment<byte>, bin:ArraySegment<byte>) : Glb
+    + {static} Create(json:string, bin:ArraySegment<byte>) : Glb
+    + ToBytes() : byte[]
+    + {static} ToChunkType(src:string) : GlbChunkType
+}
+class "ArraySegment`1"<T> {
+}
+GlbChunk --> "ChunkType" GlbChunkType
+GlbChunk --> "Bytes<Byte>" "ArraySegment`1"
+Glb --> "Json" GlbChunk
+Glb --> "Binary" GlbChunk
+@enduml

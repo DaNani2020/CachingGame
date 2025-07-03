@@ -1,0 +1,25 @@
+@startuml
+abstract class glTFExtension {
+    + <<virtual>> Deserialize() : glTFExtensionImport
+    + <<virtual>> Serialize(f:JsonFormatter) : void
+}
+class glTFExtensionExport {
+    + glTFExtensionExport()
+    + <<override>> ToString() : string
+    + Add(key:string, raw:ArraySegment<byte>) : glTFExtensionExport
+    + <<override>> Serialize(f:JsonFormatter) : void
+    + {static} GetOrCreate(extension:glTFExtension) : glTFExtensionExport
+    + <<override>> Deserialize() : glTFExtensionImport
+}
+class glTFExtensionImport {
+    + glTFExtensionImport(json:JsonNode)
+    + <<override>> ToString() : string
+    + ObjectItems() : IEnumerable<KeyValuePair<JsonNode, JsonNode>>
+    + <<override>> Serialize(f:JsonFormatter) : void
+}
+class GltfExtensionFormatterExtensions <<static>> {
+    + {static} GenSerialize(f:JsonFormatter, v:glTFExtension) : void
+}
+glTFExtension <|-- glTFExtensionExport
+glTFExtension <|-- glTFExtensionImport
+@enduml

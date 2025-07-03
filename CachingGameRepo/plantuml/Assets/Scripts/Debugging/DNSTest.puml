@@ -1,0 +1,5 @@
+@startuml
+class DNSTest {
+}
+MonoBehaviour <|-- DNSTest
+@enduml

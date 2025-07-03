@@ -1,0 +1,11 @@
+@startuml
+class TextureSamplerUtil <<static>> {
+    + {static} ExportMagFilter(texture:Texture2D) : glFilter
+    + {static} ExportMinFilter(texture:Texture2D) : glFilter
+    + {static} ImportFilterMode(filterMode:glFilter) : (FilterMode FilterMode, bool EnableMipMap)
+    + {static} ExportWrapMode(wrapMode:TextureWrapMode) : glWrap
+    + {static} ImportWrapMode(wrap:glWrap) : TextureWrapMode
+    + {static} Export(texture:Texture2D) : glTFTextureSampler
+    + {static} CreateSampler(gltf:glTF, index:int) : SamplerParam
+}
+@enduml

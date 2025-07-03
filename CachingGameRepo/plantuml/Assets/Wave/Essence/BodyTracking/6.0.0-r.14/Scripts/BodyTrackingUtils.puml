@@ -1,0 +1,417 @@
+@startuml
+enum BodyTrackingResult {
+    SUCCESS= 0,
+    ERROR_IK_NOT_UPDATED= 1,
+    ERROR_INVALID_ARGUMENT= 2,
+    ERROR_IK_NOT_DESTROYED= 3,
+    ERROR_BODYTRACKINGMODE_NOT_FOUND= 100,
+    ERROR_TRACKER_AMOUNT_FAILED= 101,
+    ERROR_SKELETONID_NOT_FOUND= 102,
+    ERROR_INPUTPOSE_NOT_VALID= 103,
+    ERROR_NOT_CALIBRATED= 104,
+    ERROR_BODYTRACKINGMODE_NOT_ALIGNED= 105,
+    ERROR_AVATAR_INIT_FAILED= 106,
+    ERROR_CALIBRATE_FAILED= 107,
+    ERROR_COMPUTE_FAILED= 108,
+    ERROR_TABLE_STATIC= 109,
+    ERROR_SOLVER_NOT_FOUND= 110,
+    ERROR_NOT_INITIALIZATION= 111,
+    ERROR_JOINT_NOT_FOUND= 112,
+    ERROR_FATAL_ERROR= 255,
+}
+enum DeviceExtRole {
+    Unknown= 0,
+    Arm_Wrist= (UInt64)(1 << (Int32)TrackedDeviceRole.ROLE_HEAD
+			| 1 << (Int32)TrackedDeviceRole.ROLE_LEFTWRIST | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTWRIST),
+    UpperBody_Wrist= (UInt64)(Arm_Wrist | 1 << (Int32)TrackedDeviceRole.ROLE_HIP),
+    FullBody_Wrist_Ankle= (UInt64)(UpperBody_Wrist | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTANKLE | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTANKLE),
+    FullBody_Wrist_Foot= (UInt64)(UpperBody_Wrist | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTFOOT | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTFOOT),
+    Arm_Handheld_Hand= (UInt64)(1 << (Int32)TrackedDeviceRole.ROLE_HEAD
+			| 1 << (Int32)TrackedDeviceRole.ROLE_LEFTHAND | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTHAND
+			| 1 << (Int32)TrackedDeviceRole.ROLE_LEFTHANDHELD | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTHANDHELD),
+    UpperBody_Handheld_Hand= (UInt64)(Arm_Handheld_Hand | 1 << (Int32)TrackedDeviceRole.ROLE_HIP),
+    FullBody_Handheld_Hand_Ankle= (UInt64)(UpperBody_Handheld_Hand | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTANKLE | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTANKLE),
+    FullBody_Handheld_Hand_Foot= (UInt64)(UpperBody_Handheld_Hand | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTFOOT | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTFOOT),
+    UpperBody_Handheld_Hand_Knee_Ankle= (UInt64)(UpperBody_Handheld_Hand
+			| 1 << (Int32)TrackedDeviceRole.ROLE_LEFTKNEE | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTKNEE
+			| 1 << (Int32)TrackedDeviceRole.ROLE_LEFTANKLE | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTANKLE),
+}
+enum BodyPoseRole {
+    Unknown= 0,
+    Arm_Wrist= (UInt64)(1 << (Int32)TrackedDeviceRole.ROLE_HEAD | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTWRIST | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTWRIST),
+    UpperBody_Wrist= (UInt64)(Arm_Wrist | 1 << (Int32)TrackedDeviceRole.ROLE_HIP),
+    FullBody_Wrist_Ankle= (UInt64)(UpperBody_Wrist | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTANKLE | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTANKLE),
+    FullBody_Wrist_Foot= (UInt64)(UpperBody_Wrist | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTFOOT | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTFOOT),
+    Arm_Handheld= (UInt64)(1 << (Int32)TrackedDeviceRole.ROLE_HEAD | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTHANDHELD | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTHANDHELD),
+    UpperBody_Handheld= (UInt64)(Arm_Handheld | 1 << (Int32)TrackedDeviceRole.ROLE_HIP),
+    FullBody_Handheld_Ankle= (UInt64)(UpperBody_Handheld | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTANKLE | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTANKLE),
+    FullBody_Handheld_Foot= (UInt64)(UpperBody_Handheld | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTFOOT | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTFOOT),
+    Arm_Hand= (UInt64)(1 << (Int32)TrackedDeviceRole.ROLE_HEAD | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTHAND | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTHAND),
+    UpperBody_Hand= (UInt64)(Arm_Hand | 1 << (Int32)TrackedDeviceRole.ROLE_HIP),
+    FullBody_Hand_Ankle= (UInt64)(UpperBody_Hand | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTANKLE | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTANKLE),
+    FullBody_Hand_Foot= (UInt64)(UpperBody_Hand | 1 << (Int32)TrackedDeviceRole.ROLE_LEFTFOOT | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTFOOT),
+    UpperBody_Handheld_Knee_Ankle= (UInt64)(UpperBody_Handheld
+			| 1 << ((Int32)TrackedDeviceRole.ROLE_LEFTKNEE) | 1 << ((Int32)TrackedDeviceRole.ROLE_RIGHTKNEE)
+			| 1 << (Int32)TrackedDeviceRole.ROLE_LEFTANKLE | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTANKLE),
+    UpperBody_Hand_Knee_Ankle= (UInt64)(UpperBody_Hand
+			| 1 << ((Int32)TrackedDeviceRole.ROLE_LEFTKNEE) | 1 << ((Int32)TrackedDeviceRole.ROLE_RIGHTKNEE)
+			| 1 << (Int32)TrackedDeviceRole.ROLE_LEFTANKLE | 1 << (Int32)TrackedDeviceRole.ROLE_RIGHTANKLE),
+}
+struct TransformData {
+    + TransformData(in_pos:Vector3, in_localPos:Vector3, in_rot:Quaternion, in_localRot:Quaternion, in_scale:Vector3)
+    + TransformData(trans:Transform)
+    + Update(trans:Transform) : void
+    + Update(trans:Transform) : void
+}
+class BodyAvatar {
+    + height : float = 0
+    + scale : float = 1
+    + BodyAvatar()
+    + Update(in_avatar:BodyAvatar) : void
+    + Update(joint:Joint) : void
+    + Update(jointType:JointType, trans:Transform, velocity:Vector3, angularVelocity:Vector3) : void
+    + Update(jointType:JointType, trans:Transform, velocity:Vector3) : void
+    + Update(jointType:JointType, trans:Transform) : void
+    + Update(jointType:JointType, trans:Transform, scale:float) : void
+    + Update(body:Body) : void
+    + Update(body:Body) : void
+    + GetJoints(avatarJoints:Joint[], avatarJointCount:UInt32, is6DoF:bool) : bool
+    + Set6DoFJoints(avatarJoints:Joint[], avatarJointCount:UInt32) : void
+}
+struct ExtrinsicVector4_t {
+    + GetExtrinsic() : Extrinsic
+    + ExtrinsicVector4_t(in_tra:Vector3, in_rot:Vector4)
+    + Update(in_ext:ExtrinsicVector4_t) : void
+    + Update(in_ext:Extrinsic) : void
+    + Update(in_pose:WVR_Pose_t) : void
+    + Log() : string
+}
+struct ExtrinsicInfo_t {
+    + isTracking : bool
+    + ExtrinsicInfo_t(in_isTracking:bool, in_extrinsic:ExtrinsicVector4_t)
+    + Init() : void
+    + Update(in_info:ExtrinsicInfo_t) : void
+    + Update(in_ext:ExtrinsicVector4_t) : void
+    + Update(pose:WVR_Pose_t) : void
+    + Update(in_ext:Extrinsic) : void
+    + printLog(prefix:string) : void
+}
+struct TrackedDeviceExtrinsicState_t {
+    + isTracking : bool
+    + TrackedDeviceExtrinsicState_t(in_isTracking:bool, in_deviceExtrinsic:TrackedDeviceExtrinsic)
+    + Update(in_info:TrackedDeviceExtrinsicState_t) : void
+    + Update(extInfo:ExtrinsicInfo_t) : void
+}
+class BodyTrackedDevice {
+    + BodyTrackedDevice()
+    + Update(in_device:BodyTrackedDevice) : void
+    + Update(in_ext:TrackerExtrinsic) : void
+    + GetDevicesExtrinsics(calibRole:BodyPoseRole, bodyTrackedDevices:TrackedDeviceExtrinsic[], bodyTrackedDeviceCount:UInt32) : bool
+    + GetIKRoles(calibRole:BodyPoseRole) : DeviceExtRole
+}
+class BodyIKInfo {
+    + BodyIKInfo()
+    + BodyIKInfo(in_avatar:BodyAvatar, in_device:BodyTrackedDevice)
+    + Update(in_info:BodyIKInfo) : void
+}
+struct TrackingInfos_t {
+    + TrackingInfos_t(in_info:TrackingInfo_t[], in_size:UInt32)
+    + Update(in_infos:TrackingInfos_t) : void
+    + Update(in_info:TrackingInfo_t) : void
+}
+class BodyPose {
+    + BodyPose()
+    + Update(in_body:BodyPose) : void
+    + Clear() : void
+    + PoseStateAvailable(type:WVR_BodyTrackingType, state:PoseState, canIgnorePose:bool) : bool
+    + GetTrackedDevicePoses(trackedDevicePoses:TrackedDevicePose[], trackedDevicePoseCount:UInt32) : bool
+    + GetIKRoles() : BodyPoseRole
+    + UseExtrinsic(wvrRole:WVR_TrackedDeviceRole, wvrType:WVR_BodyTrackingType) : bool
+    + GetBodyTrackingType(id:TrackerId) : WVR_BodyTrackingType
+}
+struct BodyRotationSpace_t {
+    + BodyRotationSpace_t(in_spaces:RotateSpace[], in_count:UInt32)
+    + Update(in_brt:BodyRotationSpace_t) : void
+}
+enum JointType {
+    UNKNOWN= -1,
+    HIP= 0,
+    LEFTTHIGH= 1,
+    LEFTLEG= 2,
+    LEFTANKLE= 3,
+    LEFTFOOT= 4,
+    RIGHTTHIGH= 5,
+    RIGHTLEG= 6,
+    RIGHTANKLE= 7,
+    RIGHTFOOT= 8,
+    WAIST= 9,
+    SPINELOWER= 10,
+    SPINEMIDDLE= 11,
+    SPINEHIGH= 12,
+    CHEST= 13,
+    NECK= 14,
+    HEAD= 15,
+    LEFTCLAVICLE= 16,
+    LEFTSCAPULA= 17,
+    LEFTUPPERARM= 18,
+    LEFTFOREARM= 19,
+    LEFTHAND= 20,
+    RIGHTCLAVICLE= 21,
+    RIGHTSCAPULA= 22,
+    RIGHTUPPERARM= 23,
+    RIGHTFOREARM= 24,
+    RIGHTHAND= 25,
+    NUMS_OF_JOINT,
+    MAX_ENUM= 0x7fffffff,
+}
+enum PoseState {
+    NODATA= 0,
+    ROTATION= 1 << 0,
+    TRANSLATION= 1 << 1,
+}
+enum BodyTrackingMode {
+    UNKNOWNMODE= -1,
+    ARMIK= 0,
+    UPPERBODYIK= 1,
+    FULLBODYIK= 2,
+    UPPERIKANDLEGFK= 3,
+    SPINEIK= 4,
+    LEGIK= 5,
+    LEGFK= 6,
+    SPINEIKANDLEGFK= 7,
+    MAX= 0x7fffffff,
+}
+enum TrackedDeviceRole {
+    ROLE_UNDEFINED= -1,
+    ROLE_HIP= 0,
+    ROLE_CHEST= 1,
+    ROLE_HEAD= 2,
+    ROLE_LEFTELBOW= 3,
+    ROLE_LEFTWRIST= 4,
+    ROLE_LEFTHAND= 5,
+    ROLE_LEFTHANDHELD= 6,
+    ROLE_RIGHTELBOW= 7,
+    ROLE_RIGHTWRIST= 8,
+    ROLE_RIGHTHAND= 9,
+    ROLE_RIGHTHANDHELD= 10,
+    ROLE_LEFTKNEE= 11,
+    ROLE_LEFTANKLE= 12,
+    ROLE_LEFTFOOT= 13,
+    ROLE_RIGHTKNEE= 14,
+    ROLE_RIGHTANKLE= 15,
+    ROLE_RIGHTFOOT= 16,
+    NUMS_OF_ROLE,
+    ROLE_MAX= 0x7fffffff,
+}
+enum Result {
+    SUCCESS= 0,
+    ERROR_BODYTRACKINGMODE_NOT_FOUND= 100,
+    ERROR_TRACKER_AMOUNT_FAILED= 101,
+    ERROR_SKELETONID_NOT_FOUND= 102,
+    ERROR_INPUTPOSE_NOT_VALID= 103,
+    ERROR_NOT_CALIBRATED= 104,
+    ERROR_BODYTRACKINGMODE_NOT_ALIGNED= 105,
+    ERROR_AVATAR_INIT_FAILED= 200,
+    ERROR_CALIBRATE_FAILED= 300,
+    ERROR_COMPUTE_FAILED= 400,
+    ERROR_TABLE_STATIC= 401,
+    ERROR_SOLVER_NOT_FOUND= 402,
+    ERROR_NOT_INITIALIZATION= 403,
+    ERROR_JOINT_NOT_FOUND= 404,
+    ERROR_FATAL_ERROR= 499,
+    ERROR_MAX= 0x7fffffff,
+}
+enum TrackerDirection {
+    NODIRECTION= -1,
+    FORWARD= 0,
+    BACKWARD= 1,
+    RIGHT= 2,
+    LEFT= 3,
+}
+enum AvatarType {
+    TPOSE= 0,
+    STANDARD_VRM= 1,
+    OTHERS= 2,
+}
+enum CalibrationType {
+    DEFAULTCALIBRATION=
+			0,
+    TOFFSETCALIBRATION=
+			1,
+    HEIGHTCALIBRATION= 2,
+}
+struct Joint {
+    + Joint(in_jointType:JointType, in_poseState:PoseState, in_translation:Vector3, in_velocity:Vector3, in_angularVelocity:Vector3, in_rotation:Quaternion)
+    + Update(in_joint:Joint) : void
+    + {static} init(type:JointType) : Joint
+    + Log() : string
+}
+struct Extrinsic {
+    + Extrinsic(in_translation:Vector3, in_rotation:Quaternion)
+    + Update(in_ext:Extrinsic) : void
+    + Update(in_pose:WVR_Pose_t) : void
+    + Log() : string
+}
+struct TrackedDeviceExtrinsic {
+    + TrackedDeviceExtrinsic(in_trackedDeviceRole:TrackedDeviceRole, in_extrinsic:Extrinsic)
+    + {static} init(role:TrackedDeviceRole) : TrackedDeviceExtrinsic
+    + Update(in_ext:TrackedDeviceExtrinsic) : void
+    + Log() : string
+}
+struct TrackedDevicePose {
+    + TrackedDevicePose(in_trackedDeviceRole:TrackedDeviceRole, in_poseState:PoseState, in_translation:Vector3, in_velocity:Vector3, in_angularVelocity:Vector3, in_acceleration:Vector3, in_rotation:Quaternion)
+    + Update(in_pose:TrackedDevicePose) : void
+    + Log() : string
+}
+struct RotateSpace {
+    + RotateSpace(in_jointType:JointType, in_rotation:Quaternion)
+}
+class fbt {
+    + {static} <<extern>> InitBodyTracking(ts:UInt64, bodyTrackingMode:BodyTrackingMode, trackedDeviceExt:TrackedDeviceExtrinsic[], deviceCount:UInt32, avatarJoints:Joint[], avatarJointCount:UInt32, avatarHeight:float, skeletonId:int, avatarType:AvatarType) : Result
+    + {static} InitBodyTrackingLog(ts:UInt64, bodyTrackingMode:BodyTrackingMode, trackedDeviceExt:TrackedDeviceExtrinsic[], deviceCount:UInt32, avatarJoints:Joint[], avatarJointCount:UInt32, avatarHeight:float, skeletonId:int, avatarType:AvatarType) : Result
+    + {static} <<extern>> InitDefaultBodyTracking(ts:UInt64, bodyTrackingMode:BodyTrackingMode, trackedDeviceExt:TrackedDeviceExtrinsic[], deviceCount:UInt32, skeletonId:int) : Result
+    + {static} <<extern>> CalibrateBodyTracking(ts:UInt64, skeletonId:int, userHeight:float, bodyTrackingMode:BodyTrackingMode, trackedDevicePose:TrackedDevicePose[], deviceCount:UInt32, scale:float, calibrationType:CalibrationType) : Result
+    + {static} CalibrateBodyTrackingLog(ts:UInt64, skeletonId:int, userHeight:float, bodyTrackingMode:BodyTrackingMode, trackedDevicePose:TrackedDevicePose[], deviceCount:UInt32, scale:float, calibrationType:CalibrationType) : Result
+    + {static} <<extern>> GetOutputJointCount(ts:UInt64, skeletonId:int, jointCount:UInt32) : Result
+    + {static} <<extern>> UpdateBodyTracking(ts:UInt64, skeletonId:int, trackedDevicePose:TrackedDevicePose[], deviceCount:UInt32, outJoint:Joint[], jointCount:UInt32) : Result
+    + {static} UpdateBodyTrackingLog(ts:UInt64, skeletonId:int, trackedDevicePose:TrackedDevicePose[], deviceCount:UInt32, outJoint:Joint[], jointCount:UInt32) : Result
+    + {static} <<extern>> DestroyBodyTracking(ts:UInt64, skeletonId:int) : Result
+    + {static} <<extern>> GetDefaultSkeletonJointCount(jointCount:UInt32) : Result
+    + {static} <<extern>> GetDefaultSkeletonRotateSpace(rotateSpace:RotateSpace[], jointCount:UInt32) : Result
+}
+class BodyTrackingUtils <<static>> {
+    + {static} isZero(qua:Quaternion) : bool
+    + {static} Validate(qua:Quaternion) : void
+    + {static} Update(qua:Quaternion, in_qua:Quaternion) : void
+    + {static} GetQuaternionDiff(src:Quaternion, dst:Quaternion, diff:Quaternion) : bool
+    + {static} Update(qua:Quaternion, vec:Vector4) : void
+    + {static} Update(vec:Vector4, qua:Quaternion) : void
+    + {static} Name(role:WVR_TrackedDeviceRole) : string
+    + {static} Name(role:TrackedDeviceRole) : string
+    + {static} Name(role:DeviceExtRole) : string
+    + {static} Name(role:BodyPoseRole) : string
+    + {static} Name(type:WVR_BodyTrackingType) : string
+    + {static} Name(role:TrackerRole) : string
+    + {static} Name(mode:BodyTrackingMode) : string
+    + {static} Name(result:BodyTrackingResult) : string
+    + {static} Name(type:JointType) : string
+    + {static} Name(type:CalibrationType) : string
+    + {static} Type(result:Result) : BodyTrackingResult
+    + {static} Role(role:WVR_TrackedDeviceRole) : TrackedDeviceRole
+    + {static} Update(joint:Joint, ext:Extrinsic) : void
+    + {static} GetTimeStamp(bflag:bool) : UInt64
+    + {static} GetBodyPoseRole(trackedDevicePoses:TrackedDevicePose[], trackedDevicePoseCount:UInt32) : BodyPoseRole
+    + {static} MatchBodyTrackingMode(mode:BodyTrackingMode, poseRole:BodyPoseRole) : bool
+    + {static} UseDeviceExtrinsic(calibRole:BodyPoseRole, wvrRole:WVR_TrackedDeviceRole, wvrType:WVR_BodyTrackingType) : bool
+    + {static} GetDeviceExtRole(calibRole:BodyPoseRole, bodyTrackedDevices:TrackedDeviceExtrinsic[], bodyTrackedDeviceCount:UInt32) : DeviceExtRole
+    + {static} MatchBodyTrackingMode(mode:BodyTrackingMode, extRole:DeviceExtRole) : bool
+}
+struct TrackingInfo_t {
+    + TrackingInfo_t(in_type:WVR_BodyTrackingType, in_ids:UInt32[], in_count:UInt32)
+    + Update(in_info:TrackingInfo_t) : void
+}
+TransformData --> "position" Vector3
+TransformData --> "localPosition" Vector3
+TransformData --> "rotation" Quaternion
+TransformData --> "localRotation" Quaternion
+TransformData --> "localScale" Vector3
+TransformData --> "identity" TransformData
+BodyAvatar o-> "hip" Joint
+BodyAvatar o-> "leftThigh" Joint
+BodyAvatar o-> "leftLeg" Joint
+BodyAvatar o-> "leftAnkle" Joint
+BodyAvatar o-> "leftFoot" Joint
+BodyAvatar o-> "rightThigh" Joint
+BodyAvatar o-> "rightLeg" Joint
+BodyAvatar o-> "rightAnkle" Joint
+BodyAvatar o-> "rightFoot" Joint
+BodyAvatar o-> "waist" Joint
+BodyAvatar o-> "spineLower" Joint
+BodyAvatar o-> "spineMiddle" Joint
+BodyAvatar o-> "spineHigh" Joint
+BodyAvatar o-> "chest" Joint
+BodyAvatar o-> "neck" Joint
+BodyAvatar o-> "head" Joint
+BodyAvatar o-> "leftClavicle" Joint
+BodyAvatar o-> "leftScapula" Joint
+BodyAvatar o-> "leftUpperarm" Joint
+BodyAvatar o-> "leftForearm" Joint
+BodyAvatar o-> "leftHand" Joint
+BodyAvatar o-> "rightClavicle" Joint
+BodyAvatar o-> "rightScapula" Joint
+BodyAvatar o-> "rightUpperarm" Joint
+BodyAvatar o-> "rightForearm" Joint
+BodyAvatar o-> "rightHand" Joint
+ExtrinsicVector4_t --> "translation" Vector3
+ExtrinsicVector4_t --> "rotation" Vector4
+ExtrinsicVector4_t --> "identity" ExtrinsicVector4_t
+ExtrinsicInfo_t --> "extrinsic" ExtrinsicVector4_t
+ExtrinsicInfo_t --> "identity" ExtrinsicInfo_t
+TrackedDeviceExtrinsicState_t --> "deviceExtrinsic" TrackedDeviceExtrinsic
+TrackedDeviceExtrinsicState_t --> "identity" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "hip" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "chest" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "head" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "leftElbow" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "leftWrist" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "leftHand" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "leftHandheld" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "rightElbow" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "rightWrist" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "rightHand" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "rightHandheld" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "leftKnee" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "leftAnkle" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "leftFoot" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "rightKnee" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "rightAnkle" TrackedDeviceExtrinsicState_t
+BodyTrackedDevice o-> "rightFoot" TrackedDeviceExtrinsicState_t
+BodyIKInfo o-> "avatar" BodyAvatar
+BodyIKInfo o-> "trackedDevice" BodyTrackedDevice
+TrackingInfos_t --> "size" UInt32
+BodyPose o-> "hip" TrackedDevicePose
+BodyPose o-> "chest" TrackedDevicePose
+BodyPose o-> "head" TrackedDevicePose
+BodyPose o-> "leftElbow" TrackedDevicePose
+BodyPose o-> "leftWrist" TrackedDevicePose
+BodyPose o-> "leftHand" TrackedDevicePose
+BodyPose o-> "leftHandheld" TrackedDevicePose
+BodyPose o-> "rightElbow" TrackedDevicePose
+BodyPose o-> "rightWrist" TrackedDevicePose
+BodyPose o-> "rightHand" TrackedDevicePose
+BodyPose o-> "rightHandheld" TrackedDevicePose
+BodyPose o-> "leftKnee" TrackedDevicePose
+BodyPose o-> "leftAnkle" TrackedDevicePose
+BodyPose o-> "leftFoot" TrackedDevicePose
+BodyPose o-> "rightKnee" TrackedDevicePose
+BodyPose o-> "rightAnkle" TrackedDevicePose
+BodyPose o-> "rightFoot" TrackedDevicePose
+BodyRotationSpace_t --> "count" UInt32
+Joint --> "jointType" JointType
+Joint --> "poseState" PoseState
+Joint --> "translation" Vector3
+Joint --> "velocity" Vector3
+Joint --> "angularVelocity" Vector3
+Joint --> "rotation" Quaternion
+Joint --> "identity" Joint
+Extrinsic --> "translation" Vector3
+Extrinsic --> "rotation" Quaternion
+Extrinsic --> "identity" Extrinsic
+TrackedDeviceExtrinsic --> "trackedDeviceRole" TrackedDeviceRole
+TrackedDeviceExtrinsic --> "extrinsic" Extrinsic
+TrackedDeviceExtrinsic --> "identity" TrackedDeviceExtrinsic
+TrackedDevicePose --> "trackedDeviceRole" TrackedDeviceRole
+TrackedDevicePose --> "poseState" PoseState
+TrackedDevicePose --> "translation" Vector3
+TrackedDevicePose --> "velocity" Vector3
+TrackedDevicePose --> "angularVelocity" Vector3
+TrackedDevicePose --> "acceleration" Vector3
+TrackedDevicePose --> "rotation" Quaternion
+TrackedDevicePose --> "identity" TrackedDevicePose
+RotateSpace --> "jointType" JointType
+RotateSpace --> "rotation" Quaternion
+RotateSpace --> "identity" RotateSpace
+TrackingInfos_t +-- TrackingInfo_t
+TrackingInfo_t --> "type" WVR_BodyTrackingType
+TrackingInfo_t --> "count" UInt32
+@enduml

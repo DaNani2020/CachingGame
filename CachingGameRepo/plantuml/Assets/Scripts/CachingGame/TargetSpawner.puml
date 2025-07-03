@@ -1,0 +1,30 @@
+@startuml
+class TargetSpawner {
+    + spawningDistance : float = 2
+    + angleDeviation : float = 1
+    + delayTimerOnHandSwitch : float
+    + delayPeriodOnHandSwitch : float = 2f
+    + thresholdOfSuccessRateTypesMin : float = 0.3f
+    + thresholdOfSuccessRateTypesMax : float = 0.8f
+    + CheckHittingPlayer(origin:Vector3, direction:Vector3) : bool
+    + SetSuccessRatesPerType(newRates:Dictionary<string, float>) : void
+    + TriggerUpdate() : void
+    + SetReachedRatesPerType(reachedRates:Dictionary<string, float>) : void
+    + SetReachedRatesPerSourceAndType(reachedRates:Dictionary<int, Dictionary<string, float>>) : void
+    + SetXandYPositionOffset(angleSumOfXandY:(float, float)) : void
+    + SetXYPositionOffsetPerSource(positionOffsetsXYForSource:Dictionary<int, (float, float)>) : void
+}
+class "List`1"<T> {
+}
+class "Dictionary`2"<T1,T2> {
+}
+' MonoBehaviour <|-- TargetSpawner
+TargetSpawner --> "instance" TargetSpawner
+TargetSpawner --> "cacheObject" CacheScript
+TargetSpawner --> "otherCacheObject" CacheScript
+TargetSpawner o-> "ballObjectsList<GameObject>" "List`1"
+TargetSpawner --> "spawningPoints<Transform>" "List`1"
+TargetSpawner o-> "quadrantRestrictions<string,string>" "Dictionary`2"
+TargetSpawner o-> "onHandSwitch" UnityEvent
+TargetSpawner --> "cylinderProgressBar" CylinderProgressBar
+@enduml

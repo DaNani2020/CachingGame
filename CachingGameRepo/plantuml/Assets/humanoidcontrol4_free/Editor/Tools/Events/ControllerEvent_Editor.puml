@@ -1,0 +1,8 @@
+@startuml
+class ControllerEvent_Editor {
+    + {static} EventInspector(eventHandlerProp:SerializedProperty, selectedEventIx:int, selectedEventHandlerIx:int, showOverrideMode:bool) : void
+    + {static} SetParameterOnEvents(eventHandlersProp:SerializedProperty) : void
+    + {static} InitControllerEvent(eventProp:SerializedProperty) : void
+}
+FloatEvent_Editor <|-- ControllerEvent_Editor
+@enduml

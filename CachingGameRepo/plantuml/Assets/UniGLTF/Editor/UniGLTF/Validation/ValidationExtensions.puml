@@ -1,0 +1,8 @@
+@startuml
+class ValidationExtensions <<static>> {
+    + {static} DrawGUI(self:Validation) : void
+}
+ValidationExtensions --> "Info" GUIContent
+ValidationExtensions --> "Warn" GUIContent
+ValidationExtensions --> "Error" GUIContent
+@enduml

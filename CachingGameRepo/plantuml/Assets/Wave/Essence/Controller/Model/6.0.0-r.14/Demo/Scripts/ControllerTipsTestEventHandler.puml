@@ -1,0 +1,23 @@
+@startuml
+class ControllerTipsTestEventHandler {
+    + BackToUpLayer() : void
+    + ExitGame() : void
+    + EnableControllerTipsR() : void
+    + DisableControllerTipsR() : void
+    + EnableFadingEffectR() : void
+    + DisableFadingEffectR() : void
+    + EnableAutoLayoutR() : void
+    + DisableAutoLayoutR() : void
+    + EnablePolylineR() : void
+    + DisablePolylineR() : void
+    + EnableControllerTipsL() : void
+    + DisableControllerTipsL() : void
+    + EnableFadingEffectL() : void
+    + DisableFadingEffectL() : void
+    + EnableAutoLayoutL() : void
+    + DisableAutoLayoutL() : void
+    + EnablePolylineL() : void
+    + DisablePolylineL() : void
+}
+MonoBehaviour <|-- ControllerTipsTestEventHandler
+@enduml

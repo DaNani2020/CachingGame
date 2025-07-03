@@ -1,0 +1,21 @@
+@startuml
+interface IUtf8String {
+}
+struct Utf8String4 {
+    + ByteLength : int <<get>>
+    + {static} Create(bytes:IEnumerable<byte>) : Utf8String4
+    + {static} Create(src:string) : Utf8String4
+    + Equals(other:Utf8String4) : bool
+    + <<override>> Equals(obj:object) : bool
+    + <<override>> GetHashCode() : int
+    + <<override>> ToString() : string
+    + GetEnumerator() : IEnumerator<byte>
+}
+class "IEnumerable`1"<T> {
+}
+class "IEquatable`1"<T> {
+}
+"IEnumerable`1" "<Byte>" <|-- IUtf8String
+"IEquatable`1" "<Utf8String4>" <|-- Utf8String4
+IUtf8String <|-- Utf8String4
+@enduml

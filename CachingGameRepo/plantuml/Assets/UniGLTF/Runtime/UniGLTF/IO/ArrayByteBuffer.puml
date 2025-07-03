@@ -1,0 +1,13 @@
+@startuml
+class ArrayByteBuffer {
+    + Uri : string <<get>>
+    + ArrayByteBuffer(bytes:Byte[])
+    + Extend(array:NativeArray<T>, target:glBufferTarget) : glTFBufferView
+    + Extend(array:ArraySegment<T>, target:glBufferTarget) : glTFBufferView
+    + Extend(p:IntPtr, bytesLength:int, stride:int, target:glBufferTarget) : glTFBufferView
+    + ExtendCapacity(capacity:int) : void
+}
+class "ArraySegment`1"<T> {
+}
+ArrayByteBuffer --> "Bytes<byte>" "ArraySegment`1"
+@enduml

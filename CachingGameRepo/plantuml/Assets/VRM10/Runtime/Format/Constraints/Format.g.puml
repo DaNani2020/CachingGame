@@ -1,0 +1,52 @@
+@startuml
+enum RollAxis {
+    X,
+    Y,
+    Z,
+}
+class RollConstraint {
+    + Extensions : object
+    + Extras : object
+    + Name : string
+    + Source : int?
+    + Weight : float?
+}
+enum AimAxis {
+    PositiveX,
+    NegativeX,
+    PositiveY,
+    NegativeY,
+    PositiveZ,
+    NegativeZ,
+}
+class AimConstraint {
+    + Extensions : object
+    + Extras : object
+    + Name : string
+    + Source : int?
+    + Weight : float?
+}
+class RotationConstraint {
+    + Extensions : object
+    + Extras : object
+    + Name : string
+    + Source : int?
+    + Weight : float?
+}
+class Constraint {
+    + Extensions : object
+    + Extras : object
+}
+class VRMC_node_constraint {
+    + <<const>> ExtensionName : string = "VRMC_node_constraint"
+    + Extensions : object
+    + Extras : object
+    + SpecVersion : string
+}
+RollConstraint --> "RollAxis" RollAxis
+AimConstraint --> "AimAxis" AimAxis
+Constraint --> "Roll" RollConstraint
+Constraint --> "Aim" AimConstraint
+Constraint --> "Rotation" RotationConstraint
+VRMC_node_constraint --> "Constraint" Constraint
+@enduml

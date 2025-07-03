@@ -1,0 +1,11 @@
+@startuml
+class Vrm10MaterialExportUtils <<static>> {
+    + {static} ExportTextureTransform(textureInfo:glTFTextureInfo, unityScale:Vector2, unityOffset:Vector2) : void
+    + {static} ExportTextureTransform(textureInfo:TextureInfo, unityScale:Vector2, unityOffset:Vector2) : void
+    + {static} ExportTextureTransform(textureInfo:ShadingShiftTextureInfo, unityScale:Vector2, unityOffset:Vector2) : void
+}
+class EmptyGltfTextureInfo <<sealed>> {
+}
+Vrm10MaterialExportUtils +-- EmptyGltfTextureInfo
+glTFTextureInfo <|-- EmptyGltfTextureInfo
+@enduml

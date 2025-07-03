@@ -1,0 +1,8 @@
+@startuml
+class BoneInfoDrawer <<static>> {
+    + {static} DrawBone(buf:CommandBuffer, bone:BoneInfo, material:Material) : void
+    + {static} DrawBones(buf:CommandBuffer, bones:List<BoneInfo>) : void
+}
+BoneInfoDrawer --> "SelectedMaterial" Material
+BoneInfoDrawer --> "HoverMaterial" Material
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+enum GameObjectType {
+    Null,
+    SceneInstance,
+    PrefabInstance,
+    AssetPrefab,
+}
+class GameObjectTypeUtility <<static>> {
+    + {static} GetPrefab(instance:GameObject) : Object
+    + {static} GetGameObjectType(go:GameObject) : GameObjectType
+}
+@enduml

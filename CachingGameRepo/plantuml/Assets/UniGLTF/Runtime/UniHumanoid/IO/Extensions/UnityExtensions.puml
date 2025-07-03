@@ -1,0 +1,8 @@
+@startuml
+class UnityExtensions <<static>> {
+    + {static} ReverseX(quaternion:Quaternion) : Quaternion
+    + {static} GetChildren(parent:Transform) : IEnumerable<Transform>
+    + {static} Traverse(parent:Transform) : IEnumerable<Transform>
+    + {static} ToSkeletonBone(t:Transform) : SkeletonBone
+}
+@enduml

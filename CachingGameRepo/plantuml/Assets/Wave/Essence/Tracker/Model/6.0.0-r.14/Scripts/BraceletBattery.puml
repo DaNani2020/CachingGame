@@ -1,0 +1,11 @@
+@startuml
+class BraceletBattery {
+    + IsLeft : bool <<get>> <<set>>
+}
+MonoBehaviour <|-- BraceletBattery
+BraceletBattery o-> "BatteryMesh" MeshRenderer
+BraceletBattery o-> "BatteryLife25" Texture2D
+BraceletBattery o-> "BatteryLife50" Texture2D
+BraceletBattery o-> "BatteryLife75" Texture2D
+BraceletBattery o-> "BatteryLife100" Texture2D
+@enduml

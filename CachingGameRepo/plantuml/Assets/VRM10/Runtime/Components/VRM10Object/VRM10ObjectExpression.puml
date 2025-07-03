@@ -1,0 +1,32 @@
+@startuml
+class VRM10ObjectExpression <<sealed>> {
+    + CreateKey(clip:VRM10Expression) : ExpressionKey
+    + AddClip(preset:ExpressionPreset, clip:VRM10Expression) : void
+    + Replace(map:IDictionary<VRM10Expression, VRM10Expression>) : void
+    + RemoveNullClip() : void
+}
+class "List`1"<T> {
+}
+class "IEnumerable`1"<T> {
+}
+VRM10ObjectExpression --> "Happy" VRM10Expression
+VRM10ObjectExpression --> "Angry" VRM10Expression
+VRM10ObjectExpression --> "Sad" VRM10Expression
+VRM10ObjectExpression --> "Relaxed" VRM10Expression
+VRM10ObjectExpression --> "Surprised" VRM10Expression
+VRM10ObjectExpression --> "Aa" VRM10Expression
+VRM10ObjectExpression --> "Ih" VRM10Expression
+VRM10ObjectExpression --> "Ou" VRM10Expression
+VRM10ObjectExpression --> "Ee" VRM10Expression
+VRM10ObjectExpression --> "Oh" VRM10Expression
+VRM10ObjectExpression --> "Blink" VRM10Expression
+VRM10ObjectExpression --> "BlinkLeft" VRM10Expression
+VRM10ObjectExpression --> "BlinkRight" VRM10Expression
+VRM10ObjectExpression --> "LookUp" VRM10Expression
+VRM10ObjectExpression --> "LookDown" VRM10Expression
+VRM10ObjectExpression --> "LookLeft" VRM10Expression
+VRM10ObjectExpression --> "LookRight" VRM10Expression
+VRM10ObjectExpression --> "Neutral" VRM10Expression
+VRM10ObjectExpression o-> "CustomClips<VRM10Expression>" "List`1"
+VRM10ObjectExpression --> "Clips<(ExpressionPreset Preset, VRM10Expression Clip)>" "IEnumerable`1"
+@enduml

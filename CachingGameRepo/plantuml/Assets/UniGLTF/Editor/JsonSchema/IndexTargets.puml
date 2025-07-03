@@ -1,0 +1,7 @@
+@startuml
+class IndexTargets <<static>> {
+}
+class "Dictionary`2"<T1,T2> {
+}
+IndexTargets o-> "Map<string,string>" "Dictionary`2"
+@enduml

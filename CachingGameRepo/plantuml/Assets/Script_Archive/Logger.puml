@@ -1,0 +1,5 @@
+@startuml
+class Logger {
+}
+MonoBehaviour <|-- Logger
+@enduml

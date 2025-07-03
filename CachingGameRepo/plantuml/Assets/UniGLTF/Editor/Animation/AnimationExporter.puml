@@ -1,0 +1,19 @@
+@startuml
+class AnimationExporter <<static>> {
+    + {static} GetAnimationClips(animation:Animation) : List<AnimationClip>
+    + {static} GetAnimationClips(animator:Animator) : List<AnimationClip>
+    + {static} PropertyToTarget(property:string) : glTFAnimationTarget.AnimationProperties
+    + {static} GetElementOffset(property:string) : int
+    + {static} Export(clip:AnimationClip, root:Transform, nodes:List<Transform>) : AnimationWithSampleCurves
+}
+class InputOutputValues {
+}
+class AnimationWithSampleCurves {
+}
+class "Dictionary`2"<T1,T2> {
+}
+AnimationExporter +-- InputOutputValues
+AnimationExporter +-- AnimationWithSampleCurves
+AnimationWithSampleCurves --> "Animation" glTFAnimation
+AnimationWithSampleCurves o-> "SamplerMap<int,InputOutputValues>" "Dictionary`2"
+@enduml

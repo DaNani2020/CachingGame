@@ -1,0 +1,447 @@
+@startuml
+class OculusDevice <<static>> {
+    + <<const>> name : string = "Oculus"
+    + {static} Start() : void
+    + {static} Update() : void
+    + {static} userPresent : bool <<get>>
+    + {static} positionalTracking : bool <<set>>
+    + {static} GetPose(sensorID:int) : Pose
+    + {static} GetPosition(sensorID:Sensor.ID) : Vector
+    + {static} GetRotation(sensorID:Sensor.ID) : Rotation
+    + {static} GetPositionalConfidence(sensorID:Sensor.ID) : float
+    + {static} GetRotationalConfidence(sensorID:Sensor.ID) : float
+    + {static} IsPresent(sensorID:Sensor.ID) : bool
+    + {static} GetConfidence(sensorID:int) : float
+    + {static} GetControllerInput(sensorID:Sensor.ID, input:ControllerButtons) : void
+    + {static} GetControllerState(controllerMask:OculusDevice.Controller) : ControllerState4
+    + {static} GetHorizontalStick(controllerState:ControllerState4, isLeft:bool) : float
+    + {static} GetVerticalStick(controllerState:ControllerState4, isLeft:bool) : float
+    + {static} GetHorizontalTouch(controllerState:ControllerState4, isLeft:bool) : float
+    + {static} GetVerticalTouch(controllerState:ControllerState4, isLeft:bool) : float
+    + {static} GetStickPress(controllerState:ControllerState4) : bool
+    + {static} GetStickTouch(controllerState:ControllerState4) : bool
+    + {static} GetButton1Press(controllerState:ControllerState4) : bool
+    + {static} GetButton1Touch(controllerState:ControllerState4) : bool
+    + {static} GetButton2Press(controllerState:ControllerState4) : bool
+    + {static} GetButton2Touch(controllerState:ControllerState4) : bool
+    + {static} GetButton2Near(controllerState:ControllerState4) : bool
+    + {static} GetButtonOptionPress(controllerState:ControllerState4) : bool
+    + {static} GetTrigger1(controllerState:ControllerState4, isLeft:bool) : float
+    + {static} GetTrigger2(controllerState:ControllerState4, isLeft:bool) : float
+    + {static} GetThumbRest(controllerState:ControllerState4) : bool
+    + {static} GetSkeleton(isLeft:bool, skeleton:Skeleton) : bool
+    + {static} GetSkeletonBoneRotation(bone:Bone) : UnityEngine.Quaternion
+    + {static} GetSkeletonBonePosition(bone:Bone) : UnityEngine.Vector3
+    + {static} GetHandState(stepId:Step, hand:Hand, handState:HandState) : bool
+    + {static} Vibrate(sensorID:Sensor.ID, length:float, strength:float) : void
+    + {static} eyeHeight : float <<get>>
+    + {static} GetBoneId(finger:Finger, fingerBone:FingerBone) : BoneId
+    + {static} GetHandBoneTarget(handTarget:HandTarget, boneId:BoneId) : UnityEngine.Transform
+    + {static} ovrp_GetVersion() : string
+    + {static} <<extern>> ovrp_GetUserPresent() : Bool
+    + {static} <<extern>> ovrp_SetTrackingPositionEnabled(value:Bool) : Bool
+    + {static} <<extern>> ovrp_GetNodeOrientationTracked(nodeId:int) : Bool
+    + {static} <<extern>> ovrp_GetNodePositionTracked(nodeId:int) : Bool
+    + {static} <<extern>> ovrp_GetNodePoseState(stepId:Step, nodeId:int) : PoseStatef
+    + {static} <<extern>> ovrp_GetControllerState2(controllerMask:uint) : ControllerState2
+    + {static} <<extern>> ovrp_GetControllerState4(controllerMask:uint, controllerState:ControllerState4) : Result
+    + {static} <<extern>> ovrp_SetControllerVibration(controllerMask:uint, frequency:float, amplitude:float) : Bool
+    + {static} <<extern>> ovrp_GetNodePresent(nodeId:int) : Bool
+    + {static} <<extern>> ovrp_GetUserEyeHeight() : float
+    + {static} <<extern>> ovrp_GetAppShouldRecenter() : Bool
+    + {static} <<extern>> ovrp_RecenterTrackingOrigin(flags:uint) : Bool
+}
+enum RawNearTouch {
+    None= 0,
+    LIndexTrigger= 0x00000001,
+    LThumbButtons= 0x00000002,
+    RIndexTrigger= 0x00000004,
+    RThumbButtons= 0x00000008,
+    Any= ~None,
+}
+enum RawTouch {
+    None= 0,
+    A= RawButton.A,
+    B= RawButton.B,
+    X= RawButton.X,
+    Y= RawButton.Y,
+    LIndexTrigger= 0x00001000,
+    LThumbstick= RawButton.LThumbstick,
+    LThumbRest= 0x00000800,
+    LTouchpad= RawButton.LTouchpad,
+    RIndexTrigger= 0x00000010,
+    RThumbstick= RawButton.RThumbstick,
+    RThumbRest= 0x00000008,
+    RTouchpad= RawButton.RTouchpad,
+    Any= ~None,
+}
+enum RawButton {
+    None= 0,
+    A= 0x00000001,
+    B= 0x00000002,
+    X= 0x00000100,
+    Y= 0x00000200,
+    Start= 0x00100000,
+    Back= 0x00200000,
+    LShoulder= 0x00000800,
+    LIndexTrigger= 0x10000000,
+    LHandTrigger= 0x20000000,
+    LThumbstick= 0x00000400,
+    LThumbstickUp= 0x00000010,
+    LThumbstickDown= 0x00000020,
+    LThumbstickLeft= 0x00000040,
+    LThumbstickRight= 0x00000080,
+    LTouchpad= 0x40000000,
+    RShoulder= 0x00000008,
+    RIndexTrigger= 0x04000000,
+    RHandTrigger= 0x08000000,
+    RThumbstick= 0x00000004,
+    RThumbstickUp= 0x00001000,
+    RThumbstickDown= 0x00002000,
+    RThumbstickLeft= 0x00004000,
+    RThumbstickRight= 0x00008000,
+    RTouchpad= unchecked((int)0x80000000),
+    DpadUp= 0x00010000,
+    DpadDown= 0x00020000,
+    DpadLeft= 0x00040000,
+    DpadRight= 0x00080000,
+    Any= ~None,
+}
+enum Bool {
+    False= 0,
+    True,
+}
+struct Vector2f {
+    + x : float
+    + y : float
+}
+struct Vector3f {
+    + x : float
+    + y : float
+    + z : float
+    + <<override>> ToString() : string
+    + ToVector3() : UnityEngine.Vector3
+}
+struct Quatf {
+    + x : float
+    + y : float
+    + z : float
+    + w : float
+    + <<override>> ToString() : string
+    + ToQuaternion() : UnityEngine.Quaternion
+}
+struct Pose {
+}
+struct PoseStatef {
+}
+struct ControllerState2 {
+    + ConnectedControllers : uint
+    + Buttons : uint
+    + Touches : uint
+    + NearTouches : uint
+    + LIndexTrigger : float
+    + RIndexTrigger : float
+    + LHandTrigger : float
+    + RHandTrigger : float
+}
+struct ControllerState4 {
+    + ConnectedControllers : uint
+    + Buttons : uint
+    + Touches : uint
+    + NearTouches : uint
+    + LIndexTrigger : float
+    + RIndexTrigger : float
+    + LHandTrigger : float
+    + RHandTrigger : float
+    + LBatteryPercentRemaining : byte
+    + RBatteryPercentRemaining : byte
+    + LRecenterCount : byte
+    + RRecenterCount : byte
+    + Reserved_27 : byte
+    + Reserved_26 : byte
+    + Reserved_25 : byte
+    + Reserved_24 : byte
+    + Reserved_23 : byte
+    + Reserved_22 : byte
+    + Reserved_21 : byte
+    + Reserved_20 : byte
+    + Reserved_19 : byte
+    + Reserved_18 : byte
+    + Reserved_17 : byte
+    + Reserved_16 : byte
+    + Reserved_15 : byte
+    + Reserved_14 : byte
+    + Reserved_13 : byte
+    + Reserved_12 : byte
+    + Reserved_11 : byte
+    + Reserved_10 : byte
+    + Reserved_09 : byte
+    + Reserved_08 : byte
+    + Reserved_07 : byte
+    + Reserved_06 : byte
+    + Reserved_05 : byte
+    + Reserved_04 : byte
+    + Reserved_03 : byte
+    + Reserved_02 : byte
+    + Reserved_01 : byte
+    + Reserved_00 : byte
+    + ControllerState4(cs:ControllerState2)
+}
+enum Tracker {
+    None= -1,
+    Zero= 0,
+    One= 1,
+    Two= 2,
+    Three= 3,
+    Count,
+}
+enum Node {
+    None= -1,
+    EyeLeft= 0,
+    EyeRight= 1,
+    EyeCenter= 2,
+    HandLeft= 3,
+    HandRight= 4,
+    TrackerZero= 5,
+    TrackerOne= 6,
+    TrackerTwo= 7,
+    TrackerThree= 8,
+    Head= 9,
+    Count,
+}
+enum Controller {
+    None= 0,
+    LTouch= 0x00000001,
+    RTouch= 0x00000002,
+    Touch= LTouch | RTouch,
+    Remote= 0x00000004,
+    Gamepad= 0x00000010,
+    Touchpad= 0x08000000,
+    LTrackedRemote= 0x01000000,
+    RTrackedRemote= 0x02000000,
+    Active= unchecked((int)0x80000000),
+    All= ~None,
+}
+enum Step {
+    Render= -1,
+    Physics= 0,
+}
+enum TrackingConfidence {
+    Low= 0,
+    High= 0x3f800000,
+}
+enum Hand {
+    None= -1,
+    HandLeft= 0,
+    HandRight= 1,
+}
+enum HandStatus {
+    HandTracked= (1 << 0),
+    InputStateValid= (1 << 1),
+    SystemGestureInProgress= (1 << 6),
+}
+enum BoneId {
+    Invalid= -1,
+    Hand_Start= 0,
+    Hand_WristRoot= Hand_Start + 0,
+    Hand_ForearmStub= Hand_Start + 1,
+    Hand_Thumb0= Hand_Start + 2,
+    Hand_Thumb1= Hand_Start + 3,
+    Hand_Thumb2= Hand_Start + 4,
+    Hand_Thumb3= Hand_Start + 5,
+    Hand_Index1= Hand_Start + 6,
+    Hand_Index2= Hand_Start + 7,
+    Hand_Index3= Hand_Start + 8,
+    Hand_Middle1= Hand_Start + 9,
+    Hand_Middle2= Hand_Start + 10,
+    Hand_Middle3= Hand_Start + 11,
+    Hand_Ring1= Hand_Start + 12,
+    Hand_Ring2= Hand_Start + 13,
+    Hand_Ring3= Hand_Start + 14,
+    Hand_Pinky0= Hand_Start + 15,
+    Hand_Pinky1= Hand_Start + 16,
+    Hand_Pinky2= Hand_Start + 17,
+    Hand_Pinky3= Hand_Start + 18,
+    Hand_MaxSkinnable= Hand_Start + 19,
+    Hand_ThumbTip= Hand_Start + Hand_MaxSkinnable + 0,
+    Hand_IndexTip= Hand_Start + Hand_MaxSkinnable + 1,
+    Hand_MiddleTip= Hand_Start + Hand_MaxSkinnable + 2,
+    Hand_RingTip= Hand_Start + Hand_MaxSkinnable + 3,
+    Hand_PinkyTip= Hand_Start + Hand_MaxSkinnable + 4,
+    Hand_End= Hand_Start + Hand_MaxSkinnable + 5,
+    Max= Hand_End + 0,
+}
+enum HandFinger {
+    Thumb= 0,
+    Index= 1,
+    Middle= 2,
+    Ring= 3,
+    Pinky= 4,
+    Max= 5,
+}
+enum HandFingerPinch {
+    Thumb= (1 << HandFinger.Thumb),
+    Index= (1 << HandFinger.Index),
+    Middle= (1 << HandFinger.Middle),
+    Ring= (1 << HandFinger.Ring),
+    Pinky= (1 << HandFinger.Pinky),
+}
+struct Posef {
+    + <<override>> ToString() : string
+}
+struct BoneCapsule {
+    + BoneIndex : short
+    + Radius : float
+}
+struct Bone {
+    + ParentBoneIndex : short
+}
+enum SkeletonConstants {
+    MaxBones= BoneId.Max,
+    MaxBoneCapsules= 19,
+}
+enum SkeletonType {
+    None= -1,
+    HandLeft= 0,
+    HandRight= 1,
+}
+struct Skeleton {
+    + NumBones : uint
+    + NumBoneCapsules : uint
+}
+class SkeletonBone {
+    + ParentBoneIndex : short <<get>>
+    + SkeletonBone(id:OculusDevice.BoneId, parentBoneIndex:short, trans:UnityEngine.Transform)
+}
+struct HandState {
+    + HandScale : float
+    + RequestedTimeStamp : double
+    + SampleTimeStamp : double
+}
+struct HandStateInternal {
+    + PinchStrength_0 : float
+    + PinchStrength_1 : float
+    + PinchStrength_2 : float
+    + PinchStrength_3 : float
+    + PinchStrength_4 : float
+    + HandScale : float
+    + RequestedTimeStamp : double
+    + SampleTimeStamp : double
+}
+enum Result {
+    Success= 0,
+    Failure= -1000,
+    Failure_InvalidParameter= -1001,
+    Failure_NotInitialized= -1002,
+    Failure_InvalidOperation= -1003,
+    Failure_Unsupported= -1004,
+    Failure_NotYetImplemented= -1005,
+    Failure_OperationFailed= -1006,
+    Failure_InsufficientSize= -1007,
+}
+enum RecenterFlags {
+    Default= 0,
+    Controllers= 0x40000000,
+    IgnoreAll= unchecked((int)0x80000000),
+    Count,
+}
+class OVRP_1_44_0 <<static>> {
+    + {static} <<extern>> ovrp_GetHandState(stepId:Step, hand:Hand, handState:HandStateInternal) : Result
+    + {static} <<extern>> ovrp_GetSkeleton(skeletonType:SkeletonType, skeleton:Skeleton) : Result
+}
+OculusDevice +-- RawNearTouch
+OculusDevice +-- RawTouch
+OculusDevice +-- RawButton
+OculusDevice +-- Bool
+OculusDevice +-- Vector2f
+OculusDevice +-- Vector3f
+Vector3f o-> "zero" Vector3f
+OculusDevice +-- Quatf
+Quatf o-> "identity" Quatf
+OculusDevice +-- Pose
+Pose --> "Orientation" Quatf
+Pose --> "Position" Vector3f
+OculusDevice +-- PoseStatef
+PoseStatef --> "Pose" Pose
+PoseStatef --> "Velocity" Vector3f
+PoseStatef --> "Acceleration" Vector3f
+PoseStatef --> "AngularVelocity" Vector3f
+PoseStatef --> "AngularAcceleration" Vector3f
+OculusDevice +-- ControllerState2
+ControllerState2 --> "LThumbstick" Vector2f
+ControllerState2 --> "RThumbstick" Vector2f
+ControllerState2 --> "LTouchpad" Vector2f
+ControllerState2 --> "RTouchpad" Vector2f
+OculusDevice +-- ControllerState4
+ControllerState4 --> "LThumbstick" Vector2f
+ControllerState4 --> "RThumbstick" Vector2f
+ControllerState4 --> "LTouchpad" Vector2f
+ControllerState4 --> "RTouchpad" Vector2f
+OculusDevice +-- Tracker
+OculusDevice +-- Node
+OculusDevice +-- Controller
+OculusDevice +-- Step
+OculusDevice +-- TrackingConfidence
+OculusDevice +-- Hand
+OculusDevice +-- HandStatus
+OculusDevice +-- BoneId
+OculusDevice +-- HandFinger
+OculusDevice +-- HandFingerPinch
+OculusDevice +-- Posef
+Posef --> "Orientation" Quatf
+Posef --> "Position" Vector3f
+Posef o-> "identity" Posef
+OculusDevice +-- BoneCapsule
+OculusDevice +-- Bone
+Bone --> "Id" BoneId
+Bone --> "Pose" Posef
+OculusDevice +-- SkeletonConstants
+OculusDevice +-- SkeletonType
+OculusDevice +-- Skeleton
+Skeleton --> "Type" SkeletonType
+OculusDevice +-- SkeletonBone
+OculusDevice +-- HandState
+HandState --> "Status" HandStatus
+HandState --> "RootPose" Posef
+HandState --> "Pinches" HandFingerPinch
+HandState --> "PointerPose" Posef
+HandState --> "HandConfidence" TrackingConfidence
+OculusDevice +-- HandStateInternal
+HandStateInternal --> "Status" HandStatus
+HandStateInternal --> "RootPose" Posef
+HandStateInternal --> "BoneRotations_0" Quatf
+HandStateInternal --> "BoneRotations_1" Quatf
+HandStateInternal --> "BoneRotations_2" Quatf
+HandStateInternal --> "BoneRotations_3" Quatf
+HandStateInternal --> "BoneRotations_4" Quatf
+HandStateInternal --> "BoneRotations_5" Quatf
+HandStateInternal --> "BoneRotations_6" Quatf
+HandStateInternal --> "BoneRotations_7" Quatf
+HandStateInternal --> "BoneRotations_8" Quatf
+HandStateInternal --> "BoneRotations_9" Quatf
+HandStateInternal --> "BoneRotations_10" Quatf
+HandStateInternal --> "BoneRotations_11" Quatf
+HandStateInternal --> "BoneRotations_12" Quatf
+HandStateInternal --> "BoneRotations_13" Quatf
+HandStateInternal --> "BoneRotations_14" Quatf
+HandStateInternal --> "BoneRotations_15" Quatf
+HandStateInternal --> "BoneRotations_16" Quatf
+HandStateInternal --> "BoneRotations_17" Quatf
+HandStateInternal --> "BoneRotations_18" Quatf
+HandStateInternal --> "BoneRotations_19" Quatf
+HandStateInternal --> "BoneRotations_20" Quatf
+HandStateInternal --> "BoneRotations_21" Quatf
+HandStateInternal --> "BoneRotations_22" Quatf
+HandStateInternal --> "BoneRotations_23" Quatf
+HandStateInternal --> "Pinches" HandFingerPinch
+HandStateInternal --> "PointerPose" Posef
+HandStateInternal --> "HandConfidence" TrackingConfidence
+HandStateInternal --> "FingerConfidences_0" TrackingConfidence
+HandStateInternal --> "FingerConfidences_1" TrackingConfidence
+HandStateInternal --> "FingerConfidences_2" TrackingConfidence
+HandStateInternal --> "FingerConfidences_3" TrackingConfidence
+HandStateInternal --> "FingerConfidences_4" TrackingConfidence
+OculusDevice +-- Result
+OculusDevice +-- RecenterFlags
+OculusDevice +-- OVRP_1_44_0
+@enduml

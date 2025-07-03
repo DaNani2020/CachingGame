@@ -1,0 +1,6 @@
+@startuml
+class GlbParserTests <<sealed>> {
+    + TextureNameUniqueness() : void
+    + GlbLengthTest() : void
+}
+@enduml

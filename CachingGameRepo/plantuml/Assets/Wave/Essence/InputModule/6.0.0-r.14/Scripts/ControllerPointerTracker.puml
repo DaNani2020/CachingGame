@@ -1,0 +1,7 @@
+@startuml
+class ControllerPointerTracker <<sealed>> {
+}
+MonoBehaviour <|-- ControllerPointerTracker
+ControllerPointerTracker --> "Instance" ControllerPointerTracker
+ControllerPointerTracker --> "TrackerType" XR_Hand
+@enduml

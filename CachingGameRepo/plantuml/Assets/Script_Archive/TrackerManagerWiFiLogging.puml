@@ -1,0 +1,77 @@
+@startuml
+class TrackerManagerWiFiLogging {
+    + UseXRDevice : bool <<get>> <<set>>
+    + InitialStartTracker : bool <<get>> <<set>>
+    + StartTracker(callback:TrackerResultDelegate) : void
+    + StartTracker() : void
+    + StopTracker() : void
+    + TriggerTrackerVibration(trackerId:TrackerId, durationMicroSec:UInt32, frequency:UInt32, amplitude:float) : bool
+    + GetTrackerStatus() : TrackerStatus
+    + IsTrackerConnected(trackerId:TrackerId) : bool
+    + IsTrackerPoseValid(trackerId:TrackerId) : bool
+    + GetTrackerTrackingState(trackerId:TrackerId, state:InputTrackingState) : bool
+    + GetTrackerRole(trackerId:TrackerId) : TrackerRole
+    + GetTrackerPosition(trackerId:TrackerId, position:Vector3) : bool
+    + GetTrackerPosition(trackerId:TrackerId) : Vector3
+    + GetTrackerRotation(trackerId:TrackerId, rotation:Quaternion) : bool
+    + GetTrackerRotation(trackerId:TrackerId) : Quaternion
+    + GetTrackerVelocity(trackerId:TrackerId, velocity:Vector3) : bool
+    + GetTrackerVelocity(trackerId:TrackerId) : Vector3
+    + GetTrackerAngularVelocity(trackerId:TrackerId, angularVelocity:Vector3) : bool
+    + GetTrackerAngularVelocity(trackerId:TrackerId) : Vector3
+    + GetTrackerAcceleration(trackerId:TrackerId, acceleration:Vector3) : bool
+    + GetTrackerAcceleration(trackerId:TrackerId) : Vector3
+    + GetTrackerButtonAxisType(trackerId:TrackerId, id:TrackerButton) : AxisType
+    + TrackerButtonPress(trackerId:TrackerId, id:TrackerButton) : bool
+    + TrackerButtonHold(trackerId:TrackerId, id:TrackerButton) : bool
+    + TrackerButtonRelease(trackerId:TrackerId, id:TrackerButton) : bool
+    + TrackerButtonTouch(trackerId:TrackerId, id:TrackerButton) : bool
+    + TrackerButtonTouching(trackerId:TrackerId, id:TrackerButton) : bool
+    + TrackerButtonUntouch(trackerId:TrackerId, id:TrackerButton) : bool
+    + TrackerButtonAxis(trackerId:TrackerId, id:TrackerButton) : Vector2
+    + GetTrackerBatteryLife(trackerId:TrackerId) : float
+    + GetTrackerExtData(trackerId:TrackerId) : Int32[]
+    + GetTrackerExtData(trackerId:TrackerId, timestamp:UInt64) : Int32[]
+    + GetTrackerDeviceName(trackerId:TrackerId, trackerName:string) : bool
+    + SetFocusedTracker(tracker:TrackerId) : void
+    + GetFocusedTracker() : TrackerId
+}
+enum TrackerStatus {
+    NotStart= 0,
+    StartFailure,
+    Starting,
+    Stopping,
+    Available,
+    NoSupport,
+}
+class TrackerSwipeEvent {
+}
+class TrackerPose {
+    + valid : bool = false
+    + is6DoF : bool = false
+    + TrackerPose()
+}
+class TrackerButtonStates {
+    + TrackerButtonStates()
+}
+class "UnityEvent`1"<T> {
+}
+MonoBehaviour <|-- TrackerManagerWiFiLogging
+TrackerManagerWiFiLogging --> "Instance" TrackerManagerWiFiLogging
+TrackerManagerWiFiLogging --> "OnSwipeToRight" TrackerSwipeEvent
+TrackerManagerWiFiLogging --> "OnSwipeToLeft" TrackerSwipeEvent
+TrackerManagerWiFiLogging --> "OnSwipeToUp" TrackerSwipeEvent
+TrackerManagerWiFiLogging --> "OnSwipeToDown" TrackerSwipeEvent
+TrackerManagerWiFiLogging o-> "kAloneTrackerCharacteristics" InputDeviceCharacteristics
+TrackerManagerWiFiLogging o-> "kRightTrackerCharacteristics" InputDeviceCharacteristics
+TrackerManagerWiFiLogging o-> "kLeftTrackerCharacteristics" InputDeviceCharacteristics
+TrackerManagerWiFiLogging +-- TrackerStatus
+TrackerManagerWiFiLogging +-- TrackerSwipeEvent
+"UnityEvent`1" "<uint>" <|-- TrackerSwipeEvent
+TrackerManagerWiFiLogging +-- TrackerPose
+TrackerPose o-> "rigid" RigidTransform
+TrackerPose o-> "velocity" Vector3
+TrackerPose o-> "angularVelocity" Vector3
+TrackerPose o-> "acceleration" Vector3
+TrackerManagerWiFiLogging +-- TrackerButtonStates
+@enduml

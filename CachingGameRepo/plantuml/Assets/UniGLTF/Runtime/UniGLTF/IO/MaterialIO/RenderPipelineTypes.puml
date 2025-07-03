@@ -1,0 +1,6 @@
+@startuml
+enum RenderPipelineTypes {
+    BuiltinRenderPipeline,
+    UniversalRenderPipeline,
+}
+@enduml

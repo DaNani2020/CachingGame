@@ -1,0 +1,32 @@
+@startuml
+struct Utf8Iterator {
+    + Utf8Iterator(range:ArraySegment<Byte>, start:int)
+    + BytePosition : int <<get>>
+    + CurrentByteLength : int <<get>>
+    + Current : byte <<get>>
+    + Second : byte <<get>>
+    + Third : byte <<get>>
+    + Fourth : byte <<get>>
+    + <<const>> Mask1 : uint = 0x01
+    + <<const>> Mask2 : uint = 0x03
+    + <<const>> Mask3 : uint = 0x07
+    + <<const>> Mask4 : uint = 0x0F
+    + <<const>> Mask5 : uint = 0x1F
+    + <<const>> Mask6 : uint = 0x3F
+    + <<const>> Mask7 : uint = 0x7F
+    + <<const>> Mask11 : uint = 0x07FF
+    + <<const>> Head1 : uint = 0x80
+    + <<const>> Head2 : uint = 0xC0
+    + <<const>> Head3 : uint = 0xE0
+    + <<const>> Head4 : uint = 0xF0
+    + {static} ByteLengthFromChar(c:char) : int
+    + Unicode : uint <<get>>
+    + Char : char <<get>>
+    + Dispose() : void
+    + MoveNext() : bool
+    + Reset() : void
+}
+class "IEnumerator`1"<T> {
+}
+"IEnumerator`1" "<Byte>" <|-- Utf8Iterator
+@enduml

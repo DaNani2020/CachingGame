@@ -1,0 +1,5 @@
+@startuml
+class EnumUtil <<static>> {
+    + {static} TryParseOrDefault(src:string, defaultValue:T) : T
+}
+@enduml

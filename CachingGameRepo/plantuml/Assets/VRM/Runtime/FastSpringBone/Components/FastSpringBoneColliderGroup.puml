@@ -1,0 +1,6 @@
+@startuml
+class FastSpringBoneColliderGroup <<sealed>> <<unsafe>> {
+    + Initialize(transformRegistry:TransformRegistry, colliders:BlittableCollider[]) : void
+}
+MonoBehaviour <|-- FastSpringBoneColliderGroup
+@enduml

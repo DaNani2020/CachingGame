@@ -1,0 +1,11 @@
+@startuml
+class ConstraintDestination {
+    + ConstraintDestination(t:Transform, modelRoot:Transform)
+    + ApplyLocal(tr:TR) : void
+    + ApplyModel(tr:TR) : void
+}
+ConstraintDestination --> "Destination" Transform
+ConstraintDestination --> "ModelInitial" TR
+ConstraintDestination --> "LocalInitial" TR
+ConstraintDestination --> "ModelRoot" Transform
+@enduml

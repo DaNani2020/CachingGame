@@ -1,0 +1,46 @@
+@startuml
+abstract class glTFTextureInfo {
+    + index : int
+    + texCoord : int
+}
+class glTFMaterialBaseColorTextureInfo {
+}
+class glTFMaterialMetallicRoughnessTextureInfo {
+}
+class glTFMaterialNormalTextureInfo {
+    + scale : float = 1.0f
+}
+class glTFMaterialOcclusionTextureInfo {
+    + strength : float = 1.0f
+}
+class glTFMaterialEmissiveTextureInfo {
+}
+class glTFPbrMetallicRoughness {
+    + metallicFactor : float = 1.0f
+    + roughnessFactor : float = 1.0f
+}
+class glTFMaterial {
+    + name : string
+    + alphaMode : string
+    + alphaCutoff : float = 0.5f
+    + doubleSided : bool
+    + GetTextures() : glTFTextureInfo[]
+}
+glTFTextureInfo --> "extensions" glTFExtension
+glTFTextureInfo --> "extras" glTFExtension
+glTFTextureInfo <|-- glTFMaterialBaseColorTextureInfo
+glTFTextureInfo <|-- glTFMaterialMetallicRoughnessTextureInfo
+glTFTextureInfo <|-- glTFMaterialNormalTextureInfo
+glTFTextureInfo <|-- glTFMaterialOcclusionTextureInfo
+glTFTextureInfo <|-- glTFMaterialEmissiveTextureInfo
+glTFPbrMetallicRoughness o-> "baseColorTexture" glTFMaterialBaseColorTextureInfo
+glTFPbrMetallicRoughness o-> "metallicRoughnessTexture" glTFMaterialMetallicRoughnessTextureInfo
+glTFPbrMetallicRoughness --> "extensions" glTFExtension
+glTFPbrMetallicRoughness --> "extras" glTFExtension
+glTFMaterial o-> "pbrMetallicRoughness" glTFPbrMetallicRoughness
+glTFMaterial o-> "normalTexture" glTFMaterialNormalTextureInfo
+glTFMaterial o-> "occlusionTexture" glTFMaterialOcclusionTextureInfo
+glTFMaterial o-> "emissiveTexture" glTFMaterialEmissiveTextureInfo
+glTFMaterial --> "extensions" glTFExtension
+glTFMaterial --> "extras" glTFExtension
+@enduml

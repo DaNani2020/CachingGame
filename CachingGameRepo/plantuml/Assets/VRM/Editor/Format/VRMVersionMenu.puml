@@ -1,0 +1,12 @@
+@startuml
+class VRMVersionMenu {
+    + {static} ShowVersionDialog() : void
+}
+struct UpmPackage {
+    + <<readonly>> Path : string
+    + <<readonly>> Template : string
+    + UpmPackage(path:string, template:string)
+}
+EditorWindow <|-- VRMVersionMenu
+VRMVersionMenu +-- UpmPackage
+@enduml

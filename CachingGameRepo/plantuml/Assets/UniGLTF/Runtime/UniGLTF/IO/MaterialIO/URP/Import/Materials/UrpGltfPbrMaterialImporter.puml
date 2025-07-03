@@ -1,0 +1,14 @@
+@startuml
+class UrpGltfPbrMaterialImporter <<static>> {
+    + <<const>> ShaderName : string = "Universal Render Pipeline/Lit"
+    + {static} TryCreateParam(data:GltfData, i:int, matDesc:MaterialDescriptor) : bool
+}
+enum BlendMode {
+    Opaque,
+    Cutout,
+    Fade,
+    Transparent,
+}
+UrpGltfPbrMaterialImporter --> "Shader" Shader
+UrpGltfPbrMaterialImporter +-- BlendMode
+@enduml

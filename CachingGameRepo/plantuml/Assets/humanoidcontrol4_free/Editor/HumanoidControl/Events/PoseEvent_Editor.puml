@@ -1,0 +1,7 @@
+@startuml
+class PoseEvent_Editor {
+    + {static} EventInspector(eventSourceProp:SerializedProperty, eventSource:PoseEventList, selectedEventSourceIx:int, selectedEventIx:int) : void
+    + {static} DetailsInspector(eventProp:SerializedProperty, label:string) : void
+}
+Event_Editor <|-- PoseEvent_Editor
+@enduml

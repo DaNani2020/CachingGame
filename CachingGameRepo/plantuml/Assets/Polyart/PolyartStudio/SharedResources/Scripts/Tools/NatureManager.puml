@@ -1,0 +1,19 @@
+@startuml
+class NatureManager {
+    + xSpeed : float = 0.2f
+    + ySpeed : float = 0.2f
+    + enableDithering : bool = false
+    + fadingDistance : float = 30.0f
+    + ditherBottomLevel : float = 1.0f
+    + ditherFade : float = 6.0f
+    + terrainGrassDitherMin : float = 1.0f
+    + terrainGrassDitherMax : float = 6.0f
+    + smallWindIntensity : float = 20.0f
+    + smallWindMultiplier : float = 1.0f
+    + largeWindIntensity : float = 20.0f
+    + largeWindMultiplier : float = 1.0f
+    + smoothness : float = 0.1f
+}
+MonoBehaviour <|-- NatureManager
+NatureManager o-> "cloudColor" Color
+@enduml

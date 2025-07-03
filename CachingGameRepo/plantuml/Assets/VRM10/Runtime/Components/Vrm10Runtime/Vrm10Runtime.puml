@@ -1,0 +1,13 @@
+@startuml
+class Vrm10Runtime {
+    + Vrm10Runtime(target:Vrm10Instance, useControlRig:bool)
+    + Dispose() : void
+    + ReconstructSpringBone() : void
+    + Process() : void
+}
+IDisposable <|-- Vrm10Runtime
+Vrm10Runtime --> "ControlRig" Vrm10RuntimeControlRig
+Vrm10Runtime --> "Expression" Vrm10RuntimeExpression
+Vrm10Runtime --> "LookAt" Vrm10RuntimeLookAt
+Vrm10Runtime --> "ExternalForce" Vector3
+@enduml

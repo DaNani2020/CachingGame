@@ -1,0 +1,24 @@
+@startuml
+class Condition {
+    + fullPropertyName : string
+    + {static} GetFromType(systemType:System.Type) : PropertyType
+    + operandIndex : int
+    + intConstant : int
+    + floatConstant : float
+    + Check() : bool
+    + CheckBool(propertyValue:object) : bool
+    + CheckInt(propertyValue:object) : bool
+    + CheckFloat(propertyValue:object) : bool
+    + CheckObject(propertyValue:object) : bool
+}
+enum PropertyType {
+    Unsupported,
+    Bool,
+    Int,
+    Float,
+    Object,
+}
+Condition --> "targetGameObject" GameObject
+Condition --> "propertyType" PropertyType
+Condition +-- PropertyType
+@enduml

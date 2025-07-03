@@ -1,0 +1,9 @@
+@startuml
+class VRMVersion <<static>> <<partial>> {
+    + <<const>> MAJOR : int = 1
+    + <<const>> MINOR : int = 0
+    + <<const>> PATCH : int = 0
+    + <<const>> PRE_ID : string = ""
+    + <<const>> VERSION : string = "1.0.0.beta"
+}
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+abstract class Sensor {
+    + enabled : bool
+    + <<virtual>> name : string <<get>>
+    + <<virtual>> Start(targetTransform:Transform) : void
+    + <<virtual>> Update() : void
+    + <<virtual>> ShowSensor(shown:bool) : void
+}
+Sensor --> "target" Target
+Sensor --> "tracker" Tracker
+Sensor --> "sensorComponent" SensorComponent
+@enduml

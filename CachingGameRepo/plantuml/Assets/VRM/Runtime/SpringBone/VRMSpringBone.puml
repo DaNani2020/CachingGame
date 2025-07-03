@@ -1,0 +1,40 @@
+@startuml
+class VRMSpringBone <<sealed>> {
+    + m_comment : string
+    + m_stiffnessForce : float = 1.0f
+    + m_gravityPower : float
+    + m_dragForce : float = 0.4f
+    + m_hitRadius : float = 0.02f
+    + Setup(force:bool) : void
+    + SetLocalRotationsIdentity() : void
+    + ManualUpdate(deltaTime:float) : void
+}
+class "List`1"<T> {
+}
+enum SpringBoneUpdateType {
+    LateUpdate,
+    FixedUpdate,
+    Manual,
+}
+class VRMSpringBoneLogic {
+    + VRMSpringBoneLogic(center:Transform, transform:Transform, localChildPosition:Vector3)
+    + SetRadius(radius:float) : void
+    + Update(center:Transform, stiffnessForce:float, dragForce:float, external:Vector3, colliders:List<SphereCollider>) : void
+    + DrawGizmo(center:Transform, color:Color) : void
+}
+struct SphereCollider {
+    + <<readonly>> Radius : float
+    + SphereCollider(transform:Transform, collider:VRMSpringBoneColliderGroup.SphereCollider)
+}
+MonoBehaviour <|-- VRMSpringBone
+VRMSpringBone o-> "m_gravityDir" Vector3
+VRMSpringBone --> "m_center" Transform
+VRMSpringBone o-> "RootBones<Transform>" "List`1"
+VRMSpringBone o-> "m_updateType" SpringBoneUpdateType
+VRMSpringBone +-- SpringBoneUpdateType
+VRMSpringBone +-- VRMSpringBoneLogic
+VRMSpringBoneLogic --> "Head" Transform
+VRMSpringBoneLogic --> "Tail" Vector3
+VRMSpringBone +-- SphereCollider
+SphereCollider --> "Position" Vector3
+@enduml

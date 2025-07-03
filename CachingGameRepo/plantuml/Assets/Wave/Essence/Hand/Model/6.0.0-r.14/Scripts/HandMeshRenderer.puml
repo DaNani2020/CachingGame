@@ -1,0 +1,24 @@
+@startuml
+class HandMeshRenderer {
+    + IsLeft : bool = false
+    + showElectronicHandInControllerMode : bool = false
+    + useRuntimeModel : bool = true
+    + useScale : bool = true
+    + showConfidenceAsAlpha : bool = false
+    + alreadyDetect : bool = false
+    + checkInteractionMode : bool = false
+    + useInputDevice : bool = true
+    + AutoDetect() : void
+    + GetNaturalHandModel() : bool
+    + {static} FromToGL(i:Matrix4x4) : Matrix4x4
+    + ClearDetect() : void
+}
+class BoneMap {
+    + BoneMap(b:HandManager.HandJoint, name:string, p:HandManager.HandJoint)
+    + DisplayName : string
+}
+MonoBehaviour <|-- HandMeshRenderer
+HandMeshRenderer --> "Hand" GameObject
+HandMeshRenderer +-- BoneMap
+BoneMap --> "BoneDiffFromParent" Vector3
+@enduml

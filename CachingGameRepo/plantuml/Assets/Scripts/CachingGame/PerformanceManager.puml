@@ -1,0 +1,14 @@
+@startuml
+class PerformanceManager {
+    + interval : float = 10f
+    + analyseWindowSize : int = 10
+    + UpdateStatistics() : void
+    + CalculateReachedRatesOfTypes(windowSize:int) : Dictionary<string, float>
+    + CalculateReachedRatesOfTypesPerSource(windowSize:int) : Dictionary<int, Dictionary<string, float>>
+    + CalculateCachedRatesOfTypes(windowSize:int) : Dictionary<string, float>
+    + CalculateUncachedTotalAngleXYPerSource(windowSize:int) : Dictionary<int, (float, float)>
+    + CalculateUncachedTotalAngleXY(windowSize:int) : (float overallAngleSumOfX, float overallAngleSumOfY)
+    + RebaseRotationAngles(rotationOfObject:Quaternion) : (float, float)
+}
+'MonoBehaviour <|-- PerformanceManager
+@enduml

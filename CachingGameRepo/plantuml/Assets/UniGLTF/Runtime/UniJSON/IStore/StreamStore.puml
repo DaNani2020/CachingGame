@@ -1,0 +1,31 @@
+@startuml
+class StreamStore {
+    + StreamStore(s:Stream)
+    + Clear() : void
+    + Write(value:sbyte) : void
+    + Write(value:byte) : void
+    + Write(c:char) : void
+    + Write(src:string) : void
+    + Write(bytes:ArraySegment<byte>) : void
+    + WriteBigEndian(value:int) : void
+    + WriteBigEndian(value:float) : void
+    + WriteBigEndian(value:double) : void
+    + WriteBigEndian(value:long) : void
+    + WriteBigEndian(value:short) : void
+    + WriteBigEndian(value:uint) : void
+    + WriteBigEndian(value:ulong) : void
+    + WriteBigEndian(value:ushort) : void
+    + WriteLittleEndian(value:long) : void
+    + WriteLittleEndian(value:uint) : void
+    + WriteLittleEndian(value:short) : void
+    + WriteLittleEndian(value:ulong) : void
+    + WriteLittleEndian(value:double) : void
+    + WriteLittleEndian(value:float) : void
+    + WriteLittleEndian(value:int) : void
+    + WriteLittleEndian(value:ushort) : void
+}
+class "ArraySegment`1"<T> {
+}
+IStore <|-- StreamStore
+StreamStore --> "Bytes<byte>" "ArraySegment`1"
+@enduml

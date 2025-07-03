@@ -1,0 +1,5 @@
+@startuml
+class EnumExtensions <<static>> {
+    + {static} HasFlag(keys:Enum, flag:Enum) : bool
+}
+@enduml

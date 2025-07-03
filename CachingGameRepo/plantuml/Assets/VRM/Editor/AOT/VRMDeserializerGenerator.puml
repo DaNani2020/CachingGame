@@ -1,0 +1,6 @@
+@startuml
+class VRMDeserializerGenerator <<static>> {
+    + {static} GenerateCode() : void
+}
+VRMDeserializerGenerator o-> "FIELD_FLAGS" BindingFlags
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+enum ShaderPropertyType {
+    TexEnv,
+    Color,
+    Range,
+    Float,
+    Vector,
+}
+struct ShaderProperty {
+    + Key : string
+    + ShaderProperty(key:string, propType:ShaderPropertyType)
+}
+class ShaderProps {
+}
+ShaderProperty --> "ShaderPropertyType" ShaderPropertyType
+@enduml

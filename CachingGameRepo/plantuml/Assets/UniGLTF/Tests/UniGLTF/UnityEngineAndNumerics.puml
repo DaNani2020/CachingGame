@@ -1,0 +1,5 @@
+@startuml
+class UnityEngineNumerics {
+    + Values() : void
+}
+@enduml

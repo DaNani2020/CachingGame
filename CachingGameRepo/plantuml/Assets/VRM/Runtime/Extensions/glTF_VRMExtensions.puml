@@ -1,0 +1,9 @@
+@startuml
+class glTF_VRMExtensions <<static>> {
+    + {static} Cerate(root:Transform, binding:BlendShapeBinding, exporter:gltfExporter) : glTF_VRM_BlendShapeBind
+    + {static} Create(root:Transform, binding:BlendShapeBinding, exporter:gltfExporter) : glTF_VRM_BlendShapeBind
+    + {static} Add(master:glTF_VRM_BlendShapeMaster, clip:BlendShapeClip, exporter:gltfExporter) : void
+    + {static} Serialize(clip:BlendShapeClip, exporter:gltfExporter) : glTF_VRM_BlendShapeGroup
+    + {static} Apply(map:glTF_VRM_DegreeMap, mapper:CurveMapper) : void
+}
+@enduml

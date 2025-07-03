@@ -1,0 +1,89 @@
+@startuml
+enum CompressionMethod {
+    Stored= 0,
+    Shrink= 1,
+    Reduced1= 2,
+    Reduced2= 3,
+    Reduced3= 4,
+    Reduced4= 5,
+    Imploded= 6,
+    Reserved= 7,
+    Deflated= 8,
+}
+class ZipParseException {
+    + ZipParseException(msg:string)
+}
+class EOCD {
+    + NumberOfThisDisk : ushort
+    + DiskWhereCentralDirectoryStarts : ushort
+    + NumberOfCentralDirectoryRecordsOnThisDisk : ushort
+    + TotalNumberOfCentralDirectoryRecords : ushort
+    + SizeOfCentralDirectoryBytes : int
+    + OffsetOfStartOfCentralDirectory : int
+    + Comment : string
+    + <<override>> ToString() : string
+    + {static} Parse(bytes:Byte[]) : EOCD
+}
+abstract class CommonHeader {
+    + Offset : int
+    + {abstract} Signature : int <<get>>
+    + {abstract} FixedFieldLength : int <<get>>
+    + {abstract} Length : int <<get>>
+    + FileName : string <<get>>
+    + <<override>> ToString() : string
+    + {abstract} ReadBefore(r:BinaryReader) : void
+    + Read(r:BinaryReader) : void
+    + {abstract} ReadAfter(r:BinaryReader) : void
+}
+class CentralDirectoryFileHeader {
+    + <<override>> Signature : int <<get>>
+    + CentralDirectoryFileHeader(bytes:Byte[], offset:int)
+    + <<override>> FixedFieldLength : int <<get>>
+    + FileComment : string <<get>>
+    + <<override>> Length : int <<get>>
+    + <<override>> ReadBefore(r:BinaryReader) : void
+    + <<override>> ReadAfter(r:BinaryReader) : void
+}
+class LocalFileHeader {
+    + <<override>> FixedFieldLength : int <<get>>
+    + <<override>> Signature : int <<get>>
+    + <<override>> Length : int <<get>>
+    + LocalFileHeader(bytes:Byte[], offset:int)
+    + <<override>> ReadBefore(r:BinaryReader) : void
+    + <<override>> ReadAfter(r:BinaryReader) : void
+}
+class ZipArchiveStorage {
+    + <<override>> ToString() : string
+    + {static} Parse(bytes:byte[]) : ZipArchiveStorage
+    + Extract(header:CentralDirectoryFileHeader) : Byte[]
+    + ExtractToString(header:CentralDirectoryFileHeader, encoding:Encoding) : string
+    + Get(url:string) : ArraySegment<byte>
+}
+class "ArraySegment`1"<T> {
+}
+class "List`1"<T> {
+}
+Exception <|-- ZipParseException
+CommonHeader o-> "Encoding" Encoding
+CommonHeader --> "VersionNeededToExtract" UInt16
+CommonHeader --> "GeneralPurposeBitFlag" UInt16
+CommonHeader --> "CompressionMethod" CompressionMethod
+CommonHeader --> "FileLastModificationTime" UInt16
+CommonHeader --> "FileLastModificationDate" UInt16
+CommonHeader --> "CRC32" Int32
+CommonHeader --> "CompressedSize" Int32
+CommonHeader --> "UncompressedSize" Int32
+CommonHeader --> "FileNameLength" UInt16
+CommonHeader --> "ExtraFieldLength" UInt16
+CommonHeader --> "ExtraField<Byte>" "ArraySegment`1"
+CommonHeader <|-- CentralDirectoryFileHeader
+CentralDirectoryFileHeader --> "VersionMadeBy" UInt16
+CentralDirectoryFileHeader --> "FileCommentLength" UInt16
+CentralDirectoryFileHeader --> "DiskNumberWhereFileStarts" UInt16
+CentralDirectoryFileHeader --> "InternalFileAttributes" UInt16
+CentralDirectoryFileHeader --> "ExternalFileAttributes" Int32
+CentralDirectoryFileHeader --> "RelativeOffsetOfLocalFileHeader" Int32
+CommonHeader <|-- LocalFileHeader
+IStorage <|-- ZipArchiveStorage
+ZipArchiveStorage o-> "Entries<CentralDirectoryFileHeader>" "List`1"
+@enduml

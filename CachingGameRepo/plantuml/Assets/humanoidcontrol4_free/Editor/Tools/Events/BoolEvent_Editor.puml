@@ -1,0 +1,6 @@
+@startuml
+class BoolEvent_Editor {
+    + {static} EventInspector(eventSourceProp:SerializedProperty, eventSource:BoolEventHandlers, selectedEventSourceIx:int, selectedEventIx:int) : void
+}
+Event_Editor <|-- BoolEvent_Editor
+@enduml

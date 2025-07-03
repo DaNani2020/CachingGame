@@ -1,0 +1,10 @@
+@startuml
+class HandSocket {
+    + <<override>> Attach(handle:Handle, rangeCheck:bool) : bool
+    + <<override>> AttachStaticJoint(objTransform:Transform) : void
+    + <<override>> Release(releaseSticky:bool) : void
+    + <<override>> ReleaseStaticJoint() : void
+}
+Socket <|-- HandSocket
+HandSocket --> "handTarget" HandTarget
+@enduml

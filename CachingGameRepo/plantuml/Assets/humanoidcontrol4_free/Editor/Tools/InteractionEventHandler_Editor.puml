@@ -1,0 +1,6 @@
+@startuml
+class InteractionEventHandler_Editor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- InteractionEventHandler_Editor
+@enduml

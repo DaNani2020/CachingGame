@@ -1,0 +1,12 @@
+@startuml
+class MigrationVrmSpringBone <<static>> {
+    + {static} Migrate(gltf:UniGLTF.glTF, vrm0:JsonNode) : VRMC_springBone
+}
+class SpringBoneGroupMigrator {
+    + SpringBoneGroupMigrator(gltf:UniGLTF.glTF, vrm0BoneGroup:JsonNode)
+}
+class "IReadOnlyList`1"<T> {
+}
+MigrationVrmSpringBone +-- SpringBoneGroupMigrator
+SpringBoneGroupMigrator --> "Springs<Spring>" "IReadOnlyList`1"
+@enduml

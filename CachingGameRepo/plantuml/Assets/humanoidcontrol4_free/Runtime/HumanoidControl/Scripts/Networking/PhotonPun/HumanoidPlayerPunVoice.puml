@@ -1,0 +1,6 @@
+@startuml
+class HumanoidPlayerPunVoice {
+}
+MonoBehaviour <|-- HumanoidPlayerPunVoice
+HumanoidPlayerPunVoice --> "humanoid" HumanoidControl
+@enduml

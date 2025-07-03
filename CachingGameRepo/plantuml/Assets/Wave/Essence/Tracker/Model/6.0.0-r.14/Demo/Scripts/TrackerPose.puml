@@ -1,0 +1,7 @@
+@startuml
+class TrackerPose {
+}
+MonoBehaviour <|-- TrackerPose
+TrackerPose --> "TrackerType" TrackerId
+TrackerPose --> "Tracker" GameObject
+@enduml

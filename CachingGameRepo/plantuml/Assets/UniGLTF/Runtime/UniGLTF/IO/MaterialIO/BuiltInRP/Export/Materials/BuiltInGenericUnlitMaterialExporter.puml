@@ -1,0 +1,5 @@
+@startuml
+class BuiltInGenericUnlitMaterialExporter <<static>> {
+    + {static} TryExportMaterial(src:Material, blendMode:glTFBlendMode, textureExporter:ITextureExporter, dst:glTFMaterial) : bool
+}
+@enduml

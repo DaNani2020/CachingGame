@@ -1,0 +1,6 @@
+@startuml
+class PawnPossessions_Editor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- PawnPossessions_Editor
+@enduml

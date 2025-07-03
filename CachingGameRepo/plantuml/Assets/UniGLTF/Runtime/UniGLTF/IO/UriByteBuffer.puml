@@ -1,0 +1,5 @@
+@startuml
+class UriByteBuffer <<static>> {
+    + {static} ReadEmbedded(uri:string) : Byte[]
+}
+@enduml

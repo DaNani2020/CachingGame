@@ -1,0 +1,13 @@
+@startuml
+class VrmScriptedImporterEditorGUI {
+    + <<override>> OnEnable() : void
+    + <<override>> OnInspectorGUI() : void
+}
+enum Tabs {
+    Model,
+    Materials,
+    Vrm,
+}
+RemapScriptedImporterEditorBase <|-- VrmScriptedImporterEditorGUI
+VrmScriptedImporterEditorGUI +-- Tabs
+@enduml

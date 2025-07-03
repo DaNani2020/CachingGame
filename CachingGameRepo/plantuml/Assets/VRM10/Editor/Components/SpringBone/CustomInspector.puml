@@ -1,0 +1,8 @@
+@startuml
+struct CustomInspector {
+    + CustomInspector(so:SerializedObject, depth:int, callback:Func<SerializedProperty, bool>)
+    + OnInspectorGUI() : void
+    + Dispose() : void
+}
+IDisposable <|-- CustomInspector
+@enduml

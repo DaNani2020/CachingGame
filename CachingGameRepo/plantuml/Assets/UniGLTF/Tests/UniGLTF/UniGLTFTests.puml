@@ -1,0 +1,54 @@
+@startuml
+class ToJsonExtensions <<static>> {
+    + {static} ToJson(self:glTF) : string
+    + {static} ToJson(self:glTFMesh) : string
+    + {static} ToJson(self:glTFPrimitives) : string
+    + {static} ToJson(self:glTFAttributes) : string
+    + {static} ToJson(self:glTFMaterialBaseColorTextureInfo) : string
+    + {static} ToJson(self:glTFMaterial) : string
+    + {static} ToJson(self:glTFNode) : string
+    + {static} ToJson(self:glTFSkin) : string
+}
+class UniGLTFTests {
+    + UniGLTFSimpleSceneTest() : void
+    + BufferTest() : void
+    + UnityPathTest() : void
+    + UnityPathPathType(path:string, pathType:PathType) : void
+    + UnityPathWritableTest(path:string, expected:bool) : void
+    + VersionChecker() : void
+    + MeshTest() : void
+    + PrimitiveTest() : void
+    + AttributesTest() : void
+    + TextureInfoTest() : void
+    + TextureInfoTestError() : void
+    + MaterialTest() : void
+    + MaterialAlphaTest() : void
+    + GlTFToJsonTest() : void
+    + MaterialTestError() : void
+    + NodeTest() : void
+    + NodeMeshTest() : void
+    + NodeTestError() : void
+    + SkinTest() : void
+    + SkinTestEmptyName() : void
+    + SkinTestErrorNull() : void
+    + SkinTestError() : void
+    + AssetsTest() : void
+    + AssetsTestError() : void
+    + GLTFTest() : void
+    + SameMeshButDifferentMaterialExport() : void
+    + MeshHasNoRendererTest() : void
+    + ExportingNullMeshTest() : void
+    + JsonUtilityTest() : void
+    + UVTest() : void
+    + MatrixTest() : void
+}
+class CantConstruct {
+    + Value : bool = true
+    + CantConstruct(value:bool)
+}
+class Dummy {
+}
+UniGLTFTests +-- CantConstruct
+UniGLTFTests +-- Dummy
+Dummy o-> "Value" CantConstruct
+@enduml

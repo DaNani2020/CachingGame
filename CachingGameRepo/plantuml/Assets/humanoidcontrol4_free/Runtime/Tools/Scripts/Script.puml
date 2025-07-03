@@ -1,0 +1,11 @@
+@startuml
+class Script {
+    + scriptName : string
+    + Execute() : void
+}
+class "List`1"<T> {
+}
+MonoBehaviour <|-- Script
+Script o-> "conditions<Condition>" "List`1"
+Script o-> "functionCalls<FunctionCall>" "List`1"
+@enduml

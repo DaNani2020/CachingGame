@@ -1,0 +1,6 @@
+@startuml
+class CollisionEventHandler_Editor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- CollisionEventHandler_Editor
+@enduml

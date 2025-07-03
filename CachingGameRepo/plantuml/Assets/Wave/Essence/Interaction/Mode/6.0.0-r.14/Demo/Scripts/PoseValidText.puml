@@ -1,0 +1,5 @@
+@startuml
+class PoseValidText <<sealed>> {
+}
+MonoBehaviour <|-- PoseValidText
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+class Vrm10RuntimeControlRig <<sealed>> {
+    + Vrm10RuntimeControlRig(humanoid:UniHumanoid.Humanoid, vrmRoot:Transform)
+    + Dispose() : void
+    + GetBoneTransform(bone:HumanBodyBones) : Transform
+}
+class "IReadOnlyDictionary`2"<T1,T2> {
+}
+IDisposable <|-- Vrm10RuntimeControlRig
+INormalizedPoseApplicable <|-- Vrm10RuntimeControlRig
+ITPoseProvider <|-- Vrm10RuntimeControlRig
+Vrm10RuntimeControlRig --> "Bones<HumanBodyBones,Vrm10ControlBone>" "IReadOnlyDictionary`2"
+Vrm10RuntimeControlRig --> "ControlRigAnimator" Animator
+@enduml

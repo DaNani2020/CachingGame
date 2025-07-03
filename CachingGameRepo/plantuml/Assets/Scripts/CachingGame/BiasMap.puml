@@ -1,0 +1,6 @@
+@startuml
+class BiasMap {
+    + {static} BiasMapFunction(angle:float, maxAngleDeviation:float, quadrantRestriction:string) : float
+    + {static} GenerateSpawnPosition(quadrantRestriction:string, maxAngleDeviation:float) : (float, float)
+}
+@enduml

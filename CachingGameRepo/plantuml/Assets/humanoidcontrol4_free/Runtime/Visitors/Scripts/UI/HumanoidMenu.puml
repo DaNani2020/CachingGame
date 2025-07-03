@@ -1,0 +1,6 @@
+@startuml
+class HumanoidMenu {
+}
+MonoBehaviour <|-- HumanoidMenu
+HumanoidMenu --> "mainMenu" Canvas
+@enduml

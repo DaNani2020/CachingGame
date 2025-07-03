@@ -1,0 +1,14 @@
+@startuml
+class HumanoidButton {
+    + <<override>> OnPointerClick(eventData:PointerEventData) : void
+    + <<override>> OnSubmit(eventData:BaseEventData) : void
+}
+class HumanoidEvent {
+}
+class "UnityEvent`1"<T> {
+}
+Button <|-- HumanoidButton
+HumanoidButton o-> "onClick" HumanoidEvent
+HumanoidButton +-- HumanoidEvent
+"UnityEvent`1" "<HumanoidControl>" <|-- HumanoidEvent
+@enduml

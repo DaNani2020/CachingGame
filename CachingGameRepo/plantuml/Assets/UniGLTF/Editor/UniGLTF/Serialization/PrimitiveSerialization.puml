@@ -1,0 +1,78 @@
+@startuml
+abstract class PrimitiveSerializationBase {
+    + IsInline : bool <<get>>
+    + GenerateDeserializer(writer:StreamWriter, callName:string) : void
+    + {abstract} GenerateDeserializerCall(callName:string, argName:string) : string
+    + <<virtual>> CreateSerializationCondition(argName:string, t:JsonSchemaAttribute) : string
+    + GenerateSerializer(writer:StreamWriter, callName:string) : void
+    + GenerateSerializerCall(callName:string, argName:string) : string
+    + <<override>> ToString() : string
+}
+abstract class NumberSerializationBase {
+    + <<override>> CreateSerializationCondition(argName:string, attr:JsonSchemaAttribute) : string
+}
+class Int8Serialization {
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class Int16Serialization {
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class Int32Serialization {
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class Int64Serialization {
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class UInt8Serialization {
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class UInt16Serialization {
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class UInt32Serialization {
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class UInt64Serialization {
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class SingleSerialization {
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class DoubleSerialization {
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class BooleanSerialization {
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+}
+class StringSerialization {
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+    + <<override>> CreateSerializationCondition(argName:string, t:JsonSchemaAttribute) : string
+}
+IValueSerialization <|-- PrimitiveSerializationBase
+PrimitiveSerializationBase --> "ValueType" Type
+PrimitiveSerializationBase <|-- NumberSerializationBase
+NumberSerializationBase <|-- Int8Serialization
+Int8Serialization --> "ValueType" Type
+NumberSerializationBase <|-- Int16Serialization
+Int16Serialization --> "ValueType" Type
+NumberSerializationBase <|-- Int32Serialization
+Int32Serialization --> "ValueType" Type
+NumberSerializationBase <|-- Int64Serialization
+Int64Serialization --> "ValueType" Type
+NumberSerializationBase <|-- UInt8Serialization
+UInt8Serialization --> "ValueType" Type
+NumberSerializationBase <|-- UInt16Serialization
+UInt16Serialization --> "ValueType" Type
+NumberSerializationBase <|-- UInt32Serialization
+UInt32Serialization --> "ValueType" Type
+NumberSerializationBase <|-- UInt64Serialization
+UInt64Serialization --> "ValueType" Type
+NumberSerializationBase <|-- SingleSerialization
+SingleSerialization --> "ValueType" Type
+NumberSerializationBase <|-- DoubleSerialization
+DoubleSerialization --> "ValueType" Type
+PrimitiveSerializationBase <|-- BooleanSerialization
+BooleanSerialization --> "ValueType" Type
+PrimitiveSerializationBase <|-- StringSerialization
+StringSerialization --> "ValueType" Type
+@enduml

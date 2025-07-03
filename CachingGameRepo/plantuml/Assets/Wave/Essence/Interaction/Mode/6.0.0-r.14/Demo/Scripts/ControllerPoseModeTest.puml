@@ -1,0 +1,10 @@
+@startuml
+class ControllerPoseModeTest {
+    + SetTriggerMode() : void
+    + SetPanelMode() : void
+    + SetHandleMode() : void
+}
+MonoBehaviour <|-- ControllerPoseModeTest
+ControllerPoseModeTest --> "Controller" XR_Hand
+ControllerPoseModeTest --> "ModeText" Text
+@enduml

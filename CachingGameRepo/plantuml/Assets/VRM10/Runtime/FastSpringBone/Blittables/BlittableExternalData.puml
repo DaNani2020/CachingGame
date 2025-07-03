@@ -1,0 +1,5 @@
+@startuml
+struct BlittableExternalData {
+}
+BlittableExternalData --> "ExternalForce" Vector3
+@enduml

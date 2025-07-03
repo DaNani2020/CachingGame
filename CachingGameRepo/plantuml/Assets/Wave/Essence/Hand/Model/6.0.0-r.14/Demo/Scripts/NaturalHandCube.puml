@@ -1,0 +1,30 @@
+@startuml
+class NaturalHandCube {
+    + OnPointerEnter(eventData:PointerEventData) : void
+    + OnPointerExit(eventData:PointerEventData) : void
+    + OnPointerDown(eventData:PointerEventData) : void
+    + OnPointerUp(eventData:PointerEventData) : void
+    + OnBeginDrag(eventData:PointerEventData) : void
+    + OnDrag(eventData:PointerEventData) : void
+    + OnEndDrag(eventData:PointerEventData) : void
+    + OnDrop(eventData:PointerEventData) : void
+    + OnHover(eventData:RaycastEventData) : void
+    + OnPointerClick(eventData:PointerEventData) : void
+    + OnSubmit(eventData:BaseEventData) : void
+    + OnShowCube() : void
+    + OnHideCube() : void
+    + OnTrigger() : void
+}
+MonoBehaviour <|-- NaturalHandCube
+IPointerEnterHandler <|-- NaturalHandCube
+IHoverHandler <|-- NaturalHandCube
+IPointerExitHandler <|-- NaturalHandCube
+IPointerDownHandler <|-- NaturalHandCube
+IBeginDragHandler <|-- NaturalHandCube
+IDragHandler <|-- NaturalHandCube
+IEndDragHandler <|-- NaturalHandCube
+IDropHandler <|-- NaturalHandCube
+IPointerUpHandler <|-- NaturalHandCube
+IPointerClickHandler <|-- NaturalHandCube
+ISubmitHandler <|-- NaturalHandCube
+@enduml

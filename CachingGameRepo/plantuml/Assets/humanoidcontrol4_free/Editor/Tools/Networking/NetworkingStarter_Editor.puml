@@ -1,0 +1,8 @@
+@startuml
+class NetworkingStarter_Editor {
+    + <<virtual>> OnEnable() : void
+    + <<override>> OnInspectorGUI() : void
+    + OnDisable() : void
+}
+Editor <|-- NetworkingStarter_Editor
+@enduml

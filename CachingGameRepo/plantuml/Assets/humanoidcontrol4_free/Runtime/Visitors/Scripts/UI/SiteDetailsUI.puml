@@ -1,0 +1,10 @@
+@startuml
+class SiteDetailsUI {
+    + SetSite(site:VisitorSites.Site) : void
+}
+MonoBehaviour <|-- SiteDetailsUI
+SiteDetailsUI --> "sitesUI" SitesUI
+SiteDetailsUI --> "nameUI" Text
+SiteDetailsUI --> "goUI" Button
+SiteDetailsUI --> "deleteUI" Button
+@enduml

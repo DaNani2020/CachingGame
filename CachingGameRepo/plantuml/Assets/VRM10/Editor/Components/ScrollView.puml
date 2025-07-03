@@ -1,0 +1,5 @@
+@startuml
+class ScrollView {
+    + Draw(height:float, content:Action, repaint:Action) : void
+}
+@enduml

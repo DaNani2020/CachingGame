@@ -1,0 +1,7 @@
+@startuml
+class TabBoneMeshRemover <<static>> {
+    + {static} TryExecutable(root:GameObject, smr:SkinnedMeshRenderer, msg:string) : bool
+    + {static} OnGUI(root:GameObject, smr:SkinnedMeshRenderer, eraseBones:List<BoneMeshEraser.EraseBone>) : bool
+    + {static} GetPrefab(instance:GameObject) : UnityEngine.Object
+}
+@enduml

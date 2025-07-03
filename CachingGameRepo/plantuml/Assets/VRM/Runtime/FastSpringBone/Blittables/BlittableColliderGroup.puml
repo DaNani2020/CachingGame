@@ -1,0 +1,6 @@
+@startuml
+struct BlittableColliderGroup {
+    + <<unsafe>> BlittableColliderGroup(colliders:NativeArray<BlittableCollider>, transform:BlittableTransform*)
+}
+BlittableColliderGroup --> "Colliders" BlittableColliders
+@enduml

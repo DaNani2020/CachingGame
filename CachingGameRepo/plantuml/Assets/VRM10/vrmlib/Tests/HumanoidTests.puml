@@ -1,0 +1,5 @@
+@startuml
+class HumanoidTests {
+    + HumanoidTest(filename:string) : void
+}
+@enduml

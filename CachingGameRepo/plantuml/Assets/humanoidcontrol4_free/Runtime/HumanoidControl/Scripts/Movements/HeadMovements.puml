@@ -1,0 +1,18 @@
+@startuml
+class HeadMovements {
+    + <<override>> Start(_humanoid:HumanoidControl, _target:HumanoidTarget) : void
+    + {static} Update(headTarget:HeadTarget) : void
+    + {static} CalculateNeckRotation(hipRotation:Quaternion, headRotation:Quaternion) : Quaternion
+    + {static} CalculateNeckPositionFromEyes(eyePosition:Vector3, eyeRotation:Quaternion, eye2neck:Vector3) : Vector3
+    + {static} CalculateNeckPositionFromHead(headPosition:Vector3, headRotation:Quaternion, neckBoneLength:float) : Vector3
+}
+class HeadCollisionHandler {
+    {static} + AddHeadCollider(headObject:GameObject) : Collider
+    + Initialize(_humanoid:HumanoidControl) : void
+    + fadeTime : float = 0.3F
+    + FadeOut(fadeMaterial:Material) : IEnumerator
+    + FadeIn(fadeMaterial:Material) : IEnumerator
+}
+Movements <|-- HeadMovements
+MonoBehaviour <|-- HeadCollisionHandler
+@enduml

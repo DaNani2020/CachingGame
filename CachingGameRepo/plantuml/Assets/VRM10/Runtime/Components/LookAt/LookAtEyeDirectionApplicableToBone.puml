@@ -1,0 +1,8 @@
+@startuml
+class LookAtEyeDirectionApplicableToBone <<sealed>> {
+    + LookAtEyeDirectionApplicableToBone(leftEye:Transform, rightEye:Transform, horizontalOuter:CurveMapper, horizontalInner:CurveMapper, verticalDown:CurveMapper, verticalUp:CurveMapper)
+    + Apply(eyeDirection:LookAtEyeDirection, actualWeights:Dictionary<ExpressionKey, float>) : void
+    + Restore() : void
+}
+ILookAtEyeDirectionApplicable <|-- LookAtEyeDirectionApplicableToBone
+@enduml

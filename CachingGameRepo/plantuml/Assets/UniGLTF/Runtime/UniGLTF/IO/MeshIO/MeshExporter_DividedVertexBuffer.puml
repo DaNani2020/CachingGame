@@ -1,0 +1,5 @@
+@startuml
+class MeshExporter_DividedVertexBuffer <<static>> {
+    + {static} Export(data:ExportingGltfData, unityMesh:MeshExportInfo, unityMaterials:List<Material>, axisInverter:IAxisInverter, settings:GltfExportSettings) : (glTFMesh, Dictionary<int, int>)
+}
+@enduml

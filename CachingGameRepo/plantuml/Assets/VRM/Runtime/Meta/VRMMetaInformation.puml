@@ -1,0 +1,18 @@
+@startuml
+class VRMMetaInformation {
+    + Title : string
+    + Author : string
+    + ContactInformation : string
+    + Reference : string
+    + OtherLicenseUrl : string
+    + Equals(other:VRMMetaInformation) : bool
+    + CopyTo(_dst:GameObject) : void
+    + OnValidate() : void
+}
+class "IEquatable`1"<T> {
+}
+MonoBehaviour <|-- VRMMetaInformation
+"IEquatable`1" "<VRMMetaInformation>" <|-- VRMMetaInformation
+VRMMetaInformation --> "Thumbnail" Texture2D
+VRMMetaInformation --> "LicenseType" LicenseType
+@enduml

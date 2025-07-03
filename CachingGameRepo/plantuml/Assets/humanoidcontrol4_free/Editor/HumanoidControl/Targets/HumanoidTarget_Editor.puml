@@ -1,0 +1,37 @@
+@startuml
+class HumanoidTarget_Editor <<static>> {
+    + {static} Inspector(target:Target, name:string) : Target
+    + {static} Inspector(target:HumanoidTarget, name:string) : HumanoidTarget
+    + {static} ControllerInspector(controller:HumanoidSensor) : bool
+    + {static} ControllerInspector(controller:HumanoidSensor, target:Target) : bool
+    + {static} BoneAngleInspector(minProperty:SerializedProperty, maxProperty:SerializedProperty, defaultMin:float, defaultMax:float, boneAxisName:string, label:string) : void
+    + {static} BoneXAngleInspector(bone:HumanoidTarget.TargetedBone, defaultMin:float, defaultMax:float) : void
+    + {static} BoneYAngleInspector(bone:HumanoidTarget.TargetedBone, defaultMin:float, defaultMax:float) : void
+    + {static} BoneYAngleInspector(bone:HumanoidTarget.TargetedBone, minProperty:SerializedProperty, maxProperty:SerializedProperty, defaultMin:float, defaultMax:float) : void
+    + {static} BoneZAngleInspector(bone:HumanoidTarget.TargetedBone, defaultMin:float, defaultMax:float) : void
+    + {static} BoneZAngleInspector(bone:HumanoidTarget.TargetedBone, minProperty:SerializedProperty, maxProperty:SerializedProperty, defaultMin:float, defaultMax:float) : void
+    + {static} DrawXArcs(position:Vector3, rotation:Quaternion, minAngle:float, maxAngle:float) : void
+    + {static} DrawXArcs(position:Vector3, rotation:Quaternion, minAngle:float, maxAngle:float, zeroDirection:Vector3) : void
+    + {static} DrawXArcs(position:Vector3, rotation:Quaternion, minAngle:float, maxAngle:float, planeNormal:Vector3, zeroDirection:Vector3) : void
+    + {static} DrawYArcs(position:Vector3, rotation:Quaternion, minAngle:float, maxAngle:float) : void
+    + {static} DrawYArcs(position:Vector3, rotation:Quaternion, minAngle:float, maxAngle:float, zeroDirection:Vector3) : void
+    + {static} DrawYArcs(position:Vector3, rotation:Quaternion, minAngle:float, maxAngle:float, planeNormal:Vector3, zeroDirection:Vector3) : void
+    + {static} DrawZArcs(position:Vector3, rotation:Quaternion, minAngle:float, maxAngle:float) : void
+    + {static} DrawZArcs(position:Vector3, rotation:Quaternion, minAngle:float, maxAngle:float, zeroDirection:Vector3) : void
+    + {static} DrawZArcs(position:Vector3, rotation:Quaternion, minAngle:float, maxAngle:float, planeNormal:Vector3, zeroDirection:Vector3) : void
+    + {static} DrawArcs(position:Vector3, rotation:Quaternion, minAngle:float, maxAngle:float, planeNormal:Vector3, zeroDirection:Vector3, color:Color) : void
+}
+class MinMaxSliderAttribute {
+    + <<readonly>> name : string
+    + <<readonly>> defaultMin : float
+    + <<readonly>> defaultMax : float
+    + <<readonly>> minLimit : float
+    + <<readonly>> maxLimit : float
+    + MinMaxSliderAttribute(_name:string, _defaultMin:float, _defaultMax:float, _minLimit:float, _maxLimit:float)
+}
+class MinMaxSliderDrawer {
+    + <<override>> OnGUI(position:Rect, property:SerializedProperty, label:GUIContent) : void
+}
+PropertyAttribute <|-- MinMaxSliderAttribute
+PropertyDrawer <|-- MinMaxSliderDrawer
+@enduml

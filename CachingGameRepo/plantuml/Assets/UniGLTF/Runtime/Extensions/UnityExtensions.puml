@@ -1,0 +1,59 @@
+@startuml
+struct PosRot {
+    + {static} FromGlobalTransform(t:Transform) : PosRot
+}
+class BlendShape {
+    + Name : string
+    + BlendShape(name:string)
+    + BlendShape(name:string, vertexCount:int, hasPositions:bool, hasNormals:bool, hasTangents:bool)
+}
+class UnityExtensions <<static>> {
+    + {static} NearlyEqual(lhs:float, rhs:float) : bool
+    + {static} NearlyEqual(lhs:Vector3, rhs:Vector3) : bool
+    + {static} NearlyEqual(lhs:Quaternion, rhs:Quaternion) : bool
+    + {static} Decompose(m:Matrix4x4) : (Vector3, Quaternion, Vector3)
+    + {static} UVVerticalFlip(src:Vector2) : Vector2
+    + {static} ReverseZ(v:Vector4) : Vector4
+    + {static} ReverseX(v:Vector4) : Vector4
+    + {static} ReverseZ(v:Vector3) : Vector3
+    + {static} ReverseX(v:Vector3) : Vector3
+    + {static} ReverseY(v:Vector2) : Vector2
+    + {static} ReverseUV(v:Vector2) : Vector2
+    + {static} ReverseZ(q:Quaternion) : Quaternion
+    + {static} ReverseX(q:Quaternion) : Quaternion
+    + {static} Matrix4x4FromColumns(c0:Vector4, c1:Vector4, c2:Vector4, c3:Vector4) : Matrix4x4
+    + {static} Matrix4x4FromRotation(q:Quaternion) : Matrix4x4
+    + {static} ReverseZ(m:Matrix4x4) : Matrix4x4
+    + {static} ReverseX(m:Matrix4x4) : Matrix4x4
+    + {static} MatrixFromArray(values:float[]) : Matrix4x4
+    + {static} ExtractRotation(matrix:Matrix4x4) : Quaternion
+    + {static} ExtractPosition(matrix:Matrix4x4) : Vector3
+    + {static} ExtractScale(matrix:Matrix4x4) : Vector3
+    + {static} Nearly(lhs:Matrix4x4, rhs:Matrix4x4, epsilon:float) : bool
+    + {static} Extract(m:Matrix4x4) : (Vector3 T, Quaternion R, Vector3 S)
+    + {static} RelativePathFrom(self:Transform, root:Transform) : string
+    + {static} GetChildByName(self:Transform, childName:string) : Transform
+    + {static} GetFromPath(self:Transform, path:string) : Transform
+    + {static} GetChildren(self:Transform) : IEnumerable<Transform>
+    + {static} Traverse(t:Transform) : IEnumerable<Transform>
+    + {static} FindDescenedant(t:Transform, name:string) : Transform
+    + {static} FindDescendant(t:Transform, name:string) : Transform
+    + {static} Ancestors(t:Transform) : IEnumerable<Transform>
+    + {static} ToArray(q:Quaternion) : float[]
+    + {static} ToArray(v:Vector3) : float[]
+    + {static} ToArray(v:Vector4) : float[]
+    + {static} ReverseRecursive(root:Transform, axisInverter:IAxisInverter) : void
+    + {static} GetSharedMesh(t:Transform) : Mesh
+    + {static} GetSharedMaterials(t:Transform) : Material[]
+    + {static} Has(transform:Transform, t:T) : bool
+    + {static} GetOrAddComponent(go:GameObject) : T
+    + {static} EnableForExport(mono:Component) : bool
+}
+class "List`1"<T> {
+}
+PosRot --> "Position" Vector3
+PosRot --> "Rotation" Quaternion
+BlendShape --> "Positions<Vector3>" "List`1"
+BlendShape --> "Normals<Vector3>" "List`1"
+BlendShape --> "Tangents<Vector3>" "List`1"
+@enduml

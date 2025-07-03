@@ -1,0 +1,6 @@
+@startuml
+class SiteNavigator_Editor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- SiteNavigator_Editor
+@enduml

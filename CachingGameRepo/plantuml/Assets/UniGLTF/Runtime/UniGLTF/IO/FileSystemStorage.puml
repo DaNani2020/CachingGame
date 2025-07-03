@@ -1,0 +1,7 @@
+@startuml
+class FileSystemStorage {
+    + FileSystemStorage(root:string)
+    + Get(url:string) : ArraySegment<byte>
+}
+IStorage <|-- FileSystemStorage
+@enduml

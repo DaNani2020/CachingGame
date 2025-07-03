@@ -1,0 +1,10 @@
+@startuml
+class glTFNode {
+    + name : string
+    + mesh : int
+    + skin : int
+    + camera : int
+}
+glTFNode --> "extensions" glTFExtension
+glTFNode --> "extras" glTFExtension
+@enduml

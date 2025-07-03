@@ -1,0 +1,5 @@
+@startuml
+struct FastSpringBoneSpring {
+}
+FastSpringBoneSpring --> "center" Transform
+@enduml

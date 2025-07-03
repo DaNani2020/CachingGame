@@ -1,0 +1,37 @@
+@startuml
+class PoseMixer {
+    + currentPoseIx : int
+    + detectedPoseIx : int
+    + SetPoseValue(newCurrentPoseIx:int, value:float) : void
+    + SetPoseValue(newCurrentPose:Pose, value:float) : void
+    + <<virtual>> Add() : MixedPose
+    + Add(_pose:Pose) : MixedPose
+    + Remove(_pose:Pose) : void
+    + GetPoseIx(_pose:Pose) : int
+    + GetEditedPose() : MixedPose
+    + ShowPose(humanoid:HumanoidControl) : void
+    + ShowPose(humanoid:HumanoidControl, showSide:Side) : void
+    + ResetAffectedBones(humanoid:HumanoidControl, showSide:Side) : void
+    + Cleanup() : void
+    + GetPoseNames() : string[]
+}
+class MixedPose {
+    + value : float
+    + additive : bool
+    + previousValue : float
+    + isEdited : bool
+    + score : float
+    + UpdateScore(humanoid:HumanoidControl, side:Side) : void
+}
+class "List`1"<T> {
+}
+enum PoseMode {
+    Set,
+    Detect,
+}
+PoseMixer o-> "mixedPoses<MixedPose>" "List`1"
+PoseMixer --> "poseMode" PoseMode
+PoseMixer --> "detectedPose" Pose
+MixedPose --> "pose" Pose
+PoseMixer +-- PoseMode
+@enduml

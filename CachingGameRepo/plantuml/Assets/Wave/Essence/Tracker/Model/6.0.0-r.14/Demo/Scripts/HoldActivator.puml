@@ -1,0 +1,6 @@
+@startuml
+class HoldActivator {
+    + ActivateHoldGun() : void
+}
+MonoBehaviour <|-- HoldActivator
+@enduml

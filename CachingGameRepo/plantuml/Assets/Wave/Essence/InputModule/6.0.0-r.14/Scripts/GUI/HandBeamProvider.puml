@@ -1,0 +1,12 @@
+@startuml
+class HandBeamProvider {
+    + SetHandBeam(hand:HandManager.HandType, beam:GameObject) : void
+    + GetHandBeam(hand:HandManager.HandType) : GameObject
+}
+class BeamStorage {
+    + BeamStorage(type:HandManager.HandType, beam:GameObject)
+}
+HandBeamProvider --> "Instance" HandBeamProvider
+HandBeamProvider +-- BeamStorage
+BeamStorage --> "Beam" GameObject
+@enduml

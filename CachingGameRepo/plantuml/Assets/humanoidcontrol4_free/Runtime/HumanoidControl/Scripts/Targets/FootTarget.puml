@@ -1,0 +1,111 @@
+@startuml
+enum LegBones {
+    UpperLeg,
+    LowerLeg,
+    Foot,
+    Toes,
+}
+class FootTarget {
+    + isLeft : bool
+    + FootTarget()
+    + rotationSpeedLimitation : bool = false
+    + <<const>> maxUpperLegAngle : float = 120
+    + <<const>> maxLowerLegAngle : float = 130
+    + <<const>> maxFootAngle : float = 50
+    + <<const>> maxToesAngle : float = 30
+    + <<override>> InitSensors() : void
+    + <<override>> StartSensors() : void
+    + GetBoneId(isLeft:bool, armBone:LegBones) : Bone
+    + GetTargetBone(boneID:LegBones) : TargetedBone
+    + <<virtual>> ClearBones() : void
+    + <<override>> GetDefaultTarget(humanoid:HumanoidControl) : Transform
+    + {static} CreateTarget(oldTarget:FootTarget) : FootTarget
+    + {static} SetTarget(humanoid:HumanoidControl, targetTransform:Transform, isLeft:bool) : FootTarget
+    + RetrieveBones() : void
+    + jointLimitations : bool = true
+    + slidePrevention : bool = false
+    + physics : bool = true
+    + ShowControllers(shown:bool) : void
+    + groundDistance : float = 0
+    + soleThicknessFoot : float
+    + soleThicknessToes : float
+    + {static} IsInitialized(humanoid:HumanoidControl) : bool
+    + <<override>> InitAvatar() : void
+    + <<override>> NewComponent(_humanoid:HumanoidControl) : void
+    + <<override>> InitComponent() : void
+    + <<override>> StartTarget() : void
+    + IsInTPose() : bool
+    + {static} DetermineTarget(humanoid:HumanoidControl, isLeft:bool) : void
+    + <<override>> MatchTargetsToAvatar() : void
+    + <<override>> InitializeTrackingConfidence() : void
+    + <<override>> UpdateTarget() : void
+    + <<override>> UpdateMovements(humanoid:HumanoidControl) : void
+    + <<override>> CopyTargetToRig() : void
+    + <<override>> CopyRigToTarget() : void
+    + UpdateSensorsFromTarget() : void
+    + CheckGrounded() : void
+}
+class TargetedUpperLegBone {
+    + TargetedUpperLegBone(footTarget:FootTarget)
+    + <<override>> Init() : void
+    + <<override>> DetermineRotation() : Quaternion
+    + <<override>> GetTension() : float
+}
+class TargetedLowerLegBone {
+    + TargetedLowerLegBone(footTarget:FootTarget)
+    + <<override>> Init() : void
+    + <<override>> DetermineRotation() : Quaternion
+    + <<override>> GetTension() : float
+}
+class TargetedFootBone {
+    + TargetedFootBone(footTarget:FootTarget)
+    + <<override>> Init() : void
+    + <<override>> DetermineRotation() : Quaternion
+    + <<override>> GetTension() : float
+    + <<override>> TargetBasePosition() : Vector3
+}
+class TargetedToesBone {
+    + TargetedToesBone(footTarget:FootTarget)
+    + <<override>> Init() : void
+    + <<override>> GetTension() : float
+    + <<override>> DetermineRotation() : Quaternion
+}
+HumanoidTarget <|-- FootTarget
+FootTarget --> "side" Side
+FootTarget --> "otherFoot" FootTarget
+FootTarget o-> "legMovements" LegMovements
+FootTarget o-> "minLeftUpperLegAngles" Vector3
+FootTarget o-> "maxLeftUpperLegAngles" Vector3
+FootTarget o-> "minRightUpperLegAngles" Vector3
+FootTarget o-> "maxRightUpperLegAngles" Vector3
+FootTarget o-> "minLeftLowerLegAngles" Vector3
+FootTarget o-> "maxLeftLowerLegAngles" Vector3
+FootTarget o-> "minRightLowerLegAngles" Vector3
+FootTarget o-> "maxRightLowerLegAngles" Vector3
+FootTarget o-> "minLeftFootAngles" Vector3
+FootTarget o-> "maxLeftFootAngles" Vector3
+FootTarget o-> "minRightFootAngles" Vector3
+FootTarget o-> "maxRightFootAngles" Vector3
+FootTarget o-> "minLeftToesAngles" Vector3
+FootTarget o-> "maxLeftToesAngles" Vector3
+FootTarget o-> "minRightToesAngles" Vector3
+FootTarget o-> "maxRightToesAngles" Vector3
+FootTarget o-> "legAnimator" LegAnimator
+FootTarget --> "main" TargetedBone
+FootTarget --> "upperLeg" TargetedUpperLegBone
+FootTarget --> "lowerLeg" TargetedLowerLegBone
+FootTarget --> "foot" TargetedFootBone
+FootTarget --> "toes" TargetedToesBone
+FootTarget o-> "groundEvent" GameObjectEventHandlers
+FootTarget --> "ground" Transform
+FootTarget o-> "groundNormal" Vector3
+FootTarget o-> "groundTranslation" Vector3
+FootTarget +-- TargetedUpperLegBone
+TargetedBone <|-- TargetedUpperLegBone
+FootTarget +-- TargetedLowerLegBone
+TargetedBone <|-- TargetedLowerLegBone
+FootTarget +-- TargetedFootBone
+TargetedBone <|-- TargetedFootBone
+FootTarget +-- TargetedToesBone
+TargetedBone <|-- TargetedToesBone
+@enduml

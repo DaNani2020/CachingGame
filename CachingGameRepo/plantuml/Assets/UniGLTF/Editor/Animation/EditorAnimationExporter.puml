@@ -1,0 +1,6 @@
+@startuml
+class EditorAnimationExporter {
+    + Export(_data:ExportingGltfData, Copy:GameObject, Nodes:List<Transform>) : void
+}
+IAnimationExporter <|-- EditorAnimationExporter
+@enduml

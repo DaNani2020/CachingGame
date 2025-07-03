@@ -1,0 +1,8 @@
+@startuml
+class TabBar <<static>> {
+    + {static} OnGUI(t:T, buttonStyle:GUIStyle, buttonSize:GUI.ToolbarButtonSize) : T
+}
+class "TabCache`1"<T> <<static>> {
+}
+TabBar +-- "TabCache`1"
+@enduml

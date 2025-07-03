@@ -1,0 +1,6 @@
+@startuml
+class VRMMeta {
+}
+MonoBehaviour <|-- VRMMeta
+VRMMeta --> "Meta" VRMMetaObject
+@enduml

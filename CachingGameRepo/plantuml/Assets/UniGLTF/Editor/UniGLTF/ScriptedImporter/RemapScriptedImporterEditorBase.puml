@@ -1,0 +1,6 @@
+@startuml
+abstract class RemapScriptedImporterEditorBase {
+    + <<override>> HasModified() : bool
+}
+ScriptedImporterEditor <|-- RemapScriptedImporterEditorBase
+@enduml

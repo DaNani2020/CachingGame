@@ -1,0 +1,8 @@
+@startuml
+class JsonSchemaParser {
+    + JsonSchemaParser(dir:DirectoryInfo[])
+    + {static} Parse(root:string, jsonPath:string) : JsonSchemaSource
+    + Load(fileName:string, jsonPath:string) : JsonSchemaSource
+    + Load(path:FileInfo, jsonPath:string) : JsonSchemaSource
+}
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+interface IBone {
+}
+class IBoneExtensions <<static>> {
+    + {static} Traverse(self:IBone) : IEnumerable<IBone>
+    + {static} CenterOfDescendant(self:IBone) : Vector3
+}
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class UnityRenderTag <<static>> {
+    + <<const>> Key : string = "RenderType"
+    + <<const>> OpaqueValue : string = "Opaque"
+    + <<const>> TransparentCutoutValue : string = "TransparentCutout"
+    + <<const>> TransparentValue : string = "Transparent"
+}
+@enduml

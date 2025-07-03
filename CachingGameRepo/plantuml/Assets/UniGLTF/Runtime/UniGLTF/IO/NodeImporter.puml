@@ -1,0 +1,14 @@
+@startuml
+class NodeImporter <<static>> {
+    + {static} ImportNode(node:glTFNode, nodeIndex:int) : GameObject
+    + {static} BuildHierarchy(gltf:glTF, i:int, nodes:List<Transform>, meshes:List<MeshWithMaterials>) : TransformWithSkin
+    + {static} FixCoordinate(gltf:glTF, nodes:List<TransformWithSkin>, inverter:IAxisInverter) : void
+    + {static} SetupSkinning(data:GltfData, nodes:List<TransformWithSkin>, i:int, inverter:IAxisInverter) : void
+}
+class TransformWithSkin {
+    + SkinIndex : int?
+}
+NodeImporter +-- TransformWithSkin
+TransformWithSkin --> "Transform" Transform
+TransformWithSkin --> "GameObject" GameObject
+@enduml

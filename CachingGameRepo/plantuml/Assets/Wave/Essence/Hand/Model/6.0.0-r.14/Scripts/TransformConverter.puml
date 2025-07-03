@@ -1,0 +1,28 @@
+@startuml
+class TransformConverter <<static>> {
+    + {static} GetRotation(glQuat:WVR_Quatf_t) : Quaternion
+    + {static} GetPosition(matrix:Matrix4x4) : Vector3
+    + {static} GetRotation(matrix:Matrix4x4) : Quaternion
+    + {static} GetScale(matrix:Matrix4x4) : Vector3
+}
+struct RigidTransform {
+    + RigidTransform(pos:Vector3, rot:Quaternion)
+    + RigidTransform(t:Transform)
+    + RigidTransform(pose:WVR_Matrix4f_t)
+    + {static} RowColumnInverse(mat:Matrix4x4) : Matrix4x4
+    + {static} toMatrix44(pose:WVR_Matrix4f_t, glToUnity:bool) : Matrix4x4
+    + {static} ToWVRMatrix(m:Matrix4x4, unityToGL:bool) : WVR_Matrix4f_t
+    + {static} ToUnityPos(glPos:Vector3) : Vector3
+    + update(pose:WVR_Matrix4f_t) : void
+    + update(position:Vector3, orientation:Quaternion) : void
+    + <<override>> Equals(o:object) : bool
+    + <<override>> GetHashCode() : int
+    + Inverse() : void
+    + GetInverse() : RigidTransform
+    + TransformPoint(point:Vector3) : Vector3
+}
+TransformConverter +-- RigidTransform
+RigidTransform --> "pos" Vector3
+RigidTransform --> "rot" Quaternion
+RigidTransform --> "identity" RigidTransform
+@enduml

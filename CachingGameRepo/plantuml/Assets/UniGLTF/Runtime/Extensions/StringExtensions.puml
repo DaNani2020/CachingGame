@@ -1,0 +1,13 @@
+@startuml
+class StringExtensions <<static>> {
+    + {static} ToLowerCamelCase(lower:string) : string
+    + {static} ToUpperCamelCase(lower:string) : string
+    + {static} UnityBasePath : string <<get>>
+    + {static} AssetPathToFullPath(path:string) : string
+    + {static} StartsWithUnityAssetPath(path:string) : bool
+    + {static} ToUnityRelativePath(path:string) : string
+    + {static} EscapeFilePath(path:string) : string
+    + {static} FastStartsWith(a:string, b:string) : bool
+    + {static} FastEndsWith(a:string, b:string) : bool
+}
+@enduml

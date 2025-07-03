@@ -1,0 +1,16 @@
+@startuml
+class BlendShapeBindingMerger {
+    + BlendShapeBindingMerger(clipMap:Dictionary<BlendShapeKey, BlendShapeClip>, root:Transform)
+    + ImmediatelySetValue(clip:BlendShapeClip, value:float) : void
+    + AccumulateValue(clip:BlendShapeClip, value:float) : void
+    + Apply() : void
+}
+class DictionaryKeyBlendShapeBindingComparer {
+    + Equals(x:BlendShapeBinding, y:BlendShapeBinding) : bool
+    + GetHashCode(obj:BlendShapeBinding) : int
+}
+class "IEqualityComparer`1"<T> {
+}
+BlendShapeBindingMerger +-- DictionaryKeyBlendShapeBindingComparer
+"IEqualityComparer`1" "<BlendShapeBinding>" <|-- DictionaryKeyBlendShapeBindingComparer
+@enduml

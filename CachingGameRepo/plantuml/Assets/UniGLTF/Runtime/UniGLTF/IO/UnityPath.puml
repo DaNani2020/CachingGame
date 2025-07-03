@@ -1,0 +1,9 @@
+@startuml
+struct UnityPath {
+}
+enum PathType {
+    Assets,
+    Packages,
+    Unsupported,
+}
+@enduml

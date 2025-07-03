@@ -1,0 +1,9 @@
+@startuml
+class BlendShapeClipHandler {
+    + BlendShapeClipHandler(clip:BlendShapeClip, transform:Transform)
+    + LastValue : float <<get>>
+    + Apply(value:float) : void
+}
+BlendShapeClipHandler --> "Cilp" BlendShapeClip
+BlendShapeClipHandler --> "Clip" BlendShapeClip
+@enduml

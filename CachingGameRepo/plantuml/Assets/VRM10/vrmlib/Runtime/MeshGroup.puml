@@ -1,0 +1,13 @@
+@startuml
+class MeshGroup {
+    + <<readonly>> Name : string
+    + <<override>> ToString() : string
+    + MeshGroup(name:string)
+    + HasSharedBuffer : bool <<get>>
+}
+class "List`1"<T> {
+}
+GltfId <|-- MeshGroup
+MeshGroup o-> "Meshes<Mesh>" "List`1"
+MeshGroup --> "Skin" Skin
+@enduml

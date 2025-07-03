@@ -1,0 +1,6 @@
+@startuml
+class TrackedRigidbody_Editor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- TrackedRigidbody_Editor
+@enduml

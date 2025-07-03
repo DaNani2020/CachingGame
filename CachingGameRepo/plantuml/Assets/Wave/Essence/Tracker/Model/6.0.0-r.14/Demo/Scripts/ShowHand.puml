@@ -1,0 +1,9 @@
+@startuml
+class ShowHand {
+    + IsLeft : bool <<get>> <<set>>
+}
+class "List`1"<T> {
+}
+MonoBehaviour <|-- ShowHand
+ShowHand o-> "HandComponents<GameObject>" "List`1"
+@enduml

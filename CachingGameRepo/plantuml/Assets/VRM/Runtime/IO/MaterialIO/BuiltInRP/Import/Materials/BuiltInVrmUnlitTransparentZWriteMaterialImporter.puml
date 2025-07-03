@@ -1,0 +1,7 @@
+@startuml
+class BuiltInVrmUnlitTransparentZWriteMaterialImporter <<static>> {
+    + <<const>> UnlitTransparentZWriteShaderName : string = "VRM/UnlitTransparentZWrite"
+    + <<const>> UnlitTransparentZWriteMainTexturePropName : string = "_MainTex"
+    + {static} TryCreateParam(data:GltfData, vrm:glTF_VRM_extensions, materialIdx:int, matDesc:MaterialDescriptor) : bool
+}
+@enduml

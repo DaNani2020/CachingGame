@@ -1,0 +1,8 @@
+@startuml
+class TrackedBone {
+    + positionConfidence : float
+    + rotationConfidence : float
+    + {static} Create(name:string, parent:Transform, addRenderer:bool) : TrackedBone
+}
+TrackedBone --> "transform" Transform
+@enduml

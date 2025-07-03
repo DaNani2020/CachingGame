@@ -1,0 +1,14 @@
+@startuml
+class glTFExtensions <<static>> {
+    + {static} GetComponentType() : glComponentType
+    + {static} GetAccessorType() : string
+    + {static} IsGeneratedUniGLTFAndOlderThan(generatorVersion:string, major:int, minor:int) : bool
+    + {static} IsGeneratedUniGLTFAndOlder(gltf:glTF, major:int, minor:int) : bool
+}
+struct ComponentVec {
+    + ElementCount : int
+    + ComponentVec(componentType:glComponentType, elementCount:int)
+}
+glTFExtensions +-- ComponentVec
+ComponentVec --> "ComponentType" glComponentType
+@enduml

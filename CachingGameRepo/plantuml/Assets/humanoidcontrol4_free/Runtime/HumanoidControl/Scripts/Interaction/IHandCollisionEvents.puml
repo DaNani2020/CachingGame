@@ -1,0 +1,4 @@
+@startuml
+interface IHandCollisionEvents {
+}
+@enduml

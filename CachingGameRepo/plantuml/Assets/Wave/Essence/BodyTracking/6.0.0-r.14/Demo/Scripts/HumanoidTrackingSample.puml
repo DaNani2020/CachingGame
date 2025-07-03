@@ -1,0 +1,14 @@
+@startuml
+class HumanoidTrackingSample {
+    + SetArmMode() : void
+    + SetUpperMode() : void
+    + SetFullMode() : void
+    + SetUpperBodyAndLegMode() : void
+    + BeginTracking() : void
+    + EndTracking() : void
+}
+MonoBehaviour <|-- HumanoidTrackingSample
+HumanoidTrackingSample o-> "humanoidTracking" HumanoidTracking
+HumanoidTrackingSample o-> "beginBtn" Button
+HumanoidTrackingSample o-> "canvasTitle" Text
+@enduml

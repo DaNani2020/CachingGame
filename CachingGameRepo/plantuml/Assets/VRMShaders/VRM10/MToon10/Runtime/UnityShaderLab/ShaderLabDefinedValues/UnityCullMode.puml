@@ -1,0 +1,6 @@
+@startuml
+enum UnityCullMode {
+    Off= 0,
+    Back= 2,
+}
+@enduml

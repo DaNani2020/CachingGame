@@ -1,0 +1,19 @@
+@startuml test1
+skinparam Linetype ortho  
+' alternative polyline
+
+class Player {
+   ' -health : int
+   -number : float
+}
+
+class Player2 {
+    -health : int
+}
+
+MonoBehaviour <|-- ScoreManager
+/'ScoreManager --> "instance" ScoreManager
+ScoreManager --> "cacheObject" CacheScript
+ScoreManager --> "otherCacheObject" CacheScript '/
+ScoreManager --> "scoreText" Text
+@enduml

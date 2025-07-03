@@ -1,0 +1,12 @@
+@startuml
+class Vrm10ControlBone <<sealed>> {
+    + {static} Build(humanoid:UniHumanoid.Humanoid, boneMap:Dictionary<HumanBodyBones, Vrm10ControlBone>, root:Transform) : Vrm10ControlBone
+}
+class "IReadOnlyList`1"<T> {
+}
+Vrm10ControlBone --> "BoneType" HumanBodyBones
+Vrm10ControlBone --> "ControlTarget" Transform
+Vrm10ControlBone --> "ControlBone" Transform
+Vrm10ControlBone --> "InitialTargetGlobalPosition" Vector3
+Vrm10ControlBone --> "Children<Vrm10ControlBone>" "IReadOnlyList`1"
+@enduml

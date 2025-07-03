@@ -1,0 +1,14 @@
+@startuml
+class BoneInfo {
+    + BoneInfo(head:Transform, tail:Transform, headBone:HumanBodyBones, tailBone:HumanBodyBones)
+    + BoneInfo(head:Transform, headLocalDirection:Vector3, headBone:HumanBodyBones)
+    + <<override>> ToString() : string
+    + GetHeadPosition() : Vector3
+    + GetTailPosition() : Vector3
+    + GetUpVector() : Vector3
+    + {static} GetHumanoidBones(_animator:Animator) : List<BoneInfo>
+}
+BoneInfo --> "HeadBone" HumanBodyBones
+BoneInfo --> "TailBone" HumanBodyBones
+BoneInfo --> "HeadObject" GameObject
+@enduml

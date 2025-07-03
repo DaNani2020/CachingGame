@@ -1,0 +1,10 @@
+@startuml
+class ExpressionEditor {
+    + <<override>> HasPreviewGUI() : bool
+    + <<override>> OnPreviewGUI(r:Rect, background:GUIStyle) : void
+    + <<override>> OnInspectorGUI() : void
+    + <<override>> GetInfoString() : string
+}
+Editor <|-- ExpressionEditor
+ExpressionEditor --> "PreviewTexture" RenderTexture
+@enduml

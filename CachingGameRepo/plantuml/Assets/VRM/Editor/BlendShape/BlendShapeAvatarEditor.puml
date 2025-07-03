@@ -1,0 +1,6 @@
+@startuml
+class BlendShapeAvatarEditor {
+    + <<override>> OnInspectorGUI() : void
+}
+PreviewEditor <|-- BlendShapeAvatarEditor
+@enduml

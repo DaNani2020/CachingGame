@@ -1,0 +1,33 @@
+@startuml
+enum ShaderPropertyType {
+    Color= 0,
+    Vector= 1,
+    Float= 2,
+    Range= 3,
+    TexEnv= 4,
+}
+struct PropItem {
+    + Name : string
+}
+class PreviewMaterialItem <<sealed>> {
+    + PreviewMaterialItem(material:Material)
+    + RestoreInitialValues() : void
+    + {static} <<readonly>> UV_PROPERTY : string
+    + {static} <<readonly>> COLOR_PROPERTY : string
+    + {static} <<readonly>> EMISSION_COLOR_PROPERTY : string
+    + {static} <<readonly>> RIM_COLOR_PROPERTY : string
+    + {static} <<readonly>> OUTLINE_COLOR_PROPERTY : string
+    + {static} <<readonly>> SHADE_COLOR_PROPERTY : string
+    + {static} <<readonly>> MATCAP_COLOR_PROPERTY : string
+    + {static} TryGetBindType(property:string, type:MaterialColorType) : bool
+    + Clear() : void
+    + AddScaleOffset(scaleOffset:Vector4, weight:float) : void
+}
+class "Dictionary`2"<T1,T2> {
+}
+PropItem --> "PropertyType" ShaderPropertyType
+PropItem --> "DefaultValues" Vector4
+PreviewMaterialItem --> "Material" Material
+PreviewMaterialItem o-> "PropMap<UniGLTF.Extensions.VRMC_vrm.MaterialColorType,PropItem>" "Dictionary`2"
+PreviewMaterialItem o-> "DefaultUVScaleOffset" Vector4
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+class VariousEffectsScene {
+    + inputLocation : int
+    + {static} m_gaph_scenesizefactor : float = 1
+    + GetSizeFactor() : void
+}
+MonoBehaviour <|-- VariousEffectsScene
+VariousEffectsScene --> "scaleform" GameObject
+VariousEffectsScene --> "FriendlyEnemyObject" GameObject
+VariousEffectsScene --> "m_scalefactor" Text
+VariousEffectsScene --> "m_effectName" Text
+@enduml

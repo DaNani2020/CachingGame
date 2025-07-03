@@ -1,0 +1,15 @@
+@startuml
+class HandInputModule {
+    + PinchOnThreshold : float <<get>> <<set>>
+    + PinchTimeToDrag : float <<get>> <<set>>
+    + PinchOffThreshold : float <<get>> <<set>>
+    + IgnoreMode : bool <<get>> <<set>>
+    + SingleInput : bool <<get>> <<set>>
+    + <<override>> Process() : void
+    + PinchOffsetX : float <<get>> <<set>>
+    + PinchOffsetY : float <<get>> <<set>>
+}
+BaseInputModule <|-- HandInputModule
+HandInputModule --> "RightHandSelector" GameObject
+HandInputModule --> "LeftHandSelector" GameObject
+@enduml

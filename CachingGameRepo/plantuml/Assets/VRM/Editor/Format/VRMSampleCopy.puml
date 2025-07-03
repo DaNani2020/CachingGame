@@ -1,0 +1,5 @@
+@startuml
+class VRMSampleCopy <<static>> {
+    + {static} Execute() : void
+}
+@enduml

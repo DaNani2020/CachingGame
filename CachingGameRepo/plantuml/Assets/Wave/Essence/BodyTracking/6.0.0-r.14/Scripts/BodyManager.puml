@@ -1,0 +1,99 @@
+@startuml
+class Body {
+    + height : float = 0
+    + UpdateData(in_body:Body) : void
+    + UpdateBody(body:Body) : void
+}
+class TrackerExtrinsic {
+    + Init() : void
+    + Update(ext:WVR_BodyTrackingExtrinsic) : void
+    + Update(role:TrackedDeviceRole, ext:ExtrinsicInfo_t) : void
+}
+class BodyManager <<sealed>> {
+    + GetStandardPose(bodyPose:BodyPose, mode:BodyTrackingMode) : BodyTrackingResult
+    + SetStandardPose(mode:BodyTrackingMode) : BodyTrackingResult
+    + CreateBodyTracking(skeletonId:int, avatarBody:Body, trackerExtrinsic:TrackerExtrinsic, mode:BodyTrackingMode) : BodyTrackingResult
+    + CreateBodyTracking(skeletonId:int, avatarBody:Body, mode:BodyTrackingMode) : BodyTrackingResult
+    + CreateBodyTracking(skeletonId:int, mode:BodyTrackingMode) : BodyTrackingResult
+    + GetDefaultRotationSpace(skeletonId:int, spaces:RotateSpace[], count:UInt32) : BodyTrackingResult
+    + GetBodyTrackingInfo(skeletonId:int, avatarHeight:float, avatarScale:float) : BodyTrackingResult
+    + GetBodyTrackingPoses(skeletonId:int, avatarBody:BodyAvatar) : BodyTrackingResult
+    + GetBodyTrackingPoseOnce(skeletonId:int, avatarBody:BodyAvatar) : BodyTrackingResult
+    + DestroyBodyTracking(skeletonId:int) : BodyTrackingResult
+    + StartUpdatingBodyTracking(skeletonIds:List<int>) : BodyTrackingResult
+    + StartUpdatingBodyTracking(skeletonId:int) : BodyTrackingResult
+    + StopUpdatingBodyTracking(skeletonIds:List<int>) : BodyTrackingResult
+    + StopUpdatingBodyTracking(skeletonId:int) : BodyTrackingResult
+}
+Body --> "root" Transform
+Body --> "HipData" TransformData
+Body --> "leftThigh" Transform
+Body --> "LeftThighData" TransformData
+Body --> "leftLeg" Transform
+Body --> "LeftLegData" TransformData
+Body --> "leftAnkle" Transform
+Body --> "LeftAnkleData" TransformData
+Body --> "leftFoot" Transform
+Body --> "LeftFootData" TransformData
+Body --> "rightThigh" Transform
+Body --> "RightThighData" TransformData
+Body --> "rightLeg" Transform
+Body --> "RightLegData" TransformData
+Body --> "rightAnkle" Transform
+Body --> "RightAnkleData" TransformData
+Body --> "rightFoot" Transform
+Body --> "RightFootData" TransformData
+Body --> "waist" Transform
+Body --> "WaistData" TransformData
+Body --> "spineLower" Transform
+Body --> "SpineLowerData" TransformData
+Body --> "spineMiddle" Transform
+Body --> "SpineMiddleData" TransformData
+Body --> "spineHigh" Transform
+Body --> "SpineHighData" TransformData
+Body --> "chest" Transform
+Body --> "ChestData" TransformData
+Body --> "neck" Transform
+Body --> "NeckData" TransformData
+Body --> "head" Transform
+Body --> "HeadData" TransformData
+Body --> "leftClavicle" Transform
+Body --> "LeftClavicleData" TransformData
+Body --> "leftScapula" Transform
+Body --> "LeftScapulaData" TransformData
+Body --> "leftUpperarm" Transform
+Body --> "LeftUpperarmData" TransformData
+Body --> "leftForearm" Transform
+Body --> "LeftForearmData" TransformData
+Body --> "leftHand" Transform
+Body --> "LeftHandData" TransformData
+Body --> "rightClavicle" Transform
+Body --> "RightClavicleData" TransformData
+Body --> "rightScapula" Transform
+Body --> "RightScapulaData" TransformData
+Body --> "rightUpperarm" Transform
+Body --> "RightUpperarmData" TransformData
+Body --> "rightForearm" Transform
+Body --> "RightForearmData" TransformData
+Body --> "rightHand" Transform
+Body --> "RightHandData" TransformData
+TrackerExtrinsic o-> "hip" ExtrinsicInfo_t
+TrackerExtrinsic o-> "chest" ExtrinsicInfo_t
+TrackerExtrinsic o-> "head" ExtrinsicInfo_t
+TrackerExtrinsic o-> "leftElbow" ExtrinsicInfo_t
+TrackerExtrinsic o-> "leftWrist" ExtrinsicInfo_t
+TrackerExtrinsic o-> "leftHand" ExtrinsicInfo_t
+TrackerExtrinsic o-> "leftHandheld" ExtrinsicInfo_t
+TrackerExtrinsic o-> "rightElbow" ExtrinsicInfo_t
+TrackerExtrinsic o-> "rightWrist" ExtrinsicInfo_t
+TrackerExtrinsic o-> "rightHand" ExtrinsicInfo_t
+TrackerExtrinsic o-> "rightHandheld" ExtrinsicInfo_t
+TrackerExtrinsic o-> "leftKnee" ExtrinsicInfo_t
+TrackerExtrinsic o-> "leftAnkle" ExtrinsicInfo_t
+TrackerExtrinsic o-> "leftFoot" ExtrinsicInfo_t
+TrackerExtrinsic o-> "rightKnee" ExtrinsicInfo_t
+TrackerExtrinsic o-> "rightAnkle" ExtrinsicInfo_t
+TrackerExtrinsic o-> "rightFoot" ExtrinsicInfo_t
+MonoBehaviour <|-- BodyManager
+BodyManager --> "Instance" BodyManager
+@enduml

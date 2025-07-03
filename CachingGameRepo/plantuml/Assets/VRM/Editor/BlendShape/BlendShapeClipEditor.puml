@@ -1,0 +1,7 @@
+@startuml
+class BlendShapeClipEditor {
+    + <<override>> OnInspectorGUI() : void
+    + <<override>> GetInfoString() : string
+}
+PreviewEditor <|-- BlendShapeClipEditor
+@enduml

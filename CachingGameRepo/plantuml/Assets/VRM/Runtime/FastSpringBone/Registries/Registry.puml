@@ -1,0 +1,11 @@
+@startuml
+class "Registry`1"<T> {
+    + Register(value:T) : void
+    + Unregister(value:T) : void
+    + SubscribeOnValueChanged(action:Action) : void
+    + UnSubscribeOnValueChanged(action:Action) : void
+}
+class "IReadOnlyList`1"<T> {
+}
+"Registry`1" --> "Items<T>" "IReadOnlyList`1"
+@enduml

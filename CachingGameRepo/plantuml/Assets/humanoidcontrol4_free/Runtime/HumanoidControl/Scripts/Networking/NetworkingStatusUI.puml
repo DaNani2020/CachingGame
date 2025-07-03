@@ -1,0 +1,5 @@
+@startuml
+class NetworkingStatusUI {
+}
+MonoBehaviour <|-- NetworkingStatusUI
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+class VRMTestAssets <<static>> {
+    + {static} TryGetPath(relative:string, path:string) : bool
+}
+@enduml

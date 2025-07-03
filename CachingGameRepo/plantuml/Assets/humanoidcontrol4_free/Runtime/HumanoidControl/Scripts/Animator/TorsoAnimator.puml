@@ -1,0 +1,18 @@
+@startuml
+class TorsoAnimator {
+    + <<override>> Start(humanoid:HumanoidControl, targetTransform:Transform) : void
+    + <<override>> Update() : void
+    + StoreTargets() : void
+    + RestoreTargets() : void
+    + CalculateHipsPosition() : Vector3
+    + {static} CalculateChestRotation(chestRotation:Quaternion, hipRotation:Quaternion, headRotation:Quaternion) : Quaternion
+}
+enum BodyRotation {
+    HeadRotation= 1,
+    HeadAndHandRotation= 2,
+    NoRotation= 3,
+}
+TorsoSensor <|-- TorsoAnimator
+TorsoAnimator --> "bodyRotation" BodyRotation
+TorsoAnimator +-- BodyRotation
+@enduml

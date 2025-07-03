@@ -1,0 +1,9 @@
+@startuml
+class BoneMapping {
+    + GuessBoneMapping() : void
+    + EnsureTPose() : void
+    + {static} SetBonesToDescription(mapping:BoneMapping, description:AvatarDescription) : void
+}
+MonoBehaviour <|-- BoneMapping
+BoneMapping --> "Description" AvatarDescription
+@enduml

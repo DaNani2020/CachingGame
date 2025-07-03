@@ -1,0 +1,15 @@
+@startuml
+class AnimationImporterUtil <<static>> {
+    + {static} GetShortest(last:Quaternion, rot:Quaternion) : Quaternion
+    + {static} SetAnimationCurve(targetClip:AnimationClip, relativePath:string, propertyNames:string[], input:float[], output:float[], interpolation:string, curveType:Type, reverse:ReverseFunc) : void
+    + {static} RelativePathFrom(nodes:List<glTFNode>, root:glTFNode, target:glTFNode) : string
+    + {static} <<async>> ConvertAnimationClipAsync(data:GltfData, animation:glTFAnimation, inverter:IAxisInverter, awaitCaller:IAwaitCaller, root:glTFNode) : Task<AnimationClip>
+    + {static} EnumerateSubAssetKeys(gltf:glTF) : IEnumerable<VRMShaders.SubAssetKey>
+}
+enum TangentMode {
+    Linear,
+    Constant,
+    Cubicspline,
+}
+AnimationImporterUtil +-- TangentMode
+@enduml

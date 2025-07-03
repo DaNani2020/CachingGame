@@ -1,0 +1,7 @@
+@startuml
+class RootBoneRegistry <<sealed>> {
+}
+class "Registry`1"<T> {
+}
+"Registry`1" "<NativePointer<BlittableRootBone>>" <|-- RootBoneRegistry
+@enduml

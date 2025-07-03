@@ -1,0 +1,8 @@
+@startuml
+interface ICerebellum {
+}
+interface ICerebellumTarget {
+}
+interface ICerebellumJoint {
+}
+@enduml

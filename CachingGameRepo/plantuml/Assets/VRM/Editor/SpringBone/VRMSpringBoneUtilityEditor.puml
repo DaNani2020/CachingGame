@@ -1,0 +1,8 @@
+@startuml
+class VRMSpringBoneUtilityEditor <<static>> {
+    + {static} SaveSpringBoneToJsonValidation() : bool
+    + {static} SaveSpringBoneToJson() : void
+    + {static} LoadSpringBoneFromJsonValidation() : bool
+    + {static} LoadSpringBoneFromJson() : void
+}
+@enduml

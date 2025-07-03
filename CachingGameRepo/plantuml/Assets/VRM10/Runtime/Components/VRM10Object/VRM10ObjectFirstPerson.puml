@@ -1,0 +1,9 @@
+@startuml
+class VRM10ObjectFirstPerson {
+    + SetDefault(root:Transform) : void
+    + <<async>> SetupAsync(go:GameObject, awaitCaller:IAwaitCaller, isSelf:bool, firstPersonOnlyLayer:int?, thirdPersonOnlyLayer:int?) : Task
+}
+class "List`1"<T> {
+}
+VRM10ObjectFirstPerson o-> "Renderers<RendererFirstPersonFlags>" "List`1"
+@enduml

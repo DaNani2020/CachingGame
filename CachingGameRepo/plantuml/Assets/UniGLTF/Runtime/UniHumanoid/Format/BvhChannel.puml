@@ -1,0 +1,14 @@
+@startuml
+enum BvhChannel {
+    Xposition,
+    Yposition,
+    Zposition,
+    Xrotation,
+    Yrotation,
+    Zrotation,
+}
+class BvhChannelExtensions <<static>> {
+    + {static} ToProperty(ch:BvhChannel) : string
+    + {static} IsLocation(ch:BvhChannel) : bool
+}
+@enduml

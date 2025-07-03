@@ -1,0 +1,7 @@
+@startuml
+struct BlittablePoint {
+    + BlittablePoint(transform:Transform, radius:float, center:BlittableTransform*, blittableColliderGroups:BlittableColliderGroups*, blittableTransform:BlittableTransform*)
+    + Update(stiffnessForce:float, dragForce:float, external:Vector3) : void
+}
+BlittablePoint --> "CurrentPosition" Vector3
+@enduml

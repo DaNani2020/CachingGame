@@ -1,0 +1,7 @@
+@startuml
+class LowerLimbRotationDataSO {
+}
+ScriptableObject <|-- LowerLimbRotationDataSO
+LowerLimbRotationDataSO --> "Right" LimbDataSO
+LowerLimbRotationDataSO --> "Left" LimbDataSO
+@enduml

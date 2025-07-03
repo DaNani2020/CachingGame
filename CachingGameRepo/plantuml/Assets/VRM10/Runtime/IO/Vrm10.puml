@@ -1,0 +1,6 @@
+@startuml
+class Vrm10 <<static>> {
+    + {static} <<async>> LoadPathAsync(path:string, canLoadVrm0X:bool, controlRigGenerationOption:ControlRigGenerationOption, showMeshes:bool, awaitCaller:IAwaitCaller, textureDeserializer:ITextureDeserializer, materialGenerator:IMaterialDescriptorGenerator, vrmMetaInformationCallback:VrmMetaInformationCallback, ct:CancellationToken) : Task<Vrm10Instance>
+    + {static} <<async>> LoadBytesAsync(bytes:byte[], canLoadVrm0X:bool, controlRigGenerationOption:ControlRigGenerationOption, showMeshes:bool, awaitCaller:IAwaitCaller, textureDeserializer:ITextureDeserializer, materialGenerator:IMaterialDescriptorGenerator, vrmMetaInformationCallback:VrmMetaInformationCallback, ct:CancellationToken) : Task<Vrm10Instance>
+}
+@enduml

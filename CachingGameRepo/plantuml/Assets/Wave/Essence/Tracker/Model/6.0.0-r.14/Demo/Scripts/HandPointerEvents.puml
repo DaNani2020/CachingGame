@@ -1,0 +1,7 @@
+@startuml
+interface IPointerHoverHandler {
+}
+class PointerEvents <<static>> {
+}
+IEventSystemHandler <|-- IPointerHoverHandler
+@enduml

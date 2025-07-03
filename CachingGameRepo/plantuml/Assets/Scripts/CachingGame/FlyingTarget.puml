@@ -1,0 +1,10 @@
+@startuml
+class FlyingTarget {
+    + maxFlySpeed : float = 5f
+    + rayDistance : float = 10f
+    + rayOpacity : float = 0.5f
+}
+'MonoBehaviour <|-- FlyingTarget
+FlyingTarget --> "dashedTexture" Texture2D
+FlyingTarget --> "rayColor" Color
+@enduml

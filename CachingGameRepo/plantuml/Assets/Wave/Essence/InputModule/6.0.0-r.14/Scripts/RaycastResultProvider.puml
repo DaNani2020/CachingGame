@@ -1,0 +1,18 @@
+@startuml
+class RaycastResultProvider {
+    + SetRaycastResult(hand:XR_Hand, resultObject:GameObject, worldPosition:Vector3) : void
+    + SetRaycastResult(device:XR_Device, resultObject:GameObject, worldPosition:Vector3) : void
+    + GetRaycastResultObject(hand:XR_Hand) : GameObject
+    + GetRaycastResultObject(device:XR_Device) : GameObject
+    + GetRaycastResultWorldPosition(hand:XR_Hand) : Vector3
+    + GetRaycastResultWorldPosition(device:XR_Device) : Vector3
+}
+class RaycastResultStorage {
+    + RaycastResultStorage(type:XR_Device, target:GameObject, position:Vector3)
+}
+RaycastResultProvider --> "Instance" RaycastResultProvider
+RaycastResultProvider +-- RaycastResultStorage
+RaycastResultStorage --> "hand" XR_Device
+RaycastResultStorage --> "resultObject" GameObject
+RaycastResultStorage --> "worldPosition" Vector3
+@enduml

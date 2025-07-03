@@ -1,0 +1,6 @@
+@startuml
+class DropdownHandler <<sealed>> {
+    + ChangeColor() : void
+}
+MonoBehaviour <|-- DropdownHandler
+@enduml

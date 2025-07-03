@@ -1,0 +1,7 @@
+@startuml
+class VRM10MetaProperty {
+    + VRM10MetaProperty(prop:SerializedProperty, validator:VRM10MetaPropertyValidator)
+    + OnGUI() : void
+}
+VRM10MetaProperty --> "m_prop" SerializedProperty
+@enduml

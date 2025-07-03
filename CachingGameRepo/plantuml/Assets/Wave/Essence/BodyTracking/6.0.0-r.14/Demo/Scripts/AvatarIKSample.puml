@@ -1,0 +1,16 @@
+@startuml
+class AvatarIKSample {
+    + autoUpdate : bool = true
+    + SetArmMode() : void
+    + SetUpperMode() : void
+    + SetFullMode() : void
+    + SetUpperBodyAndLegMode() : void
+    + BeginTracking() : void
+    + StopTracking() : void
+    + StartRenderUpdateBodyTracking() : IEnumerator
+    + StartFixUpdateBodyTracking() : IEnumerator
+}
+MonoBehaviour <|-- AvatarIKSample
+AvatarIKSample --> "inputBody" Body
+AvatarIKSample --> "ext" TrackerExtrinsic
+@enduml

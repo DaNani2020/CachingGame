@@ -1,0 +1,26 @@
+@startuml
+class CustomizeWaveController {
+    + mergeToOne : bool = true
+    + updateDynamical : bool = true
+    + enableButtonEffect : bool = true
+    + useSystemDefinedColor : bool = true
+    + enableControllerTips : bool = true
+    + autoLayout : bool = true
+    + polyline : bool = true
+    + fadingEffect : bool = true
+    + displayAngle : float = 30.0f
+    + hideWhenRolling : bool = true
+    + basedOnEmitter : bool = true
+    + lineWidth : float = 0.0004f
+    + textFontSize : int = 8
+    + useSystemConfig : bool = true
+}
+class "List`1"<T> {
+}
+MonoBehaviour <|-- CustomizeWaveController
+CustomizeWaveController o-> "buttonEffectColor" Color
+CustomizeWaveController o-> "displayPlane" DisplayPlane
+CustomizeWaveController o-> "lineColor" Color
+CustomizeWaveController o-> "textColor" Color
+CustomizeWaveController o-> "tipInfoList<TipInfo>" "List`1"
+@enduml

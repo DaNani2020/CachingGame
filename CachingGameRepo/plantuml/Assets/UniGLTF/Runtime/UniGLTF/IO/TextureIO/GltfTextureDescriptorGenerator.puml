@@ -1,0 +1,7 @@
+@startuml
+class GltfTextureDescriptorGenerator <<sealed>> {
+    + GltfTextureDescriptorGenerator(data:GltfData)
+    + Get() : TextureDescriptorSet
+}
+ITextureDescriptorGenerator <|-- GltfTextureDescriptorGenerator
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+class VRBoundaryDetection {
+}
+MonoBehaviour <|-- VRBoundaryDetection
+VRBoundaryDetection o-> "cameraRig" Transform
+VRBoundaryDetection --> "spellRoutingLeft" SpellRouting
+VRBoundaryDetection --> "spellRoutingRight" SpellRouting
+VRBoundaryDetection o-> "sphere" GameObject
+VRBoundaryDetection o-> "sphereAura" GameObject
+@enduml

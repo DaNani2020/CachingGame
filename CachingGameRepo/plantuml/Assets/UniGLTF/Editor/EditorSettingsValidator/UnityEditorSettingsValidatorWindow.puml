@@ -1,0 +1,5 @@
+@startuml
+class UnityEditorSettingsValidatorWindow <<sealed>> {
+}
+EditorWindow <|-- UnityEditorSettingsValidatorWindow
+@enduml

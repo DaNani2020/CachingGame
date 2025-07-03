@@ -1,0 +1,10 @@
+@startuml
+class WaterReflection {
+    + m_DisablePixelLights : bool = true
+    + m_TextureSize : int = 256
+    + m_ClipPlaneOffset : float = 0.07f
+    + OnWillRenderObject() : void
+}
+MonoBehaviour <|-- WaterReflection
+WaterReflection o-> "m_ReflectLayers" LayerMask
+@enduml

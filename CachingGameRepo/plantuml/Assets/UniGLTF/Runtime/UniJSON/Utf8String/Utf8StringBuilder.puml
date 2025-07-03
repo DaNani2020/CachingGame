@@ -1,0 +1,8 @@
+@startuml
+class Utf8StringBuilder {
+    + Ascii(c:char) : void
+    + Quote(text:string) : void
+    + Add(str:Utf8String) : void
+    + ToUtf8String() : Utf8String
+}
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class BeatSword {
+}
+MonoBehaviour <|-- BeatSword
+BeatSword --> "layer" LayerMask
+@enduml

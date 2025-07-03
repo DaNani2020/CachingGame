@@ -1,0 +1,23 @@
+@startuml
+enum AnimationPathType {
+    Translation,
+    Rotation,
+    Scale,
+    Weights,
+}
+class CurveSampler {
+    + LastTime : float <<get>>
+    + CurveSampler()
+    + GetVector3(elapsed:TimeSpan) : Vector3
+    + GetQuaternion(elapsed:TimeSpan) : Quaternion
+    + SkipFrame(skipFrames:int) : void
+}
+class NodeAnimation {
+}
+class "Dictionary`2"<T1,T2> {
+}
+CurveSampler --> "In" BufferAccessor
+CurveSampler --> "Out" BufferAccessor
+NodeAnimation --> "Duration" TimeSpan
+NodeAnimation o-> "Curves<AnimationPathType,CurveSampler>" "Dictionary`2"
+@enduml

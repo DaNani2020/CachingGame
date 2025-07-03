@@ -1,0 +1,12 @@
+@startuml
+class PointerPosition {
+    + childIndexofPointer : int = 2
+    + GetCurrentSceneName() : string
+}
+MonoBehaviour <|-- PointerPosition
+PointerPosition --> "interactableLayer" LayerMask
+PointerPosition --> "dominantController" GameObject
+PointerPosition --> "nonDominantController" GameObject
+PointerPosition o-> "pointerSize" Vector3
+PointerPosition o-> "pointerOffset" Vector3
+@enduml

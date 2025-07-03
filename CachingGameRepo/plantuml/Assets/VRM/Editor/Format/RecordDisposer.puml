@@ -1,0 +1,7 @@
+@startuml
+struct RecordDisposer {
+    + RecordDisposer(objects:UnityEngine.Object[], msg:string)
+    + Dispose() : void
+}
+IDisposable <|-- RecordDisposer
+@enduml

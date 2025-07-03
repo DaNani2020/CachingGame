@@ -1,0 +1,41 @@
+@startuml
+class MechanicalJoint {
+    + limitX : bool = true
+    + limitY : bool = true
+    + limitZ : bool = true
+    + LerpX(f:float) : void
+    + LerpY(f:float) : void
+    + LerpZ(f:float) : void
+    + limitAngle : bool = true
+    + minLocalAngle : float
+    + maxLocalAngle : float
+    + GetCorrectionVector() : Vector3
+    + GetCorrectionRotation() : Quaternion
+    + GetCorrectionAxisRotation() : Quaternion
+    + GetCorrectionAxisRotation_old() : Quaternion
+    + GetCorrectionAxisRotation2() : Quaternion
+    + MoveForward(speedZ:float) : void
+    + MoveSideward(speedX:float) : void
+    + MoveUpward(speedY:float) : void
+    + SetSpeed(speed:Vector3) : void
+    + Rotate(speed:float) : void
+}
+enum RotationMethod {
+    AngleDifference,
+    PositionDifference,
+}
+MonoBehaviour <|-- MechanicalJoint
+MechanicalJoint --> "parent" Transform
+MechanicalJoint --> "basePosition" Vector3
+MechanicalJoint --> "minLocalPosition" Vector3
+MechanicalJoint --> "maxLocalPosition" Vector3
+MechanicalJoint o-> "baseRotation" Quaternion
+MechanicalJoint o-> "limitAngleAxis" Vector3
+MechanicalJoint --> "rotationMethod" RotationMethod
+MechanicalJoint o-> "gameObjectEvent" GameObjectEventHandlers
+MechanicalJoint o-> "xSliderEvents" FloatEventHandlers
+MechanicalJoint o-> "ySliderEvents" FloatEventHandlers
+MechanicalJoint o-> "zSliderEvents" FloatEventHandlers
+MechanicalJoint o-> "angleEvents" FloatEventHandlers
+MechanicalJoint +-- RotationMethod
+@enduml

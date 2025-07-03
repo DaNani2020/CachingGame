@@ -1,0 +1,23 @@
+@startuml
+class VRMLookAt {
+    + DrawGizmo : bool = true
+    + UseUpdate : bool = true
+    + CreateThumbnail() : Texture2D
+    + LookFace(t:Transform) : void
+    + CopyTo(_dst:GameObject, map:Dictionary<Transform, Transform>) : void
+    + GetBones() : void
+    + Yaw : float
+    + Pitch : float
+    + LookWorldPosition(targetPosition:Vector3) : void
+}
+MonoBehaviour <|-- VRMLookAt
+VRMLookAt --> "Target" Transform
+VRMLookAt --> "LeftEye" OffsetOnTransform
+VRMLookAt --> "RightEye" OffsetOnTransform
+VRMLookAt --> "Head" OffsetOnTransform
+VRMLookAt o-> "HorizontalOuter" CurveMapper
+VRMLookAt o-> "HorizontalInner" CurveMapper
+VRMLookAt o-> "VerticalDown" CurveMapper
+VRMLookAt o-> "VerticalUp" CurveMapper
+VRMLookAt --> "YawMatrix" Matrix4x4
+@enduml

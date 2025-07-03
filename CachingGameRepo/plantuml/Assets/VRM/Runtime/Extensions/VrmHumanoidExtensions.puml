@@ -1,0 +1,11 @@
+@startuml
+class VRMBoneExtensions <<static>> {
+    + {static} FromHumanBodyBone(human:HumanBodyBones) : VRMBone
+    + {static} ToHumanBodyBone(bone:VRMBone) : HumanBodyBones
+}
+class VRMHumanoidExtensions <<static>> {
+    + {static} SetNodeIndex(self:glTF_VRM_Humanoid, _key:HumanBodyBones, node:int) : void
+    + {static} Apply(self:glTF_VRM_Humanoid, desc:UniHumanoid.AvatarDescription, nodes:List<Transform>) : void
+    + {static} ToDescription(self:glTF_VRM_Humanoid, nodes:List<Transform>) : UniHumanoid.AvatarDescription
+}
+@enduml

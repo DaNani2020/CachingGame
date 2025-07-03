@@ -1,0 +1,8 @@
+@startuml
+class "CachedEnumType`1"<T> <<static>> {
+}
+class "IReadOnlyDictionary`2"<T1,T2> {
+}
+"CachedEnumType`1" o-> "Map<string,T>" "IReadOnlyDictionary`2"
+"CachedEnumType`1" o-> "IgnoreCaseMap<string,T>" "IReadOnlyDictionary`2"
+@enduml

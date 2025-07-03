@@ -1,0 +1,8 @@
+@startuml
+class Destroyer {
+    + SelfDestroy() : void
+    + Destroy(gameObject:GameObject) : void
+    + ApplicationQuit() : void
+}
+MonoBehaviour <|-- Destroyer
+@enduml

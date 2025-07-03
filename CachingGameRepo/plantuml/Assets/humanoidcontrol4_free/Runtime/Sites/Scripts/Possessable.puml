@@ -1,0 +1,15 @@
+@startuml
+class Possessable {
+    + crossSite : bool = true
+    + isUnique : bool = false
+    + siteLocation : string <<get>>
+    + assetPath : string
+}
+enum Type {
+    Generic,
+    Avatar,
+}
+MonoBehaviour <|-- Possessable
+Possessable --> "possessionType" Type
+Possessable +-- Type
+@enduml

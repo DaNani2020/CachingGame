@@ -1,0 +1,10 @@
+@startuml
+struct SamplerParam {
+    + EnableMipMap : bool <<get>>
+    + SamplerParam(wrapModesU:TextureWrapMode, wrapModesV:TextureWrapMode, filterMode:FilterMode, enableMipMap:bool)
+}
+SamplerParam --> "WrapModesU" TextureWrapMode
+SamplerParam --> "WrapModesV" TextureWrapMode
+SamplerParam --> "FilterMode" FilterMode
+SamplerParam --> "Default" SamplerParam
+@enduml

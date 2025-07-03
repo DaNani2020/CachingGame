@@ -1,0 +1,5 @@
+@startuml
+class SerializerWriter <<static>> {
+    + {static} Write(w:TextWriter, root:JsonSchemaSource, rootName:string) : void
+}
+@enduml

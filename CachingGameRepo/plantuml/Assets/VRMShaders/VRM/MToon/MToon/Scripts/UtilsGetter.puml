@@ -1,0 +1,5 @@
+@startuml
+class Utils <<static>> <<partial>> {
+    + {static} GetMToonParametersFromMaterial(material:Material) : MToonDefinition
+}
+@enduml

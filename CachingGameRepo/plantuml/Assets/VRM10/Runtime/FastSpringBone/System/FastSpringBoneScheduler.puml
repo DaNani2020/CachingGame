@@ -1,0 +1,8 @@
+@startuml
+class FastSpringBoneScheduler <<sealed>> {
+    + FastSpringBoneScheduler(bufferCombiner:FastSpringBoneBufferCombiner)
+    + Schedule(deltaTime:float) : JobHandle
+    + Dispose() : void
+}
+IDisposable <|-- FastSpringBoneScheduler
+@enduml

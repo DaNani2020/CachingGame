@@ -1,0 +1,7 @@
+@startuml
+class MathFWrap <<static>> {
+    + {static} <<readonly>> PI : float
+    + {static} Clamp(src:float, min:float, max:float) : float
+    + {static} Clamp(src:int, min:int, max:int) : int
+}
+@enduml

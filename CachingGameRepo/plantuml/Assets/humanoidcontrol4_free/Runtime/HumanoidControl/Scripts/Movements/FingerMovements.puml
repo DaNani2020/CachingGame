@@ -1,0 +1,5 @@
+@startuml
+class FingerMovements {
+    + {static} Update(handTarget:HandTarget) : void
+}
+@enduml

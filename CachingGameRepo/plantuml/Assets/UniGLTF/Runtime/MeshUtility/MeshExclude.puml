@@ -1,0 +1,7 @@
+@startuml
+class MeshExclude {
+    + MeshExclude(excludes:IEnumerable<Mesh>)
+    + IsExcluded(smr:SkinnedMeshRenderer) : bool
+    + IsExcluded(mr:MeshRenderer) : bool
+}
+@enduml

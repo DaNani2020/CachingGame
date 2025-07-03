@@ -1,0 +1,8 @@
+@startuml
+class MToon10Properties <<static>> {
+    + {static} ToUnityShaderLabName(prop:MToon10Prop) : string
+}
+class "IReadOnlyDictionary`2"<T1,T2> {
+}
+MToon10Properties --> "UnityShaderLabNames<MToon10Prop,string>" "IReadOnlyDictionary`2"
+@enduml

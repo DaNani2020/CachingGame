@@ -1,0 +1,16 @@
+@startuml
+class NetworkObject <<partial>> {
+    + {static} connected : bool = true
+    + objectIdentity : ulong = 0
+    + {static} GetINetworkObject(functionCall:FunctionCall) : INetworkObject
+    + {static} GetINetworkObject(targetGameObject:GameObject) : INetworkObject
+    + RPC(function:FunctionCall) : void
+    + RPC(functionCall:FunctionCall, value:bool) : void
+    + RPC(functionCall:FunctionCall, value:float) : void
+    + RPC(functionCall:FunctionCall, value:T) : void
+}
+interface INetworkObject {
+}
+MonoBehaviour <|-- NetworkObject
+INetworkObject <|-- NetworkObject
+@enduml

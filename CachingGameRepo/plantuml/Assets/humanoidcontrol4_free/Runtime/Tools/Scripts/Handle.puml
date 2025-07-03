@@ -1,0 +1,36 @@
+@startuml
+class Handle {
+    + sticky : bool = false
+    + range : float = 0.2f
+    + isHeld : bool
+    + TranslationTo(position:Vector3) : Vector3
+    + RotationTo(orientation:Quaternion) : Quaternion
+    + {static} Create(gameObject:GameObject, handTarget:Humanoid.HandTarget) : void
+    + {static} GetClosestHandle(transform:Transform, position:Vector3, hand:Hand, range:float) : Handle
+    + {static} GetClosestHandle(transform:Transform, position:Vector3, range:float) : Handle
+    + {static} GetClosestHandle(transform:Transform, position:Vector3, hand:Hand) : Handle
+    + ReleaseFromSocket() : void
+    + <<virtual>> UpdateGrabbed() : void
+}
+enum GrabType {
+    DefaultGrab,
+    BarGrab,
+    BallGrab,
+    RailGrab,
+    AnyGrab,
+    NoGrab,
+}
+enum Hand {
+    Both,
+    Left,
+    Right,
+}
+MonoBehaviour <|-- Handle
+Handle --> "grabType" GrabType
+Handle --> "socket" Socket
+Handle --> "hand" Hand
+Handle --> "pose" Pose
+Handle o-> "grabbedEvent" GameObjectEventHandlers
+Handle +-- GrabType
+Handle +-- Hand
+@enduml

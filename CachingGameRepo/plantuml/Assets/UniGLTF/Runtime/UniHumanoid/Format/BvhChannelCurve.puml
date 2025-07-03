@@ -1,0 +1,6 @@
+@startuml
+class BvhChannelCurve {
+    + BvhChannelCurve(frameCount:int)
+    + SetKey(frame:int, value:float) : void
+}
+@enduml

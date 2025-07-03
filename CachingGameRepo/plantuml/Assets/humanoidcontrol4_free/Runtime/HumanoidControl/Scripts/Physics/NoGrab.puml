@@ -1,0 +1,5 @@
+@startuml
+class NoGrab {
+}
+Handle <|-- NoGrab
+@enduml

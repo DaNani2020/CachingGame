@@ -1,0 +1,10 @@
+@startuml
+class AvatarManager {
+    + currentAvatarIndex : int = 0
+    + NextAvatar() : void
+    + PreviousAvatar() : void
+    + SetAvatar(avatarIndex:int) : void
+    + {static} mod(k:int, n:int) : int
+}
+MonoBehaviour <|-- AvatarManager
+@enduml

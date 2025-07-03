@@ -1,0 +1,8 @@
+@startuml
+class MeshExtensions <<static>> {
+    + {static} GetMesh(r:Renderer) : Mesh
+    + {static} Copy(src:Mesh, copyBlendShape:bool) : Mesh
+    + {static} ApplyRotationAndScale(src:Mesh, m:Matrix4x4) : void
+    + {static} ApplyMatrix(src:Mesh, m:Matrix4x4) : void
+}
+@enduml

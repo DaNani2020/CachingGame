@@ -1,0 +1,5 @@
+@startuml
+class SerializerGenerator <<static>> {
+    + {static} GenerateSerializer() : void
+}
+@enduml

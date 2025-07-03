@@ -1,0 +1,22 @@
+@startuml
+class BoneMeshEraser <<static>> {
+    + {static} GetExcludedIndices(indices:int[], boneWeights:BoneWeight[], eraseBoneIndices:int[]) : int[]
+    + {static} <<async>> CreateErasedMeshAsync(src:Mesh, eraseBoneIndices:int[], awaitCaller:IAwaitCaller) : Task<Mesh>
+    + {static} CreateErasedMesh(src:Mesh, eraseBoneIndices:int[]) : Mesh
+    + {static} Ancestor(t:Transform) : IEnumerable<Transform>
+}
+struct ExcludeBoneIndex {
+    + <<readonly>> Bone0 : bool
+    + <<readonly>> Bone1 : bool
+    + <<readonly>> Bone2 : bool
+    + <<readonly>> Bone3 : bool
+    + ExcludeBoneIndex(bone0:bool, bone1:bool, bone2:bool, bone3:bool)
+}
+struct EraseBone {
+    + Erase : bool
+    + <<override>> ToString() : string
+}
+BoneMeshEraser +-- ExcludeBoneIndex
+BoneMeshEraser +-- EraseBone
+EraseBone --> "Bone" Transform
+@enduml

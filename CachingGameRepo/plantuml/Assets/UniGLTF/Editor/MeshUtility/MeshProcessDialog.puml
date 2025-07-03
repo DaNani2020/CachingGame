@@ -1,0 +1,11 @@
+@startuml
+class MeshProcessDialog {
+    + _separateByBlendShape : bool = true
+    + {static} OpenWindow() : void
+}
+class "List`1"<T> {
+}
+EditorWindow <|-- MeshProcessDialog
+MeshProcessDialog o-> "_skinnedMeshRenderer" SkinnedMeshRenderer
+MeshProcessDialog --> "_eraseBones<BoneMeshEraser.EraseBone>" "List`1"
+@enduml

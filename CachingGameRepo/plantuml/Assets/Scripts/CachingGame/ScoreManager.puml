@@ -1,0 +1,28 @@
+@startuml
+class ScoreManager {
+    + score : int = 0
+    + highscoreOfPlayer : int
+    + isPlaying : bool = false
+    + AddPoints(objectPoints:int) : void
+    + SetCurrentGameMode(selectedGameMode:GameMode) : void
+    + GetCurrentGameMode() : GameMode
+    + StartGame() : void
+    + GameOver() : void
+}
+enum GameMode {
+    DUAL_HAND,
+    RED,
+    BLUE,
+    DEFAULT_NONE,
+}
+' MonoBehaviour <|-- ScoreManager
+ScoreManager --> "instance" ScoreManager
+ScoreManager --> "cacheObject" CacheScript
+ScoreManager --> "otherCacheObject" CacheScript
+ScoreManager --> "scoreText" Text
+ScoreManager --> "highScoreText" Text
+ScoreManager o-> "onPlay" UnityEvent
+ScoreManager o-> "onGameOver" UnityEvent
+ScoreManager o-> "onSettingGameMode" UnityEvent
+ScoreManager +-- GameMode
+@enduml

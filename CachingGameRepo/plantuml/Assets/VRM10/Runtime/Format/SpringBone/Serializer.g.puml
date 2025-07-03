@@ -1,0 +1,23 @@
+@startuml
+class GltfSerializer <<static>> {
+    + {static} SerializeTo(dst:UniGLTF.glTFExtension, extension:VRMC_springBone) : void
+    + {static} Serialize(f:JsonFormatter, value:VRMC_springBone) : void
+    + {static} Serialize_Colliders(f:JsonFormatter, value:List<Collider>) : void
+    + {static} Serialize_Colliders_ITEM(f:JsonFormatter, value:Collider) : void
+    + {static} __colliders_ITEM_Serialize_Shape(f:JsonFormatter, value:ColliderShape) : void
+    + {static} __colliders_ITEM__shape_Serialize_Sphere(f:JsonFormatter, value:ColliderShapeSphere) : void
+    + {static} __colliders_ITEM__shape__sphere_Serialize_Offset(f:JsonFormatter, value:float[]) : void
+    + {static} __colliders_ITEM__shape_Serialize_Capsule(f:JsonFormatter, value:ColliderShapeCapsule) : void
+    + {static} __colliders_ITEM__shape__capsule_Serialize_Offset(f:JsonFormatter, value:float[]) : void
+    + {static} __colliders_ITEM__shape__capsule_Serialize_Tail(f:JsonFormatter, value:float[]) : void
+    + {static} Serialize_ColliderGroups(f:JsonFormatter, value:List<ColliderGroup>) : void
+    + {static} Serialize_ColliderGroups_ITEM(f:JsonFormatter, value:ColliderGroup) : void
+    + {static} __colliderGroups_ITEM_Serialize_Colliders(f:JsonFormatter, value:int[]) : void
+    + {static} Serialize_Springs(f:JsonFormatter, value:List<Spring>) : void
+    + {static} Serialize_Springs_ITEM(f:JsonFormatter, value:Spring) : void
+    + {static} __springs_ITEM_Serialize_Joints(f:JsonFormatter, value:List<SpringBoneJoint>) : void
+    + {static} __springs_ITEM_Serialize_Joints_ITEM(f:JsonFormatter, value:SpringBoneJoint) : void
+    + {static} __springs_ITEM__joints_ITEM_Serialize_GravityDir(f:JsonFormatter, value:float[]) : void
+    + {static} __springs_ITEM_Serialize_ColliderGroups(f:JsonFormatter, value:int[]) : void
+}
+@enduml

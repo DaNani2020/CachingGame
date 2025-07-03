@@ -1,0 +1,17 @@
+@startuml
+class glTF_VRM_extensions {
+    + <<const>> ExtensionName : string = "VRM"
+    + exporterVersion : string
+    + specVersion : string
+    + {static} TryDeserialize(extension:glTFExtension, vrm:glTF_VRM_extensions) : bool
+}
+class "List`1"<T> {
+}
+glTF_VRM_extensions o-> "ExtensionNameUtf8" Utf8String
+glTF_VRM_extensions o-> "meta" glTF_VRM_Meta
+glTF_VRM_extensions o-> "humanoid" glTF_VRM_Humanoid
+glTF_VRM_extensions o-> "firstPerson" glTF_VRM_Firstperson
+glTF_VRM_extensions o-> "blendShapeMaster" glTF_VRM_BlendShapeMaster
+glTF_VRM_extensions o-> "secondaryAnimation" glTF_VRM_SecondaryAnimation
+glTF_VRM_extensions o-> "materialProperties<glTF_VRM_Material>" "List`1"
+@enduml

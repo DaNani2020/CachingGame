@@ -1,0 +1,8 @@
+@startuml
+enum ObjectInteractionState {
+    NONE,
+    CACHED,
+    POPPED,
+    EXPIRED,
+}
+@enduml

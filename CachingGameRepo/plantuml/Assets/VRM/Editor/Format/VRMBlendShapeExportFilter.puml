@@ -1,0 +1,11 @@
+@startuml
+class VRMBlendShapeExportFilter {
+    + VRMBlendShapeExportFilter(exportRoot:GameObject, settings:VRMExportSettings)
+    + UseBlendShape(index:int, relativePath:string) : bool
+}
+class "List`1"<T> {
+}
+IBlendShapeExportFilter <|-- VRMBlendShapeExportFilter
+VRMBlendShapeExportFilter --> "VRMExportSettings" VRMExportSettings
+VRMBlendShapeExportFilter --> "Clips<BlendShapeClip>" "List`1"
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+class InitTracking {
+    + BeginTracking() : void
+    + EndTracking() : void
+}
+MonoBehaviour <|-- InitTracking
+InitTracking o-> "humanoidTracking" HumanoidTracking
+InitTracking o-> "beginBtn" Button
+@enduml

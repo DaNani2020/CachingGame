@@ -1,0 +1,7 @@
+@startuml
+class JsonValueTests {
+    + NaNTest() : void
+    + InfinityTest() : void
+    + MinusInfinityTest() : void
+}
+@enduml

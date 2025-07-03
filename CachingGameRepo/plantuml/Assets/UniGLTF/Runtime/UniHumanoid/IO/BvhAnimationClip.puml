@@ -1,0 +1,18 @@
+@startuml
+class BvhAnimation <<static>> {
+    + {static} CreateAnimationClip(bvh:Bvh, scaling:float) : AnimationClip
+}
+class CurveSet {
+    + CurveSet(node:BvhNode)
+    + GetPosition(i:int) : Vector3
+    + GetRotation(i:int) : Quaternion
+    + AddCurves(bvh:Bvh, clip:AnimationClip, scaling:float) : void
+}
+BvhAnimation +-- CurveSet
+CurveSet --> "PositionX" BvhChannelCurve
+CurveSet --> "PositionY" BvhChannelCurve
+CurveSet --> "PositionZ" BvhChannelCurve
+CurveSet --> "RotationX" BvhChannelCurve
+CurveSet --> "RotationY" BvhChannelCurve
+CurveSet --> "RotationZ" BvhChannelCurve
+@enduml

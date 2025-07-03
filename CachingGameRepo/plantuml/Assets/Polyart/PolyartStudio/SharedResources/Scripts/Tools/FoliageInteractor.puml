@@ -1,0 +1,7 @@
+@startuml
+class FoliageInteractor {
+    + interactRadius : float = 2.0f
+    + interactStrength : float = 10f
+}
+MonoBehaviour <|-- FoliageInteractor
+@enduml

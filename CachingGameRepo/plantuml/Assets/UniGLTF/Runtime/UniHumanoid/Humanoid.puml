@@ -1,0 +1,76 @@
+@startuml
+class Humanoid {
+    + GetForward() : Vector3
+    + Validate() : IEnumerable<Validation>
+    + CreateAvatar() : Avatar
+    + GetBoneTransform(bone:HumanBodyBones) : Transform
+    + AssignBones(nodes:IEnumerable<(HumanBodyBones, Transform)>) : void
+    + AssignBonesFromAnimator() : bool
+    + TryGetBoneForTransform(t:Transform, bone:HumanBodyBones) : bool
+}
+struct Validation {
+    + <<readonly>> Message : string
+    + <<readonly>> IsError : bool
+    + Validation(message:string, isError:bool)
+}
+class "IEnumerable`1"<T> {
+}
+MonoBehaviour <|-- Humanoid
+Humanoid --> "Hips" Transform
+Humanoid --> "LeftUpperLeg" Transform
+Humanoid --> "RightUpperLeg" Transform
+Humanoid --> "LeftLowerLeg" Transform
+Humanoid --> "RightLowerLeg" Transform
+Humanoid --> "LeftFoot" Transform
+Humanoid --> "RightFoot" Transform
+Humanoid --> "LeftToes" Transform
+Humanoid --> "RightToes" Transform
+Humanoid --> "Spine" Transform
+Humanoid --> "Chest" Transform
+Humanoid --> "UpperChest" Transform
+Humanoid --> "Neck" Transform
+Humanoid --> "Head" Transform
+Humanoid --> "LeftEye" Transform
+Humanoid --> "RightEye" Transform
+Humanoid --> "Jaw" Transform
+Humanoid --> "LeftShoulder" Transform
+Humanoid --> "RightShoulder" Transform
+Humanoid --> "LeftUpperArm" Transform
+Humanoid --> "RightUpperArm" Transform
+Humanoid --> "LeftLowerArm" Transform
+Humanoid --> "RightLowerArm" Transform
+Humanoid --> "LeftHand" Transform
+Humanoid --> "RightHand" Transform
+Humanoid --> "LeftThumbProximal" Transform
+Humanoid --> "LeftThumbIntermediate" Transform
+Humanoid --> "LeftThumbDistal" Transform
+Humanoid --> "LeftIndexProximal" Transform
+Humanoid --> "LeftIndexIntermediate" Transform
+Humanoid --> "LeftIndexDistal" Transform
+Humanoid --> "LeftMiddleProximal" Transform
+Humanoid --> "LeftMiddleIntermediate" Transform
+Humanoid --> "LeftMiddleDistal" Transform
+Humanoid --> "LeftRingProximal" Transform
+Humanoid --> "LeftRingIntermediate" Transform
+Humanoid --> "LeftRingDistal" Transform
+Humanoid --> "LeftLittleProximal" Transform
+Humanoid --> "LeftLittleIntermediate" Transform
+Humanoid --> "LeftLittleDistal" Transform
+Humanoid --> "RightThumbProximal" Transform
+Humanoid --> "RightThumbIntermediate" Transform
+Humanoid --> "RightThumbDistal" Transform
+Humanoid --> "RightIndexProximal" Transform
+Humanoid --> "RightIndexIntermediate" Transform
+Humanoid --> "RightIndexDistal" Transform
+Humanoid --> "RightMiddleProximal" Transform
+Humanoid --> "RightMiddleIntermediate" Transform
+Humanoid --> "RightMiddleDistal" Transform
+Humanoid --> "RightRingProximal" Transform
+Humanoid --> "RightRingIntermediate" Transform
+Humanoid --> "RightRingDistal" Transform
+Humanoid --> "RightLittleProximal" Transform
+Humanoid --> "RightLittleIntermediate" Transform
+Humanoid --> "RightLittleDistal" Transform
+Humanoid --> "BoneMap<(Transform, HumanBodyBones)>" "IEnumerable`1"
+Humanoid +-- Validation
+@enduml

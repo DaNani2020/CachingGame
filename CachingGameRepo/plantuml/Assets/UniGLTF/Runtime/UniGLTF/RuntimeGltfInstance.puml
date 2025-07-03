@@ -1,0 +1,30 @@
+@startuml
+class RuntimeGltfInstance {
+    + {static} AttachTo(go:GameObject, context:ImporterContext) : RuntimeGltfInstance
+    + AddRenderer(renderer:Renderer) : void
+    + ShowMeshes() : void
+    + EnableUpdateWhenOffscreen() : void
+    + TransferOwnership(take:TakeResponsibilityForDestroyObjectFunc) : void
+    + Dispose() : void
+}
+class "IReadOnlyList`1"<T> {
+}
+class "IReadOnlyDictionary`2"<T1,T2> {
+}
+class "IList`1"<T> {
+}
+MonoBehaviour <|-- RuntimeGltfInstance
+IResponsibilityForDestroyObjects <|-- RuntimeGltfInstance
+RuntimeGltfInstance --> "Root" GameObject
+RuntimeGltfInstance --> "Nodes<Transform>" "IReadOnlyList`1"
+RuntimeGltfInstance --> "InitialTransformStates<Transform,TransformState>" "IReadOnlyDictionary`2"
+RuntimeGltfInstance --> "RuntimeResources<(SubAssetKey, UnityEngine.Object)>" "IReadOnlyList`1"
+RuntimeGltfInstance --> "Materials<Material>" "IReadOnlyList`1"
+RuntimeGltfInstance --> "Textures<Texture>" "IReadOnlyList`1"
+RuntimeGltfInstance --> "AnimationClips<AnimationClip>" "IReadOnlyList`1"
+RuntimeGltfInstance --> "Meshes<Mesh>" "IReadOnlyList`1"
+RuntimeGltfInstance --> "Renderers<Renderer>" "IReadOnlyList`1"
+RuntimeGltfInstance --> "MeshRenderers<MeshRenderer>" "IReadOnlyList`1"
+RuntimeGltfInstance --> "SkinnedMeshRenderers<SkinnedMeshRenderer>" "IReadOnlyList`1"
+RuntimeGltfInstance --> "VisibleRenderers<Renderer>" "IList`1"
+@enduml

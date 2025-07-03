@@ -1,0 +1,8 @@
+@startuml
+class Script_Editor {
+    + OnEnable() : void
+    + OnDestroy() : void
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- Script_Editor
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+class SiteNavigator {
+    + loadSiteAtStart : bool = false
+    + startSite : string = ""
+    + GoHome() : void
+    + LoadSiteFromURL(siteLocation:string) : void
+    + ReloadSite() : void
+    + GoBack() : void
+    + Quit() : void
+}
+class HistoryEntry {
+    + siteName : string
+    + siteLocation : string
+    + scenePath : string
+}
+class "Stack`1"<T> {
+}
+MonoBehaviour <|-- SiteNavigator
+SiteNavigator o-> "history<HistoryEntry>" "Stack`1"
+SiteNavigator o-> "currentSite" HistoryEntry
+SiteNavigator --> "instance" SiteNavigator
+SiteNavigator +-- HistoryEntry
+HistoryEntry --> "assetBundle" AssetBundle
+@enduml

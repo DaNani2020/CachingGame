@@ -1,0 +1,33 @@
+@startuml
+class JsonSchemaSource {
+    + JsonPath : string
+    + {static} SplitParent(jsonPath:string) : (string, string)
+    + AddJsonPath(jsonPath:string, source:JsonSchemaSource) : void
+    + Get(jsonPath:string) : JsonSchemaSource
+    + title : string
+    + description : string
+    + gltfDetail : string
+    + minimum : double?
+    + exclusiveMinimum : bool
+    + maximum : double?
+    + multipleOf : double?
+    + pattern : string
+    + GetProperty(name:string, remove:bool) : JsonSchemaSource
+    + AddProperty(name:string, prop:JsonSchemaSource) : void
+    + EnumerateProperties() : IEnumerable<KeyValuePair<string, JsonSchemaSource>>
+    + minProperties : int?
+    + minItems : int?
+    + maxItems : int?
+    + uniqueItems : bool?
+    + Children() : IEnumerable<JsonSchemaSource>
+    + Traverse() : IEnumerable<JsonSchemaSource>
+    + Create(useUpperCamelName:bool, rootName:string) : Schemas.JsonSchemaBase
+    + Dump(sb:StringBuilder, indent:string) : void
+    + Dump() : string
+}
+JsonSchemaSource --> "FilePath" FileInfo
+JsonSchemaSource --> "type" JsonSchemaType
+JsonSchemaSource --> "baseSchema" JsonSchemaSource
+JsonSchemaSource --> "additionalProperties" JsonSchemaSource
+JsonSchemaSource --> "items" JsonSchemaSource
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+struct MeshVertex0 {
+    + MeshVertex0(position:Vector3, normal:Vector3)
+}
+@enduml

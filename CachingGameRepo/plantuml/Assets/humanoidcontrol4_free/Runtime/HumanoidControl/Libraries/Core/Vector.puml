@@ -1,0 +1,20 @@
+@startuml
+struct Vector {
+    + x : float
+    + y : float
+    + z : float
+    + Vector(_x:float, _y:float, _z:float)
+    + {static} Magnitude(a:Vector) : float
+    + {static} SqrMagnitude(a:Vector) : float
+    + {static} Normalize(v:Vector) : Vector
+    + {static} Scale(p1:Vector, p2:Vector) : Vector
+    + {static} Dot(v1:Vector, v2:Vector) : float
+    + {static} Distance(p1:Vector, p2:Vector) : float
+    + {static} Cross(v1:Vector, v2:Vector) : Vector
+}
+Vector --> "zero" Vector
+Vector --> "right" Vector
+Vector --> "up" Vector
+Vector --> "forward" Vector
+Vector --> "back" Vector
+@enduml

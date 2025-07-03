@@ -1,0 +1,11 @@
+@startuml
+class Vrm10MToonTextureImporter <<static>> {
+    + {static} EnumerateAllTextures(data:GltfData, material:glTFMaterial, mToon:VRMC_materials_mtoon) : IEnumerable<(string key, (SubAssetKey, TextureDescriptor))>
+}
+class Vrm10TextureInfo <<sealed>> {
+    + Vrm10TextureInfo(info:TextureInfo)
+    + Vrm10TextureInfo(info:ShadingShiftTextureInfo)
+}
+Vrm10MToonTextureImporter +-- Vrm10TextureInfo
+glTFTextureInfo <|-- Vrm10TextureInfo
+@enduml

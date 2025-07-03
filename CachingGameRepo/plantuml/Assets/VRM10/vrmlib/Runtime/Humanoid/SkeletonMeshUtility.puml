@@ -1,0 +1,24 @@
+@startuml
+struct BoneWeight {
+    + boneIndex0 : int
+    + boneIndex1 : int
+    + boneIndex2 : int
+    + boneIndex3 : int
+    + weight0 : float
+    + weight1 : float
+    + weight2 : float
+    + weight3 : float
+}
+class MeshBuilder {
+    + Build(bones:List<Node>) : void
+}
+struct BoneHeadTail {
+    + XWidth : float
+    + ZWidth : float
+    + BoneHeadTail(head:HumanoidBones, tail:HumanoidBones, xWidth:float, zWidth:float)
+    + BoneHeadTail(head:HumanoidBones, tailOffset:Vector3, xWidth:float, zWidth:float)
+}
+BoneHeadTail --> "Head" HumanoidBones
+BoneHeadTail --> "Tail" HumanoidBones
+BoneHeadTail --> "TailOffset" Vector3
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+class MultipleObjectsMake {
+    + m_startDelay : float
+    + m_makeCount : int
+    + m_makeDelay : float
+    + isObjectAttachToParent : bool = true
+}
+_ObjectsMakeBase <|-- MultipleObjectsMake
+MultipleObjectsMake --> "m_randomPos" Vector3
+MultipleObjectsMake --> "m_randomRot" Vector3
+MultipleObjectsMake --> "m_randomScale" Vector3
+@enduml

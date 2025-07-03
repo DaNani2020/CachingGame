@@ -1,0 +1,16 @@
+@startuml
+class UniGLTFException {
+    + UniGLTFException(fmt:string, args:object[])
+    + UniGLTFException(msg:string)
+}
+class UniGLTFNotSupportedException {
+    + UniGLTFNotSupportedException(fmt:string, args:object[])
+    + UniGLTFNotSupportedException(msg:string)
+}
+class GlbParseException {
+    + GlbParseException(msg:string)
+}
+Exception <|-- UniGLTFException
+UniGLTFException <|-- UniGLTFNotSupportedException
+UniGLTFException <|-- GlbParseException
+@enduml

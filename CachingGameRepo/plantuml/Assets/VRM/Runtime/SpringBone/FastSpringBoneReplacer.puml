@@ -1,0 +1,5 @@
+@startuml
+class FastSpringBoneReplacer <<static>> {
+    + {static} <<async>> ReplaceAsync(gameObject:GameObject, awaitCaller:IAwaitCaller, token:CancellationToken) : Task
+}
+@enduml

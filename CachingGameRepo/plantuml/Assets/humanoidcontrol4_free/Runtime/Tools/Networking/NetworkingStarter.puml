@@ -1,0 +1,32 @@
+@startuml
+class NetworkingStarter {
+    + autoStart : bool = true
+    + serverIpAddress : string = "127.0.0.1"
+    + roomName : string = "default"
+    + gameVersion : int = 1
+    + connected : bool <<get>> <<protected set>>
+    + connecting : bool <<get>> <<protected set>>
+    + useRoleFile : bool = false
+    + roleFileName : string = "Role.txt"
+    + sendRate : int = 25
+    + StartHost() : void
+    + StartClient() : void
+    + StartClient(roomName:string, gameVersion:int) : void
+}
+interface INetworkingStarter {
+}
+enum ServerType {
+    CloudServer,
+    OwnServer,
+}
+enum Role {
+    Host,
+    Client,
+}
+MonoBehaviour <|-- NetworkingStarter
+NetworkingStarter --> "playerPrefab" GameObject
+NetworkingStarter --> "serverType" ServerType
+NetworkingStarter --> "role" Role
+NetworkingStarter +-- ServerType
+NetworkingStarter +-- Role
+@enduml

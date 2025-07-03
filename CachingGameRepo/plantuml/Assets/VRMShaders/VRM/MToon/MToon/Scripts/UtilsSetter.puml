@@ -1,0 +1,6 @@
+@startuml
+class Utils <<static>> <<partial>> {
+    + {static} SetMToonParametersToMaterial(material:Material, parameters:MToonDefinition) : void
+    + {static} ValidateProperties(material:Material, isBlendModeChangedByUser:bool) : void
+}
+@enduml

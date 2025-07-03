@@ -1,0 +1,6 @@
+@startuml
+class TextureDescriptorSet <<sealed>> {
+    + Add(texDesc:TextureDescriptor) : void
+    + GetEnumerable() : IEnumerable<TextureDescriptor>
+}
+@enduml

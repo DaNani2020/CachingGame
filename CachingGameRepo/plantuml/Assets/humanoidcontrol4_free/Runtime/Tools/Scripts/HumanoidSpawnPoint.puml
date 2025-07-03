@@ -1,0 +1,9 @@
+@startuml
+class HumanoidSpawnPoint {
+    + radius : float = 0.3F
+    + height : float = 1.8F
+    + isFree : bool <<get>>
+}
+SpawnPoint <|-- HumanoidSpawnPoint
+HumanoidSpawnPoint o-> "center" Vector3
+@enduml

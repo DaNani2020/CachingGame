@@ -1,0 +1,16 @@
+@startuml
+class BoolEventHandlers {
+    + value : bool <<get>> <<set>>
+    + Update() : void
+}
+class BoolEvent {
+    + BoolEvent(newEventType:Type)
+    + SetMethod(newEventType:Type, voidAction:UnityAction) : void
+    + SetMethod(newEventType:Type, boolAction:UnityAction<bool>) : void
+    + value : bool <<get>> <<set>>
+}
+class "EventHandlers`1"<T> {
+}
+"EventHandlers`1" "<BoolEvent>" <|-- BoolEventHandlers
+EventHandler <|-- BoolEvent
+@enduml

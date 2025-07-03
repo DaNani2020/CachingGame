@@ -1,0 +1,27 @@
+@startuml
+class Pose {
+    + <<virtual>> GetConfidence() : float
+    + CheckBone(boneId:Bone, useSideBones:bool) : BonePose
+    + GetBone(boneId:Bone) : BonePose
+    + GetSideBone(sideBoneId:SideBone) : BonePose
+    + AddBone(_boneId:Bone, useSideBones:bool) : BonePose
+    + CheckBlendshape(renderer:SkinnedMeshRenderer, blendshapeId:int) : BlendshapePose
+    + GetBlendshape(renderer:SkinnedMeshRenderer, blendshapeId:int) : BlendshapePose
+    + AddBlendshape(_renderer:SkinnedMeshRenderer, _blendshapeId:int) : BlendshapePose
+    + Cleanup() : void
+    + <<virtual>> UpdatePose(humanoid:HumanoidControl) : void
+    + Show(humanoid:HumanoidControl, value:float) : void
+    + Show(humanoid:HumanoidControl, showSide:Side, value:float) : void
+    + ShowAdditive(humanoid:HumanoidControl, showSide:Side, value:float) : void
+    + ShowBones(humanoid:HumanoidControl, value:float) : void
+    + ShowBones(humanoid:HumanoidControl, showSide:Side, value:float) : void
+    + ShowBonesAdditive(humanoid:HumanoidControl, showSide:Side, value:float) : void
+    + ShowBlendshapes(humanoid:HumanoidControl, value:float) : void
+    + GetScore(humanoid:HumanoidControl, side:Side) : float
+}
+class "List`1"<T> {
+}
+ScriptableObject <|-- Pose
+Pose --> "bonePoses<BonePose>" "List`1"
+Pose --> "blendshapePoses<BlendshapePose>" "List`1"
+@enduml

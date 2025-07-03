@@ -1,0 +1,36 @@
+@startuml
+class JsonSerializerTests {
+    + JsonSerializerTest() : void
+    + KeyValue() : void
+}
+struct Point {
+    + X : float
+    + Y : float
+    + <<override>> ToString() : string
+}
+enum HogeFuga {
+    Hoge,
+    Fuga,
+}
+struct EnumTest {
+}
+class DictionaryValue {
+    + <<override>> GetHashCode() : int
+    + <<override>> Equals(obj:object) : bool
+    + Equals(other:DictionaryValue) : bool
+}
+class "IEquatable`1"<T> {
+}
+class "Dictionary`2"<T1,T2> {
+}
+JsonSerializerTests +-- Point
+JsonSerializerTests +-- HogeFuga
+JsonSerializerTests +-- EnumTest
+EnumTest --> "EnumDefault" HogeFuga
+EnumTest --> "EnumAsInt" HogeFuga
+EnumTest --> "EnumAsString" HogeFuga
+EnumTest --> "EnumAsLowerString" HogeFuga
+JsonSerializerTests +-- DictionaryValue
+"IEquatable`1" "<DictionaryValue>" <|-- DictionaryValue
+DictionaryValue o-> "Dict<string,object>" "Dictionary`2"
+@enduml

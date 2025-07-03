@@ -1,0 +1,6 @@
+@startuml
+class MouseInput_Editor {
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- MouseInput_Editor
+@enduml

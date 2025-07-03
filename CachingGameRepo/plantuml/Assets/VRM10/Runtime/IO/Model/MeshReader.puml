@@ -1,0 +1,5 @@
+@startuml
+class MeshReader <<static>> {
+    + {static} FromGltf(x:glTFMesh, storage:Vrm10ImportData) : MeshGroup
+}
+@enduml

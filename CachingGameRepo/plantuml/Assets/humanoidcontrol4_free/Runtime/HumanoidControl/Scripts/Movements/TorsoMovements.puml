@@ -1,0 +1,24 @@
+@startuml
+class HipsTarget <<partial>> {
+    + hipsBaseHeight : float
+}
+class TorsoMovements {
+    + Start(_humanoid:HumanoidControl, _target:HipsTarget) : void
+    + {static} Update(hipsTarget:HipsTarget) : void
+    + CharacterNoIK(hipsTarget:HipsTarget, neckBonePosition:Vector3) : void
+    + CalculateChestRotation(hipsTarget:HipsTarget, baseRotation:Quaternion, hipsRotation:Quaternion, neckRotation:Quaternion) : Quaternion
+    + CalculateChestLookRotation(hipsTarget:HipsTarget, baseRotation:Quaternion, hipsRotation:Quaternion) : Quaternion
+    + CalculateSpineRotation(hipsTarget:HipsTarget, baseRotation:Quaternion, hipsRotation:Quaternion, neckRotation:Quaternion) : Quaternion
+    + CalculateSpineLookRotation(hipsTarget:HipsTarget, baseRotation:Quaternion, hipsRotation:Quaternion) : Quaternion
+    + {static} CalculateSpinePosition(chestPosition:Vector3, spineRotation:Quaternion, spineLength:float) : Vector3
+    + {static} CalculateNeckPosition(chestPosition:Vector3, chestRotation:Quaternion, chest2neck:Vector3) : Vector3
+    + {static} CalculateHipsRotation(hipsPosition:Vector3, hipsRotation:Quaternion, leftHandRotation:Quaternion, rightHandRotation:Quaternion, leftFoot:Transform, rightFoot:Transform, neckRotation:Quaternion, neckPosition:Vector3) : Quaternion
+    + {static} CalculateHipsPosition(spinePosition:Vector3, hipsRotation:Quaternion, hipsLength:float, leftFootPosition:Vector3, rightFootPosition:Vector3) : Vector3
+}
+class Breathing {
+    + speed : float = 4
+    + intensity : float = 1
+    + v : float
+    + Update() : void
+}
+@enduml

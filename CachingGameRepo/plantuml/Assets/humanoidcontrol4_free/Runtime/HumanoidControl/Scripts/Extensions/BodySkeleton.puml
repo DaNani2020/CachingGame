@@ -1,0 +1,8 @@
+@startuml
+abstract class BodySkeleton {
+    + show : bool = false
+    + GetBoneTransform(boneId:Humanoid.Tracking.Bone) : Transform
+    + GetBone(boneId:Humanoid.Tracking.Bone) : TrackedBone
+}
+TrackerComponent <|-- BodySkeleton
+@enduml

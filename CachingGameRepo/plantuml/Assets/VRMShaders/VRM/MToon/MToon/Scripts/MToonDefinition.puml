@@ -1,0 +1,81 @@
+@startuml
+class MToonDefinition {
+}
+class MetaDefinition {
+    + Implementation : string
+    + VersionNumber : int
+}
+class RenderingDefinition {
+    + RenderQueueOffsetNumber : int
+}
+class ColorDefinition {
+    + CutoutThresholdValue : float
+}
+class LightingDefinition {
+}
+class LitAndShadeMixingDefinition {
+    + ShadingShiftValue : float
+    + ShadingToonyValue : float
+    + ShadowReceiveMultiplierValue : float
+    + LitAndShadeMixingMultiplierValue : float
+}
+class LightingInfluenceDefinition {
+    + LightColorAttenuationValue : float
+    + GiIntensityValue : float
+}
+class EmissionDefinition {
+}
+class MatCapDefinition {
+}
+class RimDefinition {
+    + RimLightingMixValue : float
+    + RimFresnelPowerValue : float
+    + RimLiftValue : float
+}
+class NormalDefinition {
+    + NormalScaleValue : float
+}
+class OutlineDefinition {
+    + OutlineWidthValue : float
+    + OutlineScaledMaxDistanceValue : float
+    + OutlineLightingMixValue : float
+}
+class TextureUvCoordsDefinition {
+    + UvAnimationScrollXSpeedValue : float
+    + UvAnimationScrollYSpeedValue : float
+    + UvAnimationRotationSpeedValue : float
+}
+MToonDefinition --> "Meta" MetaDefinition
+MToonDefinition --> "Rendering" RenderingDefinition
+MToonDefinition --> "Color" ColorDefinition
+MToonDefinition --> "Lighting" LightingDefinition
+MToonDefinition --> "Emission" EmissionDefinition
+MToonDefinition --> "MatCap" MatCapDefinition
+MToonDefinition --> "Rim" RimDefinition
+MToonDefinition --> "Outline" OutlineDefinition
+MToonDefinition --> "TextureOption" TextureUvCoordsDefinition
+RenderingDefinition --> "RenderMode" RenderMode
+RenderingDefinition --> "CullMode" CullMode
+ColorDefinition --> "LitColor" Color
+ColorDefinition --> "LitMultiplyTexture" Texture2D
+ColorDefinition --> "ShadeColor" Color
+ColorDefinition --> "ShadeMultiplyTexture" Texture2D
+LightingDefinition --> "LitAndShadeMixing" LitAndShadeMixingDefinition
+LightingDefinition --> "LightingInfluence" LightingInfluenceDefinition
+LightingDefinition --> "Normal" NormalDefinition
+LitAndShadeMixingDefinition --> "ShadowReceiveMultiplierMultiplyTexture" Texture2D
+LitAndShadeMixingDefinition --> "LitAndShadeMixingMultiplierMultiplyTexture" Texture2D
+EmissionDefinition --> "EmissionColor" Color
+EmissionDefinition --> "EmissionMultiplyTexture" Texture2D
+MatCapDefinition --> "AdditiveTexture" Texture2D
+RimDefinition --> "RimColor" Color
+RimDefinition --> "RimMultiplyTexture" Texture2D
+NormalDefinition --> "NormalTexture" Texture2D
+OutlineDefinition --> "OutlineWidthMode" OutlineWidthMode
+OutlineDefinition --> "OutlineWidthMultiplyTexture" Texture2D
+OutlineDefinition --> "OutlineColorMode" OutlineColorMode
+OutlineDefinition --> "OutlineColor" Color
+TextureUvCoordsDefinition --> "MainTextureLeftBottomOriginScale" Vector2
+TextureUvCoordsDefinition --> "MainTextureLeftBottomOriginOffset" Vector2
+TextureUvCoordsDefinition --> "UvAnimationMaskTexture" Texture2D
+@enduml

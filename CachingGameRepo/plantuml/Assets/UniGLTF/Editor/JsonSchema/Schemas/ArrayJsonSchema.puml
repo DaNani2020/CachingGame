@@ -1,0 +1,17 @@
+@startuml
+class ArrayJsonSchema {
+    + <<readonly>> UniqueItems : bool
+    + <<readonly>> MinItems : int
+    + <<readonly>> MaxItems : int?
+    + ArrayJsonSchema(source:JsonSchemaSource, useUpperCamelName:bool)
+    + <<override>> IsInline : bool <<get>>
+    + <<override>> ValueType : string <<get>>
+    + <<override>> GenerateDeserializerCall(callName:string, argName:string) : string
+    + <<override>> GenerateDeserializer(writer:TraverseContext, callName:string) : void
+    + <<override>> CreateSerializationCondition(argName:string) : string
+    + <<override>> GenerateSerializerCall(callName:string, argName:string) : string
+    + <<override>> GenerateSerializer(writer:TraverseContext, callName:string) : void
+}
+JsonSchemaBase <|-- ArrayJsonSchema
+ArrayJsonSchema --> "Items" JsonSchemaBase
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+class SkeletonMeshUtility <<static>> {
+    + {static} CreateRenderer(animator:Animator) : SkinnedMeshRenderer
+}
+struct TSRBox {
+    + TSRBox(t:Vector3, s:Vector3, r:Quaternion, head:Vector3)
+    + ToMatrix() : Matrix4x4
+}
+class MeshBuilder {
+    + AddBone(head:Vector3, tail:Vector3, boneIndex:int, width:float, height:float, xAxis:Vector3) : void
+    + CreateMesh() : Mesh
+}
+struct BoneHeadTail {
+    + Width : float
+    + Height : float
+    + BoneHeadTail(head:HumanBodyBones, tail:HumanBodyBones, xAxis:Vector3, width:float, height:float)
+    + BoneHeadTail(head:HumanBodyBones, tailOffset:Vector3, xAxis:Vector3, width:float, height:float)
+}
+SkeletonMeshUtility +-- TSRBox
+TSRBox --> "T" Vector3
+TSRBox --> "S" Vector3
+TSRBox --> "R" Quaternion
+TSRBox --> "HeadPosition" Vector3
+SkeletonMeshUtility +-- MeshBuilder
+SkeletonMeshUtility +-- BoneHeadTail
+BoneHeadTail --> "Head" HumanBodyBones
+BoneHeadTail --> "Tail" HumanBodyBones
+BoneHeadTail --> "TailOffset" Vector3
+BoneHeadTail --> "XAxis" Vector3
+@enduml

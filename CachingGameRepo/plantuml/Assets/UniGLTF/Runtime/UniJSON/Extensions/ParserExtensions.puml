@@ -1,0 +1,8 @@
+@startuml
+class StringExtensions <<static>> {
+    + {static} ParseAsJson(json:string) : JsonNode
+    + {static} ParseAsJson(json:Utf8String) : JsonNode
+    + {static} ParseAsJson(bytes:byte[]) : JsonNode
+    + {static} ParseAsJson(bytes:ArraySegment<byte>) : JsonNode
+}
+@enduml

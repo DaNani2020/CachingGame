@@ -1,0 +1,11 @@
+@startuml
+class SensorComponent {
+    + rotationConfidence : float
+    + positionConfidence : float
+    + autoUpdate : bool = true
+    + <<virtual>> show : bool <<set>> <<get>>
+    + <<virtual>> StartComponent(trackerTransform:Transform) : void
+    + <<virtual>> UpdateComponent() : void
+}
+MonoBehaviour <|-- SensorComponent
+@enduml

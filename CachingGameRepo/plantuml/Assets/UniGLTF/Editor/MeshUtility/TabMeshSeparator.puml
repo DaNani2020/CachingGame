@@ -1,0 +1,12 @@
+@startuml
+class TabMeshSeparator <<static>> {
+    + {static} TryExecutable(root:GameObject, msg:string) : bool
+    + {static} OnGUI(root:GameObject) : bool
+    + {static} SeparationProcessing(go:GameObject) : List<(Mesh Src, Mesh With, Mesh Without)>
+}
+enum BlendShapeLogic {
+    WithBlendShape,
+    WithoutBlendShape,
+}
+TabMeshSeparator +-- BlendShapeLogic
+@enduml

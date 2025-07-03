@@ -1,0 +1,6 @@
+@startuml
+class GltfSerializer <<static>> {
+    + {static} SerializeTo(dst:UniGLTF.glTFExtension, extension:VRMC_materials_hdr_emissiveMultiplier) : void
+    + {static} Serialize(f:JsonFormatter, value:VRMC_materials_hdr_emissiveMultiplier) : void
+}
+@enduml

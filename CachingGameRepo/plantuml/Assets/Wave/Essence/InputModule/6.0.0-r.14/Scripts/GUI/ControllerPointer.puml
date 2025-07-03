@@ -1,0 +1,17 @@
+@startuml
+class ControllerPointer <<sealed>> {
+    + ShowPointer : bool <<get>> <<set>>
+    + AutoControlPointer : bool <<get>> <<set>>
+    + MinimalPointerDiameter : float <<get>> <<set>>
+    + UseTexture : bool <<get>> <<set>>
+    + UseDefaultTexture : bool <<get>> <<set>>
+    + PointerDistanceInMeters : float <<get>> <<set>>
+    + PointerRenderQueue : int <<get>> <<set>>
+    + GetPointerPosition() : Vector3
+    + OnPointerEnter(target:GameObject, intersectionPosition:Vector3, isInteractive:bool) : void
+    + OnPointerExit(target:GameObject) : void
+}
+MonoBehaviour <|-- ControllerPointer
+ControllerPointer --> "PointerType" XR_Hand
+ControllerPointer --> "CustomTexture" Texture2D
+@enduml

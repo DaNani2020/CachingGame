@@ -1,0 +1,5 @@
+@startuml
+struct MeshVertex2 {
+    + MeshVertex2(boneIndex0:ushort, boneIndex1:ushort, boneIndex2:ushort, boneIndex3:ushort, boneWeight0:float, boneWeight1:float, boneWeight2:float, boneWeight3:float)
+}
+@enduml

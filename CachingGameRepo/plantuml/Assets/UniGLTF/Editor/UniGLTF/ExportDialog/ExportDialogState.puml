@@ -1,0 +1,15 @@
+@startuml
+class ExporterDialogState {
+    + Dispose() : void
+    +  <<event>> ExportRootChanged : Action<GameObject> 
+    + Invalidate() : void
+    + Validate(validators:IEnumerable<Validator>) : void
+}
+class "IEnumerable`1"<T> {
+}
+class "IReadOnlyList`1"<T> {
+}
+IDisposable <|-- ExporterDialogState
+ExporterDialogState --> "ExportRoot" GameObject
+ExporterDialogState --> "Validations<Validation>" "IReadOnlyList`1"
+@enduml

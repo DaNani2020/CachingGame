@@ -1,0 +1,34 @@
+@startuml
+class HandTarget <<partial>> {
+    + <<virtual>> StartInteraction() : void
+    + <<virtual>> CreateGrabSocket() : HandSocket
+    + CreatePinchSocket() : Socket
+    + OnNearing(obj:GameObject) : void
+    + <<virtual>> OnTouchStart(obj:GameObject, contactPoint:Vector3) : void
+    + <<virtual>> OnTouchEnd(obj:GameObject) : void
+    + {static} maxGrabbingMass : float = 10
+    + GrabTouchedObject() : void
+    + NearGrabCheck() : void
+    + GrabNearObject() : void
+    + GrabCheck(obj:GameObject) : void
+    + <<virtual>> CanBeGrabbed(obj:GameObject) : bool
+    + <<virtual>> Grab(obj:GameObject, rangeCheck:bool) : void
+    + GrabHandle(handle:Handle, rangeCheck:bool) : void
+    + <<virtual>> LetGo() : void
+    + GrabOrLetGo(obj:GameObject, rangeCheck:bool) : void
+}
+class HandInteraction {
+    + {static} MoveAndGrabHandle(handTarget:HandTarget, handle:Handle) : void
+    + {static} MoveHandTargetToHandle(handTarget:HandTarget, handle:Handle) : void
+    + {static} GetGrabPosition(handTarget:HandTarget, handle:Handle, handPosition:Vector3, handRotation:Quaternion) : void
+    + {static} GetGrabPosition(handTarget:HandTarget, targetPosition:Vector3, targetRotation:Quaternion, handPosition:Vector3, handRotation:Quaternion) : void
+    + {static} GrabHandle(handTarget:HandTarget, handle:Handle) : void
+    + {static} NetworkedPinch(handTarget:HandTarget, obj:GameObject, rangeCheck:bool) : void
+    + {static} LocalPinch(handTarget:HandTarget, obj:GameObject, rangeCheck:bool) : void
+}
+enum GrabType {
+    HandGrab,
+    Pinch,
+}
+HandTarget +-- GrabType
+@enduml

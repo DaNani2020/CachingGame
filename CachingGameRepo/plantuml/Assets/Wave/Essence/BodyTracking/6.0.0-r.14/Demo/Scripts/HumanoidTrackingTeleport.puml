@@ -1,0 +1,14 @@
+@startuml
+class HumanoidTrackingTeleport {
+    + TeleportOrigin() : void
+    + Teleport1() : void
+    + Teleport2() : void
+    + Teleport3() : void
+}
+MonoBehaviour <|-- HumanoidTrackingTeleport
+HumanoidTrackingTeleport o-> "humanoidTracking" HumanoidTracking
+HumanoidTrackingTeleport o-> "offsetOrigin" Transform
+HumanoidTrackingTeleport o-> "offset1" Transform
+HumanoidTrackingTeleport o-> "offset2" Transform
+HumanoidTrackingTeleport o-> "offset3" Transform
+@enduml

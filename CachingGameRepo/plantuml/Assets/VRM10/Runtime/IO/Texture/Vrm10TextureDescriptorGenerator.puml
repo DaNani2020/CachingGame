@@ -1,0 +1,9 @@
+@startuml
+class Vrm10TextureDescriptorGenerator <<sealed>> {
+    + <<const>> UniqueThumbnailName : string = "thumbnail__VRM10"
+    + Vrm10TextureDescriptorGenerator(data:GltfData)
+    + Get() : TextureDescriptorSet
+    + {static} TryGetMetaThumbnailTextureImportParam(data:GltfData, vrm:UniGLTF.Extensions.VRMC_vrm.VRMC_vrm, value:(SubAssetKey, TextureDescriptor)) : bool
+}
+ITextureDescriptorGenerator <|-- Vrm10TextureDescriptorGenerator
+@enduml

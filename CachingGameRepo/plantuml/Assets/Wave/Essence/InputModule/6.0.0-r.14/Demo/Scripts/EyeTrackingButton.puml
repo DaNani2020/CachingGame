@@ -1,0 +1,6 @@
+@startuml
+class EyeTrackingButton <<sealed>> {
+    + EnableEyeTracking() : void
+}
+MonoBehaviour <|-- EyeTrackingButton
+@enduml

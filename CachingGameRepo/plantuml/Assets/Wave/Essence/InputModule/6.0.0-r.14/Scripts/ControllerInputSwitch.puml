@@ -1,0 +1,8 @@
+@startuml
+class ControllerInputSwitch <<sealed>> {
+    + SingleInput : bool <<get>> <<set>>
+}
+MonoBehaviour <|-- ControllerInputSwitch
+ControllerInputSwitch --> "PrimaryInput" XR_Hand
+ControllerInputSwitch --> "Instance" ControllerInputSwitch
+@enduml

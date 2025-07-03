@@ -1,0 +1,14 @@
+@startuml
+class AvatarIKMenu {
+    + SetArmMode() : void
+    + SetUpperMode() : void
+    + SetFullMode() : void
+    + SetUpperBodyAndLegMode() : void
+    + BeginTracking() : void
+    + StopTracking() : void
+}
+MonoBehaviour <|-- AvatarIKMenu
+AvatarIKMenu o-> "ikScript" AvatarIKSample
+AvatarIKMenu o-> "canvasTitle" Text
+AvatarIKMenu o-> "beginBtn" Button
+@enduml

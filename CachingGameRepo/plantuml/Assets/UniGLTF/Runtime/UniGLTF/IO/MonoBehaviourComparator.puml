@@ -1,0 +1,11 @@
+@startuml
+class MonoBehaviourComparator <<static>> {
+    + {static} AssertAreEquals(l:GameObject, r:GameObject) : bool
+    + {static} AssertAreEquals(l:GameObject, r:GameObject, pred:Func<T[], T[], bool>) : bool
+    + {static} AssertAreEquals(l:Transform, r:Transform) : bool
+    + {static} AssertAreEquals(l:MeshFilter, r:MeshFilter) : bool
+    + {static} AssertAreEquals(l:MeshRenderer, r:MeshRenderer) : bool
+    + {static} AssertAreEquals(l:SkinnedMeshRenderer, r:SkinnedMeshRenderer) : bool
+    + {static} AssetAreEquals(l:Texture2D, r:Texture2D) : bool
+}
+@enduml

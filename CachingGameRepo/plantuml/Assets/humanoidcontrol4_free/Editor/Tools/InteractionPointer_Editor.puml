@@ -1,0 +1,7 @@
+@startuml
+class InteractionPointer_Editor {
+    + <<virtual>> OnEnable() : void
+    + <<override>> OnInspectorGUI() : void
+}
+Editor <|-- InteractionPointer_Editor
+@enduml

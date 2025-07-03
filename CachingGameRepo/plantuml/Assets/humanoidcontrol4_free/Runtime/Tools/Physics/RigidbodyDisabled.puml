@@ -1,0 +1,26 @@
+@startuml
+class RigidbodyDisabled {
+    + mass : float = 1
+    + drag : float
+    + angularDrag : float = 0.05F
+    + useGravity : bool = true
+    + isKinematic : bool
+    + markedForDestruction : bool = false
+    + {static} Get(transform:Transform) : RigidbodyDisabled
+    + {static} GetInParent(transform:Transform) : RigidbodyDisabled
+    + CopyFromRigidbody(rb:Rigidbody) : void
+    + CopyToRigidbody(rb:Rigidbody) : void
+    + {static} DisableRigidbody(rigidbody:Rigidbody) : RigidbodyDisabled
+    + {static} EnableRigidbody(rigidbodyTransform:Transform) : Rigidbody
+    + {static} ParentRigidbody(parentTransform:Transform, childRigidbody:Rigidbody) : void
+    + {static} ParentRigidbody(parentRigidbody:Rigidbody, childRigidbody:Rigidbody) : RigidbodyDisabled
+    + {static} UnparentRigidbody(parentTransform:Transform, childRigidbodyTransform:Transform) : Rigidbody
+    + {static} UnparentRigidbody(parentRigidbody:Rigidbody, childRigidbodyTransform:Transform) : Rigidbody
+}
+MonoBehaviour <|-- RigidbodyDisabled
+RigidbodyDisabled o-> "interpolation" RigidbodyInterpolation
+RigidbodyDisabled o-> "collisionDetectionMode" CollisionDetectionMode
+RigidbodyDisabled o-> "constraints" RigidbodyConstraints
+RigidbodyDisabled --> "parent" Transform
+RigidbodyDisabled --> "localScale" Vector3
+@enduml

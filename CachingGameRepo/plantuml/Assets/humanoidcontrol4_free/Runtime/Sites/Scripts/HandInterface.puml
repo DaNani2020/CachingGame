@@ -1,0 +1,11 @@
+@startuml
+class HandInterface {
+    + isLeft : bool
+    + MoveTo(obj:GameObject) : void
+    + ParentTo(obj:GameObject) : void
+    + Grab(obj:GameObject) : void
+    + LetGo() : void
+    + EnableAnimator(enabled:bool) : void
+}
+MonoBehaviour <|-- HandInterface
+@enduml

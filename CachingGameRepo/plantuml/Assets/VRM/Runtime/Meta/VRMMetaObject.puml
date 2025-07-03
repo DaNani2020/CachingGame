@@ -1,0 +1,20 @@
+@startuml
+class VRMMetaObject {
+    + ExporterVersion : string
+    + Title : string
+    + Version : string
+    + Author : string
+    + ContactInformation : string
+    + Reference : string
+    + OtherPermissionUrl : string
+    + OtherLicenseUrl : string
+    + Validate(_:GameObject) : IEnumerable<Validation>
+}
+ScriptableObject <|-- VRMMetaObject
+VRMMetaObject --> "Thumbnail" Texture2D
+VRMMetaObject --> "AllowedUser" AllowedUser
+VRMMetaObject --> "ViolentUssage" UssageLicense
+VRMMetaObject --> "SexualUssage" UssageLicense
+VRMMetaObject --> "CommercialUssage" UssageLicense
+VRMMetaObject --> "LicenseType" LicenseType
+@enduml

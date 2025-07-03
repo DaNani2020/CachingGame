@@ -1,0 +1,7 @@
+@startuml
+class BvhEndSite {
+    + BvhEndSite()
+    + <<override>> Parse(r:StringReader) : void
+}
+BvhNode <|-- BvhEndSite
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+class VRMEditorImporterContext {
+    + VRMEditorImporterContext(context:VRMImporterContext, prefabPath:UnityPath)
+    + GetAssetPath(prefabPath:UnityPath, o:UnityEngine.Object) : UnityPath
+    + ConvertAndExtractImages(onTextureReloaded:Action<IEnumerable<UnityPath>>) : void
+    + SaveAsAsset(loaded:UniGLTF.RuntimeGltfInstance) : void
+}
+VRMEditorImporterContext --> "TextureDescriptorGenerator" ITextureDescriptorGenerator
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class VRMMonoBehaviourComparator <<static>> {
+    + {static} AssertAreEquals(l:GameObject, r:GameObject) : bool
+    + {static} AssertAreEquals(l:GameObject, r:GameObject, pred:Func<T[], T[], bool>) : bool
+}
+@enduml

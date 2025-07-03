@@ -1,0 +1,11 @@
+@startuml
+struct TransformState {
+    + TransformState(position:Vector3, localPosition:Vector3, rotation:Quaternion, localRotation:Quaternion, localScale:Vector3)
+    + TransformState(tf:Transform)
+}
+TransformState --> "Position" Vector3
+TransformState --> "LocalPosition" Vector3
+TransformState --> "Rotation" Quaternion
+TransformState --> "LocalRotation" Quaternion
+TransformState --> "LocalScale" Vector3
+@enduml

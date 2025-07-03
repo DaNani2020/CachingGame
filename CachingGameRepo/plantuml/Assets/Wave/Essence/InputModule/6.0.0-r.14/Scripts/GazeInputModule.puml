@@ -1,0 +1,36 @@
+@startuml
+class GazeInputModule <<sealed>> {
+    + EyeTracking : bool <<get>> <<set>>
+    + Movable : bool <<get>> <<set>>
+    + TimerControl : bool <<get>> <<set>>
+    + TimeToGaze : float <<get>> <<set>>
+    + ButtonControl : bool <<get>> <<set>>
+    + IgnoreMode : bool <<get>> <<set>>
+    + <<override>> Process() : void
+}
+enum GazeEvent {
+    Down= 0,
+    Submit= 1,
+}
+class DeviceOption {
+    + HMD : bool = true
+    + DominantController : bool = true
+    + NonDominantController : bool = true
+}
+class ButtonOption {
+    + primary2DAxisClick : bool = true
+    + triggerButton : bool = true
+    + secondary2DAxisClick : bool = false
+}
+class "List`1"<T> {
+}
+PointerInputModule <|-- GazeInputModule
+GazeInputModule --> "InputEvent" GazeEvent
+GazeInputModule --> "ButtonControlDevices" DeviceOption
+GazeInputModule --> "ButtonControlKeys" ButtonOption
+GazeInputModule +-- GazeEvent
+GazeInputModule +-- DeviceOption
+DeviceOption --> "OptionList<XR_Device>" "List`1"
+GazeInputModule +-- ButtonOption
+ButtonOption --> "OptionList<InputFeatureUsage<bool>>" "List`1"
+@enduml

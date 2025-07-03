@@ -1,0 +1,5 @@
+@startuml
+class ModelReader <<static>> {
+    + {static} Read(data:UniGLTF.GltfData, coords:Coordinates?) : Model
+}
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+class MigrationTests {
+    + Migrate0to1() : void
+    + RotateY180Test() : void
+    + UnityEngineMatrixTest() : void
+    + NumericMatrixTest() : void
+    + Migrate_VrmTestModels() : void
+    + Migrate_SpringBoneTest() : void
+    + MigrateMeta() : void
+    + GltfValidator() : void
+    + MigrateMaterials() : void
+}
+class TempFile {
+    + Path : string <<get>>
+    + Dispose() : void
+    + {static} Create(path:string, bytes:byte[]) : TempFile
+}
+MigrationTests +-- TempFile
+IDisposable <|-- TempFile
+@enduml

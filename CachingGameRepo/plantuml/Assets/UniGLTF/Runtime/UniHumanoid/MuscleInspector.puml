@@ -1,0 +1,5 @@
+@startuml
+class MuscleInspector {
+}
+MonoBehaviour <|-- MuscleInspector
+@enduml

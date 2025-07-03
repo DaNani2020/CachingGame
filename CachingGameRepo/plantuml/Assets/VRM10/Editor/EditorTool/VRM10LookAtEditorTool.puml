@@ -1,0 +1,7 @@
+@startuml
+class VRM10LookAtEditorTool {
+    + <<override>> OnToolGUI(window:EditorWindow) : void
+}
+EditorTool <|-- VRM10LookAtEditorTool
+VRM10LookAtEditorTool --> "toolbarIcon" GUIContent
+@enduml

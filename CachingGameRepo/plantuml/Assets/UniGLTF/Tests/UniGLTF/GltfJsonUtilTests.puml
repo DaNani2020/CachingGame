@@ -1,0 +1,8 @@
+@startuml
+class GltfJsonUtilTests {
+    + Update_extensionsUsed() : void
+    + Replace_extensionsUsed() : void
+    + Empty_extensionsUsed() : void
+    + Empty2_extensionsUsed() : void
+}
+@enduml

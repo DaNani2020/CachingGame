@@ -1,0 +1,6 @@
+@startuml
+class ExpressionTests {
+    + DuplicatedMaterialColorBindings() : void
+    + DuplicatedMaterialUVBindings() : void
+}
+@enduml

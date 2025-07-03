@@ -1,0 +1,6 @@
+@startuml
+class ZipArchivedGltfScriptedImporter {
+    + <<override>> OnImportAsset(ctx:AssetImportContext) : void
+}
+GltfScriptedImporterBase <|-- ZipArchivedGltfScriptedImporter
+@enduml

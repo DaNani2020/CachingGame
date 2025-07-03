@@ -1,0 +1,5 @@
+@startuml
+class MigrationMaterials <<static>> {
+    + {static} Migrate(gltf:glTF, vrm0:JsonNode) : void
+}
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+struct LookAtEyeDirection {
+    + LeftYaw : float <<get>>
+    + LeftPitch : float <<get>>
+    + RightYaw : float <<get>>
+    + RightPitch : float <<get>>
+    + LookAtEyeDirection(leftYaw:float, leftPitch:float, rightYaw:float, rightPitch:float)
+    + {static} Multiply(a:LookAtEyeDirection, b:float) : LookAtEyeDirection
+}
+@enduml

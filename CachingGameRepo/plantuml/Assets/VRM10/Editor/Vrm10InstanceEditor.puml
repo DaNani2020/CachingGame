@@ -1,0 +1,7 @@
+@startuml
+class Vrm10InstanceEditor {
+    + <<override>> OnInspectorGUI() : void
+    + OnSceneGUI() : void
+}
+Editor <|-- Vrm10InstanceEditor
+@enduml

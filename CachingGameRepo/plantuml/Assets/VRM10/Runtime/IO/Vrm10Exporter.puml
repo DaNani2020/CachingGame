@@ -1,0 +1,21 @@
+@startuml
+class Vrm10Exporter {
+    + <<const>> VRM_SPEC_VERSION : string = "1.0"
+    + <<const>> SPRINGBONE_SPEC_VERSION : string = "1.0"
+    + <<const>> NODE_CONSTRAINT_SPEC_VERSION : string = "1.0"
+    + <<const>> MTOON_SPEC_VERSION : string = "1.0"
+    + <<const>> LICENSE_URL_JA : string = "https://vrm.dev/licenses/1.0/"
+    + <<const>> LICENSE_URL_EN : string = "https://vrm.dev/licenses/1.0/en/"
+    + <<readonly>> VrmExtensionName : string = "VRMC_vrm"
+    + Vrm10Exporter(textureSerializer:ITextureSerializer, settings:GltfExportSettings)
+    + Dispose() : void
+    + {static} ExportAsset(model:Model) : glTFAssets
+    + {static} ExportMeshes(groups:List<MeshGroup>, materials:List<object>, data:ExportingGltfData, option:ExportArgs) : IEnumerable<glTFMesh>
+    + {static} ExportNodes(arrayManager:INativeArrayManager, nodes:List<Node>, groups:List<MeshGroup>, data:ExportingGltfData, option:ExportArgs) : IEnumerable<(glTFNode, glTFSkin)>
+    + Export(root:GameObject, model:Model, converter:ModelExporter, option:ExportArgs, vrmMeta:VRM10ObjectMeta) : void
+    + {static} ExportMeta(vrm:UniGLTF.Extensions.VRMC_vrm.VRMC_vrm, meta:VRM10ObjectMeta, textureExporter:ITextureExporter) : int?
+    + {static} Export(go:GameObject, textureSerializer:ITextureSerializer, vrmMeta:VRM10ObjectMeta) : byte[]
+}
+IDisposable <|-- Vrm10Exporter
+Vrm10Exporter o-> "Storage" ExportingGltfData
+@enduml

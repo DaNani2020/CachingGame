@@ -1,0 +1,19 @@
+@startuml
+class ControllerBeam <<sealed>> {
+    + ShowBeam : bool <<get>> <<set>>
+    + EndOffsetMin : float <<get>>
+    + EndOffsetMax : float <<get>>
+    + EndOffset : float <<get>> <<set>>
+    + StartOffset : float <<get>> <<set>>
+    + EndWidth : float <<get>> <<set>>
+    + StartWidth : float <<get>> <<set>>
+    + UseDefaultMaterial : bool <<get>> <<set>>
+    + OnPointerEnter(target:GameObject, intersectionPosition:Vector3, isInteractive:bool) : void
+    + OnPointerExit(target:GameObject) : void
+}
+MonoBehaviour <|-- ControllerBeam
+ControllerBeam --> "BeamType" XR_Hand
+ControllerBeam --> "EndColor" Color32
+ControllerBeam --> "StartColor" Color32
+ControllerBeam --> "CustomMaterial" Material
+@enduml

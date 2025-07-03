@@ -1,0 +1,34 @@
+@startuml
+class DataWriter {
+    + WriteChestData() : void
+    + WriteLeftShoulderHorizontalData() : void
+    + WriteLeftShoulderVerticalData() : void
+    + WriteLeftShoulderRotationData() : void
+    + WriteLeftElbowExtensionData() : void
+    + WriteLeftLowerLimbSupinationData() : void
+    + WriteRightShoulderHorizontalData() : void
+    + WriteRightShoulderVerticalData() : void
+    + WriteRightShoulderRotationData() : void
+    + WriteRightElbowExtensionData() : void
+    + WriteRightLowerLimbSupinationData() : void
+    + WriteUpperLimbHorizontalData() : void
+    + WriteUpperLimbVerticalData() : void
+    + WriteShoulderRotationData() : void
+    + WriteElbowExtensionData() : void
+    + WriteLowerLimbSupinationData() : void
+    + WriteInitialLimbData() : void
+    + SpawningPointDataObserver(spawningPointDataSubscriptionObject:SpawningPointData) : void
+    + WriteTrainedLimbData() : void
+    + WriteReferenceLimbData() : void
+    + WriteUserData() : void
+}
+MonoBehaviour <|-- DataWriter
+DataWriter --> "Instance" DataWriter
+DataWriter --> "trackerChest" Transform
+DataWriter --> "trackerElbowLeft" Transform
+DataWriter --> "controllerLeft" Transform
+DataWriter --> "trackerElbowRight" Transform
+DataWriter --> "controllerRight" Transform
+DataWriter --> "upperLimbAngleCalculator" UpperLimbAngleCalculator
+DataWriter --> "initScene" InitScene
+@enduml

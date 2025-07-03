@@ -1,0 +1,9 @@
+@startuml
+class HumanoidSpawner {
+    + <<override>> SpawnObject() : GameObject
+    + <<virtual>> SpawnHumanoid() : HumanoidControl
+    + <<virtual>> Spawn(humanoidPrefab:HumanoidControl) : HumanoidControl
+    + Spawn(humanoidPrefab:HumanoidControl, spawnPoints:SpawnPoint[], spawnMethod:SpawnMethod) : HumanoidControl
+}
+Spawner <|-- HumanoidSpawner
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class ReorderableMaterialColorBindingList {
+    + ReorderableMaterialColorBindingList(serializedObject:SerializedObject, materialNames:string[], height:int)
+    + Draw(label:string) : bool
+}
+@enduml

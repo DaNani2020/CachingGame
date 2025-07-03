@@ -1,0 +1,42 @@
+@startuml
+enum AllowedUser {
+    OnlyAuthor,
+    ExplicitlyLicensedPerson,
+    Everyone,
+}
+enum LicenseType {
+    Redistribution_Prohibited,
+    CC0,
+    CC_BY,
+    CC_BY_NC,
+    CC_BY_SA,
+    CC_BY_NC_SA,
+    CC_BY_ND,
+    CC_BY_NC_ND,
+    Other,
+}
+enum UssageLicense {
+    Disallow,
+    Allow,
+}
+class glTF_VRM_Meta {
+    + title : string
+    + version : string
+    + author : string
+    + contactInformation : string
+    + reference : string
+    + texture : int
+    + allowedUserName : string = "OnlyAuthor"
+    + violentUssageName : string = "Disallow"
+    + sexualUssageName : string = "Disallow"
+    + commercialUssageName : string = "Disallow"
+    + otherPermissionUrl : string
+    + licenseName : string = "Redistribution_Prohibited"
+    + otherLicenseUrl : string
+}
+glTF_VRM_Meta --> "allowedUser" AllowedUser
+glTF_VRM_Meta --> "violentUssage" UssageLicense
+glTF_VRM_Meta --> "sexualUssage" UssageLicense
+glTF_VRM_Meta --> "commercialUssage" UssageLicense
+glTF_VRM_Meta --> "licenseType" LicenseType
+@enduml

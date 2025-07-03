@@ -1,0 +1,8 @@
+@startuml
+class EditorTextureSerializer <<sealed>> {
+    + CanExportAsEditorAssetFile(texture:Texture, exportColorSpace:ColorSpace) : bool
+    + ExportBytesWithMime(texture:Texture2D, exportColorSpace:ColorSpace) : (byte[] bytes, string mime)
+    + ModifyTextureAssetBeforeExporting(texture:Texture) : void
+}
+ITextureSerializer <|-- EditorTextureSerializer
+@enduml

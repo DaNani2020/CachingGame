@@ -1,0 +1,12 @@
+@startuml
+class ConstraintException {
+    + ConstraintException(type:ExceptionTypes)
+}
+enum ExceptionTypes {
+    NoSource,
+    NoModelWithModelSpace,
+}
+Exception <|-- ConstraintException
+ConstraintException --> "Type" ExceptionTypes
+ConstraintException +-- ExceptionTypes
+@enduml

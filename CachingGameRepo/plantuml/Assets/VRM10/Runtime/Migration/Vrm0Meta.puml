@@ -1,0 +1,38 @@
+@startuml
+enum AllowedUser {
+    OnlyAuthor,
+    ExplicitlyLicensedPerson,
+    Everyone,
+}
+enum LicenseType {
+    Redistribution_Prohibited,
+    CC0,
+    CC_BY,
+    CC_BY_NC,
+    CC_BY_SA,
+    CC_BY_NC_SA,
+    CC_BY_ND,
+    CC_BY_NC_ND,
+    Other,
+}
+enum UsageLicense {
+    Disallow,
+    Allow,
+}
+class Vrm0Meta {
+    + title : string
+    + version : string
+    + author : string
+    + contactInformation : string
+    + reference : string
+    + texture : int
+    + violentUsage : bool = false
+    + sexualUsage : bool = false
+    + commercialUsage : bool = false
+    + otherPermissionUrl : string
+    + otherLicenseUrl : string
+    + {static} FromJsonBytes(glTF:UniJSON.JsonNode) : Vrm0Meta
+}
+Vrm0Meta o-> "allowedUser" AllowedUser
+Vrm0Meta o-> "licenseType" LicenseType
+@enduml

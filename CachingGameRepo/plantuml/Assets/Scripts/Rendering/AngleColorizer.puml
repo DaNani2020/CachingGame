@@ -1,0 +1,11 @@
+@startuml
+class AngleColorizer {
+    + startAngle : float = 0f
+    + endAngle : float = 90f
+    + radius : float = 0.2f
+}
+MonoBehaviour <|-- AngleColorizer
+AngleColorizer o-> "color" Color
+AngleColorizer --> "material" Material
+AngleColorizer --> "angleCalculator" UpperLimbAngleCalculator
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+class MorphTargetBindingMerger <<sealed>> {
+    + MorphTargetBindingMerger(clipMap:Dictionary<ExpressionKey, VRM10Expression>, root:Transform)
+    + AccumulateValue(clip:VRM10Expression, value:float) : void
+    + Apply() : void
+}
+class DictionaryKeyMorphTargetBindingComparer {
+    + Equals(x:MorphTargetBinding, y:MorphTargetBinding) : bool
+    + GetHashCode(obj:MorphTargetBinding) : int
+}
+class "IEqualityComparer`1"<T> {
+}
+MorphTargetBindingMerger +-- DictionaryKeyMorphTargetBindingComparer
+"IEqualityComparer`1" "<MorphTargetBinding>" <|-- DictionaryKeyMorphTargetBindingComparer
+@enduml

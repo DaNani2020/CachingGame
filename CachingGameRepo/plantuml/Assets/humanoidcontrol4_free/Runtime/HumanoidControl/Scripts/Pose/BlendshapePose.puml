@@ -1,0 +1,8 @@
+@startuml
+class BlendshapePose {
+    + blendshapeId : int
+    + value : float
+    + <<virtual>> ShowPose(humanoid:HumanoidControl, value:float) : void
+}
+BlendshapePose --> "renderer" SkinnedMeshRenderer
+@enduml

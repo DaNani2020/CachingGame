@@ -1,0 +1,23 @@
+@startuml
+enum GeometryCoordinates {
+    Unknown,
+    XYZ_RightUpBack_RH,
+    XYZ_RightUpForward_RH,
+    XYZ_RightUpForward_LH,
+}
+enum TextureOrigin {
+    Unknown,
+    LeftTop,
+    LeftBottom,
+}
+struct Coordinates {
+    + IsVrm0 : bool <<get>>
+    + IsVrm1 : bool <<get>>
+    + IsUnity : bool <<get>>
+}
+Coordinates --> "Geometry" GeometryCoordinates
+Coordinates --> "Texture" TextureOrigin
+Coordinates --> "Vrm0" Coordinates
+Coordinates --> "Vrm1" Coordinates
+Coordinates --> "Unity" Coordinates
+@enduml

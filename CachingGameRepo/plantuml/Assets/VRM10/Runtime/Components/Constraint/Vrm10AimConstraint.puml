@@ -1,0 +1,11 @@
+@startuml
+class Vrm10AimConstraint {
+    + Weight : float = 1.0f
+    + OnDrawGizmosSelected() : void
+}
+MonoBehaviour <|-- Vrm10AimConstraint
+IVrm10Constraint <|-- Vrm10AimConstraint
+Vrm10AimConstraint --> "ConstraintTarget" GameObject
+Vrm10AimConstraint o-> "Source" Transform
+Vrm10AimConstraint --> "AimAxis" AimAxis
+@enduml

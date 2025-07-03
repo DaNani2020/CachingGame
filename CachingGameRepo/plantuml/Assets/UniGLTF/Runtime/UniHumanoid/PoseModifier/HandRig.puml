@@ -1,0 +1,11 @@
+@startuml
+class HandRig {
+    + LeftStretch : float
+    + LeftSpread : float
+    + RightStretch : float
+    + RightSpread : float
+    + {static} GetHandler(animator:Animator) : HumanPoseHandler
+}
+MonoBehaviour <|-- HandRig
+HandRig --> "Animator" Animator
+@enduml

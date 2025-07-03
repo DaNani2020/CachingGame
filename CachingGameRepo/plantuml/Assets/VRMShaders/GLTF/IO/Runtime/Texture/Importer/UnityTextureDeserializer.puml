@@ -1,0 +1,6 @@
+@startuml
+class UnityTextureDeserializer <<sealed>> {
+    + <<async>> LoadTextureAsync(textureInfo:DeserializingTextureInfo, awaitCaller:IAwaitCaller) : Task<Texture2D>
+}
+ITextureDeserializer <|-- UnityTextureDeserializer
+@enduml

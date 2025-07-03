@@ -1,0 +1,25 @@
+@startuml
+class ListTreeNodeExtensions <<static>> {
+    + {static} IsNull(self:JsonNode) : bool
+    + {static} IsBoolean(self:JsonNode) : bool
+    + {static} IsString(self:JsonNode) : bool
+    + {static} IsInteger(self:JsonNode) : bool
+    + {static} IsFloat(self:JsonNode) : bool
+    + {static} IsArray(self:JsonNode) : bool
+    + {static} IsMap(self:JsonNode) : bool
+    + {static} GetBoolean(self:JsonNode) : bool
+    + {static} GetString(self:JsonNode) : string
+    + {static} GetUtf8String(self:JsonNode) : Utf8String
+    + {static} GetSByte(self:JsonNode) : sbyte
+    + {static} GetInt16(self:JsonNode) : short
+    + {static} GetInt32(self:JsonNode) : int
+    + {static} GetInt64(self:JsonNode) : long
+    + {static} GetByte(self:JsonNode) : byte
+    + {static} GetUInt16(self:JsonNode) : ushort
+    + {static} GetUInt32(self:JsonNode) : uint
+    + {static} GetUInt64(self:JsonNode) : ulong
+    + {static} GetSingle(self:JsonNode) : float
+    + {static} GetDouble(self:JsonNode) : double
+    + {static} Traverse(self:JsonNode) : IEnumerable<JsonNode>
+}
+@enduml

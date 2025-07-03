@@ -1,0 +1,54 @@
+@startuml
+class glTFBuffer {
+    + uri : string
+    + byteLength : int
+    + name : string
+}
+class glTFBufferView {
+    + buffer : int
+    + byteOffset : int
+    + byteLength : int
+    + byteStride : int
+    + name : string
+}
+class glTFSparseIndices {
+    + bufferView : int
+    + byteOffset : int
+}
+class glTFSparseValues {
+    + bufferView : int
+    + byteOffset : int
+}
+class glTFSparse {
+    + count : int
+}
+class glTFAccessor {
+    + bufferView : int?
+    + byteOffset : int?
+    + type : string
+    + TypeCount : int <<get>>
+    + count : int
+    + normalized : bool
+    + name : string
+    + GetStride() : int
+    + CalcByteSize() : int
+}
+glTFBuffer --> "extensions" glTFExtension
+glTFBuffer --> "extras" glTFExtension
+glTFBufferView --> "target" glBufferTarget
+glTFBufferView --> "extensions" glTFExtension
+glTFBufferView --> "extras" glTFExtension
+glTFSparseIndices --> "componentType" glComponentType
+glTFSparseIndices --> "extensions" glTFExtension
+glTFSparseIndices --> "extras" glTFExtension
+glTFSparseValues --> "extensions" glTFExtension
+glTFSparseValues --> "extras" glTFExtension
+glTFSparse --> "indices" glTFSparseIndices
+glTFSparse --> "values" glTFSparseValues
+glTFSparse --> "extensions" glTFExtension
+glTFSparse --> "extras" glTFExtension
+glTFAccessor --> "componentType" glComponentType
+glTFAccessor --> "sparse" glTFSparse
+glTFAccessor --> "extensions" glTFExtension
+glTFAccessor --> "extras" glTFExtension
+@enduml

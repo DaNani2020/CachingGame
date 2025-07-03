@@ -1,0 +1,7 @@
+@startuml
+class ChestDataSO {
+}
+ScriptableObject <|-- ChestDataSO
+ChestDataSO --> "TrackerPosition" Vector3
+ChestDataSO --> "Rotation" Vector3
+@enduml
