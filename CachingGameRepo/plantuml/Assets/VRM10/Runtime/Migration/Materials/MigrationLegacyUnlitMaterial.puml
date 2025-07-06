@@ -1,5 +1,0 @@
-@startuml
-class MigrationLegacyUnlitMaterial <<static>> {
-    + {static} Migrate(gltf:glTF, vrm0XMaterials:IReadOnlyList<JsonNode>) : bool
-}
-@enduml

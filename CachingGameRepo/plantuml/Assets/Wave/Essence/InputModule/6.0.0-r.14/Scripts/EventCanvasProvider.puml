@@ -1,7 +1,0 @@
-@startuml
-class EventCanvasProvider <<static>> {
-    + {static} RegisterEventCanvas(raycaster:GraphicRaycaster) : int
-    + {static} RemoveEventCanvas(index:int) : void
-    + {static} GetEventCanvas() : GraphicRaycaster[]
-}
-@enduml

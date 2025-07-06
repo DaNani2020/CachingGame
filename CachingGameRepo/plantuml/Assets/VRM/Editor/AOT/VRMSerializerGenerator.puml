@@ -1,5 +1,0 @@
-@startuml
-class VRMSerializerGenerator <<static>> {
-    + {static} GenerateCode() : void
-}
-@enduml

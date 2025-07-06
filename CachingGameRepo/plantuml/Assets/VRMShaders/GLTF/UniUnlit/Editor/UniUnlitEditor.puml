@@ -1,7 +1,0 @@
-@startuml
-class UniUnlitEditor {
-    + <<override>> OnGUI(materialEditor:MaterialEditor, properties:MaterialProperty[]) : void
-    + <<override>> AssignNewShaderToMaterial(material:Material, oldShader:Shader, newShader:Shader) : void
-}
-ShaderGUI <|-- UniUnlitEditor
-@enduml

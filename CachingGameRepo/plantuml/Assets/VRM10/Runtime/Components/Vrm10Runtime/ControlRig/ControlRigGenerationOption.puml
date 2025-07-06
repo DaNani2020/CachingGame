@@ -1,7 +1,0 @@
-@startuml
-enum ControlRigGenerationOption {
-    None= 0,
-    Generate= 1,
-    Vrm0XCompatibleRig= 1,
-}
-@enduml

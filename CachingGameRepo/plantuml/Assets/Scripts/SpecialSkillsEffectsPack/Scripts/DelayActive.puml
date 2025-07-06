@@ -1,6 +1,0 @@
-@startuml
-class DelayActive {
-    + m_delayTime : float
-}
-MonoBehaviour <|-- DelayActive
-@enduml

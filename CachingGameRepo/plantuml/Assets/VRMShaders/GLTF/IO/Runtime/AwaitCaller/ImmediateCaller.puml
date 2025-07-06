@@ -1,9 +1,0 @@
-@startuml
-class ImmediateCaller <<sealed>> {
-    + NextFrame() : Task
-    + Run(action:Action) : Task
-    + Run(action:Func<T>) : Task<T>
-    + NextFrameIfTimedOut() : Task
-}
-IAwaitCaller <|-- ImmediateCaller
-@enduml

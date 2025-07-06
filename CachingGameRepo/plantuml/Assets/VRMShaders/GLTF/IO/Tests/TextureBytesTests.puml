@@ -1,6 +1,0 @@
-@startuml
-class TextureBytesTests {
-    + NonReadablePng() : void
-    + NonReadableDds() : void
-}
-@enduml

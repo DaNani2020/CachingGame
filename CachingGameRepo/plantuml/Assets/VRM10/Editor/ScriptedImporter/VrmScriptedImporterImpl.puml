@@ -1,5 +1,0 @@
-@startuml
-class VrmScriptedImporterImpl <<static>> {
-    + {static} Import(scriptedImporter:ScriptedImporter, context:AssetImportContext, doMigrate:bool, renderPipeline:RenderPipelineTypes) : void
-}
-@enduml

@@ -1,6 +1,0 @@
-@startuml
-class OculusHmd {
-}
-SensorComponent <|-- OculusHmd
-OculusHmd --> "unityCamera" Camera
-@enduml

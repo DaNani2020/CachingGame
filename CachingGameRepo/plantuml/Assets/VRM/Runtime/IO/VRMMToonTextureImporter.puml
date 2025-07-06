@@ -1,7 +1,0 @@
-@startuml
-class VRMMToonTextureImporter <<static>> {
-    + {static} EnumerateAllTextures(data:GltfData, vrm:glTF_VRM_extensions, materialIdx:int) : IEnumerable<(SubAssetKey, TextureDescriptor)>
-    + {static} TryGetTextureFromMaterialProperty(data:GltfData, vrmMaterial:glTF_VRM_Material, textureKey:string, key:SubAssetKey, desc:TextureDescriptor) : bool
-    + {static} TryGetTextureOffsetAndScale(vrmMaterial:glTF_VRM_Material, unityTextureKey:string, os:(Vector2 offset, Vector2 scale)) : bool
-}
-@enduml

@@ -1,5 +1,0 @@
-@startuml
-class BallHandle {
-}
-Handle <|-- BallHandle
-@enduml

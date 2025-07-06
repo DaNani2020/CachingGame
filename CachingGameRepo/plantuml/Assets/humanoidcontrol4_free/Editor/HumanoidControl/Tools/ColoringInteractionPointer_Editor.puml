@@ -1,6 +1,0 @@
-@startuml
-class ColoringInteractionPointer_Editor {
-    + <<override>> OnInspectorGUI() : void
-}
-InteractionPointer_Editor <|-- ColoringInteractionPointer_Editor
-@enduml

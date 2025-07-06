@@ -1,7 +1,0 @@
-@startuml
-struct BlittableCollider {
-    + Radius : float <<get>>
-    + BlittableCollider(offset:Vector3, radius:float)
-}
-BlittableCollider --> "Offset" Vector3
-@enduml

@@ -1,8 +1,0 @@
-@startuml
-class DateTimeOffsetExtensions <<static>> {
-    + <<const>> TicksPerSecond : long = 10000000
-    + {static} ToUnixTimeSeconds(now:DateTimeOffset) : long
-}
-DateTimeOffsetExtensions o-> "EpochTime" DateTimeOffset
-DateTimeOffsetExtensions o-> "EpocTime" DateTimeOffset
-@enduml

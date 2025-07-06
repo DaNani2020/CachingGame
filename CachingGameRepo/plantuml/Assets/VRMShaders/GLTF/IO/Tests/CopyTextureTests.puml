@@ -1,7 +1,0 @@
-@startuml
-class CopyTextureTests <<sealed>> {
-    + CopyFromNonReadableSRgbPng() : void
-    + CopyFromNonReadableSRgbDds() : void
-    + CopyAttributes() : void
-}
-@enduml

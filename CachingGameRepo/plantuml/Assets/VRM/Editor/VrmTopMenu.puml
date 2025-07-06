@@ -1,4 +1,0 @@
-@startuml
-class VrmTopMenu <<static>> {
-}
-@enduml

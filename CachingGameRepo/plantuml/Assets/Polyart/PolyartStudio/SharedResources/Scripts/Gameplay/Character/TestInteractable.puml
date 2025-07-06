@@ -1,8 +1,0 @@
-@startuml
-class TestInteractable {
-    + <<override>> OnFocus() : void
-    + <<override>> OnInteract() : void
-    + <<override>> OnLoseFocus() : void
-}
-Interactable_Dreamscape <|-- TestInteractable
-@enduml

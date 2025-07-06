@@ -1,5 +1,0 @@
-@startuml
-class AnimationClipUtility <<static>> {
-    + {static} CreateAnimationClipFromHumanPose(pose:HumanPose) : AnimationClip
-}
-@enduml

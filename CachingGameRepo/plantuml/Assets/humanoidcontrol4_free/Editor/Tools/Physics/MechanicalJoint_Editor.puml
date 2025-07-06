@@ -1,7 +1,0 @@
-@startuml
-class MechanicalJoint_Editor {
-    + <<override>> OnInspectorGUI() : void
-    + OnSceneGUI() : void
-}
-Editor <|-- MechanicalJoint_Editor
-@enduml

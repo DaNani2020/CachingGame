@@ -1,6 +1,0 @@
-@startuml
-class NetworkEvent <<partial>> {
-}
-interface INetworkEvent {
-}
-@enduml

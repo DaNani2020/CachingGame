@@ -1,9 +1,0 @@
-@startuml
-class SitesUI {
-    + AddSite(siteName:string, siteLocation:string) : void
-    + SetHome(siteName:string, siteLocation:string) : void
-}
-MonoBehaviour <|-- SitesUI
-SitesUI --> "mainMenuUI" GameObject
-SitesUI --> "siteDetailsUI" SiteDetailsUI
-@enduml

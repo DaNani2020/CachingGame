@@ -1,6 +1,0 @@
-@startuml
-class Symbols <<static>> {
-    + {static} VRM_DEVELOP : bool <<get>>
-    + {static} VRM_NORMALIZE_BLENDSHAPE_TANGENT : bool <<get>>
-}
-@enduml

@@ -1,5 +1,0 @@
-@startuml
-class VRMSpringBoneValidator <<static>> {
-    + {static} Validate(root:GameObject) : IEnumerable<Validation>
-}
-@enduml

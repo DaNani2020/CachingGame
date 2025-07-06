@@ -1,7 +1,0 @@
-@startuml
-class MigrationFlags <<sealed>> {
-    + IsBaseColorFactorGamma : bool <<get>> <<set>>
-    + IsRoughnessTextureValueSquared : bool <<get>> <<set>> = false
-    + IsEmissiveFactorGamma : bool <<get>> <<set>> = false
-}
-@enduml

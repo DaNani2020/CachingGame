@@ -1,5 +1,0 @@
-@startuml
-class BuiltInVrmExtensionMaterialPropertyExporter <<static>> {
-    + {static} ExportMaterial(m:Material, textureExporter:ITextureExporter) : glTF_VRM_Material
-}
-@enduml

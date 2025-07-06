@@ -1,6 +1,0 @@
-@startuml
-class GestureSelection {
-    + ActivateGesture() : void
-}
-MonoBehaviour <|-- GestureSelection
-@enduml

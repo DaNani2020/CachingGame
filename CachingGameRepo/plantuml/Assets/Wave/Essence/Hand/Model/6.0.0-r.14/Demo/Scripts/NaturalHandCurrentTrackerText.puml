@@ -1,5 +1,0 @@
-@startuml
-class NaturalHandCurrentTrackerText <<sealed>> {
-}
-MonoBehaviour <|-- NaturalHandCurrentTrackerText
-@enduml

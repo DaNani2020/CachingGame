@@ -1,7 +1,0 @@
-@startuml
-class TopMenuImplementation <<static>> {
-    + {static} ExportGameObjectToGltfFile() : void
-    + {static} ImportGltfFileToGameObject() : void
-    + {static} GenerateSerializationCode() : void
-}
-@enduml

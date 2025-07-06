@@ -1,5 +1,0 @@
-@startuml
-struct MeshVertex1 {
-    + MeshVertex1(texCoord:Vector2, color:Color)
-}
-@enduml

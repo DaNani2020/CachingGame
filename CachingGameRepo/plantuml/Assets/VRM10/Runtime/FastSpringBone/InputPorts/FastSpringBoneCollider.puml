@@ -1,6 +1,0 @@
-@startuml
-struct FastSpringBoneCollider {
-}
-FastSpringBoneCollider --> "Transform" Transform
-FastSpringBoneCollider --> "Collider" BlittableCollider
-@enduml

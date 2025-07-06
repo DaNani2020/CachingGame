@@ -1,7 +1,0 @@
-@startuml
-class VariousRotateObject {
-    + m_delay : float
-}
-MonoBehaviour <|-- VariousRotateObject
-VariousRotateObject --> "RotateOffset" Vector3
-@enduml

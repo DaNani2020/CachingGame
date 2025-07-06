@@ -1,5 +1,0 @@
-@startuml
-class NaturalHandInteractionModeText {
-}
-MonoBehaviour <|-- NaturalHandInteractionModeText
-@enduml

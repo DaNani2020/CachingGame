@@ -1,1 +1,1 @@
-mongodb://admin:db_mongo@vrcluster-shard-00-01.wfrd8.mongodb.net:27017,vrcluster-shard-00-00.wfrd8.mongodb.net:27017,vrcluster-shard-00-02.wfrd8.mongodb.net:27017/?ssl=true&authSource=admin
+mongodb://admin:db_mongo@[yourvrcluster.mongodb.net]:27017/?ssl=true&authSource=admin

@@ -1,6 +1,0 @@
-@startuml
-class FastSpringBoneDisposer <<sealed>> {
-    + Add(disposable:IDisposable) : void
-}
-MonoBehaviour <|-- FastSpringBoneDisposer
-@enduml

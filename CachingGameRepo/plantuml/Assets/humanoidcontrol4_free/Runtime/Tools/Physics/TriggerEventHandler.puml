@@ -1,6 +1,0 @@
-@startuml
-class TriggerEventHandler {
-}
-MonoBehaviour <|-- TriggerEventHandler
-TriggerEventHandler o-> "triggerHandlers" GameObjectEventHandlers
-@enduml

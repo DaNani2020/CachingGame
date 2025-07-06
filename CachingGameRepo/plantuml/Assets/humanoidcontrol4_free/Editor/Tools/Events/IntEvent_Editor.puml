@@ -1,6 +1,0 @@
-@startuml
-class IntEvent_Editor {
-    + {static} EventInspector(eventSourceProp:SerializedProperty, eventSource:IntEventHandlers, selectedEventSourceIx:int, selectedEventIx:int) : void
-}
-Event_Editor <|-- IntEvent_Editor
-@enduml

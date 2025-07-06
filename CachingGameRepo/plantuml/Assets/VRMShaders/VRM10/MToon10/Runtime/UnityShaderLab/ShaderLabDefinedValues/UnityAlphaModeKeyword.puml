@@ -1,7 +1,0 @@
-@startuml
-class UnityAlphaModeKeyword <<static>> {
-    + <<const>> AlphaTest : string = "_ALPHATEST_ON"
-    + <<const>> AlphaBlend : string = "_ALPHABLEND_ON"
-    + <<const>> AlphaPremultiply : string = "_ALPHAPREMULTIPLY_ON"
-}
-@enduml

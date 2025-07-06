@@ -1,7 +1,0 @@
-@startuml
-class SyncControllerPosition {
-}
-MonoBehaviour <|-- SyncControllerPosition
-SyncControllerPosition --> "controller" Transform
-SyncControllerPosition o-> "positionOffset" Vector3
-@enduml

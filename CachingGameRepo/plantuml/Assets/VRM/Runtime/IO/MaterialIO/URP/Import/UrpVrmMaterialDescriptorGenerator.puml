@@ -1,8 +1,0 @@
-@startuml
-class UrpVrmMaterialDescriptorGenerator <<sealed>> {
-    + UrpVrmMaterialDescriptorGenerator(vrm:glTF_VRM_extensions)
-    + Get(data:GltfData, i:int) : MaterialDescriptor
-    + GetGltfDefault() : MaterialDescriptor
-}
-IMaterialDescriptorGenerator <|-- UrpVrmMaterialDescriptorGenerator
-@enduml

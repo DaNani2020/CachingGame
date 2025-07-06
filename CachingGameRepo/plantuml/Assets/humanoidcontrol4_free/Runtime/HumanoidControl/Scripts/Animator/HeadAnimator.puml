@@ -1,9 +1,0 @@
-@startuml
-class HeadAnimator {
-    + headAnimation : bool = true
-    + faceAnimation : bool = true
-    + <<override>> Update() : void
-    + {static} UpdateNeckTargetFromHead(headTarget:HeadTarget) : void
-}
-HeadSensor <|-- HeadAnimator
-@enduml

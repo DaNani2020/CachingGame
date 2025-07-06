@@ -1,6 +1,0 @@
-@startuml
-class MigrationData {
-    + <<readonly>> Message : string
-    + MigrationData(msg:string, meta:Migration.Vrm0Meta, bytes:byte[])
-}
-@enduml

@@ -1,6 +1,0 @@
-@startuml
-class MToon10OutlineModeKeyword <<static>> {
-    + <<const>> World : string = "_MTOON_OUTLINE_WORLD"
-    + <<const>> Screen : string = "_MTOON_OUTLINE_SCREEN"
-}
-@enduml

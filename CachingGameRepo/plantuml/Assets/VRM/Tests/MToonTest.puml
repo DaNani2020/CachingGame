@@ -1,7 +1,0 @@
-@startuml
-class MToonTests {
-    + TextureTransformTest() : void
-    + MToonMaterialParamTest() : void
-    + MaterialImporterTest() : void
-}
-@enduml

@@ -1,6 +1,0 @@
-@startuml
-class TeleportTarget_Editor {
-    + <<override>> OnInspectorGUI() : void
-}
-EventTriggerEditor <|-- TeleportTarget_Editor
-@enduml

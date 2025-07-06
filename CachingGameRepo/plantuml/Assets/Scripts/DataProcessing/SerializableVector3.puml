@@ -1,9 +1,0 @@
-@startuml
-class SerializableVector3 {
-    + x : float
-    + y : float
-    + z : float
-    + SerializableVector3(vector:Vector3)
-    + ToVector3() : Vector3
-}
-@enduml

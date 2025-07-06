@@ -1,6 +1,0 @@
-@startuml
-class VRMFirstPersonValidator <<static>> {
-    + {static} IsValid(r:VRMFirstPerson.RendererFirstPersonFlags, name:string, validation:Validation) : bool
-    + {static} Validate(self:VRMFirstPerson, _:GameObject) : IEnumerable<Validation>
-}
-@enduml

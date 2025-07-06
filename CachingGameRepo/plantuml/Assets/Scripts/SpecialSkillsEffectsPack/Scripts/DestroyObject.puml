@@ -1,6 +1,0 @@
-@startuml
-class DestroyObject {
-    + m_DestroytTime : float
-}
-MonoBehaviour <|-- DestroyObject
-@enduml

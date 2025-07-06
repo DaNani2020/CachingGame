@@ -1,5 +1,0 @@
-@startuml
-class BuiltInVrm10MToonMaterialExporter <<static>> {
-    + {static} TryExportMaterialAsMToon(src:Material, textureExporter:ITextureExporter, dst:glTFMaterial) : bool
-}
-@enduml

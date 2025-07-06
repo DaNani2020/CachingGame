@@ -1,6 +1,0 @@
-@startuml
-class MeshExportValidatorEditor {
-    + <<override>> OnInspectorGUI() : void
-}
-Editor <|-- MeshExportValidatorEditor
-@enduml

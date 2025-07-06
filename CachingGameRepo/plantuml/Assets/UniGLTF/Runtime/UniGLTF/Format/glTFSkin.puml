@@ -1,9 +1,0 @@
-@startuml
-class glTFSkin {
-    + inverseBindMatrices : int
-    + skeleton : int
-    + name : string
-}
-glTFSkin --> "extensions" glTFExtension
-glTFSkin --> "extras" glTFExtension
-@enduml

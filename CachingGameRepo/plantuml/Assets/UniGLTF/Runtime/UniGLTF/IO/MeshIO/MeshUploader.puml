@@ -1,6 +1,0 @@
-@startuml
-class MeshUploader <<static>> {
-    + {static} UploadMeshVertices(data:MeshData, mesh:Mesh) : void
-    + {static} <<async>> BuildMeshAndUploadAsync(awaitCaller:IAwaitCaller, data:MeshData, materialFromIndex:Func<int, Material>) : Task<MeshWithMaterials>
-}
-@enduml

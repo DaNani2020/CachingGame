@@ -1,9 +1,0 @@
-@startuml
-abstract class PreviewEditor {
-    + <<override>> OnInspectorGUI() : void
-    + <<override>> HasPreviewGUI() : bool
-    + <<override>> OnPreviewGUI(r:Rect, background:GUIStyle) : void
-}
-Editor <|-- PreviewEditor
-PreviewEditor --> "PreviewTexture" RenderTexture
-@enduml

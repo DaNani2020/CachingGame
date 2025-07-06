@@ -1,5 +1,0 @@
-@startuml
-class UnityXR_Editor {
-}
-Tracker_Editor <|-- UnityXR_Editor
-@enduml

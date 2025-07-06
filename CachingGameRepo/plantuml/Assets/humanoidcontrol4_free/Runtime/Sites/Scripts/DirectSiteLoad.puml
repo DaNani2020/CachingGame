@@ -1,7 +1,0 @@
-@startuml
-class DirectSiteLoad {
-    + LoadSiteFromURL(inputField:InputField) : void
-}
-MonoBehaviour <|-- DirectSiteLoad
-DirectSiteLoad --> "siteNavigator" SiteNavigator
-@enduml

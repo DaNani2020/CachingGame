@@ -1,6 +1,0 @@
-@startuml
-class CharacterCapsule {
-}
-MonoBehaviour <|-- CharacterCapsule
-CharacterCapsule --> "characterController" CharacterController
-@enduml

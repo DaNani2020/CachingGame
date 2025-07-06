@@ -1,6 +1,0 @@
-@startuml
-class UniGLTFVersion <<static>> <<partial>> {
-    + <<const>> UNIGLTF_VERSION : string
-    + <<const>> MENU : string = "UniGLTF"
-}
-@enduml

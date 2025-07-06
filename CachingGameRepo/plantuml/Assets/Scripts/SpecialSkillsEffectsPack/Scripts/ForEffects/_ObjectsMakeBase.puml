@@ -1,9 +1,0 @@
-@startuml
-class _ObjectsMakeBase {
-    + GetRandomValue(value:float) : float
-    + GetRandomValue2(value:float) : float
-    + GetRandomVector(value:Vector3) : Vector3
-    + GetRandomVector2(value:Vector3) : Vector3
-}
-MonoBehaviour <|-- _ObjectsMakeBase
-@enduml

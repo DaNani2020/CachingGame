@@ -1,5 +1,0 @@
-@startuml
-class CurrentTrackerText <<sealed>> {
-}
-MonoBehaviour <|-- CurrentTrackerText
-@enduml

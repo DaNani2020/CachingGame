@@ -1,6 +1,0 @@
-@startuml
-class Redrop {
-}
-MonoBehaviour <|-- Redrop
-Redrop --> "groundCollider" Collider
-@enduml

@@ -1,5 +1,0 @@
-@startuml
-class TrackerFocus {
-}
-MonoBehaviour <|-- TrackerFocus
-@enduml

@@ -1,5 +1,0 @@
-@startuml
-class PreShaderPropExporter <<static>> {
-    + {static} GetPropsForMToon() : ShaderProps
-}
-@enduml

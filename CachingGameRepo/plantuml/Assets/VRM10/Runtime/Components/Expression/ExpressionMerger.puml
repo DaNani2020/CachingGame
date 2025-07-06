@@ -1,7 +1,0 @@
-@startuml
-class ExpressionMerger <<sealed>> {
-    + ExpressionMerger(expressions:VRM10ObjectExpression, root:Transform)
-    + SetValues(expressionWeights:Dictionary<ExpressionKey, float>) : void
-    + RestoreMaterialInitialValues() : void
-}
-@enduml

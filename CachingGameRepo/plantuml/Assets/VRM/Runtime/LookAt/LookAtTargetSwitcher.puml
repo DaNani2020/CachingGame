@@ -1,5 +1,0 @@
-@startuml
-class LookAtTargetSwitcher {
-}
-MonoBehaviour <|-- LookAtTargetSwitcher
-@enduml

@@ -1,6 +1,0 @@
-@startuml
-struct BlittableSpan {
-    + startIndex : int
-    + count : int
-}
-@enduml

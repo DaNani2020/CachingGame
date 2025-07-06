@@ -1,8 +1,0 @@
-@startuml
-class NativeColliderGroup <<sealed>> <<unsafe>> {
-    + GetUnsafePtr() : BlittableColliderGroup*
-    + NativeColliderGroup(colliders:BlittableCollider[], nativeTransform:NativeTransform)
-    + Dispose() : void
-}
-IDisposable <|-- NativeColliderGroup
-@enduml

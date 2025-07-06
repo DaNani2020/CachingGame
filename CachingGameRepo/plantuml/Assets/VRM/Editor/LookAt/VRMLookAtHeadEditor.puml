@@ -1,7 +1,0 @@
-@startuml
-class VRMLookAtHeadEditor {
-    + <<override>> HasPreviewGUI() : bool
-    + <<override>> OnPreviewGUI(r:Rect, background:GUIStyle) : void
-}
-Editor <|-- VRMLookAtHeadEditor
-@enduml

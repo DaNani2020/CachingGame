@@ -1,7 +1,0 @@
-@startuml
-class MetallicRoughnessConverterTests {
-    + ExportingColorTest() : void
-    + ImportingColorTest() : void
-    + ExportMetallicSmoothnessOcclusion_Test() : void
-}
-@enduml

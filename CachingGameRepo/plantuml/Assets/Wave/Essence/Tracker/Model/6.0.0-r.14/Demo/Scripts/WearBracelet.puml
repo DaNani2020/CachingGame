@@ -1,6 +1,0 @@
-@startuml
-class WearBracelet {
-    + FuseWristPositionWithTracker() : void
-}
-MonoBehaviour <|-- WearBracelet
-@enduml

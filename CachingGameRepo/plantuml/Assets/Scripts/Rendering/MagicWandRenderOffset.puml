@@ -1,6 +1,0 @@
-@startuml
-class MagicWandRenderOffset {
-}
-MonoBehaviour <|-- MagicWandRenderOffset
-MagicWandRenderOffset --> "renderOffset" Transform
-@enduml

@@ -1,8 +1,0 @@
-@startuml
-class NaturalDropdownHandler <<sealed>> {
-    + ChangeColor() : void
-}
-MonoBehaviour <|-- NaturalDropdownHandler
-NaturalDropdownHandler --> "RaycastPointerL" HandRaycastPointer
-NaturalDropdownHandler --> "RaycastPointerR" HandRaycastPointer
-@enduml

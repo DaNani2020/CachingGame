@@ -1,5 +1,0 @@
-@startuml
-class BindposeGizmo {
-}
-MonoBehaviour <|-- BindposeGizmo
-@enduml

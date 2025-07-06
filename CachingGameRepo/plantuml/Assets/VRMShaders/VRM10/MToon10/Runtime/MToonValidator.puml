@@ -1,6 +1,0 @@
-@startuml
-class MToonValidator <<sealed>> {
-    + MToonValidator(material:Material)
-    + Validate() : void
-}
-@enduml

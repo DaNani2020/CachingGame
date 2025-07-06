@@ -1,4 +1,0 @@
-@startuml
-class VrmPreference <<static>> {
-}
-@enduml

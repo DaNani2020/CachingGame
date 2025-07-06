@@ -1,8 +1,0 @@
-@startuml
-class CacherSystem {
-    + layerToAssign : int
-}
-'MonoBehaviour <|-- CacherSystem
-CacherSystem --> "cacherObject" GameObject
-CacherSystem --> "cacherBackside" GameObject
-@enduml

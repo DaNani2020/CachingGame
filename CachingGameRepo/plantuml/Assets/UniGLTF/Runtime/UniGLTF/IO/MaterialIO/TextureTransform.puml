@@ -1,5 +1,0 @@
-@startuml
-class TextureTransform <<static>> {
-    + {static} VerticalFlipScaleOffset(s:Vector2, o:Vector2) : (Vector2 Scale, Vector2 Offset)
-}
-@enduml

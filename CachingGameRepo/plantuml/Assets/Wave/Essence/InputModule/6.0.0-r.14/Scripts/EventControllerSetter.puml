@@ -1,8 +1,0 @@
-@startuml
-class EventControllerSetter <<sealed>> {
-    + activeBeam : bool = true
-    + activePointer : bool = true
-}
-MonoBehaviour <|-- EventControllerSetter
-EventControllerSetter --> "ControllerType" XR_Hand
-@enduml

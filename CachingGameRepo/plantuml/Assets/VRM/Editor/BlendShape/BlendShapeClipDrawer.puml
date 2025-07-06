@@ -1,8 +1,0 @@
-@startuml
-class BlendShapeClipDrawer {
-    + <<const>> Height : int = 80
-    + <<const>> ThumbnailSize : int = 0
-    + <<override>> OnGUI(position:Rect, property:SerializedProperty, label:GUIContent) : void
-}
-PropertyDrawer <|-- BlendShapeClipDrawer
-@enduml

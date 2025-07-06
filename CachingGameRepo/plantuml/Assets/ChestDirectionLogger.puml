@@ -1,7 +1,0 @@
-@startuml
-class ChestDirectionLogger {
-    + measureChestRotation(trackerChest:Transform) : void
-}
-MonoBehaviour <|-- ChestDirectionLogger
-ChestDirectionLogger --> "trackerChest" Transform
-@enduml

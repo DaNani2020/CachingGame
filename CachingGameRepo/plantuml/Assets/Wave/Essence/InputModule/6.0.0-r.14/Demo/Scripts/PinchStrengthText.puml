@@ -1,6 +1,0 @@
-@startuml
-class PinchStrengthText {
-    + IsLeft : bool <<get>> <<set>>
-}
-MonoBehaviour <|-- PinchStrengthText
-@enduml

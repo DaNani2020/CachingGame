@@ -1,6 +1,0 @@
-@startuml
-class VRMMaterialValidator {
-    + <<override>> GetGltfMaterialTypeFromUnityShaderName(shaderName:string) : string
-    + <<override>> EnumerateTextureProperties(m:Material) : IEnumerable<(string propertyName, Texture texture)>
-}
-@enduml

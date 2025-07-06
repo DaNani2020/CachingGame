@@ -1,8 +1,0 @@
-@startuml
-class DrawFinger {
-    + FingerWidth : float <<get>> <<set>>
-}
-MonoBehaviour <|-- DrawFinger
-DrawFinger --> "TargetBone" GameObject
-DrawFinger --> "FingerColor" Color
-@enduml

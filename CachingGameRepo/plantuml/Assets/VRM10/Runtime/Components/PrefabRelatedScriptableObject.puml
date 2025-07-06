@@ -1,5 +1,0 @@
-@startuml
-class PrefabRelatedScriptableObject {
-}
-ScriptableObject <|-- PrefabRelatedScriptableObject
-@enduml

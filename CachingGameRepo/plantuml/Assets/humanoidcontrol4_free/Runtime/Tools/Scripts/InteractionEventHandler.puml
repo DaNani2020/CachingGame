@@ -1,7 +1,0 @@
-@startuml
-class InteractionEventHandler {
-}
-MonoBehaviour <|-- InteractionEventHandler
-InteractionEventHandler o-> "focusHandlers" BoolEventHandlers
-InteractionEventHandler o-> "clickHandlers" BoolEventHandlers
-@enduml

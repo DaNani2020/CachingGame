@@ -1,5 +1,0 @@
-@startuml
-class RigidbodyTools <<static>> {
-    + {static} DestroyGameObject(rigidbody:Rigidbody) : void
-}
-@enduml

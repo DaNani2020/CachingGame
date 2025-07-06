@@ -1,6 +1,0 @@
-@startuml
-class GlbBinaryParser <<sealed>> {
-    + GlbBinaryParser(data:byte[], uniqueName:string)
-    + Parse() : GltfData
-}
-@enduml

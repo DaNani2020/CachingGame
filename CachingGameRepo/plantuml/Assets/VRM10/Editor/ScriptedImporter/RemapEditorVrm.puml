@@ -1,8 +1,0 @@
-@startuml
-class RemapEditorVrm {
-    + RemapEditorVrm(keys:IEnumerable<SubAssetKey>, getter:EditorMapGetterFunc, setter:EditorMapSetterFunc)
-    + OnGUI(importer:ScriptedImporter, data:GltfData, vrm:UniGLTF.Extensions.VRMC_vrm.VRMC_vrm) : void
-    + {static} Extract(importer:ScriptedImporter, data:GltfData) : void
-}
-RemapEditorBase <|-- RemapEditorVrm
-@enduml

@@ -1,5 +1,0 @@
-@startuml
-class EnumUtilTest {
-    + EnumUtilTestSimplePasses() : void
-}
-@enduml

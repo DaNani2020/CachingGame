@@ -1,6 +1,0 @@
-@startuml
-class PoseMode {
-}
-MonoBehaviour <|-- PoseMode
-PoseMode o-> "WhichHand" XR_Hand
-@enduml

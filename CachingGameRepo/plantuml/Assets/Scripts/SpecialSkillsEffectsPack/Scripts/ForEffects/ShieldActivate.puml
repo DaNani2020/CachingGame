@@ -1,8 +1,0 @@
-@startuml
-class ShieldActivate {
-    + ImpactLife : float
-    + AddHitObject(position:Vector3) : void
-    + AddEmpty() : void
-}
-MonoBehaviour <|-- ShieldActivate
-@enduml

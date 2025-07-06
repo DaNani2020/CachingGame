@@ -1,9 +1,0 @@
-@startuml
-class UnityXRHmd {
-    + <<override>> UpdateComponent() : void
-    + Show(_:bool) : void
-}
-SensorComponent <|-- UnityXRHmd
-UnityXRHmd --> "tracker" TrackerComponent
-UnityXRHmd --> "unityCamera" Camera
-@enduml

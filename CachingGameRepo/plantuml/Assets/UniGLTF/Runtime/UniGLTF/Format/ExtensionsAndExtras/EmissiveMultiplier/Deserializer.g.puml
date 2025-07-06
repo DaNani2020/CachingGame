@@ -1,7 +1,0 @@
-@startuml
-class GltfDeserializer <<static>> {
-    + {static} TryGet(src:UniGLTF.glTFExtension, extension:VRMC_materials_hdr_emissiveMultiplier) : bool
-    + {static} Deserialize(parsed:JsonNode) : VRMC_materials_hdr_emissiveMultiplier
-}
-GltfDeserializer o-> "ExtensionNameUtf8" Utf8String
-@enduml

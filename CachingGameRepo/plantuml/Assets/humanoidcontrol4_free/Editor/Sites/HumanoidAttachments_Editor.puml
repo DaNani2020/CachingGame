@@ -1,5 +1,0 @@
-@startuml
-class HumanoidAttachments_Editor {
-}
-Editor <|-- HumanoidAttachments_Editor
-@enduml

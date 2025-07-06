@@ -1,5 +1,0 @@
-@startuml
-class MigrationVrmLookAtAndFirstPerson <<static>> {
-    + {static} Migrate(gltf:glTF, firstPersonJsonNode:JsonNode) : (LookAt, FirstPerson)
-}
-@enduml

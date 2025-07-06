@@ -1,5 +1,0 @@
-@startuml
-class TransformExtensions <<static>> {
-    + {static} ParentRotation(transform:Transform) : Quaternion
-}
-@enduml

@@ -1,8 +1,0 @@
-@startuml
-class VRMSpecVersion {
-    + <<const>> Major : int = 0
-    + <<const>> Minor : int = 0
-    + {static} Version : string <<get>>
-    + <<const>> VERSION : string = "0.0"
-}
-@enduml

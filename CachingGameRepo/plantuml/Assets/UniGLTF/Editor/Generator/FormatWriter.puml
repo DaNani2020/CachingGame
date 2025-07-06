@@ -1,5 +1,0 @@
-@startuml
-class FormatWriter {
-    + {static} Write(w:TextWriter, root:JsonSchemaSource, rootName:string) : void
-}
-@enduml

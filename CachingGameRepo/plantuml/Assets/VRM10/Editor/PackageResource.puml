@@ -1,7 +1,0 @@
-@startuml
-class PackageResource <<static>> {
-    + <<const>> LocalBase : string = "Assets/VRM10"
-    + <<const>> PackageBase : string = "Packages/com.vrmc.univrm"
-    + {static} ResourceLocalOrUPM(relpath:string) : T
-}
-@enduml

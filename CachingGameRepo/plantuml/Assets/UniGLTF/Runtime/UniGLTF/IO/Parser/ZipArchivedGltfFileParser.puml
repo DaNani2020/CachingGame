@@ -1,6 +1,0 @@
-@startuml
-class ZipArchivedGltfFileParser <<sealed>> {
-    + ZipArchivedGltfFileParser(zippedFilePath:string)
-    + Parse() : GltfData
-}
-@enduml

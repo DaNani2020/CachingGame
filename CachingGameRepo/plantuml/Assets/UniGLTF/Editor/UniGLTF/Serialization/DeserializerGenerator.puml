@@ -1,6 +1,0 @@
-@startuml
-class DeserializerGenerator <<static>> {
-    + {static} GenerateSerializer() : void
-}
-DeserializerGenerator o-> "FIELD_FLAGS" BindingFlags
-@enduml

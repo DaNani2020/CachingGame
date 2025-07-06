@@ -1,7 +1,0 @@
-@startuml
-class MToon10Migrator <<static>> {
-    + {static} MigrateToShadingToony(shadingToony0X:float, shadingShift0X:float) : float
-    + {static} MigrateToShadingShift(shadingToony0X:float, shadingShift0X:float) : float
-    + {static} MigrateToGiEqualization(giIntensity0X:float) : float
-}
-@enduml

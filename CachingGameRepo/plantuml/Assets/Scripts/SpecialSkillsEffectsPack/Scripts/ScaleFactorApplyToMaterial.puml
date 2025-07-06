@@ -1,5 +1,0 @@
-@startuml
-class ScaleFactorApplyToMaterial {
-}
-MonoBehaviour <|-- ScaleFactorApplyToMaterial
-@enduml

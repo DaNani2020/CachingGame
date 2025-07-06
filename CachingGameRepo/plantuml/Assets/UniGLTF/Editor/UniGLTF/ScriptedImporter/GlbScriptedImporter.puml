@@ -1,6 +1,0 @@
-@startuml
-class GlbScriptedImporter {
-    + <<override>> OnImportAsset(ctx:AssetImportContext) : void
-}
-GltfScriptedImporterBase <|-- GlbScriptedImporter
-@enduml

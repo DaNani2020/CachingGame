@@ -1,8 +1,0 @@
-@startuml
-class NativePoints <<sealed>> <<unsafe>> {
-    + GetUnsafePtr() : BlittablePoints*
-    + NativePoints(points:IList<NativePointer<BlittablePoint>>)
-    + Dispose() : void
-}
-IDisposable <|-- NativePoints
-@enduml

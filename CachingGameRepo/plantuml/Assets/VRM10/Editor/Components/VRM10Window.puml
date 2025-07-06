@@ -1,9 +1,0 @@
-@startuml
-class VRM10Window {
-    + <<const>> WINDOW_TITLE : string = "VRM1.0 Model Editor"
-    + {static} Open() : VRM10Window
-    + Draw3D(target:Vrm10Instance, so:SerializedObject) : void
-}
-EditorWindow <|-- VRM10Window
-VRM10Window --> "Active" MonoBehaviour
-@enduml

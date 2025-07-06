@@ -1,8 +1,0 @@
-@startuml
-class BlendShapeClipSelector {
-    + BlendShapeClipSelector(avatar:BlendShapeAvatar, onSelected:Action<BlendShapeClip>)
-    + SelectGUI() : void
-    + DuplicateWarn() : void
-}
-BlendShapeClipSelector --> "Selected" BlendShapeClip
-@enduml

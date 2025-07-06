@@ -1,6 +1,0 @@
-@startuml
-class EnumExtensions <<static>> {
-    + {static} ToUnityBone(val:VRMBone) : HumanBodyBones
-    + {static} ToVrmBone(val:HumanBodyBones) : VRMBone
-}
-@enduml

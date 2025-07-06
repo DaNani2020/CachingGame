@@ -1,8 +1,0 @@
-@startuml
-class EditorProgress {
-    + Report(value:ExportProgress) : void
-}
-class "IProgress`1"<T> {
-}
-"IProgress`1" "<ExportProgress>" <|-- EditorProgress
-@enduml

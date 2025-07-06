@@ -1,5 +1,0 @@
-@startuml
-class TrackedRigidbody {
-}
-HybridPhysics <|-- TrackedRigidbody
-@enduml

@@ -1,8 +1,0 @@
-@startuml
-struct RendererFirstPersonFlags {
-    + {static} Create(root:Transform, r:Renderer, flag:UniGLTF.Extensions.VRMC_vrm.FirstPersonType) : RendererFirstPersonFlags
-    + GetRenderer(root:Transform) : Renderer
-    + GetSharedMesh(root:Transform) : Mesh
-}
-RendererFirstPersonFlags --> "Renderer" String
-@enduml

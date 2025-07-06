@@ -1,5 +1,0 @@
-@startuml
-class UrpGltfDefaultMaterialImporter <<static>> {
-    + {static} CreateParam() : MaterialDescriptor
-}
-@enduml

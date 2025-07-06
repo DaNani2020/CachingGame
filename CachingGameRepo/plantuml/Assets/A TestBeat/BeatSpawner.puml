@@ -1,6 +1,0 @@
-@startuml
-class BeatSpawner {
-    + beat : float
-}
-MonoBehaviour <|-- BeatSpawner
-@enduml

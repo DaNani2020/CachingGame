@@ -1,5 +1,0 @@
-@startuml
-class bvhAssetPostprocessor {
-}
-AssetPostprocessor <|-- bvhAssetPostprocessor
-@enduml

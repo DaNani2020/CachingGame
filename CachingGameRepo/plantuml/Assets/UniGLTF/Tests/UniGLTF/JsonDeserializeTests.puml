@@ -1,4 +1,0 @@
-@startuml
-class JsonDeserializeTests {
-}
-@enduml

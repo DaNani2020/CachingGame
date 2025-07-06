@@ -1,5 +1,0 @@
-@startuml
-class ApiSampleTests {
-    + Sample() : void
-}
-@enduml

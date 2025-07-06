@@ -1,5 +1,0 @@
-@startuml
-class IndexExtensions <<static>> {
-    + {static} HasValidIndex(self:int?) : bool
-}
-@enduml

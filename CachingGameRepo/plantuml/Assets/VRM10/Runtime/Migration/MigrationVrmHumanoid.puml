@@ -1,7 +1,0 @@
-@startuml
-class MigrationVrmHumanoid <<static>> {
-    + {static} Migrate(vrm0:JsonNode) : UniGLTF.Extensions.VRMC_vrm.Humanoid
-    + {static} CheckBone(bone:string, vrm0:JsonNode, vrm1:UniGLTF.Extensions.VRMC_vrm.HumanBone) : void
-    + {static} Check(vrm0:JsonNode, vrm1:UniGLTF.Extensions.VRMC_vrm.Humanoid) : void
-}
-@enduml

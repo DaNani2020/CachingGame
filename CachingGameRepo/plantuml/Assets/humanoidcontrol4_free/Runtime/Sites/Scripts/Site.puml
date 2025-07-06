@@ -1,5 +1,0 @@
-@startuml
-class Site {
-}
-MonoBehaviour <|-- Site
-@enduml

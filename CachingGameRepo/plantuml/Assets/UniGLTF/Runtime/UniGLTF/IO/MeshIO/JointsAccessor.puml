@@ -1,5 +1,0 @@
-@startuml
-class JointsAccessor <<static>> {
-    + {static} GetAccessor(data:GltfData, accessorIndex:int) : (Getter, int)
-}
-@enduml

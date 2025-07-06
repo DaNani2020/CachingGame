@@ -1,6 +1,0 @@
-@startuml
-class RendererFirstPersonFlagsDrawer {
-    + <<override>> OnGUI(position:Rect, property:SerializedProperty, label:GUIContent) : void
-}
-PropertyDrawer <|-- RendererFirstPersonFlagsDrawer
-@enduml

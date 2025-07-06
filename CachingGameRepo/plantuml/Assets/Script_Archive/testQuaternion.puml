@@ -1,5 +1,0 @@
-@startuml
-class testQuaternion {
-}
-MonoBehaviour <|-- testQuaternion
-@enduml

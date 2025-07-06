@@ -1,6 +1,0 @@
-@startuml
-class ExpressionSlider {
-    + ExpressionSlider(expressionKeys:Dictionary<ExpressionKey, float>, key:ExpressionKey)
-    + Slider() : KeyValuePair<ExpressionKey, float>
-}
-@enduml

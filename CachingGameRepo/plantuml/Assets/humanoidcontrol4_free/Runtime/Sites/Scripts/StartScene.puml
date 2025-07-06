@@ -1,6 +1,0 @@
-@startuml
-class StartScene {
-    + sceneName : string
-}
-MonoBehaviour <|-- StartScene
-@enduml

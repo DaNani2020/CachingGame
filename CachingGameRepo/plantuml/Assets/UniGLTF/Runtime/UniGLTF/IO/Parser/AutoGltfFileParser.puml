@@ -1,6 +1,0 @@
-@startuml
-class AutoGltfFileParser <<sealed>> {
-    + AutoGltfFileParser(path:string)
-    + Parse() : GltfData
-}
-@enduml

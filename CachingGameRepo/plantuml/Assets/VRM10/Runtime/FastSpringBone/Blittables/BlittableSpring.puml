@@ -1,8 +1,0 @@
-@startuml
-struct BlittableSpring {
-    + centerTransformIndex : int
-    + transformIndexOffset : int
-}
-BlittableSpring --> "colliderSpan" BlittableSpan
-BlittableSpring --> "logicSpan" BlittableSpan
-@enduml

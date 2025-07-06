@@ -1,6 +1,0 @@
-@startuml
-class MToonInspector <<sealed>> {
-    + <<override>> OnGUI(materialEditor:MaterialEditor, properties:MaterialProperty[]) : void
-}
-ShaderGUI <|-- MToonInspector
-@enduml

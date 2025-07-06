@@ -1,5 +1,0 @@
-@startuml
-class Vrm10ConstraintUtil <<static>> {
-    + {static} ReverseX(src:UniGLTF.Extensions.VRMC_node_constraint.AimAxis) : UniGLTF.Extensions.VRMC_node_constraint.AimAxis
-}
-@enduml

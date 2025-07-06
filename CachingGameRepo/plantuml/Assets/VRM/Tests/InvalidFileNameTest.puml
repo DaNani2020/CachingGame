@@ -1,6 +1,0 @@
-@startuml
-class InvalidFileNameTest {
-    + DetectFileNameLength(fileName:string, isIllegal:bool) : void
-    + DetectControlCharacters(fileName:string, isIllegal:bool) : void
-}
-@enduml

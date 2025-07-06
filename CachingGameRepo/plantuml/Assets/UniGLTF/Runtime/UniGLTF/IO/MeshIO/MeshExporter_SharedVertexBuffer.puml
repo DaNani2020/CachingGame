@@ -1,5 +1,0 @@
-@startuml
-class MeshExporter_SharedVertexBuffer <<static>> {
-    + {static} Export(data:ExportingGltfData, unityMesh:MeshExportInfo, unityMaterials:List<Material>, axisInverter:IAxisInverter, settings:GltfExportSettings) : (glTFMesh, Dictionary<int, int> blendShapeIndexMap)
-}
-@enduml

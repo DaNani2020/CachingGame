@@ -1,5 +1,0 @@
-@startuml
-class Migrator <<static>> {
-    + {static} Migrate(vrm0bytes:byte[], meta:VRM10ObjectMeta, modGltf:Action<UniGLTF.glTF>) : byte[]
-}
-@enduml

@@ -1,9 +1,0 @@
-@startuml
-class CurveMapper {
-    + CurveXRangeDegree : float
-    + CurveYRangeDegree : float
-    + CurveMapper(xRange:float, yRange:float)
-    + OnValidate() : void
-    + Map(src:float) : float
-}
-@enduml

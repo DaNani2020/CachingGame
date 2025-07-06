@@ -1,6 +1,0 @@
-@startuml
-class TestAsset <<static>> {
-    + {static} AliciaPath : string <<get>>
-    + {static} LoadAlicia() : Vrm10Instance
-}
-@enduml

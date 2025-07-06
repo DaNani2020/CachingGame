@@ -1,7 +1,0 @@
-@startuml
-class VRMFirstPersonEditor {
-    + {static} Separator(indentLevel:int) : void
-    + <<override>> OnInspectorGUI() : void
-}
-Editor <|-- VRMFirstPersonEditor
-@enduml

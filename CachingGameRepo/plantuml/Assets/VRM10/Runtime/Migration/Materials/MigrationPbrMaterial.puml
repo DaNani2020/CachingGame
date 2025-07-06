@@ -1,5 +1,0 @@
-@startuml
-class MigrationPbrMaterial <<static>> {
-    + {static} Migrate(gltf:glTF, vrm0XExtension:JsonNode) : void
-}
-@enduml

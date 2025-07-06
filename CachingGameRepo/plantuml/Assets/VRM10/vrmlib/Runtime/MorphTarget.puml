@@ -1,8 +1,0 @@
-@startuml
-class MorphTarget {
-    + <<readonly>> Name : string
-    + <<override>> ToString() : string
-    + MorphTarget(name:string)
-}
-MorphTarget --> "VertexBuffer" VertexBuffer
-@enduml

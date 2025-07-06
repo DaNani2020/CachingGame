@@ -1,6 +1,0 @@
-@startuml
-class GlbFileParser <<sealed>> {
-    + GlbFileParser(glbFilePath:string)
-    + Parse() : GltfData
-}
-@enduml

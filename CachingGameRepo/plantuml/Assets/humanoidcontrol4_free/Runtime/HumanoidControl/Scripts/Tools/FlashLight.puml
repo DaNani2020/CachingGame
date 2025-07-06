@@ -1,8 +1,0 @@
-@startuml
-class FlashLight {
-    + duration : float = 0.1F
-    + Flash() : void
-    + Flash(duration:float) : void
-}
-MonoBehaviour <|-- FlashLight
-@enduml

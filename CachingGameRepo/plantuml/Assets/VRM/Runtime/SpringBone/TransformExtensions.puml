@@ -1,5 +1,0 @@
-@startuml
-class TransformExtensions <<static>> {
-    + {static} UniformedLossyScale(transform:Transform) : float
-}
-@enduml

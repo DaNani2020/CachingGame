@@ -1,9 +1,0 @@
-@startuml
-class ListTreeNodeArrayExtensions <<static>> {
-    + {static} ArrayItems(self:JsonNode) : IEnumerable<JsonNode>
-    + {static} GetArrrayItem(self:JsonNode, index:int) : JsonNode
-    + {static} GetArrayItem(self:JsonNode, index:int) : JsonNode
-    + {static} GetArrayCount(self:JsonNode) : int
-    + {static} IndexOf(self:JsonNode, child:JsonNode) : int
-}
-@enduml

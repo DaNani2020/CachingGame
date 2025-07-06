@@ -1,9 +1,0 @@
-@startuml
-struct BlittableCollider {
-    + radius : float
-    + transformIndex : int
-}
-BlittableCollider --> "colliderType" BlittableColliderType
-BlittableCollider --> "offset" Vector3
-BlittableCollider --> "tail" Vector3
-@enduml

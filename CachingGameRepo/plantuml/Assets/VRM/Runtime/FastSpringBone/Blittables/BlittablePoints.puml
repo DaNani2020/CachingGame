@@ -1,6 +1,0 @@
-@startuml
-struct BlittablePoints {
-    + Count : int <<get>>
-    + BlittablePoints(points:BlittablePoint*, count:int)
-}
-@enduml

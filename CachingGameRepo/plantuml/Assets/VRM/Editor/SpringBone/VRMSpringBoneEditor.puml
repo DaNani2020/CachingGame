@@ -1,6 +1,0 @@
-@startuml
-class VRMSpringBoneEditor {
-    + <<override>> OnInspectorGUI() : void
-}
-Editor <|-- VRMSpringBoneEditor
-@enduml

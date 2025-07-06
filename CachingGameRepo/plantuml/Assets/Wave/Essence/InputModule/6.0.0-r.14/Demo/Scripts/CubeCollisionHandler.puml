@@ -1,5 +1,0 @@
-@startuml
-class CubeCollisionHandler <<sealed>> {
-}
-MonoBehaviour <|-- CubeCollisionHandler
-@enduml

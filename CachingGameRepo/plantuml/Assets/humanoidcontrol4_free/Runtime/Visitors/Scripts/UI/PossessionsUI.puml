@@ -1,7 +1,0 @@
-@startuml
-class PossessionsUI {
-}
-MonoBehaviour <|-- PossessionsUI
-PossessionsUI --> "canvas" Canvas
-PossessionsUI --> "posessionDetailsUI" PossessionDetailsUI
-@enduml

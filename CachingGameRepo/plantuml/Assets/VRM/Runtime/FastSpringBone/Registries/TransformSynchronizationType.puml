@@ -1,6 +1,0 @@
-@startuml
-enum TransformSynchronizationType {
-    PullOnly,
-    PushOnly,
-}
-@enduml

@@ -1,9 +1,0 @@
-@startuml
-class GameObjectEvent_Editor {
-    + {static} EventInspector(eventSourceProp:SerializedProperty, eventSource:GameObjectEventHandlers, selectedEventSourceIx:int, selectedEventIx:int) : void
-    + {static} Cleanup(eventList:GameObjectEventHandlers) : void
-    + {static} Cleanup(goEvent:GameObjectEvent) : void
-    + {static} Cleanup(eventBase:UnityEventBase) : void
-}
-Event_Editor <|-- GameObjectEvent_Editor
-@enduml

@@ -1,5 +1,0 @@
-@startuml
-class Sample {
-}
-MonoBehaviour <|-- Sample
-@enduml

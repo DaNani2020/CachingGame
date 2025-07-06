@@ -1,5 +1,0 @@
-@startuml
-class HandPanelCanvas <<sealed>> {
-}
-MonoBehaviour <|-- HandPanelCanvas
-@enduml

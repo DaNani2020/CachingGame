@@ -1,6 +1,0 @@
-@startuml
-class MigrationException {
-    + MigrationException(key:string, value:string)
-}
-Exception <|-- MigrationException
-@enduml

@@ -1,9 +1,0 @@
-@startuml
-class MeshExportValidatorTests {
-    + NoMaterialTest() : void
-    + NullMaterialTest() : void
-    + NullMaterialsTest() : void
-    + NoMeshTest() : void
-    + NullMeshTest() : void
-}
-@enduml

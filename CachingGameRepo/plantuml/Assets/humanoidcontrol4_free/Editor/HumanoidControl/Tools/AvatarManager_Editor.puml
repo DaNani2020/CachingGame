@@ -1,7 +1,0 @@
-@startuml
-class AvatarManager_Editor {
-    + OnDisable() : void
-    + <<override>> OnInspectorGUI() : void
-}
-Editor <|-- AvatarManager_Editor
-@enduml

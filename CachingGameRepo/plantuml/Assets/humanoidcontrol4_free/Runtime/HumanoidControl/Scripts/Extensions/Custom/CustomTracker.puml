@@ -1,8 +1,0 @@
-@startuml
-class CustomTracker {
-    + <<override>> name : string <<get>>
-    + <<override>> UpdateTracker() : void
-}
-HumanoidTracker <|-- CustomTracker
-CustomTracker --> "bodySkeleton" BodySkeleton
-@enduml

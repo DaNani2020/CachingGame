@@ -1,7 +1,0 @@
-@startuml
-class VRM10BoneSelectorEditorTool {
-    + <<override>> OnToolGUI(window:EditorWindow) : void
-}
-EditorTool <|-- VRM10BoneSelectorEditorTool
-VRM10BoneSelectorEditorTool --> "toolbarIcon" GUIContent
-@enduml

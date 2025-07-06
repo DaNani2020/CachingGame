@@ -1,7 +1,0 @@
-@startuml
-class HumanPoseTransferEditor {
-    + <<override>> OnInspectorGUI() : void
-    + {static} ToAssetPath(src:string) : string
-}
-Editor <|-- HumanPoseTransferEditor
-@enduml

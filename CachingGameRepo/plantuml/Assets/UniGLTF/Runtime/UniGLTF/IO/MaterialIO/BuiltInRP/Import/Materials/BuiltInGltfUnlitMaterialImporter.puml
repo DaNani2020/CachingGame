@@ -1,6 +1,0 @@
-@startuml
-class BuiltInGltfUnlitMaterialImporter <<static>> {
-    + {static} TryCreateParam(data:GltfData, i:int, matDesc:MaterialDescriptor) : bool
-}
-BuiltInGltfUnlitMaterialImporter --> "Shader" Shader
-@enduml

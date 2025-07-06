@@ -1,6 +1,0 @@
-@startuml
-class TextureExtensions <<static>> {
-    + {static} HasMipMap(texture:Texture) : bool
-    + {static} SetSampler(texture:Texture2D, param:SamplerParam) : void
-}
-@enduml

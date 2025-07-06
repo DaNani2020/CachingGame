@@ -1,9 +1,0 @@
-@startuml
-class FunctionCall_Editor {
-    + {static} AppendNewFunctionCall(functionCallsProp:SerializedProperty) : void
-    + {static} FunctionCallInspector(functionCallProp:SerializedProperty) : void
-    + {static} GetFunctionCallLabel(functionCallProp:SerializedProperty) : string
-    + {static} PropertyParameterInspector(serializedObject:SerializedObject, parameterProp:SerializedProperty, propertyType:System.Type) : void
-    + {static} GetPropertyIndex(propertyName:string, propertyNames:string[]) : int
-}
-@enduml

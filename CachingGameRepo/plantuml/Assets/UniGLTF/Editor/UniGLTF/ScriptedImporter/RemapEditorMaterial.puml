@@ -1,8 +1,0 @@
-@startuml
-class RemapEditorMaterial {
-    + RemapEditorMaterial(keys:IEnumerable<SubAssetKey>, getter:EditorMapGetterFunc, setter:EditorMapSetterFunc)
-    + OnGUI(importer:ScriptedImporter, data:GltfData, textureDescriptorGenerator:ITextureDescriptorGenerator, textureDir:Func<string, string>, materialDir:Func<string, string>) : void
-    + {static} ExtractMaterials(importer:ScriptedImporter, materialDir:Func<string, string>) : void
-}
-RemapEditorBase <|-- RemapEditorMaterial
-@enduml

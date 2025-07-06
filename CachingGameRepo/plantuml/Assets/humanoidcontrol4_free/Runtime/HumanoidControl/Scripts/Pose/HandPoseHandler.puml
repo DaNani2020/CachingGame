@@ -1,6 +1,0 @@
-@startuml
-class HandPoseHandler {
-    + PoseHandler(pose:int) : void
-}
-MonoBehaviour <|-- HandPoseHandler
-@enduml

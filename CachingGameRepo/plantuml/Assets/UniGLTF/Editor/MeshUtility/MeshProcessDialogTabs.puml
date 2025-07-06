@@ -1,7 +1,0 @@
-@startuml
-enum MeshProcessDialogTabs {
-    MeshSeparator,
-    MeshIntegrator,
-    BoneMeshEraser,
-}
-@enduml

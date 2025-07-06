@@ -1,8 +1,0 @@
-@startuml
-class HumanoidPreferences {
-    + {static} help : bool = false
-    + <<const>> settingsPath : string = "Assets/Passer/Humanoid/HumanoidPreferences.asset"
-}
-ScriptableObject <|-- HumanoidPreferences
-HumanoidPreferences --> "configuration" Configuration
-@enduml

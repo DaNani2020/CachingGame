@@ -1,6 +1,0 @@
-@startuml
-class MouseCursor {
-    + shown : bool = true
-}
-MonoBehaviour <|-- MouseCursor
-@enduml

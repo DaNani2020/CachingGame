@@ -1,9 +1,0 @@
-@startuml
-class MeshWithMaterials {
-    + ShouldSetRendererNodeAsBone : bool = false
-}
-class "List`1"<T> {
-}
-MeshWithMaterials --> "Mesh" Mesh
-MeshWithMaterials o-> "Renderers<Renderer>" "List`1"
-@enduml

@@ -1,7 +1,0 @@
-@startuml
-class SerializedPropertyEditor {
-    + SerializedPropertyEditor(serializedObject:SerializedObject, property:SerializedProperty)
-    + {static} Create(serializedObject:SerializedObject, name:string) : SerializedPropertyEditor
-    + OnInspectorGUI(updateApply:bool) : void
-}
-@enduml

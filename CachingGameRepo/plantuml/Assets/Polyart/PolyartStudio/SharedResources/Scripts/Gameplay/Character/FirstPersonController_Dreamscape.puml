@@ -1,6 +1,0 @@
-@startuml
-class FirstPersonController_Dreamscape {
-    + CanMove : bool <<get>> = true
-}
-MonoBehaviour <|-- FirstPersonController_Dreamscape
-@enduml

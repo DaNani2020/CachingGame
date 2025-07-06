@@ -1,7 +1,0 @@
-@startuml
-class Monitor <<static>> {
-    + {static} DrawAxis(transform:Transform) : void
-    + {static} DrawAxis(position:Vector3, rotation:Quaternion) : void
-    + {static} DrawAxisYZ(position:Vector3, rotation:Quaternion) : void
-}
-@enduml

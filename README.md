@@ -10,7 +10,7 @@ UnityProjectTemplate/    # The root directory of this repository
 │── .gitignore           # Defines files to be ignored in version control
 │── .gitattributes       # Ensures Git LFS handles large binary files correctly
 │── README.md            # Documentation for this template
-│── <UnityProjectName>/  # Directory of the Unity project
+│── CachingGameRepo/  # Directory of the Unity project
   │── Assets/              # All game assets, scripts, prefabs, and scenes
   │── Packages/            # Unity package dependencies
   │── ProjectSettings/     # Unity project settings (important for version control)

@@ -1,5 +1,0 @@
-@startuml
-class EnumFlagsAttribute <<sealed>> {
-}
-PropertyAttribute <|-- EnumFlagsAttribute
-@enduml

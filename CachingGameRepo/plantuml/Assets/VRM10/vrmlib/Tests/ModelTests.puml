@@ -1,5 +1,0 @@
-@startuml
-class ModelTests {
-    + NodeTest() : void
-}
-@enduml

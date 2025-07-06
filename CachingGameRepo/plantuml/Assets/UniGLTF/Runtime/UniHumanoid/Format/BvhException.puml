@@ -1,6 +1,0 @@
-@startuml
-class BvhException {
-    + BvhException(msg:string)
-}
-Exception <|-- BvhException
-@enduml

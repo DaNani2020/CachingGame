@@ -1,5 +1,0 @@
-@startuml
-class UnityXRHand {
-}
-ArmController <|-- UnityXRHand
-@enduml

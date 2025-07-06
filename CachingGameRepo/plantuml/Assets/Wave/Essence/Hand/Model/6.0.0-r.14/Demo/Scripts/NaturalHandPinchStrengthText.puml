@@ -1,6 +1,0 @@
-@startuml
-class NaturalHandPinchStrengthText {
-    + IsLeft : bool <<get>> <<set>>
-}
-MonoBehaviour <|-- NaturalHandPinchStrengthText
-@enduml

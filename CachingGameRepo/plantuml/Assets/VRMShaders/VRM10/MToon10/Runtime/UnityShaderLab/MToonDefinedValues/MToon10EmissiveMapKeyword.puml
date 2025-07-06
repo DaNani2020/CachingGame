@@ -1,5 +1,0 @@
-@startuml
-class MToon10EmissiveMapKeyword <<static>> {
-    + <<const>> On : string = "_MTOON_EMISSIVEMAP"
-}
-@enduml

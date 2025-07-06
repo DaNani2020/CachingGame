@@ -1,5 +1,0 @@
-@startuml
-class AnimationManager {
-}
-MonoBehaviour <|-- AnimationManager
-@enduml

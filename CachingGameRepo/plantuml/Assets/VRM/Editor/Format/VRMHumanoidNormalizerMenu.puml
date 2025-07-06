@@ -1,6 +1,0 @@
-@startuml
-class VRMHumanoidNormalizerMenu <<static>> {
-    + {static} NormalizeValidation() : bool
-    + {static} Normalize() : void
-}
-@enduml

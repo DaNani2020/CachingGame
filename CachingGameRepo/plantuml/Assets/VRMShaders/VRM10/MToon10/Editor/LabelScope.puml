@@ -1,7 +1,0 @@
-@startuml
-struct LabelScope {
-    + LabelScope(label:string)
-    + Dispose() : void
-}
-IDisposable <|-- LabelScope
-@enduml

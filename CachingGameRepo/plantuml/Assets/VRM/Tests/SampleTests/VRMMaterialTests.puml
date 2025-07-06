@@ -1,5 +1,0 @@
-@startuml
-class VRMMaterialTests {
-    + ExportTest() : void
-}
-@enduml

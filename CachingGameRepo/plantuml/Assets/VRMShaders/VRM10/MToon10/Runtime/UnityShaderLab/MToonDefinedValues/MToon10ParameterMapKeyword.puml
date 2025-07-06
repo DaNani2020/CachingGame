@@ -1,5 +1,0 @@
-@startuml
-class MToon10ParameterMapKeyword <<static>> {
-    + <<const>> On : string = "_MTOON_PARAMETERMAP"
-}
-@enduml

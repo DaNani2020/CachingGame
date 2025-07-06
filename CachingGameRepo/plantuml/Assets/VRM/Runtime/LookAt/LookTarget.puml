@@ -1,7 +1,0 @@
-@startuml
-class LookTarget {
-}
-MonoBehaviour <|-- LookTarget
-LookTarget --> "Target" Transform
-LookTarget --> "m_offsetTransform" OffsetOnTransform
-@enduml

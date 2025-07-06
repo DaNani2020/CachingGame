@@ -1,6 +1,0 @@
-@startuml
-class MigrateVector3 <<static>> {
-    + {static} Migrate(vrm0:JsonNode) : float[]
-    + {static} Migrate(parent:JsonNode, key:string) : float[]
-}
-@enduml

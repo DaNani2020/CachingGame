@@ -1,9 +1,0 @@
-@startuml
-class ArmPredictor {
-}
-class ArmAnimator {
-    + armSwing : bool
-    + <<override>> Start(humanoid:HumanoidControl, targetTransform:Transform) : void
-    + <<override>> Update() : void
-}
-@enduml

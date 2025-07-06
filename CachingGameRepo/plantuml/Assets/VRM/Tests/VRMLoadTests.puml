@@ -1,5 +1,0 @@
-@startuml
-class VRMLoadTest {
-    + VrmTestModelsTests() : void
-}
-@enduml

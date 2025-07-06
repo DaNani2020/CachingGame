@@ -1,6 +1,0 @@
-@startuml
-class VRMBoneNormalizer <<static>> {
-    + {static} EnforceTPose(go:GameObject) : void
-    + {static} Execute(go:GameObject, forceTPose:bool) : GameObject
-}
-@enduml

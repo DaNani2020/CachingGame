@@ -1,5 +1,0 @@
-@startuml
-class AccessorsBounds <<static>> {
-    + {static} UpdatePositionAccessorsBounds(accessor:glTFAccessor, positions:Vector3[]) : void
-}
-@enduml

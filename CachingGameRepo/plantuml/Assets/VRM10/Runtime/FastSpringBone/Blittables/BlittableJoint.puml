@@ -1,9 +1,0 @@
-@startuml
-struct BlittableJoint {
-    + stiffnessForce : float
-    + gravityPower : float
-    + dragForce : float
-    + radius : float
-}
-BlittableJoint --> "gravityDir" Vector3
-@enduml

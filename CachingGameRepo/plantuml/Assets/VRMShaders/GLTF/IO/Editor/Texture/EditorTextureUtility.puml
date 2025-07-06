@@ -1,6 +1,0 @@
-@startuml
-class EditorTextureUtility <<static>> {
-    + {static} TryGetAsEditorTexture2DAsset(texture:Texture, texture2D:Texture2D, assetImporter:TextureImporter) : bool
-    + {static} TryGetOriginalTexturePixelSize(textureImporter:TextureImporter, size:Vector2Int) : bool
-}
-@enduml

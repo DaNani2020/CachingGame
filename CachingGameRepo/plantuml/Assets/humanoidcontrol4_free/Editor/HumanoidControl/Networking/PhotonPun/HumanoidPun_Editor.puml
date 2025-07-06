@@ -1,5 +1,0 @@
-@startuml
-class OnLoadHumanoidPlayerPun {
-    + {static} CheckHumanoidPlayer() : void
-}
-@enduml

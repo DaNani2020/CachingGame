@@ -1,5 +1,0 @@
-@startuml
-class NaturalHandGrasp {
-}
-MonoBehaviour <|-- NaturalHandGrasp
-@enduml

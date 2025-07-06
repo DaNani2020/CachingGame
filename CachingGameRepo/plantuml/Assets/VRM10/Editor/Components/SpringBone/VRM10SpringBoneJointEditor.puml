@@ -1,6 +1,0 @@
-@startuml
-class VRM10SpringBoneJointEditor {
-    + <<override>> OnInspectorGUI() : void
-}
-Editor <|-- VRM10SpringBoneJointEditor
-@enduml

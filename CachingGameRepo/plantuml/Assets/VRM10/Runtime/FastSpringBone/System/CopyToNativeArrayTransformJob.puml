@@ -1,9 +1,0 @@
-@startuml
-struct PullTransformJob {
-    + Execute(index:int, transform:TransformAccess) : void
-}
-class "NativeArray`1"<T> {
-}
-IJobParallelForTransform <|-- PullTransformJob
-PullTransformJob --> "Transforms<BlittableTransform>" "NativeArray`1"
-@enduml

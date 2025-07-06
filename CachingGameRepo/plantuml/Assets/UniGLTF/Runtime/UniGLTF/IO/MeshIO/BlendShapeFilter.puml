@@ -1,8 +1,0 @@
-@startuml
-interface IBlendShapeExportFilter {
-}
-class DefualtBlendShapeExportFilter {
-    + UseBlendShape(blendShapeIndex:int, relativePath:string) : bool
-}
-IBlendShapeExportFilter <|-- DefualtBlendShapeExportFilter
-@enduml

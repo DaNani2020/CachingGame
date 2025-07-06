@@ -1,9 +1,0 @@
-@startuml
-class VRMExporter {
-    + {static} Export(configuration:GltfExportSettings, go:GameObject, textureSerializer:ITextureSerializer) : ExportingGltfData
-    + VRMExporter(data:ExportingGltfData, exportSettings:GltfExportSettings, animationExporter:IAnimationExporter)
-    + <<override>> ExportExtensions(textureSerializer:ITextureSerializer) : void
-}
-gltfExporter <|-- VRMExporter
-VRMExporter o-> "Vrm0xSpecificationInverseAxis" Axes
-@enduml

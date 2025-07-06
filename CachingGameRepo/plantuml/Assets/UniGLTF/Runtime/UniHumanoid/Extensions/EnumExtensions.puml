@@ -1,5 +1,0 @@
-@startuml
-class EnumExtensions <<static>> {
-    + {static} ToStringFromEnum(val:HumanBodyBones, compareBoneTrait:bool) : string
-}
-@enduml

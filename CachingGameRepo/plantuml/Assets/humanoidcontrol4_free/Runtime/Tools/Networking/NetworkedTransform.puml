@@ -1,6 +1,0 @@
-@startuml
-class NetworkedTransform <<partial>> {
-    + {static} Instantiate(prefab:GameObject, position:Vector3, rotation:Quaternion) : GameObject
-}
-MonoBehaviour <|-- NetworkedTransform
-@enduml

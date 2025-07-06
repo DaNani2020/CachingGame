@@ -1,5 +1,0 @@
-@startuml
-class Utf8StringSplitterExtensions <<static>> {
-    + {static} SplitInteger(src:Utf8String) : Utf8String
-}
-@enduml

@@ -1,5 +1,0 @@
-@startuml
-class DividedMeshTests {
-    + ExportDividedMeshTest() : void
-}
-@enduml

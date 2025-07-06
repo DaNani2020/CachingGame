@@ -1,8 +1,0 @@
-@startuml
-class ButtonVR {
-}
-'MonoBehaviour <|-- ButtonVR
-ButtonVR --> "pressableButtonPart" GameObject
-ButtonVR --> "onPress" UnityEvent
-ButtonVR --> "onRelease" UnityEvent
-@enduml

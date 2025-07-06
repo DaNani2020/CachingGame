@@ -1,5 +1,0 @@
-@startuml
-class BeatCube {
-}
-MonoBehaviour <|-- BeatCube
-@enduml

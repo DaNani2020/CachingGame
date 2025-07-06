@@ -1,8 +1,0 @@
-@startuml
-class UnityEditorSettingsValidator <<sealed>> {
-    + IsValid() : bool
-}
-class "IEnumerable`1"<T> {
-}
-UnityEditorSettingsValidator o-> "Validators<IUnitySettingsValidator>" "IEnumerable`1"
-@enduml

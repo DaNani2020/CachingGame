@@ -1,5 +1,0 @@
-@startuml
-class Comment {
-}
-MonoBehaviour <|-- Comment
-@enduml

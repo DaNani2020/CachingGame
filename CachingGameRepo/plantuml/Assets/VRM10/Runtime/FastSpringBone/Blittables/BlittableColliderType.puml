@@ -1,6 +1,0 @@
-@startuml
-enum BlittableColliderType {
-    Sphere,
-    Capsule,
-}
-@enduml

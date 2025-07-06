@@ -1,6 +1,0 @@
-@startuml
-class GltfUtility <<static>> {
-    + {static} <<async>> LoadAsync(path:string, awaitCaller:IAwaitCaller, materialGenerator:IMaterialDescriptorGenerator) : Task<RuntimeGltfInstance>
-    + {static} <<async>> LoadBytesAsync(path:string, bytes:byte[], awaitCaller:IAwaitCaller, materialGenerator:IMaterialDescriptorGenerator) : Task<RuntimeGltfInstance>
-}
-@enduml

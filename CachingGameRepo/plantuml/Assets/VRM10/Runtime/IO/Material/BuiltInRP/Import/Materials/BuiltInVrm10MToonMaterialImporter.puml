@@ -1,8 +1,0 @@
-@startuml
-class BuiltInVrm10MToonMaterialImporter <<static>> {
-    + {static} TryCreateParam(data:GltfData, i:int, matDesc:MaterialDescriptor) : bool
-    + {static} TryGetAllColors(material:glTFMaterial, mToon:VRMC_materials_mtoon) : IEnumerable<(string key, Color value)>
-    + {static} TryGetAllFloats(material:glTFMaterial, mToon:VRMC_materials_mtoon) : IEnumerable<(string key, float value)>
-    + {static} TryGetAllFloatArrays(material:glTFMaterial, mToon:VRMC_materials_mtoon) : IEnumerable<(string key, Vector4 value)>
-}
-@enduml

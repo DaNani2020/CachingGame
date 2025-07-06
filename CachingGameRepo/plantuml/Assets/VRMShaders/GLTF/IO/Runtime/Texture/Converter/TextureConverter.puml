@@ -1,8 +1,0 @@
-@startuml
-class TextureConverter <<static>> {
-    + {static} CreateEmptyTextureWithSettings(src:Texture, dstColorSpace:ColorSpace, dstNeedsAlpha:bool) : Texture2D
-    + {static} CopyTexture(src:Texture, dstColorSpace:ColorSpace, dstNeedsAlpha:bool, material:Material) : Texture2D
-}
-TextureConverter o-> "WithAlphaFormat" TextureFormat
-TextureConverter o-> "WithoutAlphaFormat" TextureFormat
-@enduml

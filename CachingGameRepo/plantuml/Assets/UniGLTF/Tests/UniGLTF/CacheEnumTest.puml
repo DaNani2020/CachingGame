@@ -1,5 +1,0 @@
-@startuml
-class CacheEnumTest {
-    + CacheEnumTestSimplePasses() : void
-}
-@enduml

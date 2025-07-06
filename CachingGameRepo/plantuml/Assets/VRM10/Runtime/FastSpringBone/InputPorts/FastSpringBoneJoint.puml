@@ -1,7 +1,0 @@
-@startuml
-struct FastSpringBoneJoint {
-}
-FastSpringBoneJoint --> "Transform" Transform
-FastSpringBoneJoint --> "Joint" BlittableJoint
-FastSpringBoneJoint --> "DefaultLocalRotation" Quaternion
-@enduml

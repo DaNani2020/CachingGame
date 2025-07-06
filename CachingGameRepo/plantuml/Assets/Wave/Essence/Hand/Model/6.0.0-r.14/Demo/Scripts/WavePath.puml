@@ -1,5 +1,0 @@
-@startuml
-class WavePath {
-}
-MonoBehaviour <|-- WavePath
-@enduml

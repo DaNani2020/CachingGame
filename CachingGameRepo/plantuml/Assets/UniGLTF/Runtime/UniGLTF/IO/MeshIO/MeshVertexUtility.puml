@@ -1,5 +1,0 @@
-@startuml
-struct MeshVertexUtility {
-    + {static} SetVertexBufferParamsToMesh(mesh:Mesh, length:int, useBlendWeight:bool) : void
-}
-@enduml

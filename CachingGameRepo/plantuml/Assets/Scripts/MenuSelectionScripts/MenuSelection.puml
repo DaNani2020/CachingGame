@@ -1,8 +1,0 @@
-@startuml
-class MenuSelection {
-    + ChooseLeftArm() : void
-    + ChooseRightArm() : void
-    + LoadGame() : void
-}
-MonoBehaviour <|-- MenuSelection
-@enduml

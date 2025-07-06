@@ -1,6 +1,0 @@
-@startuml
-class UseEssenceData {
-    + UseXRDevice : bool = false
-}
-MonoBehaviour <|-- UseEssenceData
-@enduml

@@ -1,5 +1,0 @@
-@startuml
-class ImporterContextExtensions <<static>> {
-    + {static} Load(self:ImporterContext) : RuntimeGltfInstance
-}
-@enduml

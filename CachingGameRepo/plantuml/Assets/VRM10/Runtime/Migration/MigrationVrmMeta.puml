@@ -1,7 +1,0 @@
-@startuml
-class MigrationVrmMeta <<static>> {
-    + {static} Migrate(gltf:UniGLTF.glTF, vrm0:JsonNode) : UniGLTF.Extensions.VRMC_vrm.Meta
-    + {static} GetLicenseUrl(vrm0:JsonNode) : string
-    + {static} Check(vrm0:JsonNode, vrm1:UniGLTF.Extensions.VRMC_vrm.Meta) : void
-}
-@enduml

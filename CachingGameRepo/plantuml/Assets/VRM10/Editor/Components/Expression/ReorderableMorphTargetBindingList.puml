@@ -1,7 +1,0 @@
-@startuml
-class ReorderableMorphTargetBindingList {
-    + ReorderableMorphTargetBindingList(serializedObject:SerializedObject, previewSceneManager:PreviewSceneManager, height:int)
-    + SetValues(bindings:MorphTargetBinding[]) : void
-    + Draw(label:string) : bool
-}
-@enduml

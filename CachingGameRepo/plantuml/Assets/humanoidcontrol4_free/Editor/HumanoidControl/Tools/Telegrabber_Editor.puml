@@ -1,5 +1,0 @@
-@startuml
-class Telegrabber_Editor {
-}
-InteractionPointer_Editor <|-- Telegrabber_Editor
-@enduml

@@ -1,7 +1,0 @@
-@startuml
-class GltfFileWithResourceFilesParser <<sealed>> {
-    + GltfFileWithResourceFilesParser(gltfFilePath:string)
-    + GltfFileWithResourceFilesParser(gltfFilePath:string, bytes:byte[])
-    + Parse() : GltfData
-}
-@enduml

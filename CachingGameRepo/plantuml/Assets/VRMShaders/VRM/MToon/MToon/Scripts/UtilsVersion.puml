@@ -1,6 +1,0 @@
-@startuml
-class Utils <<static>> <<partial>> {
-    + <<const>> Implementation : string = "Santarh/MToon"
-    + <<const>> VersionNumber : int = 39
-}
-@enduml

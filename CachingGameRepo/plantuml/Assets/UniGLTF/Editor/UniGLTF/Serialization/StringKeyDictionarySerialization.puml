@@ -1,9 +1,0 @@
-@startuml
-class StringKeyDictionarySerialization {
-    + StringKeyDictionarySerialization(t:Type, inner:IValueSerialization)
-    + <<override>> GenerateDeserializer(writer:StreamWriter, callName:string) : void
-    + <<override>> CreateSerializationCondition(argName:string, t:JsonSchemaAttribute) : string
-    + <<override>> GenerateSerializer(writer:StreamWriter, callName:string) : void
-}
-CollectionSerializationBase <|-- StringKeyDictionarySerialization
-@enduml

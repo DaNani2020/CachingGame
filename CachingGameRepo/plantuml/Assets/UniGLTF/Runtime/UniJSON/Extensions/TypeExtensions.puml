@@ -1,6 +1,0 @@
-@startuml
-class TypeExtensions <<static>> {
-    + {static} GetIsGenericList(t:Type) : bool
-    + {static} GetIsGenericDictionary(t:Type) : bool
-}
-@enduml

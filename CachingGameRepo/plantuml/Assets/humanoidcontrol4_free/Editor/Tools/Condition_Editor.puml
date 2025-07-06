@@ -1,7 +1,0 @@
-@startuml
-class Condition_Editor {
-    + {static} GetConditionLabel(conditionProp:SerializedProperty) : string
-    + {static} ConditionInspector(conditionProp:SerializedProperty) : void
-    + {static} AppendNewCondition(conditionsProp:SerializedProperty) : void
-}
-@enduml

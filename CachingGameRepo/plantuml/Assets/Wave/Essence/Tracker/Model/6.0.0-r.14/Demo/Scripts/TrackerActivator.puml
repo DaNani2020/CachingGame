@@ -1,6 +1,0 @@
-@startuml
-class TrackerActivator {
-    + ActivateTracker() : void
-}
-MonoBehaviour <|-- TrackerActivator
-@enduml

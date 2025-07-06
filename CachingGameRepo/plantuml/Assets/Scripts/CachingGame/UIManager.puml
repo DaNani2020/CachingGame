@@ -1,7 +1,0 @@
-@startuml
-class UIManager {
-    + PlayButtonHandler() : void
-    + ActivateGameOverMenuUI() : void
-}
-' MonoBehaviour <|-- UIManager
-@enduml

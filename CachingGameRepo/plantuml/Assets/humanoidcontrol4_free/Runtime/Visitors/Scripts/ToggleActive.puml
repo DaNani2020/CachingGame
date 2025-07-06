@@ -1,6 +1,0 @@
-@startuml
-class ToggleActive {
-    + Toggle() : void
-}
-MonoBehaviour <|-- ToggleActive
-@enduml

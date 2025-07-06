@@ -1,9 +1,0 @@
-@startuml
-class Handle_Editor {
-    + <<virtual>> OnEnable() : void
-    + <<override>> OnInspectorGUI() : void
-    + {static} CheckHandTarget(handle:Handle) : void
-    + OnSceneGUI() : void
-}
-Editor <|-- Handle_Editor
-@enduml

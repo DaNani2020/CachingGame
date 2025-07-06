@@ -1,9 +1,0 @@
-@startuml
-abstract class Interactable_Dreamscape {
-    + <<virtual>> Awake() : void
-    + {abstract} OnInteract() : void
-    + {abstract} OnFocus() : void
-    + {abstract} OnLoseFocus() : void
-}
-MonoBehaviour <|-- Interactable_Dreamscape
-@enduml

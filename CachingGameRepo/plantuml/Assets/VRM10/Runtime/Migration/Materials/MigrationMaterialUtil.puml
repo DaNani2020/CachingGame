@@ -1,9 +1,0 @@
-@startuml
-class MigrationMaterialUtil <<static>> {
-    + {static} GetShaderName(vrm0XMaterial:JsonNode) : string
-    + {static} GetBaseColorFactor(vrm0XMaterial:JsonNode) : float[]
-    + {static} GetBaseColorTexture(vrm0XMaterial:JsonNode) : glTFMaterialBaseColorTextureInfo
-    + {static} GetCutoff(vrm0XMaterial:JsonNode) : float
-    + {static} GetRenderQueue(vrm0XMaterial:JsonNode) : int?
-}
-@enduml

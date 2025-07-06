@@ -1,4 +1,0 @@
-@startuml
-class Vrm10TopMenu <<static>> {
-}
-@enduml

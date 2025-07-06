@@ -1,5 +1,0 @@
-@startuml
-class VRMImporterMenu <<static>> {
-    + {static} OpenImportMenu() : void
-}
-@enduml

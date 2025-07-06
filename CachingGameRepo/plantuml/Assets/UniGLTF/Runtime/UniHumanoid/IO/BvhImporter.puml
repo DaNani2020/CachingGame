@@ -1,5 +1,0 @@
-@startuml
-class BvhImporter <<static>> {
-    + {static} Import(context:BvhImporterContext) : void
-}
-@enduml

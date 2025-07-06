@@ -1,8 +1,0 @@
-@startuml
-class VisitorConfiguration {
-    + name : string
-    + startSite : string
-    + {static} SaveConfiguration() : void
-}
-VisitorConfiguration --> "configuration" VisitorConfiguration
-@enduml

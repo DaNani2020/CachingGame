@@ -1,7 +1,0 @@
-@startuml
-class UpperLimbDataSO {
-}
-ScriptableObject <|-- UpperLimbDataSO
-UpperLimbDataSO --> "Right" LimbDataSO
-UpperLimbDataSO --> "Left" LimbDataSO
-@enduml

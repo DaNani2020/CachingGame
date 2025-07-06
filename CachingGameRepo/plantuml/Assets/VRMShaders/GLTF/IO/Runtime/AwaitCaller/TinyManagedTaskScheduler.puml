@@ -1,6 +1,0 @@
-@startuml
-class TinyManagedTaskScheduler <<sealed>> {
-    + ManagedUpdate() : void
-    + Enqueue(continuation:Action, canExecute:Func<bool>) : void
-}
-@enduml

@@ -1,7 +1,0 @@
-@startuml
-class DropdownHand <<sealed>> {
-    + ChangeColor() : void
-}
-MonoBehaviour <|-- DropdownHand
-DropdownHand o-> "inputModule" HandInputModule
-@enduml

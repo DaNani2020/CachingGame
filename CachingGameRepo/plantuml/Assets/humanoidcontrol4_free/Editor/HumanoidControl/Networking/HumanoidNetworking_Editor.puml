@@ -1,5 +1,0 @@
-@startuml
-class HumanoidNetworking_Editor {
-}
-Editor <|-- HumanoidNetworking_Editor
-@enduml

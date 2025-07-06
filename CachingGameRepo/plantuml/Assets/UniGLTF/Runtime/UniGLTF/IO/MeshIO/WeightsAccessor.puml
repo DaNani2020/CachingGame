@@ -1,5 +1,0 @@
-@startuml
-class WeightsAccessor <<static>> {
-    + {static} GetAccessor(data:GltfData, accessorIndex:int) : (Getter, int)
-}
-@enduml

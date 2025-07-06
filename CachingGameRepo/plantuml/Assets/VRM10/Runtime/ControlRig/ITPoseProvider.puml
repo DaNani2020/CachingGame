@@ -1,7 +1,0 @@
-@startuml
-interface ITPoseProvider {
-}
-class ITPoseProviderExtensions <<static>> {
-    + {static} EnumerateBoneParentPairs(self:ITPoseProvider) : IEnumerable<(HumanBodyBones Bone, HumanBodyBones Parent)>
-}
-@enduml

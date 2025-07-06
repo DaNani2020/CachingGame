@@ -1,6 +1,0 @@
-@startuml
-class ListExtensions <<static>> {
-    + {static} IndexOfThrow(list:List<T>, target:T) : int
-    + {static} IndexOfNullable(list:List<T>, target:T) : int?
-}
-@enduml

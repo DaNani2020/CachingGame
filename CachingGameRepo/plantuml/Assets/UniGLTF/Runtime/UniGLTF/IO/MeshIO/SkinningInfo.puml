@@ -1,7 +1,0 @@
-@startuml
-class SkinningInfo {
-    + ShouldSetRendererNodeAsBone : bool <<get>>
-    + {static} Create(data:GltfData, mesh:glTFMesh, primitives:glTFPrimitives) : SkinningInfo
-    + GetSkinnedVertex(i:int) : MeshVertex2?
-}
-@enduml

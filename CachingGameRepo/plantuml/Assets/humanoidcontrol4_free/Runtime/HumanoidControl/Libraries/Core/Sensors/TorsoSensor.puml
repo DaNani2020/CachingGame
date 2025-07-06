@@ -1,9 +1,0 @@
-@startuml
-class TorsoSensor {
-    + TorsoSensor(deviceView:DeviceView)
-}
-Sensor <|-- TorsoSensor
-TorsoSensor --> "chest" TargetData
-TorsoSensor --> "spine" TargetData
-TorsoSensor --> "hips" TargetData
-@enduml

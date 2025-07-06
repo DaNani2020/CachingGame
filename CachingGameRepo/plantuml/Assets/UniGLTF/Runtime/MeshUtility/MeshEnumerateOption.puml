@@ -1,7 +1,0 @@
-@startuml
-enum MeshEnumerateOption {
-    OnlyWithBlendShape,
-    OnlyWithoutBlendShape,
-    All,
-}
-@enduml

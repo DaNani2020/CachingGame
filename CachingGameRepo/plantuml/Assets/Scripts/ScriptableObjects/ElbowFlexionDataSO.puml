@@ -1,7 +1,0 @@
-@startuml
-class ElbowFlexionDataSO {
-}
-ScriptableObject <|-- ElbowFlexionDataSO
-ElbowFlexionDataSO --> "Right" LimbDataSO
-ElbowFlexionDataSO --> "Left" LimbDataSO
-@enduml

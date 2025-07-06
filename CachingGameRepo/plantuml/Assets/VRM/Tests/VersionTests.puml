@@ -1,7 +1,0 @@
-@startuml
-class UniVRMVersionTests {
-    + IsNewerTest(newer:string, isNewer:bool) : void
-    + IsNewerTest(newer:string, older:string, isNewer:bool) : void
-    + ParseVersionTest(version:string, canBeParsed:bool, major:int, minor:int, patch:int, pre:string) : void
-}
-@enduml

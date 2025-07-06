@@ -1,6 +1,0 @@
-@startuml
-enum MToon10EditorEditMode {
-    Basic= 0,
-    Advanced= 1,
-}
-@enduml

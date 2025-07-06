@@ -1,5 +1,0 @@
-@startuml
-class VRMEditorExporter <<static>> {
-    + {static} Export(exportRoot:GameObject, meta:VRMMetaObject, settings:VRMExportSettings) : byte[]
-}
-@enduml

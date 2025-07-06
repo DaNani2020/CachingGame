@@ -1,5 +1,0 @@
-@startuml
-class TextureImporterConfigurator <<static>> {
-    + {static} Configure(texDesc:TextureDescriptor, externalMap:IReadOnlyDictionary<SubAssetKey, Texture>) : void
-}
-@enduml

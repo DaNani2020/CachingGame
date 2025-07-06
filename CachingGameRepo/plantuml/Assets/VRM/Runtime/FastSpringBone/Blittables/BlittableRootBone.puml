@@ -1,7 +1,0 @@
-@startuml
-struct BlittableRootBone {
-    + DrawGizmos() : void
-    + BlittableRootBone(gravityPower:float, gravityDir:Vector3, dragForce:float, stiffnessForce:float, blittablePoints:BlittablePoints*)
-    + Update(deltaTime:float) : void
-}
-@enduml

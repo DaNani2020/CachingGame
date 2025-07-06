@@ -1,5 +1,0 @@
-@startuml
-class BuiltInFallbackMaterialExporter <<static>> {
-    + {static} ExportMaterial(src:Material, textureExporter:ITextureExporter) : glTFMaterial
-}
-@enduml

@@ -1,6 +1,0 @@
-@startuml
-class Counter_Editor {
-    + <<override>> OnInspectorGUI() : void
-}
-Editor <|-- Counter_Editor
-@enduml

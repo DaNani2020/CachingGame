@@ -1,7 +1,0 @@
-@startuml
-class GltfLoadTests {
-    + GltfSampleModelsTests() : void
-    + GltfSampleModelsTest_BrainStem() : void
-    + GltfSampleModelsTest_DamagedHelmet() : void
-}
-@enduml

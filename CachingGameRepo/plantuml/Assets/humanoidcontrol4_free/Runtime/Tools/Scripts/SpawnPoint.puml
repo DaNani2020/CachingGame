@@ -1,5 +1,0 @@
-@startuml
-class SpawnPoint {
-}
-MonoBehaviour <|-- SpawnPoint
-@enduml

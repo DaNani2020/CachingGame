@@ -1,5 +1,0 @@
-@startuml
-class EventCanvasSetter <<sealed>> {
-}
-MonoBehaviour <|-- EventCanvasSetter
-@enduml

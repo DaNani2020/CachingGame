@@ -1,8 +1,0 @@
-@startuml
-class Matrix4x4Extensions <<static>> {
-    + {static} CalcYawPitch(m:Matrix4x4, target:Vector3) : (float Yaw, float Pitch)
-    + {static} CalcYawPitch(m:Matrix4x4, target:Vector3, yaw:float, pitch:float) : void
-    + {static} YawPitchRotation(m:Matrix4x4, yaw:float, pitch:float) : Quaternion
-    + {static} RotationToWorldAxis(m:Matrix4x4) : Matrix4x4
-}
-@enduml

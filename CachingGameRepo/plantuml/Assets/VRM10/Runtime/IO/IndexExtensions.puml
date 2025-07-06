@@ -1,6 +1,0 @@
-@startuml
-class IndexExtensions <<static>> {
-    + {static} TryGetValidIndex(value:int, count:int, index:int) : bool
-    + {static} TryGetValidIndex(value:int?, count:int, index:int) : bool
-}
-@enduml

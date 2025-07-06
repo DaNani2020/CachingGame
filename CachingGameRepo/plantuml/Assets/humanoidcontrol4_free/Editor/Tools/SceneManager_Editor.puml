@@ -1,7 +1,0 @@
-@startuml
-class SceneManager_Editor {
-    + OnEnable() : void
-    + <<override>> OnInspectorGUI() : void
-}
-Editor <|-- SceneManager_Editor
-@enduml

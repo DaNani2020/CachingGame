@@ -1,7 +1,0 @@
-@startuml
-class VRMHumanoidDescription {
-    + GetDescription(isCreated:bool) : UniHumanoid.AvatarDescription
-}
-MonoBehaviour <|-- VRMHumanoidDescription
-VRMHumanoidDescription --> "Avatar" Avatar
-@enduml

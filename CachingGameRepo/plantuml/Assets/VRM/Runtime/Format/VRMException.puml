@@ -1,8 +1,0 @@
-@startuml
-class VRMException {
-    + VRMException()
-    + VRMException(msg:string)
-    + VRMException(msg:string, args:object[])
-}
-Exception <|-- VRMException
-@enduml

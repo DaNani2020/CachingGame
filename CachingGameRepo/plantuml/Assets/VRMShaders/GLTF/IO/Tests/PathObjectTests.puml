@@ -1,5 +1,0 @@
-@startuml
-class PathObjectTests <<sealed>> {
-    + Test() : void
-}
-@enduml

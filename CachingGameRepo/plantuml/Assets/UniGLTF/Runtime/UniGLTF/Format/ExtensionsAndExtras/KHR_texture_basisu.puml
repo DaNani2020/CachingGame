@@ -1,7 +1,0 @@
-@startuml
-class glTF_KHR_texture_basisu <<sealed>> {
-    + <<const>> ExtensionName : string = "KHR_texture_basisu"
-    + source : int
-    + {static} TryGet(texture:glTFTexture, basisuExtension:glTF_KHR_texture_basisu) : bool
-}
-@enduml

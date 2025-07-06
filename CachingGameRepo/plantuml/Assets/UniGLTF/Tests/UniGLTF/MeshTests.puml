@@ -1,7 +1,0 @@
-@startuml
-class MeshTests {
-    + AccessorTest() : void
-    + SharedVertexBufferTest() : void
-    + DividedVertexBufferTest() : void
-}
-@enduml

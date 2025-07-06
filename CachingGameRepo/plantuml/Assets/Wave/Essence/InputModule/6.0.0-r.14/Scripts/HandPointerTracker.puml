@@ -1,5 +1,0 @@
-@startuml
-class HandPointerTracker <<sealed>> {
-}
-MonoBehaviour <|-- HandPointerTracker
-@enduml

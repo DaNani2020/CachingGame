@@ -1,9 +1,0 @@
-@startuml
-class UnNormalizedException {
-}
-class RotateY180 <<static>> {
-    + {static} Rotate(node:glTFNode) : void
-    + {static} Rotate(data:GltfData) : void
-}
-Exception <|-- UnNormalizedException
-@enduml

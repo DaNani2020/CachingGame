@@ -1,5 +1,0 @@
-@startuml
-interface IResponsibilityForDestroyObjects {
-}
-IDisposable <|-- IResponsibilityForDestroyObjects
-@enduml

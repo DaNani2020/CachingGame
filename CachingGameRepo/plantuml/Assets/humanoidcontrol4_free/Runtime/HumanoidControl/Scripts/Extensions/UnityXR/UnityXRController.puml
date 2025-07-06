@@ -1,5 +1,0 @@
-@startuml
-class UnityXRController {
-}
-ControllerComponent <|-- UnityXRController
-@enduml

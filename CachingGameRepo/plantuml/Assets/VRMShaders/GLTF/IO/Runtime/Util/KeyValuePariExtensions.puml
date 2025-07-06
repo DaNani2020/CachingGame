@@ -1,5 +1,0 @@
-@startuml
-class KeyValuePariExtensions <<static>> {
-    + {static} Deconstruct(pair:KeyValuePair<T, U>, key:T, value:U) : void
-}
-@enduml

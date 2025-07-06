@@ -1,5 +1,0 @@
-@startuml
-class InteractionModeText <<sealed>> {
-}
-MonoBehaviour <|-- InteractionModeText
-@enduml

@@ -1,7 +1,0 @@
-@startuml
-class GltfMaterialImportUtils <<static>> {
-    + {static} ImportMaterialName(index:int, src:glTFMaterial) : string
-    + {static} ImportLinearBaseColorFactor(data:GltfData, src:glTFMaterial) : Color?
-    + {static} ImportLinearEmissiveFactor(data:GltfData, src:glTFMaterial) : Color?
-}
-@enduml

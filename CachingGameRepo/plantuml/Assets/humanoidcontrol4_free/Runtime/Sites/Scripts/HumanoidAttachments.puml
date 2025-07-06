@@ -1,5 +1,0 @@
-@startuml
-class HumanoidAttachments {
-}
-MonoBehaviour <|-- HumanoidAttachments
-@enduml

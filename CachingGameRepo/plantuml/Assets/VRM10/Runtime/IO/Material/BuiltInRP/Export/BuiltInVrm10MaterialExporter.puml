@@ -1,6 +1,0 @@
-@startuml
-class BuiltInVrm10MaterialExporter {
-    + ExportMaterial(m:Material, textureExporter:ITextureExporter, settings:GltfExportSettings) : glTFMaterial
-}
-IMaterialExporter <|-- BuiltInVrm10MaterialExporter
-@enduml

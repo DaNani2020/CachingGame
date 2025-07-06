@@ -1,5 +1,0 @@
-@startuml
-class MeshImporterShared <<static>> {
-    + {static} LoadSharedMesh(src:VrmLib.Mesh, skin:Skin) : Mesh
-}
-@enduml

@@ -1,6 +1,0 @@
-@startuml
-class SaveFileDialog <<static>> {
-    + {static} GetPath(title:string, name:string, extensions:string[]) : string
-    + {static} GetDir(title:string, dir:string) : string
-}
-@enduml

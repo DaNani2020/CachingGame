@@ -1,6 +1,0 @@
-@startuml
-class vrmAssetPostprocessor {
-    + {static} ImportVrmAndCreatePrefab(vrmPath:string, prefabPath:UnityPath) : void
-}
-AssetPostprocessor <|-- vrmAssetPostprocessor
-@enduml

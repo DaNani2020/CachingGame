@@ -1,6 +1,0 @@
-@startuml
-class MillRotate {
-    + rotationSpeed : float = 25.0f
-}
-MonoBehaviour <|-- MillRotate
-@enduml

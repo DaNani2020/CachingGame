@@ -1,8 +1,0 @@
-@startuml
-class InitRotationPoseProvider <<sealed>> {
-    + InitRotationPoseProvider(root:Transform, humanoid:UniHumanoid.Humanoid)
-}
-INormalizedPoseProvider <|-- InitRotationPoseProvider
-ITPoseProvider <|-- InitRotationPoseProvider
-InitRotationPoseProvider --> "HipTPoseWorldPosition" Vector3
-@enduml

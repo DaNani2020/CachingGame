@@ -1,7 +1,0 @@
-@startuml
-class BvhExtensions <<static>> {
-    + {static} GetEulerToRotation(bvh:BvhNode) : Func<float, float, float, Quaternion>
-    + {static} ToVector3(s3:Vector3) : Vector3
-    + {static} ToXReversedVector3(s3:Vector3) : Vector3
-}
-@enduml

@@ -1,5 +1,0 @@
-@startuml
-class BuiltInGltfDefaultMaterialImporter <<static>> {
-    + {static} CreateParam() : MaterialDescriptor
-}
-@enduml

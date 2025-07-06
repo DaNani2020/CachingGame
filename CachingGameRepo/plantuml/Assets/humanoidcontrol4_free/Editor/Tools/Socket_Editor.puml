@@ -1,7 +1,0 @@
-@startuml
-class Socket_Editor {
-    + OnEnable() : void
-    + <<override>> OnInspectorGUI() : void
-}
-Editor <|-- Socket_Editor
-@enduml

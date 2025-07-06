@@ -1,7 +1,0 @@
-@startuml
-struct InterleaveMeshVerticesJob {
-    + InterleaveMeshVerticesJob(vertices0:NativeSlice<MeshVertex0>, vertices1:NativeSlice<MeshVertex1>, vertices2:NativeSlice<MeshVertex2>, positions:NativeSlice<Vector3>, normals:NativeSlice<Vector3>, texCoords:NativeSlice<Vector2>, colors:NativeSlice<Color>, weights:NativeSlice<Vector4>, joints:NativeSlice<SkinJoints>)
-    + Execute(index:int) : void
-}
-IJobParallelFor <|-- InterleaveMeshVerticesJob
-@enduml

@@ -1,7 +1,0 @@
-@startuml
-enum MToon10AlphaMode {
-    Opaque= 0,
-    Cutout= 1,
-    Transparent= 2,
-}
-@enduml

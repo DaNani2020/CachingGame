@@ -1,6 +1,0 @@
-@startuml
-class Spawner_Editor {
-    + <<override>> OnInspectorGUI() : void
-}
-Editor <|-- Spawner_Editor
-@enduml

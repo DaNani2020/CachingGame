@@ -1,8 +1,0 @@
-@startuml
-class GunModeActivator {
-    + ActivateGunMode() : void
-    + {static} TrackerInfoCallback(trackerId:WVR_TrackerId, cbInfo:IntPtr, timestamp:UInt64) : void
-}
-MonoBehaviour <|-- GunModeActivator
-GunModeActivator --> "CallbackText" Text
-@enduml

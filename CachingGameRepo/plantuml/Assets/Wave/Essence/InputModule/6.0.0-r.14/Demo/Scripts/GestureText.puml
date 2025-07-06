@@ -1,6 +1,0 @@
-@startuml
-class GestureText {
-    + IsLeft : bool = false
-}
-MonoBehaviour <|-- GestureText
-@enduml

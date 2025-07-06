@@ -1,8 +1,0 @@
-@startuml
-class UniGLTFVersion <<static>> <<partial>> {
-    + <<const>> MAJOR : int = 2
-    + <<const>> MINOR : int = 45
-    + <<const>> PATCH : int = 0
-    + <<const>> VERSION : string = "2.45.0"
-}
-@enduml

@@ -1,7 +1,0 @@
-@startuml
-class ExpressionExtensions <<static>> {
-    + {static} Build10(bind:MorphTargetBind, root:GameObject, loader:Vrm10Importer.ModelMap, model:VrmLib.Model) : UniVRM10.MorphTargetBinding
-    + {static} Build10(bind:MaterialColorBind, materials:IReadOnlyList<VRMShaders.MaterialFactory.MaterialLoadInfo>) : UniVRM10.MaterialColorBinding?
-    + {static} Build10(bind:TextureTransformBind, materials:IReadOnlyList<VRMShaders.MaterialFactory.MaterialLoadInfo>) : UniVRM10.MaterialUVBinding?
-}
-@enduml

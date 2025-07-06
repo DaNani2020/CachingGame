@@ -1,5 +1,0 @@
-@startuml
-class MToon10NormalMapKeyword <<static>> {
-    + <<const>> On : string = "_NORMALMAP"
-}
-@enduml

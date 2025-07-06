@@ -1,6 +1,0 @@
-@startuml
-class Helper <<static>> {
-    + {static} TryGetUuid(gameObject:GameObject) : string
-    + {static} TryGetUuid(collision:Collision) : string
-}
-@enduml

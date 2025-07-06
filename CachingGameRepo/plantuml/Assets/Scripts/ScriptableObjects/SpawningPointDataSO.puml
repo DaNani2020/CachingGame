@@ -1,9 +1,0 @@
-@startuml
-class SpawningPointDataSO {
-    + Timestamp : float <<get>>
-    + SpawningPointAuraSize : float <<get>>
-    + CollectedInIteration : int <<get>>
-}
-ScriptableObject <|-- SpawningPointDataSO
-SpawningPointDataSO --> "Position" Vector3
-@enduml

@@ -1,6 +1,0 @@
-@startuml
-class Vector3Event_Editor {
-    + {static} EventInspector(eventSourceProp:SerializedProperty, eventSource:Vector3EventList, selectedEventSourceIx:int, selectedEventIx:int) : void
-}
-Event_Editor <|-- Vector3Event_Editor
-@enduml

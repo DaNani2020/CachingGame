@@ -1,6 +1,0 @@
-@startuml
-class StaticGestureText <<sealed>> {
-    + OnStaticGesture(gesture:GestureType) : void
-}
-MonoBehaviour <|-- StaticGestureText
-@enduml

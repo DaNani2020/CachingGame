@@ -1,5 +1,0 @@
-@startuml
-class Cull_Lights {
-}
-MonoBehaviour <|-- Cull_Lights
-@enduml

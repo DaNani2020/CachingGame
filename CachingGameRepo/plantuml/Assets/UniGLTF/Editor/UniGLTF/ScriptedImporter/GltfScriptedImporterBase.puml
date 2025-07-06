@@ -1,7 +1,0 @@
-@startuml
-abstract class GltfScriptedImporterBase {
-}
-ScriptedImporter <|-- GltfScriptedImporterBase
-GltfScriptedImporterBase o-> "m_reverseAxis" ScriptedImporterAxes
-GltfScriptedImporterBase --> "m_renderPipeline" RenderPipelineTypes
-@enduml

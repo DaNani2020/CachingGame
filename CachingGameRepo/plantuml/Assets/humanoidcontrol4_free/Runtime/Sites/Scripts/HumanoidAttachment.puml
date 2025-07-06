@@ -1,8 +1,0 @@
-@startuml
-class HumanoidAttachment {
-}
-MonoBehaviour <|-- HumanoidAttachment
-HumanoidAttachment --> "attachedBone" Bone
-HumanoidAttachment --> "attachmentPrefab" GameObject
-HumanoidAttachment --> "attachment" GameObject
-@enduml

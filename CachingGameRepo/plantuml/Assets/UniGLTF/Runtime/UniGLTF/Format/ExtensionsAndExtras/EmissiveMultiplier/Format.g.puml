@@ -1,8 +1,0 @@
-@startuml
-class VRMC_materials_hdr_emissiveMultiplier {
-    + <<const>> ExtensionName : string = "VRMC_materials_hdr_emissiveMultiplier"
-    + Extensions : object
-    + Extras : object
-    + EmissiveMultiplier : float?
-}
-@enduml

@@ -1,5 +1,0 @@
-@startuml
-class VRMBlendShapeProxyValidator <<static>> {
-    + {static} Validate(p:VRMBlendShapeProxy, _:GameObject) : IEnumerable<Validation>
-}
-@enduml

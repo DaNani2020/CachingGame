@@ -1,5 +1,0 @@
-@startuml
-class VRMMeshIntegratorUtility <<static>> {
-    + {static} FollowBlendshapeRendererChange(results:List<MeshIntegrationResult>, root:GameObject, assetFolder:string) : List<BlendShapeClip>
-}
-@enduml

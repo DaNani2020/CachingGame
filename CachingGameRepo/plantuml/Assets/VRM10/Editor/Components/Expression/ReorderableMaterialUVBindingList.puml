@@ -1,6 +1,0 @@
-@startuml
-class ReorderableMaterialUVBindingList {
-    + ReorderableMaterialUVBindingList(serializedObject:SerializedObject, materialNames:string[], height:int)
-    + Draw(label:string) : bool
-}
-@enduml

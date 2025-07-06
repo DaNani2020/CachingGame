@@ -1,7 +1,0 @@
-@startuml
-class LimbDataSO {
-    + AngleAtSpawningPointCollection : float <<get>>
-}
-ScriptableObject <|-- LimbDataSO
-LimbDataSO --> "TrackerPosition" Vector3
-@enduml

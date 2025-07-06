@@ -1,6 +1,0 @@
-@startuml
-class SerializationTests {
-    + MaterialTest() : void
-    + ExpressionTest() : void
-}
-@enduml
